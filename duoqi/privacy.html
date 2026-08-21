@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,41 +16,73 @@
 <body>
 
 <h1>Privacy Policy</h1>
-<p class="updated">Last updated: August 19, 2026</p>
+<p class="updated">Last updated: August 21, 2026</p>
 
-<p>DuoQi ("the App") is a peer-to-peer chess and xiangqi game designed to be played between two nearby devices. Your privacy is important to us. This policy explains what data the App collects, how it is used, and your choices.</p>
+<p>DuoQi ("the App") is a peer-to-peer chess and xiangqi game designed to be played between two nearby devices. Your privacy is important to us. This policy explains what data the App uses, which device permissions it requests, and your choices.</p>
 
 <h2>1. Data We Do Not Collect</h2>
 <ul>
   <li>DuoQi does <strong>not</strong> require an account or login.</li>
-  <li>We do <strong>not</strong> collect your name, email address, phone number, or any other personal identifiers.</li>
+  <li>We do <strong>not</strong> collect your name, email address, phone number, or any other personal identifiers for our own use.</li>
   <li>We do <strong>not</strong> use analytics, advertising SDKs, or third-party tracking services.</li>
-  <li>We do <strong>not</strong> operate servers that receive or store your data.</li>
+  <li>We do <strong>not</strong> operate game servers that receive or store your gameplay data.</li>
+  <li>We do <strong>not</strong> upload camera images, photos, or video to any server.</li>
 </ul>
 
-<h2>2. Data Stored on Your Device</h2>
+<h2>2. Device Permissions</h2>
+<p>DuoQi may ask for the following permissions. Each permission is optional until you use the related feature, and you can revoke it anytime in iOS Settings.</p>
+
+<h3>Camera</h3>
+<ul>
+  <li><strong>Purpose:</strong> Scan a room QR code so you can join a nearby match.</li>
+  <li><strong>Processing:</strong> Camera frames are processed on-device only to detect a DuoQi QR code.</li>
+  <li><strong>Not done:</strong> DuoQi does not save photos or videos from the camera, does not access your photo library for this feature, and does not upload camera content.</li>
+  <li>If you deny Camera access, you can still join by selecting a nearby room when Local Network discovery is available.</li>
+</ul>
+
+<h3>Local Network</h3>
+<ul>
+  <li><strong>Purpose:</strong> Discover nearby DuoQi devices and exchange game data over peer-to-peer Wi‑Fi / Bonjour so two phones can play without an internet connection.</li>
+  <li><strong>Data exchanged locally:</strong> display name, avatar, match setup, moves, clocks, and related match messages.</li>
+  <li><strong>Not done:</strong> This traffic is device-to-device. It is not sent to DuoQi servers, because DuoQi does not operate a matchmaking or gameplay server.</li>
+  <li>Local Network access is required to create or join nearby rooms.</li>
+</ul>
+
+<h3>Nearby Interaction / Proximity</h3>
+<ul>
+  <li><strong>Purpose:</strong> On supported devices, sense when two phones are held close together so a match can start more easily.</li>
+  <li>This information is used only on-device for proximity features and is not uploaded to DuoQi servers.</li>
+</ul>
+
+<h3>Notifications</h3>
+<ul>
+  <li><strong>Purpose:</strong> Optional daily play reminders, and local alerts when someone wants to join your room while you are hosting.</li>
+  <li>Notifications are scheduled or delivered on your device. DuoQi does not use notifications for advertising.</li>
+</ul>
+
+<h2>3. Data Stored on Your Device</h2>
 <p>The App stores the following information <strong>locally on your device only</strong>:</p>
 <ul>
-  <li><strong>Profile:</strong> Your chosen display name, avatar, and country flag. These are visible to your opponent during a match via the local network connection.</li>
+  <li><strong>Profile:</strong> Your chosen display name, avatar, and optional country flag. These may be visible to your opponent during a match over the local connection.</li>
   <li><strong>Match history:</strong> Records of games you have played, including moves, results, and timestamps.</li>
   <li><strong>Preferences:</strong> Language, board theme, piece set, daily reminder settings, and accent color.</li>
   <li><strong>Purchase status:</strong> Whether DuoQi Pro has been unlocked, cached locally for offline access.</li>
 </ul>
-<p>You can export or delete this data at any time from the Settings screen.</p>
+<p>You can export a backup (Pro) or leave this data on-device. Uninstalling the App removes locally stored data unless you previously exported a backup.</p>
 
-<h2>3. Peer-to-Peer Communication</h2>
-<p>During a match, the two devices communicate directly over the local Wi-Fi network or Bluetooth using Apple's Multipeer Connectivity and Bonjour frameworks. Game moves, your display name, and avatar are transmitted directly to your opponent's device. <strong>No data passes through our servers.</strong></p>
+<h2>4. Peer-to-Peer Communication</h2>
+<p>During a match, the two devices communicate directly over the local network using Apple networking frameworks such as Bonjour / Network.framework. Game moves, your display name, and avatar are transmitted directly to your opponent's device. <strong>No gameplay data passes through DuoQi servers.</strong></p>
 
-<h2>4. In-App Purchases</h2>
-<p>DuoQi Pro is available as a one-time, yearly, or monthly purchase through Apple's App Store. Purchase transactions are handled entirely by Apple. We do not have access to your payment information.</p>
+<h2>5. In-App Purchases</h2>
+<p>DuoQi Pro is available through Apple's App Store. Purchase transactions are handled entirely by Apple. We do not have access to your payment card details. Apple may process purchase-related information under Apple's own privacy policy.</p>
 
-<h2>5. Children's Privacy</h2>
-<p>DuoQi does not knowingly collect any personal information from children. The App does not require personal data to function.</p>
+<h2>6. Children's Privacy</h2>
+<p>DuoQi does not knowingly collect personal information from children. The App does not require personal data to function.</p>
 
-<h2>6. Changes to This Policy</h2>
+<h2>7. Changes to This Policy</h2>
 <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated date.</p>
 
-<h2>7. Contact</h2>
+<h2>8. Contact</h2>
 <p>If you have questions about this policy, please contact us at <strong>tnson@bwaco.vn</strong>.</p>
 
 </body>
