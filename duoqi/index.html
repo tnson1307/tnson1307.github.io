@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DuoQi — play chess and xiangqi face-to-face on two nearby phones. No internet required.">
+  <title>DuoQi — Chess &amp; Xiangqi</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --ink: #173d36;
+      --muted: #506b66;
+      --accent: #2d826f;
+      --paper: rgba(255, 255, 255, 0.82);
+      --border: rgba(23, 61, 54, 0.13);
+      --shadow: rgba(35, 71, 63, 0.08);
+    }
+    * {
+      box-sizing: border-box;
+    }
+    html,
+    body {
+      min-height: 100%;
+      margin: 0;
+    }
+    body {
+      display: grid;
+      place-items: center;
+      padding: 32px 20px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 50% -20%, rgba(147, 217, 218, 0.5), transparent 48%),
+        linear-gradient(180deg, #eaf7f5 0%, #f8f7ed 100%);
+    }
+    main {
+      width: min(680px, 100%);
+      padding: 42px 36px 36px;
+      text-align: center;
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: 0 20px 55px var(--shadow);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .mark {
+      display: inline-grid;
+      place-items: center;
+      width: 58px;
+      height: 58px;
+      margin-bottom: 12px;
+      font: 700 31px/1 Georgia, serif;
+      color: #fff;
+      background: var(--accent);
+      border-radius: 17px;
+      box-shadow: 0 7px 0 rgba(20, 82, 69, 0.18);
+    }
+    h1 {
+      margin: 0;
+      font: 700 clamp(36px, 8vw, 48px)/1.1 Georgia, "Times New Roman", serif;
+      letter-spacing: -0.02em;
+    }
+    .tagline {
+      margin: 10px 0 4px;
+      font-size: clamp(16px, 3vw, 19px);
+      color: var(--muted);
+    }
+    .games {
+      margin: 0;
+      font-size: 14px;
+      color: var(--muted);
+      opacity: 0.82;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px 26px;
+      margin-top: 32px;
+    }
+    a {
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration: none;
+    }
+    a:hover,
+    a:focus-visible {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+    .contact {
+      margin: 26px 0 0;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--muted);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ink: #eef8f5;
+        --muted: #b8ccc7;
+        --accent: #79cdb8;
+        --paper: rgba(23, 31, 31, 0.86);
+        --border: rgba(255, 255, 255, 0.11);
+        --shadow: rgba(0, 0, 0, 0.22);
+      }
+      body {
+        background:
+          radial-gradient(circle at 50% -20%, rgba(44, 118, 107, 0.4), transparent 48%),
+          linear-gradient(180deg, #152321 0%, #20221d 100%);
+      }
+      .mark {
+        color: #143e35;
+        background: var(--accent);
+      }
+    }
+    @media (max-width: 520px) {
+      main {
+        padding: 34px 22px 30px;
+        border-radius: 20px;
+      }
+      nav {
+        flex-direction: column;
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="mark" aria-hidden="true">雙</div>
+    <h1>DuoQi</h1>
+    <p class="tagline">2 Phones. 1 Game. No Internet.</p>
+    <p class="games">Chess &amp; Xiangqi, face-to-face.</p>
+    <nav aria-label="DuoQi links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+      <a href="mailto:duoqi.app@gmail.com">Support</a>
+      <a href="https://github.com/tnson1307/duoqi">GitHub</a>
+    </nav>
+    <p class="contact">
+      Need help? Email
+      <a href="mailto:duoqi.app@gmail.com">duoqi.app@gmail.com</a>
+    </p>
+  </main>
+</body>
+</html>
