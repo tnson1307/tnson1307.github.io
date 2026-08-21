@@ -3,59 +3,671 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Fresh Air</title>
+  <title>Fresh Air — ADHD Focus Timer</title>
+  <meta name="description" content="Fresh Air is a calm ADHD focus timer. One clear task under soft sky. Visual countdown, gentle breaks, Sky Tree growth." />
+  <meta property="og:title" content="Fresh Air — ADHD Focus Timer" />
+  <meta property="og:description" content="One task. Soft sky. Begin gently." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Nunito:wght@500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       --ink: #16352f;
-      --muted: #3d5c56;
-      --accent: #2f7a6b;
-      --card: rgba(255, 255, 255, 0.72);
+      --ink-soft: #3a5a52;
+      --sky-top: #7ec8e3;
+      --sky-mid: #c9e8f2;
+      --sky-warm: #f3e6c8;
+      --leaf: #2a7a68;
+      --leaf-deep: #1d5c4e;
+      --sun: #f0c45a;
+      --cloud: rgba(255, 255, 255, 0.78);
       --line: rgba(22, 53, 47, 0.12);
+      --max: 1080px;
     }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      min-height: 100vh;
-      font-family: "Avenir Next", "Segoe UI", system-ui, sans-serif;
       color: var(--ink);
-      background:
-        radial-gradient(900px 420px at 12% -10%, #fff6d4 0%, transparent 55%),
-        linear-gradient(180deg, #9fd4e8 0%, #e8f4f2 42%, #f3efe0 100%);
-      display: grid;
-      place-items: center;
-      padding: 24px;
+      font-family: "Nunito", ui-rounded, sans-serif;
+      font-weight: 500;
+      line-height: 1.5;
+      background: #eaf6f4;
     }
-    .card {
-      max-width: 480px;
-      width: 100%;
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 32px 28px;
+
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* —— Atmosphere —— */
+    .sky {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse 70% 45% at 72% 18%, rgba(240, 196, 90, 0.55) 0%, transparent 58%),
+        radial-gradient(ellipse 50% 40% at 18% 30%, rgba(255, 255, 255, 0.35) 0%, transparent 60%),
+        linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 46%, var(--sky-warm) 100%);
+    }
+
+    .cloud {
+      position: absolute;
+      border-radius: 999px;
+      background: var(--cloud);
+      filter: blur(1px);
+      animation: drift linear infinite;
+      pointer-events: none;
+    }
+    .cloud::before,
+    .cloud::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      background: inherit;
+    }
+    .c1 { width: 160px; height: 48px; top: 14%; left: -10%; animation-duration: 48s; }
+    .c1::before { width: 70px; height: 70px; top: -36px; left: 28px; }
+    .c1::after { width: 54px; height: 54px; top: -24px; left: 78px; }
+    .c2 { width: 220px; height: 56px; top: 28%; left: -20%; animation-duration: 62s; animation-delay: -18s; opacity: 0.85; }
+    .c2::before { width: 88px; height: 88px; top: -44px; left: 40px; }
+    .c2::after { width: 64px; height: 64px; top: -28px; left: 110px; }
+    .c3 { width: 120px; height: 40px; top: 48%; left: -15%; animation-duration: 55s; animation-delay: -30s; opacity: 0.7; }
+    .c3::before { width: 52px; height: 52px; top: -26px; left: 22px; }
+    .c3::after { width: 40px; height: 40px; top: -18px; left: 62px; }
+
+    @keyframes drift {
+      from { transform: translateX(0); }
+      to { transform: translateX(130vw); }
+    }
+
+    .birds {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.28;
+    }
+    .bird {
+      position: absolute;
+      width: 18px;
+      height: 8px;
+      border: solid var(--ink);
+      border-width: 0 0 2px 0;
+      border-radius: 50%;
+      animation: fly 16s linear infinite;
+    }
+    .bird::before,
+    .bird::after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 8px;
+      border: solid var(--ink);
+      border-width: 2px 0 0 0;
+      border-radius: 50%;
+    }
+    .bird::before { left: -2px; transform: rotate(-28deg); }
+    .bird::after { right: -2px; transform: rotate(28deg); }
+    .b1 { top: 22%; left: -5%; animation-duration: 18s; }
+    .b2 { top: 34%; left: -8%; animation-duration: 22s; animation-delay: -6s; }
+    .b3 { top: 26%; left: -12%; animation-duration: 20s; animation-delay: -11s; }
+
+    @keyframes fly {
+      from { transform: translateX(0) translateY(0); }
+      50% { transform: translateX(55vw) translateY(12px); }
+      to { transform: translateX(110vw) translateY(-6px); }
+    }
+
+    /* —— Nav —— */
+    .nav {
+      position: relative;
+      z-index: 2;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 22px 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-family: "Fraunces", Georgia, serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+    .mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background:
+        radial-gradient(circle at 70% 30%, var(--sun) 0 28%, transparent 29%),
+        linear-gradient(160deg, #fff 0%, #e8f4ff 100%);
+      box-shadow: 0 6px 18px rgba(22, 53, 47, 0.12);
+      position: relative;
+    }
+    .mark::after {
+      content: "";
+      position: absolute;
+      left: 4px;
+      right: 8px;
+      bottom: 7px;
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 8px -4px 0 rgba(255, 255, 255, 0.9);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--ink-soft);
+    }
+    .nav-links a {
+      text-decoration: none;
+      opacity: 0.88;
+    }
+    .nav-links a:hover { opacity: 1; color: var(--leaf-deep); }
+
+    /* —— Hero —— */
+    .hero {
+      position: relative;
+      z-index: 2;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: clamp(48px, 10vh, 96px) 24px 64px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: clamp(28px, 5vw, 64px);
+      align-items: center;
+      min-height: calc(100vh - 72px);
+    }
+
+    .hero-copy {
+      animation: rise 0.9s ease-out both;
+    }
+    .hero-visual {
+      animation: rise 1.05s ease-out 0.12s both;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .brand-hero {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(3.2rem, 8vw, 5.6rem);
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      margin: 0 0 18px;
+      color: var(--ink);
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+    }
+
+    .headline {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+      font-weight: 500;
+      margin: 0 0 14px;
+      color: var(--leaf-deep);
+      max-width: 18ch;
+    }
+
+    .support {
+      margin: 0 0 28px;
+      max-width: 34ch;
+      font-size: 1.08rem;
+      color: var(--ink-soft);
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn-store {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 18px 12px 14px;
+      border-radius: 14px;
+      background: #111;
+      color: #fff;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 10px 28px rgba(22, 53, 47, 0.18);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-store:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(22, 53, 47, 0.22);
+    }
+    .btn-store svg { flex: none; }
+    .btn-store small {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.04em;
+      opacity: 0.75;
+      font-weight: 600;
+    }
+    .btn-store strong {
+      display: block;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-top: 1px;
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      color: var(--leaf-deep);
+      background: rgba(255, 255, 255, 0.42);
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(8px);
+      transition: background 0.2s ease;
+    }
+    .btn-ghost:hover { background: rgba(255, 255, 255, 0.62); }
+
+    .fine {
+      margin: 16px 0 0;
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+      opacity: 0.85;
+    }
+
+    /* phone visual */
+    .device {
+      width: min(100%, 320px);
+      margin: 0 auto;
+      aspect-ratio: 9 / 19.2;
+      border-radius: 36px;
+      padding: 10px;
+      background: linear-gradient(160deg, rgba(255,255,255,0.75), rgba(255,255,255,0.35));
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      box-shadow:
+        0 30px 60px rgba(22, 53, 47, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+    .screen {
+      height: 100%;
+      border-radius: 28px;
+      overflow: hidden;
+      position: relative;
+      background:
+        radial-gradient(ellipse 60% 40% at 70% 22%, rgba(240, 196, 90, 0.5) 0%, transparent 55%),
+        linear-gradient(180deg, #8fd0e8 0%, #d7eef5 48%, #efe4c4 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 18px;
       text-align: center;
     }
-    h1 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 2.2rem;
+    .icon-cloud {
+      width: 92px;
+      height: 64px;
+      position: relative;
+      margin-bottom: 18px;
+      animation: floaty 4.5s ease-in-out infinite;
+    }
+    .icon-cloud .blob {
+      position: absolute;
+      background: #fff;
+      border-radius: 999px;
+      box-shadow: 0 8px 20px rgba(22, 53, 47, 0.1);
+    }
+    .icon-cloud .sun {
+      position: absolute;
+      right: 2px;
+      top: -6px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--sun);
+      box-shadow: 0 0 18px rgba(240, 196, 90, 0.7);
+    }
+    .b-a { width: 70px; height: 28px; left: 8px; bottom: 8px; }
+    .b-b { width: 38px; height: 38px; left: 14px; bottom: 18px; }
+    .b-c { width: 34px; height: 34px; left: 42px; bottom: 16px; }
+
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .screen h2 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.85rem;
+      margin: 0 0 6px;
+      letter-spacing: -0.02em;
+    }
+    .screen p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+    }
+    .ring {
+      margin-top: 28px;
+      width: 132px;
+      height: 132px;
+      border-radius: 50%;
+      border: 5px solid rgba(42, 122, 104, 0.18);
+      border-top-color: var(--leaf);
+      display: grid;
+      place-items: center;
+      animation: spin 12s linear infinite;
+    }
+    .ring span {
+      animation: spin 12s linear infinite reverse;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* —— Sections —— */
+    main {
+      background: #f4f8f6;
+    }
+    .section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 72px 24px;
+    }
+    .section h3 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      margin: 0 0 12px;
+      letter-spacing: -0.02em;
+      max-width: 16ch;
+    }
+    .section > p.lead {
+      margin: 0 0 36px;
+      max-width: 42ch;
+      color: var(--ink-soft);
+      font-size: 1.05rem;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .feature {
+      padding: 22px 20px 24px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+    }
+    .feature .emoji {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 14px;
+      background: linear-gradient(160deg, #dff3ef, #fff6d8);
+      font-size: 1.2rem;
+    }
+    .feature h4 {
       margin: 0 0 8px;
+      font-size: 1.08rem;
+      font-weight: 700;
     }
-    p { color: var(--muted); margin: 0 0 20px; line-height: 1.5; }
-    a {
-      display: inline-block;
-      margin: 6px 10px;
-      color: var(--accent);
+    .feature p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 0.96rem;
+    }
+
+    .band {
+      background:
+        radial-gradient(ellipse 60% 80% at 85% 20%, rgba(126, 200, 227, 0.45), transparent 55%),
+        linear-gradient(180deg, #eaf6f4 0%, #dceeea 100%);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .band-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 72px 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .band-inner h3 { max-width: 14ch; }
+    .band-inner p {
+      color: var(--ink-soft);
+      margin: 0 0 20px;
+      max-width: 40ch;
+    }
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+    .checklist li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
       font-weight: 600;
-      text-decoration: none;
+      color: var(--ink);
     }
-    a:hover { text-decoration: underline; }
+    .checklist li::before {
+      content: "";
+      width: 18px;
+      height: 18px;
+      margin-top: 3px;
+      flex: none;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 50% 45%, #fff 0 28%, transparent 29%),
+        var(--leaf);
+    }
+
+    .cta-final {
+      text-align: center;
+      padding: 80px 24px 88px;
+    }
+    .cta-final h3 {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 16ch;
+    }
+    .cta-final .support {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-final .cta-row { justify-content: center; }
+
+    footer {
+      padding: 28px 24px 40px;
+      text-align: center;
+      color: var(--ink-soft);
+      font-size: 0.9rem;
+      background: #eaf3f1;
+      border-top: 1px solid var(--line);
+    }
+    footer nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 20px;
+      justify-content: center;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    footer a { text-decoration: none; }
+    footer a:hover { color: var(--leaf-deep); text-decoration: underline; }
+
+    @media (max-width: 860px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding-top: 36px;
+        text-align: center;
+      }
+      .headline, .support { margin-left: auto; margin-right: auto; }
+      .cta-row { justify-content: center; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .band-inner { grid-template-columns: 1fr; }
+      .nav-links .hide-sm { display: none; }
+      .brand-hero { font-size: clamp(2.8rem, 14vw, 4rem); }
+    }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Fresh Air</h1>
-    <p>One task. Soft sky. Begin gently.</p>
-    <a href="./privacy.html">Privacy Policy</a>
-    <a href="./terms.html">Terms of Use</a>
-    <a href="https://github.com/tnson1307/freshair">GitHub</a>
+  <div class="sky">
+    <div class="cloud c1" aria-hidden="true"></div>
+    <div class="cloud c2" aria-hidden="true"></div>
+    <div class="cloud c3" aria-hidden="true"></div>
+    <div class="birds" aria-hidden="true">
+      <span class="bird b1"></span>
+      <span class="bird b2"></span>
+      <span class="bird b3"></span>
+    </div>
+
+    <header class="nav">
+      <a class="brand" href="./index.html">
+        <span class="mark" aria-hidden="true"></span>
+        Fresh Air
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a class="hide-sm" href="#features">Features</a>
+        <a class="hide-sm" href="./privacy.html">Privacy</a>
+        <a href="https://apps.apple.com/app/id6799465659" rel="noopener">App Store</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <h1 class="brand-hero">Fresh Air</h1>
+        <p class="headline">ADHD focus timer under soft sky.</p>
+        <p class="support">One clear task. A gentle countdown. Begin without overwhelm.</p>
+        <div class="cta-row">
+          <a class="btn-store" href="https://apps.apple.com/app/id6799465659" rel="noopener" aria-label="Download on the App Store">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.77 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.22-2.01 1.08-3.18-1.06.05-2.33.71-3.08 1.58-.67.76-1.26 1.98-1.1 3.14 1.16.09 2.36-.6 3.1-1.54z"/>
+            </svg>
+            <span>
+              <small>Download on the</small>
+              <strong>App Store</strong>
+            </span>
+          </a>
+          <a class="btn-ghost" href="#features">See features →</a>
+        </div>
+        <p class="fine">Free to start · 3 focus sessions / day</p>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="device">
+          <div class="screen">
+            <div class="icon-cloud">
+              <span class="sun"></span>
+              <span class="blob b-a"></span>
+              <span class="blob b-b"></span>
+              <span class="blob b-c"></span>
+            </div>
+            <h2>Fresh Air</h2>
+            <p>One task. Soft sky.</p>
+            <div class="ring"><span>25:00</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
+
+  <main>
+    <section class="section" id="features">
+      <h3>Built for calm starts</h3>
+      <p class="lead">Less noise. One thing only. Soft sky that follows the day.</p>
+      <div class="feature-grid">
+        <article class="feature">
+          <div class="emoji" aria-hidden="true">
+            <span style="width:14px;height:14px;border:2.5px solid var(--leaf);border-radius:50%;display:block;"></span>
+          </div>
+          <h4>Visual focus timer</h4>
+          <p>Big countdown or open-ended count-up over morning, noon, afternoon, and evening skies.</p>
+        </article>
+        <article class="feature">
+          <div class="emoji" aria-hidden="true">
+            <span style="width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:14px solid var(--leaf);display:block;"></span>
+          </div>
+          <h4>Sky Tree growth</h4>
+          <p>Every focused minute becomes a point. Grow your tree across 20 levels — slowly, kindly.</p>
+        </article>
+        <article class="feature">
+          <div class="emoji" aria-hidden="true">
+            <span style="width:12px;height:12px;background:var(--sun);border-radius:50%;box-shadow:0 0 0 3px rgba(240,196,90,0.35);display:block;"></span>
+          </div>
+          <h4>Kinder streaks</h4>
+          <p>Build a daily habit. Miss a day and it freezes — points and level stay safe.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="band-inner">
+        <div>
+          <h3>One task. Then a soft break.</h3>
+          <p>Pick Work, Study, Read, Create, Plan, or Workout. Focus, breathe, repeat — with gentle nature sounds and Live Activities on your Lock Screen.</p>
+          <a class="btn-ghost" href="https://apps.apple.com/app/id6799465659" rel="noopener">Get Fresh Air →</a>
+        </div>
+        <ul class="checklist">
+          <li>Focus → break loop with a soft chime</li>
+          <li>Week history by task (Pro: full month)</li>
+          <li>Widgets &amp; Dynamic Island timer</li>
+          <li>Pro: unlimited sessions, more skies &amp; sounds</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="cta-final">
+      <h3>Begin gently today</h3>
+      <p class="support">Not a medical treatment — just a fresher way to start one clear task.</p>
+      <div class="cta-row">
+        <a class="btn-store" href="https://apps.apple.com/app/id6799465659" rel="noopener" aria-label="Download on the App Store">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.77 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.22-2.01 1.08-3.18-1.06.05-2.33.71-3.08 1.58-.67.76-1.26 1.98-1.1 3.14 1.16.09 2.36-.6 3.1-1.54z"/>
+          </svg>
+          <span>
+            <small>Download on the</small>
+            <strong>App Store</strong>
+          </span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <nav aria-label="Legal">
+      <a href="./privacy.html">Privacy Policy</a>
+      <a href="./terms.html">Terms of Use</a>
+      <a href="https://apps.apple.com/app/id6799465659" rel="noopener">App Store</a>
+      <a href="https://github.com/tnson1307/freshair" rel="noopener">GitHub</a>
+    </nav>
+    <p>© Fresh Air · com.tnson.freshair.app · iOS</p>
+  </footer>
 </body>
 </html>
