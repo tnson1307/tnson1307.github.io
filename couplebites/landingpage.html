@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CoupleBites — a food diary you keep together</title>
+<meta name="description" content="A shared food diary for couples. No calorie counting — just a growing scrapbook of what you ate, together or apart.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Karla:wght@400;500;700&family=Caveat:wght@500;700&display=swap">
+<style>
+  :root {
+    --paper: #FBF1EC;
+    --paper-raised: #FFFFFF;
+    --ink: #2B1B24;
+    --ink-soft: #7A6068;
+    --cherry: #D62A47;
+    --cherry-deep: #A81E38;
+    --cherry-text-on: #FFF7F2;
+    --butter: #E8A429;
+    --sage: #5C7A5E;
+    --line: #E7D3C8;
+    --shadow: rgba(43,27,36,0.14);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #1C1218; --paper-raised: #261A22; --ink: #F3E9E4; --ink-soft: #C6AEB6;
+      --cherry: #FF5C74; --cherry-deep: #FF7E92; --cherry-text-on: #241019;
+      --butter: #FFC968; --sage: #92B594; --line: #3B2A32; --shadow: rgba(0,0,0,0.45);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #1C1218; --paper-raised: #261A22; --ink: #F3E9E4; --ink-soft: #C6AEB6;
+    --cherry: #FF5C74; --cherry-deep: #FF7E92; --cherry-text-on: #241019;
+    --butter: #FFC968; --sage: #92B594; --line: #3B2A32; --shadow: rgba(0,0,0,0.45);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--paper); color: var(--ink); font-family: 'Karla', system-ui, sans-serif;
+    font-size: 1.05rem; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; text-wrap: balance; margin: 0; }
+  p { margin: 0; }
+  a { color: var(--cherry-deep); }
+  button, input { font-family: inherit; }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 3rem); }
+
+  header.site { padding: 1.5rem 0 0.5rem; }
+  header.site .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .logo { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.4rem; letter-spacing: -0.01em; }
+  .pill { font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; border: 1px solid var(--line); border-radius: 999px; padding: 0.35rem 0.9rem; color: var(--ink-soft); white-space: nowrap; }
+
+  .hero { padding: clamp(2rem, 5vw, 4rem) 0 clamp(2.5rem, 6vw, 5rem); }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+  @media (max-width: 780px) { .hero-grid { grid-template-columns: 1fr; } }
+
+  .eyebrow { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cherry-deep); font-weight: 700; margin-bottom: 0.9rem; }
+  .hero h1 { font-size: clamp(2.75rem, 6vw + 0.5rem, 5.25rem); font-weight: 600; font-variation-settings: 'opsz' 90; line-height: 0.98; }
+  .hero .lead { margin-top: 1.1rem; font-size: clamp(1.05rem, 1vw + 0.85rem, 1.3rem); color: var(--ink-soft); max-width: 34ch; }
+
+  form.waitlist { margin-top: 1.75rem; display: flex; gap: 0.6rem; max-width: 30rem; flex-wrap: wrap; }
+  form.waitlist .field { flex: 1 1 220px; }
+  form.waitlist label.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  form.waitlist input[type="email"] {
+    width: 100%; padding: 0.85rem 1rem; border: 1.5px solid var(--line); border-radius: 10px;
+    background: var(--paper-raised); color: var(--ink); font-size: 1rem;
+  }
+  form.waitlist input[type="email"]:focus { outline: 2px solid var(--cherry); outline-offset: 1px; }
+  form.waitlist button {
+    padding: 0.85rem 1.4rem; border: none; border-radius: 10px; background: var(--cherry);
+    color: var(--cherry-text-on); font-weight: 700; font-size: 1rem; cursor: pointer;
+    box-shadow: 0 6px 0 var(--cherry-deep); transition: transform 0.15s ease;
+  }
+  form.waitlist button:hover { transform: translateY(-2px); }
+  form.waitlist button:active { transform: translateY(2px); box-shadow: 0 3px 0 var(--cherry-deep); }
+  form.waitlist button:disabled { opacity: 0.7; cursor: default; transform: none; }
+  .helper-line { margin-top: 0.6rem; font-size: 0.85rem; color: var(--ink-soft); }
+  .count-line { margin-top: 0.5rem; font-family: 'Caveat', cursive; font-size: 1.3rem; color: var(--sage); }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+  .hero-visual { position: relative; height: 320px; }
+  .day-card {
+    position: absolute; width: 190px; background: var(--paper-raised); border-radius: 14px;
+    box-shadow: 0 14px 30px var(--shadow); padding: 1rem; border: 1px solid var(--line);
+  }
+  .day-card .stamp { font-size: 0.75rem; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.06em; }
+  .day-card .sticker { width: 100%; height: 92px; border-radius: 10px; margin: 0.6rem 0 0.5rem; display: flex; align-items: center; justify-content: center; }
+  .day-card .caveat-note { font-family: 'Caveat', cursive; font-size: 1.15rem; color: var(--ink); }
+  .card-you { left: 0; top: 10px; transform: rotate(-6deg); z-index: 1; }
+  .card-them { left: 130px; top: 90px; transform: rotate(5deg); z-index: 2; }
+  .together-glow {
+    position: absolute; left: 96px; top: 165px; width: 96px; height: 96px; border-radius: 50%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--butter) 55%, transparent), transparent 70%); z-index: 0;
+  }
+
+  section.statement { padding: clamp(2.5rem, 6vw, 4.5rem) 0; border-top: 1px solid var(--line); }
+  section.statement .wrap { max-width: 760px; }
+  section.statement p.quote { font-family: 'Fraunces', serif; font-size: clamp(1.5rem, 2.4vw + 0.5rem, 2.35rem); font-style: italic; font-weight: 400; line-height: 1.25; }
+  section.statement p.quote em { color: var(--cherry-deep); font-style: italic; }
+
+  section.how { padding: clamp(2.5rem, 6vw, 4.5rem) 0; border-top: 1px solid var(--line); }
+  section.how h2 { font-size: clamp(1.75rem, 2.5vw + 0.5rem, 2.5rem); font-weight: 600; margin-bottom: 2.25rem; }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+  @media (max-width: 780px) { .steps { grid-template-columns: 1fr; } }
+  .step .num {
+    width: 2.4rem; height: 2.4rem; border-radius: 50%; border: 2px solid var(--cherry);
+    color: var(--cherry-deep); font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.15rem;
+    display: flex; align-items: center; justify-content: center; margin-bottom: 0.9rem;
+  }
+  .step h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.4rem; }
+  .step p { color: var(--ink-soft); font-size: 0.98rem; }
+
+  section.together { padding: clamp(2.5rem, 6vw, 4.5rem) 0; border-top: 1px solid var(--line); }
+  .together-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; }
+  @media (max-width: 780px) { .together-inner { grid-template-columns: 1fr; } }
+  .streak-row { display: flex; align-items: center; gap: 0.4rem; }
+  .streak-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--sage); flex-shrink: 0; }
+  .streak-dot.skip { background: transparent; border: 2px dashed var(--line); }
+  .streak-line { flex: 1; height: 2px; background: var(--line); }
+  .streak-caption { margin-top: 0.75rem; font-family: 'Caveat', cursive; font-size: 1.2rem; color: var(--ink-soft); }
+
+  section.cta-final { padding: clamp(2.5rem, 6vw, 5rem) 0 clamp(3rem, 7vw, 5.5rem); border-top: 1px solid var(--line); }
+  .postcard {
+    background: var(--paper-raised); border-radius: 18px; border: 1px solid var(--line);
+    box-shadow: 0 18px 40px var(--shadow); padding: clamp(1.75rem, 4vw, 3rem);
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 2rem; align-items: center;
+  }
+  @media (max-width: 780px) { .postcard { grid-template-columns: 1fr; } }
+  .postcard h2 { font-size: clamp(1.6rem, 2vw + 0.5rem, 2.15rem); font-weight: 600; }
+  .postcard .lead { color: var(--ink-soft); margin-top: 0.6rem; }
+
+  footer.site { padding: 2rem 0 3rem; }
+  footer.site .wrap { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: space-between; color: var(--ink-soft); font-size: 0.88rem; border-top: 1px solid var(--line); padding-top: 1.5rem; }
+  footer.site a { color: var(--ink-soft); text-decoration: underline; }
+
+  .fade-in { animation: fadeIn 0.6s ease both; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script>
+(function () {
+  // Public free counter, no signup: counts are stored server-side by key,
+  // shared by everyone who hits this key — see countapi.mileshilliard.com docs.
+  var COUNTER_KEY = 'couplebites-app-waitlist-2026';
+  var COUNTER_BASE = 'https://countapi.mileshilliard.com/api/v1';
+  var WAITLIST_EMAIL = 'tnson@bwaco.vn';
+
+  function alreadyJoined() {
+    try { return localStorage.getItem('couplebites_joined') === '1'; } catch (e) { return false; }
+  }
+
+  function noodleSVG() {
+    return '<svg viewBox="0 0 64 64" width="46" height="46" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+      '<ellipse cx="32" cy="40" rx="26" ry="14" fill="var(--butter)"/>' +
+      '<path d="M10 34c4-10 10-16 22-16s18 6 22 16" stroke="var(--cherry-deep)" stroke-width="3" fill="none" stroke-linecap="round"/>' +
+      '<path d="M20 12c1 4-1 6-1 9M32 9c1 4-1 7-1 10M44 12c1 4-1 6-1 9" stroke="var(--ink-soft)" stroke-width="2" fill="none" stroke-linecap="round"/>' +
+      '</svg>';
+  }
+
+  function cherrySVG() {
+    return '<svg viewBox="0 0 64 64" width="42" height="42" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+      '<path d="M28 30c-4-10-1-18 8-22" stroke="var(--sage)" stroke-width="3" fill="none" stroke-linecap="round"/>' +
+      '<path d="M34 30c4-10 1-18-8-22" stroke="var(--sage)" stroke-width="3" fill="none" stroke-linecap="round"/>' +
+      '<circle cx="24" cy="40" r="12" fill="var(--cherry)"/>' +
+      '<circle cx="42" cy="42" r="12" fill="var(--cherry-deep)"/>' +
+      '</svg>';
+  }
+
+  function countLineText(count) {
+    if (count === null) return 'Join the list — we’ll email you when it’s ready.';
+    if (count <= 0) return 'Be the first one on the list.';
+    return count + (count === 1 ? ' person has' : ' people have') + ' already said they’re in.';
+  }
+
+  function ctaBlock(idSuffix, count) {
+    if (alreadyJoined()) {
+      return '<p class="helper-line" style="margin-top:1.75rem;font-size:1rem;color:var(--sage);font-weight:700;">' +
+        'You’re on the list — we’ll write when it’s ready.</p>';
+    }
+    return '' +
+      '<form class="waitlist" data-waitlist novalidate>' +
+      '<div class="field">' +
+      '<label class="visually-hidden" for="email-' + idSuffix + '">Email address</label>' +
+      '<input id="email-' + idSuffix + '" type="email" placeholder="you@example.com" required>' +
+      '</div>' +
+      '<button type="submit">I’m in →</button>' +
+      '</form>' +
+      '<p class="helper-line">Opens a one-line email to us. No account, no spam list.</p>' +
+      '<p class="count-line" data-count-line>' + countLineText(count) + '</p>';
+  }
+
+  function renderBody(count) {
+    return '' +
+      '<header class="site fade-in"><div class="wrap">' +
+      '<span class="logo">CoupleBites</span>' +
+      '<span class="pill">iOS · coming soon</span>' +
+      '</div></header>' +
+
+      '<section class="hero"><div class="wrap hero-grid">' +
+      '<div class="fade-in">' +
+      '<p class="eyebrow">For two · no calorie counting</p>' +
+      '<h1>A food diary<br>you keep together.</h1>' +
+      '<p class="lead">Snap what you’re eating, watch it turn into a sticker, and drop it on today’s square. When your meals line up, that day gets to be a little more yours.</p>' +
+      ctaBlock('hero', count) +
+      '</div>' +
+      '<div class="hero-visual fade-in" aria-hidden="true">' +
+      '<div class="together-glow"></div>' +
+      '<div class="day-card card-you">' +
+      '<p class="stamp">You · 12:30pm</p>' +
+      '<div class="sticker" style="background:color-mix(in srgb, var(--butter) 35%, var(--paper-raised));">' + noodleSVG() + '</div>' +
+      '<p class="caveat-note">lunch break!</p>' +
+      '</div>' +
+      '<div class="day-card card-them">' +
+      '<p class="stamp">Them · 12:45pm</p>' +
+      '<div class="sticker" style="background:color-mix(in srgb, var(--cherry) 18%, var(--paper-raised));">' + cherrySVG() + '</div>' +
+      '<p class="caveat-note">same thing, lol</p>' +
+      '</div>' +
+      '</div>' +
+      '</div></section>' +
+
+      '<section class="statement"><div class="wrap">' +
+      '<p class="quote">Most food diaries want you to <em>count</em> something. This one just wants you to <em>remember</em> something — together, or a whole city apart.</p>' +
+      '</div></section>' +
+
+      '<section class="how"><div class="wrap">' +
+      '<h2>How it works</h2>' +
+      '<div class="steps">' +
+      '<div class="step"><div class="num">1</div><h3>Snap a bite</h3><p>Any meal, any day — photograph what you’re eating, together or apart.</p></div>' +
+      '<div class="step"><div class="num">2</div><h3>It becomes a sticker</h3><p>On-device AI lifts your food off the background, instantly — no editing needed.</p></div>' +
+      '<div class="step"><div class="num">3</div><h3>It lands on today</h3><p>Both your stickers land on one shared calendar. Overlapping meals light up as a moment.</p></div>' +
+      '</div>' +
+      '</div></section>' +
+
+      '<section class="together"><div class="wrap together-inner">' +
+      '<div>' +
+      '<h2 style="font-size:clamp(1.6rem,2vw + 0.5rem,2.25rem);font-weight:600;">Streaks that don’t punish you for living apart.</h2>' +
+      '<p style="margin-top:0.75rem;color:var(--ink-soft);">No calories. No macros. No streak that resets to zero because you had lunch at your desk. Just a scrapbook that keeps growing.</p>' +
+      '</div>' +
+      '<div>' +
+      '<div class="streak-row">' +
+      '<div class="streak-dot"></div><div class="streak-line"></div>' +
+      '<div class="streak-dot"></div><div class="streak-line"></div>' +
+      '<div class="streak-dot skip"></div><div class="streak-line"></div>' +
+      '<div class="streak-dot"></div><div class="streak-line"></div>' +
+      '<div class="streak-dot"></div>' +
+      '</div>' +
+      '<p class="streak-caption">missed a day — the chain didn’t care.</p>' +
+      '</div>' +
+      '</div></section>' +
+
+      '<section class="cta-final"><div class="wrap">' +
+      '<div class="postcard">' +
+      '<div>' +
+      '<h2>Want first taste?</h2>' +
+      '<p class="lead">We’re building the iOS app now. Leave your email and we’ll write the moment there’s something to try.</p>' +
+      '</div>' +
+      '<div>' + ctaBlock('bottom', count) + '</div>' +
+      '</div>' +
+      '</div></section>' +
+
+      '<footer class="site"><div class="wrap">' +
+      '<span>CoupleBites · a two-person project, mostly eaten apart.</span>' +
+      '<a href="mailto:' + WAITLIST_EMAIL + '?subject=' + encodeURIComponent('Hi from CoupleBites site') + '">Say hi</a>' +
+      '</div></footer>';
+  }
+
+  function attachHandlers() {
+    var forms = document.querySelectorAll('form[data-waitlist]');
+    for (var i = 0; i < forms.length; i++) {
+      forms[i].addEventListener('submit', function (e) {
+        e.preventDefault();
+        handleJoin(e.currentTarget);
+      });
+    }
+  }
+
+  function updateCountLines(count) {
+    var lines = document.querySelectorAll('[data-count-line]');
+    for (var i = 0; i < lines.length; i++) lines[i].textContent = countLineText(count);
+  }
+
+  async function handleJoin(formEl) {
+    var input = formEl.querySelector('input[type="email"]');
+    var email = (input.value || '').trim();
+    var btn = formEl.querySelector('button');
+
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      input.setCustomValidity('Enter a valid email so we can reach you.');
+      input.reportValidity();
+      return;
+    }
+    input.setCustomValidity('');
+
+    var mailBody = 'Please add me to the CoupleBites waitlist.\nMy email: ' + email;
+    window.location.href = 'mailto:' + WAITLIST_EMAIL +
+      '?subject=' + encodeURIComponent('CoupleBites waitlist') +
+      '&body=' + encodeURIComponent(mailBody);
+
+    try { localStorage.setItem('couplebites_joined', '1'); } catch (e) {}
+
+    btn.disabled = true;
+    btn.textContent = 'Opening your email…';
+
+    try {
+      var res = await fetch(COUNTER_BASE + '/hit/' + COUNTER_KEY);
+      var data = await res.json();
+      updateCountLines(res.ok && typeof data.value === 'number' ? data.value : 1);
+    } catch (e) {
+      // counter service unreachable — the email still went out, so this is cosmetic only
+    }
+
+    document.getElementById('root').innerHTML = renderBody(null);
+    attachHandlers();
+    var joinedLine = document.querySelector('.helper-line');
+  }
+
+  async function init() {
+    document.getElementById('root').innerHTML = renderBody(null);
+    attachHandlers();
+    try {
+      var res = await fetch(COUNTER_BASE + '/get/' + COUNTER_KEY);
+      var data = await res.json();
+      updateCountLines(res.ok && typeof data.value === 'number' ? data.value : 0);
+    } catch (e) {
+      // counter service unreachable on load — copy stays generic, nothing breaks
+    }
+  }
+
+  init();
+})();
+</script>
+</body>
+</html>
