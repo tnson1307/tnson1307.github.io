@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HomeLog – Home Inventory</title>
+  <meta
+    name="description"
+    content="HomeLog keeps homes, rooms, and appliances organized — warranties, repairs, reminders, and costs in one quiet place."
+  />
+  <meta property="og:title" content="HomeLog – Home Inventory" />
+  <meta
+    property="og:description"
+    content="Track properties, assets, maintenance, and spend. Free to start."
+  />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650;9..144,700&family=Source+Sans+3:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --ink: #1b3a34;
+      --ink-soft: #3d5c55;
+      --muted: #5f7a74;
+      --accent: #2f6b5e;
+      --line: rgba(27, 58, 52, 0.12);
+      --surface: rgba(255, 255, 255, 0.55);
+      --sky-top: #d9ecf4;
+      --sky-mid: #e7f3ef;
+      --sky-bottom: #f4f8f4;
+      --pill: rgba(255, 255, 255, 0.72);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Source Sans 3", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(900px 520px at 8% -10%, rgba(255, 255, 255, 0.85), transparent 60%),
+        linear-gradient(165deg, var(--sky-top) 0%, var(--sky-mid) 42%, var(--sky-bottom) 100%);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .cloud {
+      position: fixed;
+      top: -80px;
+      left: -120px;
+      width: 420px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+      filter: blur(18px);
+      pointer-events: none;
+      animation: drift 14s ease-in-out infinite alternate;
+    }
+
+    .wrap {
+      width: min(1080px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 56px 0 80px;
+    }
+
+    .hero {
+      min-height: min(92vh, 820px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 640px;
+      padding-top: 24px;
+    }
+
+    .brand {
+      margin: 0 0 18px;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(3.4rem, 9vw, 5.6rem);
+      letter-spacing: -0.03em;
+      line-height: 0.95;
+      color: var(--ink);
+      animation: rise 0.9s ease both;
+    }
+
+    .headline {
+      margin: 0 0 16px;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(1.55rem, 3.6vw, 2.15rem);
+      line-height: 1.25;
+      color: var(--ink-soft);
+      animation: rise 0.9s ease 0.08s both;
+    }
+
+    .lede {
+      margin: 0 0 28px;
+      max-width: 34rem;
+      font-size: 1.12rem;
+      line-height: 1.55;
+      color: var(--muted);
+      animation: rise 0.9s ease 0.16s both;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+      animation: rise 0.9s ease 0.24s both;
+    }
+
+    .store-badge {
+      display: inline-flex;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    .store-badge:hover { transform: translateY(-2px); opacity: 0.92; }
+    .store-badge img {
+      display: block;
+      height: 54px;
+      width: auto;
+    }
+
+    .ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--pill);
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      backdrop-filter: blur(8px);
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
+    .ghost:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    .note {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+      animation: rise 0.9s ease 0.32s both;
+    }
+
+    .features {
+      margin-top: 48px;
+      padding-top: 56px;
+      border-top: 1px solid var(--line);
+      display: grid;
+      gap: 42px;
+      max-width: 720px;
+    }
+
+    .feature {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .feature.in {
+      opacity: 1;
+      transform: none;
+    }
+
+    .feature h2 {
+      margin: 0 0 8px;
+      font-family: Fraunces, Georgia, serif;
+      font-size: clamp(1.45rem, 2.8vw, 1.85rem);
+      font-weight: 650;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .feature p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 1.05rem;
+    }
+
+    .feature ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
+    .feature li {
+      position: relative;
+      padding-left: 1.1rem;
+      color: var(--ink-soft);
+      line-height: 1.45;
+    }
+    .feature li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.62em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .bottom-cta {
+      margin-top: 64px;
+      padding-top: 40px;
+      border-top: 1px solid var(--line);
+      max-width: 640px;
+    }
+    .bottom-cta h2 {
+      margin: 0 0 10px;
+      font-family: Fraunces, Georgia, serif;
+      font-size: 1.8rem;
+      font-weight: 650;
+    }
+    .bottom-cta p {
+      margin: 0 0 20px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    footer {
+      margin-top: 56px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    footer a:hover { text-decoration: underline; }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: none; }
+    }
+    @keyframes drift {
+      from { transform: translate(0, 0) scale(1); }
+      to { transform: translate(40px, 24px) scale(1.05); }
+    }
+
+    @media (max-width: 640px) {
+      .wrap { width: calc(100% - 32px); padding: 36px 0 64px; }
+      .hero { min-height: auto; padding-top: 12px; }
+      .store-badge img { height: 48px; }
+      .actions { gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cloud" aria-hidden="true"></div>
+
+  <main class="wrap">
+    <section class="hero" aria-label="HomeLog">
+      <h1 class="brand">HomeLog</h1>
+      <p class="headline">Home inventory under a quiet roof.</p>
+      <p class="lede">
+        Homes, rooms, and appliances in one place — warranties, repairs,
+        reminders, and costs without the clutter.
+      </p>
+
+      <div class="actions">
+        <a
+          class="store-badge"
+          href="https://apps.apple.com/us/app/homelog-home-inventory/id6797392146"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Download HomeLog on the App Store"
+        >
+          <img
+            src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1723420800"
+            alt="Download on the App Store"
+            width="162"
+            height="54"
+          />
+        </a>
+        <a class="ghost" href="#features">See features →</a>
+      </div>
+
+      <p class="note">Free to start · 1 property · up to 5 assets</p>
+    </section>
+
+    <section class="features" id="features" aria-label="Features">
+      <article class="feature">
+        <h2>Homes, rooms, and assets</h2>
+        <p>Start with the place you care about — then add rooms and devices as you go.</p>
+        <ul>
+          <li>Create spaces for houses, apartments, offices, and more</li>
+          <li>Organize by room so every device has a home</li>
+          <li>Track brand, model, status, and history on each asset</li>
+        </ul>
+      </article>
+
+      <article class="feature">
+        <h2>Lifecycle &amp; costs in one timeline</h2>
+        <p>From purchase to repairs — keep ownership history clear for every appliance.</p>
+        <ul>
+          <li>Log purchase price, warranty dates, and service visits</li>
+          <li>Capture repair costs so total ownership spend stays honest</li>
+          <li>Retire tired assets without losing history</li>
+        </ul>
+      </article>
+
+      <article class="feature">
+        <h2>Reminders before things break</h2>
+        <p>Know what is due soon — maintenance and warranty nudges on your lock screen.</p>
+        <ul>
+          <li>Schedule recurring maintenance reminders</li>
+          <li>See due items across all properties in one inbox</li>
+          <li>Act early instead of after a failure</li>
+        </ul>
+      </article>
+
+      <article class="feature">
+        <h2>Stats that make sense</h2>
+        <p>Roll up spend and health signals so you see what drains money over time.</p>
+        <ul>
+          <li>Totals by property, room, and device</li>
+          <li>Purchase vs maintenance split at a glance</li>
+          <li>Health reads from age, service gaps, and spend</li>
+        </ul>
+      </article>
+
+      <article class="feature">
+        <h2>Private on your iPhone</h2>
+        <p>No account required. Your inventory stays on device — upgrade only when you outgrow Free.</p>
+        <ul>
+          <li>Free: 1 property and up to 5 assets</li>
+          <li>Premium: unlimited properties &amp; assets</li>
+          <li>Works offline for everyday logging</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="bottom-cta" aria-label="Get HomeLog">
+      <h2>Keep every home in order</h2>
+      <p>Download HomeLog on the App Store and start with one space today.</p>
+      <a
+        class="store-badge"
+        href="https://apps.apple.com/us/app/homelog-home-inventory/id6797392146"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Download HomeLog on the App Store"
+      >
+        <img
+          src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1723420800"
+          alt="Download on the App Store"
+          width="162"
+          height="54"
+        />
+      </a>
+    </section>
+
+    <footer>
+      <span>© 2026 Ngoc Son Tran</span>
+      <a href="privacy.html">Privacy Policy</a>
+      <a
+        href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Terms of Use (EULA)</a
+      >
+      <a href="mailto:tnson@bwaco.vn">Support</a>
+    </footer>
+  </main>
+
+  <script>
+    const items = document.querySelectorAll(".feature");
+    const io = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add("in");
+        });
+      },
+      { threshold: 0.2 }
+    );
+    items.forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
