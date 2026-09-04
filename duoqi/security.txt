@@ -1,0 +1,4 @@
+Contact: mailto:duoqi.app@gmail.com
+Expires: 2027-09-04T00:00:00.000Z
+Preferred-Languages: en, vi, zh-Hans, zh-Hant
+Canonical: https://tnson1307.github.io/duoqi/security.txt

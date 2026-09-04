@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tnson1307.github.io/duoqi/sitemap.xml

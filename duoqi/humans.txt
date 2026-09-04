@@ -1,0 +1,9 @@
+/* TEAM */
+Developer: Tran Ngoc Son
+Contact: duoqi.app@gmail.com
+From: Vietnam
+
+/* SITE */
+Last update: 2026-09-04
+Standards: HTML5, CSS3
+Software: SwiftUI, Xcode, GitHub Pages
