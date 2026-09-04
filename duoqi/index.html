@@ -2,147 +2,397 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="DuoQi — play chess and xiangqi face-to-face on two nearby phones. No internet required.">
-  <title>DuoQi — Chess &amp; Xiangqi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2d826f">
+  <meta name="color-scheme" content="light dark">
+  <title>DuoQi — Play chess with a friend offline on two iPhones</title>
+  <meta name="description" content="Play chess or xiangqi face-to-face on two nearby iPhones. No Wi‑Fi internet, account, or game server. Discover nearby players or join with a QR code.">
+  <meta name="keywords" content="play chess with friend offline, two player chess no wifi, xiangqi offline, chinese chess two phones, peer to peer chess, local multiplayer chess iPhone, face to face chess, no internet chess">
+  <link rel="canonical" href="https://tnson1307.github.io/duoqi/">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="author" href="humans.txt">
+  <link rel="alternate" hreflang="en" href="https://tnson1307.github.io/duoqi/">
+  <link rel="alternate" hreflang="vi" href="https://tnson1307.github.io/duoqi/?lang=vi">
+  <link rel="alternate" hreflang="zh-Hans" href="https://tnson1307.github.io/duoqi/?lang=zh-Hans">
+  <link rel="alternate" hreflang="zh-Hant" href="https://tnson1307.github.io/duoqi/?lang=zh-Hant">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DuoQi">
+  <meta property="og:url" content="https://tnson1307.github.io/duoqi/">
+  <meta property="og:title" content="DuoQi — 2 Phones. 1 Game. No Internet.">
+  <meta property="og:description" content="Chess and Xiangqi, face-to-face on two nearby iPhones. Direct peer-to-peer Wi‑Fi — no account or server.">
+  <meta property="og:image" content="https://tnson1307.github.io/duoqi/img/og-cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DuoQi — 2 Phones. 1 Game. No Internet.">
+  <meta name="twitter:description" content="Play chess or xiangqi with the person sitting next to you. No internet required.">
+  <meta name="twitter:image" content="https://tnson1307.github.io/duoqi/img/og-cover.jpg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "DuoQi",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "iOS 17+",
+    "description": "Play chess or xiangqi face-to-face on two nearby iPhones over peer-to-peer Wi‑Fi. No account, game server, or internet connection required.",
+    "url": "https://tnson1307.github.io/duoqi/",
+    "image": "https://tnson1307.github.io/duoqi/img/og-cover.jpg",
+    "downloadUrl": "https://apps.apple.com/us/app/duoqi-chess-xiangqi/id6803026688",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Tran Ngoc Son"
+    }
+  }
+  </script>
+
   <style>
     :root {
       color-scheme: light dark;
       --ink: #173d36;
       --muted: #506b66;
       --accent: #2d826f;
-      --paper: rgba(255, 255, 255, 0.82);
+      --accent-dark: #1f5f52;
+      --paper: rgba(255, 255, 255, 0.88);
       --border: rgba(23, 61, 54, 0.13);
-      --shadow: rgba(35, 71, 63, 0.08);
+      --shadow: rgba(35, 71, 63, 0.1);
+      --card: #fff;
     }
-    * {
-      box-sizing: border-box;
-    }
-    html,
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      min-height: 100%;
       margin: 0;
-    }
-    body {
-      display: grid;
-      place-items: center;
-      padding: 32px 20px;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--ink);
       background:
-        radial-gradient(circle at 50% -20%, rgba(147, 217, 218, 0.5), transparent 48%),
+        radial-gradient(circle at 50% -10%, rgba(147, 217, 218, 0.48), transparent 46%),
         linear-gradient(180deg, #eaf7f5 0%, #f8f7ed 100%);
+      line-height: 1.5;
     }
-    main {
-      width: min(680px, 100%);
-      padding: 42px 36px 36px;
-      text-align: center;
-      background: var(--paper);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      box-shadow: 0 20px 55px var(--shadow);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+    a { color: var(--accent); font-weight: 700; text-decoration: none; }
+    a:hover, a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+    .wrap { width: min(980px, calc(100% - 32px)); margin: 0 auto; padding: 28px 0 64px; }
+    header {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      margin-bottom: 28px;
     }
+    .brand { display: flex; align-items: center; gap: 10px; color: inherit; font-weight: 800; }
     .mark {
-      display: inline-grid;
-      place-items: center;
-      width: 58px;
-      height: 58px;
-      margin-bottom: 12px;
-      font: 700 31px/1 Georgia, serif;
-      color: #fff;
-      background: var(--accent);
-      border-radius: 17px;
-      box-shadow: 0 7px 0 rgba(20, 82, 69, 0.18);
+      display: grid; place-items: center; width: 40px; height: 40px;
+      font: 700 20px/1 Georgia, serif; color: #fff; background: var(--accent);
+      border-radius: 12px; box-shadow: 0 5px 0 rgba(20, 82, 69, 0.18);
     }
-    h1 {
-      margin: 0;
-      font: 700 clamp(36px, 8vw, 48px)/1.1 Georgia, "Times New Roman", serif;
-      letter-spacing: -0.02em;
+    .langs { display: flex; flex-wrap: wrap; gap: 6px; }
+    .langs button {
+      border: 1px solid var(--border); background: var(--paper); color: var(--ink);
+      border-radius: 999px; padding: 6px 10px; font: 650 12px/1 -apple-system, sans-serif;
+      cursor: pointer;
     }
-    .tagline {
-      margin: 10px 0 4px;
-      font-size: clamp(16px, 3vw, 19px);
-      color: var(--muted);
+    .langs button[aria-pressed="true"] { background: var(--accent); color: #fff; border-color: transparent; }
+    .hero {
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 28px; align-items: center;
+      background: var(--paper); border: 1px solid var(--border); border-radius: 28px;
+      padding: 36px; box-shadow: 0 20px 55px var(--shadow);
     }
-    .games {
-      margin: 0;
-      font-size: 14px;
-      color: var(--muted);
-      opacity: 0.82;
+    h1 { margin: 0 0 8px; font: 800 clamp(32px, 6vw, 52px)/1.08 Georgia, serif; letter-spacing: -0.03em; }
+    .lede { margin: 0 0 18px; font-size: 18px; color: var(--muted); }
+    .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+    .store {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #111; color: #fff; border-radius: 12px; padding: 11px 16px;
+      font-weight: 800; box-shadow: 0 6px 0 #000;
     }
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px 26px;
-      margin-top: 32px;
+    .store:hover { text-decoration: none; color: #fff; transform: translateY(1px); box-shadow: 0 5px 0 #000; }
+    .store small { display: block; font-size: 10px; font-weight: 600; opacity: 0.75; }
+    .store b { display: block; font-size: 16px; line-height: 1.1; }
+    .meta { margin: 14px 0 0; font-size: 13px; color: var(--muted); }
+    .qr-card {
+      display: grid; justify-items: center; gap: 8px; padding: 14px;
+      background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+      width: min(160px, 100%);
     }
-    a {
-      color: var(--accent);
-      font-weight: 700;
-      text-decoration: none;
+    .qr-card img { width: 112px; height: 112px; }
+    .qr-card span { font-size: 12px; color: var(--muted); text-align: center; }
+    .hero-visual img {
+      width: 100%; border-radius: 20px; display: block;
+      box-shadow: 0 16px 40px var(--shadow);
     }
-    a:hover,
-    a:focus-visible {
-      text-decoration: underline;
-      text-underline-offset: 4px;
+    .mascot { width: 92px; height: 92px; object-fit: contain; margin-bottom: 8px; }
+    section { margin-top: 42px; }
+    h2 { margin: 0 0 16px; font: 800 26px/1.2 Georgia, serif; }
+    .steps, .features { display: grid; gap: 14px; grid-template-columns: repeat(3, 1fr); }
+    .card {
+      background: var(--paper); border: 1px solid var(--border); border-radius: 20px;
+      padding: 18px 18px 16px; box-shadow: 0 10px 24px var(--shadow);
     }
-    .contact {
-      margin: 26px 0 0;
-      padding-top: 22px;
-      border-top: 1px solid var(--border);
-      font-size: 14px;
-      color: var(--muted);
+    .n {
+      display: grid; place-items: center; width: 30px; height: 30px; margin-bottom: 10px;
+      border-radius: 9px; background: var(--accent); color: #fff; font-weight: 800; font-size: 14px;
+    }
+    .card h3 { margin: 0 0 6px; font-size: 16px; }
+    .card p { margin: 0; color: var(--muted); font-size: 14px; }
+    .features { grid-template-columns: repeat(2, 1fr); }
+    footer {
+      margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border);
+      display: flex; flex-wrap: wrap; gap: 12px 22px; justify-content: space-between;
+      color: var(--muted); font-size: 14px;
+    }
+    footer nav { display: flex; flex-wrap: wrap; gap: 12px 18px; }
+    @media (max-width: 800px) {
+      .hero, .steps, .features { grid-template-columns: 1fr; }
+      .hero { padding: 24px; }
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --ink: #eef8f5;
-        --muted: #b8ccc7;
-        --accent: #79cdb8;
-        --paper: rgba(23, 31, 31, 0.86);
-        --border: rgba(255, 255, 255, 0.11);
-        --shadow: rgba(0, 0, 0, 0.22);
+        --ink: #eef8f5; --muted: #b8ccc7; --accent: #79cdb8; --accent-dark: #4ea894;
+        --paper: rgba(23, 31, 31, 0.88); --border: rgba(255,255,255,0.11);
+        --shadow: rgba(0,0,0,0.24); --card: #1b2423;
       }
       body {
         background:
-          radial-gradient(circle at 50% -20%, rgba(44, 118, 107, 0.4), transparent 48%),
+          radial-gradient(circle at 50% -10%, rgba(44, 118, 107, 0.38), transparent 48%),
           linear-gradient(180deg, #152321 0%, #20221d 100%);
       }
-      .mark {
-        color: #143e35;
-        background: var(--accent);
-      }
-    }
-    @media (max-width: 520px) {
-      main {
-        padding: 34px 22px 30px;
-        border-radius: 20px;
-      }
-      nav {
-        flex-direction: column;
-        gap: 16px;
-      }
+      .store { background: #f4f7f6; color: #111; box-shadow: 0 6px 0 #8aa29c; }
+      .store:hover { color: #111; box-shadow: 0 5px 0 #8aa29c; }
     }
   </style>
 </head>
 <body>
-  <main>
-    <div class="mark" aria-hidden="true">雙</div>
-    <h1>DuoQi</h1>
-    <p class="tagline">2 Phones. 1 Game. No Internet.</p>
-    <p class="games">Chess &amp; Xiangqi, face-to-face.</p>
-    <nav aria-label="DuoQi links">
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Use</a>
-      <a href="mailto:tnson@bwaco.vn">Support</a>
-      <a href="https://github.com/tnson1307/duoqi">GitHub</a>
-    </nav>
-    <p class="contact">
-      Need help? Email
-      <a href="mailto:tnson@bwaco.vn">tnson@bwaco.vn</a>
-    </p>
-  </main>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="./">
+        <span class="mark" aria-hidden="true">雙</span>
+        DuoQi
+      </a>
+      <div class="langs" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="vi" aria-pressed="false">VI</button>
+        <button type="button" data-lang="zh-Hans" aria-pressed="false">简体</button>
+        <button type="button" data-lang="zh-Hant" aria-pressed="false">繁體</button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <img class="mascot" src="img/mascot.png" alt="DuoQi mascot">
+        <h1 data-i18n="headline">2 Phones. 1 Game. No Internet.</h1>
+        <p class="lede" data-i18n="lede">Play chess or xiangqi with the person sitting next to you. Two iPhones connect directly over local peer-to-peer Wi‑Fi — no account, no game server, no internet.</p>
+        <div class="cta-row">
+          <a class="store" href="https://apps.apple.com/us/app/duoqi-chess-xiangqi/id6803026688">
+            <span>
+              <small data-i18n="downloadOn">Download on the</small>
+              <b>App Store</b>
+            </span>
+          </a>
+          <div class="qr-card">
+            <img src="img/app-store-qr.svg" width="112" height="112" alt="QR code to download DuoQi on the App Store">
+            <span data-i18n="scanQr">Scan to install</span>
+          </div>
+        </div>
+        <p class="meta" data-i18n="availability">Available on iPhone and iPad · iOS 17+ · Chess &amp; Xiangqi</p>
+      </div>
+      <div class="hero-visual">
+        <img src="img/og-cover.jpg" width="1200" height="630" alt="Two iPhones playing chess and xiangqi face to face without internet">
+      </div>
+    </section>
+
+    <section>
+      <h2 data-i18n="howTitle">How the two phones connect</h2>
+      <div class="steps">
+        <article class="card">
+          <div class="n">1</div>
+          <h3 data-i18n="step1Title">Create a room</h3>
+          <p data-i18n="step1Body">One player opens DuoQi, picks Chess or Xiangqi, and creates a nearby room. A QR code appears on screen.</p>
+        </article>
+        <article class="card">
+          <div class="n">2</div>
+          <h3 data-i18n="step2Title">Join nearby or scan QR</h3>
+          <p data-i18n="step2Body">The second phone finds the room over Local Network (peer-to-peer Wi‑Fi / Bonjour), or scans the QR. Camera is only used to read that code.</p>
+        </article>
+        <article class="card">
+          <div class="n">3</div>
+          <h3 data-i18n="step3Title">Play face-to-face</h3>
+          <p data-i18n="step3Body">The host accepts. Moves and clocks stay in sync on both phones. Setup usually takes under a minute when you are sitting together.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-i18n="featTitle">Built for a game at the table</h2>
+      <div class="features">
+        <article class="card">
+          <h3 data-i18n="f1t">No internet matchmaking</h3>
+          <p data-i18n="f1b">Works in a café, park, classroom, or on a plane. Phones stay nearby and talk to each other directly.</p>
+        </article>
+        <article class="card">
+          <h3 data-i18n="f2t">Chess and Xiangqi</h3>
+          <p data-i18n="f2b">Two classic board games in one app. Switch anytime — history stays on this phone.</p>
+        </article>
+        <article class="card">
+          <h3 data-i18n="f3t">Clocks, rematch, replay</h3>
+          <p data-i18n="f3b">Timed games, series with swapped colors, local stats, and move-by-move replay.</p>
+        </article>
+        <article class="card">
+          <h3 data-i18n="f4t">Same-device tabletop</h3>
+          <p data-i18n="f4b">Two people can also share one iPhone. Same-device play is free and unlimited.</p>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <nav>
+        <a href="privacy.html" data-i18n="privacy">Privacy Policy</a>
+        <a href="terms.html" data-i18n="terms">Terms of Use</a>
+        <a href="mailto:duoqi.app@gmail.com" data-i18n="support">Support</a>
+        <a href="https://github.com/tnson1307/duoqi">GitHub</a>
+      </nav>
+      <span data-i18n="help">Questions? duoqi.app@gmail.com</span>
+    </footer>
+  </div>
+
+  <script>
+    const copy = {
+      en: {
+        headline: "2 Phones. 1 Game. No Internet.",
+        lede: "Play chess or xiangqi with the person sitting next to you. Two iPhones connect directly over local peer-to-peer Wi‑Fi — no account, no game server, no internet.",
+        downloadOn: "Download on the",
+        scanQr: "Scan to install",
+        availability: "Available on iPhone and iPad · iOS 17+ · Chess & Xiangqi",
+        howTitle: "How the two phones connect",
+        step1Title: "Create a room",
+        step1Body: "One player opens DuoQi, picks Chess or Xiangqi, and creates a nearby room. A QR code appears on screen.",
+        step2Title: "Join nearby or scan QR",
+        step2Body: "The second phone finds the room over Local Network (peer-to-peer Wi‑Fi / Bonjour), or scans the QR. Camera is only used to read that code.",
+        step3Title: "Play face-to-face",
+        step3Body: "The host accepts. Moves and clocks stay in sync on both phones. Setup usually takes under a minute when you are sitting together.",
+        featTitle: "Built for a game at the table",
+        f1t: "No internet matchmaking",
+        f1b: "Works in a café, park, classroom, or on a plane. Phones stay nearby and talk to each other directly.",
+        f2t: "Chess and Xiangqi",
+        f2b: "Two classic board games in one app. Switch anytime — history stays on this phone.",
+        f3t: "Clocks, rematch, replay",
+        f3b: "Timed games, series with swapped colors, local stats, and move-by-move replay.",
+        f4t: "Same-device tabletop",
+        f4b: "Two people can also share one iPhone. Same-device play is free and unlimited.",
+        privacy: "Privacy Policy",
+        terms: "Terms of Use",
+        support: "Support",
+        help: "Questions? duoqi.app@gmail.com"
+      },
+      vi: {
+        headline: "2 máy. 1 ván. Không mạng.",
+        lede: "Chơi cờ vua hoặc cờ tướng với người ngồi cạnh bạn. Hai iPhone kết nối trực tiếp qua Wi‑Fi ngang hàng — không tài khoản, không máy chủ, không Internet.",
+        downloadOn: "Tải trên",
+        scanQr: "Quét để cài",
+        availability: "Có trên iPhone và iPad · iOS 17+ · Cờ vua & cờ tướng",
+        howTitle: "Hai máy kết nối thế nào",
+        step1Title: "Tạo phòng",
+        step1Body: "Một người mở DuoQi, chọn Cờ vua hoặc Cờ tướng, rồi tạo phòng nearby. Mã QR hiện trên màn hình.",
+        step2Title: "Vào nearby hoặc quét QR",
+        step2Body: "Máy kia tìm phòng qua Mạng cục bộ (Wi‑Fi ngang hàng / Bonjour), hoặc quét QR. Camera chỉ dùng để đọc mã đó.",
+        step3Title: "Chơi đối mặt",
+        step3Body: "Chủ phòng chấp nhận. Nước đi và đồng hồ đồng bộ trên cả hai máy. Thường chưa tới một phút khi ngồi cạnh nhau.",
+        featTitle: "Làm cho ván cờ quanh bàn",
+        f1t: "Không ghép trận online",
+        f1b: "Dùng được ở quán cà phê, công viên, lớp học, hoặc trên máy bay. Hai máy ở gần và nói chuyện trực tiếp.",
+        f2t: "Cờ vua và cờ tướng",
+        f2b: "Hai môn cổ điển trong một app. Đổi bất cứ lúc nào — lịch sử vẫn lưu trên máy này.",
+        f3t: "Đồng hồ, tái đấu, xem lại",
+        f3b: "Cờ có giờ, chuỗi trận đổi màu, thống kê local và xem lại từng nước.",
+        f4t: "Chơi trên cùng một máy",
+        f4b: "Hai người cũng có thể dùng chung một iPhone. Chế độ này miễn phí, không giới hạn.",
+        privacy: "Chính sách quyền riêng tư",
+        terms: "Điều khoản sử dụng",
+        support: "Hỗ trợ",
+        help: "Cần giúp? duoqi.app@gmail.com"
+      },
+      "zh-Hans": {
+        headline: "2部手机。1局棋。无需网络。",
+        lede: "和身边的人面对面下国际象棋或中国象棋。两部 iPhone 通过点对点 Wi‑Fi 直接连接——无需账户、游戏服务器或互联网。",
+        downloadOn: "下载于",
+        scanQr: "扫码安装",
+        availability: "适用于 iPhone 和 iPad · iOS 17+ · 国际象棋与象棋",
+        howTitle: "两部手机如何连接",
+        step1Title: "创建房间",
+        step1Body: "一方打开 DuoQi，选择国际象棋或象棋，并创建附近房间。屏幕会显示二维码。",
+        step2Title: "附近加入或扫码",
+        step2Body: "另一方通过本地网络（点对点 Wi‑Fi / Bonjour）发现房间，或扫描二维码。相机仅用于读取该码。",
+        step3Title: "面对面对弈",
+        step3Body: "房主接受后即可开始。走棋与棋钟在两部手机上保持同步。坐在一起时通常不到一分钟就能开局。",
+        featTitle: "为桌边对弈而做",
+        f1t: "无需联网匹配",
+        f1b: "咖啡馆、公园、教室或飞机上都可用。两部手机保持在附近并直接通信。",
+        f2t: "国际象棋与中国象棋",
+        f2b: "两款经典棋类同在一个 App。随时切换——对局记录仍保存在本机。",
+        f3t: "棋钟、再来一局、回放",
+        f3b: "计时对局、换边系列赛、本地统计与逐步回放。",
+        f4t: "同设备桌面对弈",
+        f4b: "两人也可以共用一部 iPhone。同设备模式免费且不限次数。",
+        privacy: "隐私政策",
+        terms: "使用条款",
+        support: "支持",
+        help: "需要帮助？duoqi.app@gmail.com"
+      },
+      "zh-Hant": {
+        headline: "2部手機。1局棋。無需網路。",
+        lede: "和身邊的人面對面下國際象棋或中國象棋。兩部 iPhone 透過點對點 Wi‑Fi 直接連線——無需帳號、遊戲伺服器或網際網路。",
+        downloadOn: "下載於",
+        scanQr: "掃碼安裝",
+        availability: "適用於 iPhone 與 iPad · iOS 17+ · 國際象棋與象棋",
+        howTitle: "兩部手機如何連線",
+        step1Title: "建立房間",
+        step1Body: "一方打開 DuoQi，選擇國際象棋或象棋，並建立附近房間。螢幕會顯示 QR Code。",
+        step2Title: "附近加入或掃碼",
+        step2Body: "另一方透過區域網路（點對點 Wi‑Fi / Bonjour）發現房間，或掃描 QR Code。相機只用來讀取該碼。",
+        step3Title: "面對面對弈",
+        step3Body: "房主接受後即可開始。走棋與棋鐘在兩部手機上保持同步。坐在一起時通常不到一分鐘就能開局。",
+        featTitle: "為桌邊對弈而做",
+        f1t: "無需聯網配對",
+        f1b: "咖啡館、公園、教室或飛機上都可用。兩部手機保持在附近並直接通訊。",
+        f2t: "國際象棋與中國象棋",
+        f2b: "兩款經典棋類同在一個 App。隨時切換——對局紀錄仍保存在本機。",
+        f3t: "棋鐘、再來一局、回放",
+        f3b: "計時對局、換邊系列賽、本機統計與逐步回放。",
+        f4t: "同裝置桌面對弈",
+        f4b: "兩人也可以共用一部 iPhone。同裝置模式免費且不限次數。",
+        privacy: "隱私權政策",
+        terms: "使用條款",
+        support: "支援",
+        help: "需要幫忙？duoqi.app@gmail.com"
+      }
+    };
+
+    const buttons = document.querySelectorAll(".langs button");
+    const nodes = document.querySelectorAll("[data-i18n]");
+
+    function apply(lang) {
+      const pack = copy[lang] || copy.en;
+      document.documentElement.lang = lang;
+      nodes.forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (pack[key]) el.textContent = pack[key];
+      });
+      buttons.forEach((btn) => btn.setAttribute("aria-pressed", String(btn.dataset.lang === lang)));
+      const url = new URL(location.href);
+      url.searchParams.set("lang", lang);
+      history.replaceState({}, "", url);
+    }
+
+    buttons.forEach((btn) => btn.addEventListener("click", () => apply(btn.dataset.lang)));
+    const start = new URLSearchParams(location.search).get("lang") || (navigator.language || "en");
+    const mapped = start.startsWith("vi") ? "vi"
+      : start.startsWith("zh") && (start.includes("Hant") || start.includes("TW") || start.includes("HK")) ? "zh-Hant"
+      : start.startsWith("zh") ? "zh-Hans"
+      : "en";
+    apply(copy[start] ? start : mapped);
+  </script>
 </body>
 </html>
