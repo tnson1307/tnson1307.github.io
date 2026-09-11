@@ -56,6 +56,48 @@
     margin: 0 auto;
   }
 
+  .showcase {
+    position: relative;
+    width: 240px;
+    aspect-ratio: 1242 / 2688;
+    margin: 36px auto 22px;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 20px 44px rgba(43, 35, 32, 0.22);
+  }
+  .showcase img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.7s ease;
+  }
+  .showcase img.is-active {
+    opacity: 1;
+  }
+  .showcase-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 44px;
+  }
+  .showcase-dots button {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: var(--hairline);
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .showcase-dots button.is-active {
+    background: var(--accent);
+    transform: scale(1.3);
+  }
+
   .card {
     background: var(--paper-raised);
     border: 1px solid var(--hairline);
@@ -192,6 +234,43 @@
     </a>
   </header>
 
+  <div class="showcase" id="showcase">
+    <img src="screenshots/screenshot-calendar.png" alt="CoupleBites home screen with a shared meal calendar" class="is-active">
+    <img src="screenshots/screenshot-sticker.png" alt="A meal photo automatically cut into a clean sticker">
+    <img src="screenshots/screenshot-timeline.png" alt="Breakfast, lunch, and dinner logged for one day">
+    <img src="screenshots/screenshot-share.png" alt="Sharing a meal with a partner via QR code">
+    <img src="screenshots/screenshot-points.png" alt="Earning points and collecting food icons">
+  </div>
+  <div class="showcase-dots" id="showcase-dots"></div>
+  <script>
+    (function () {
+      var images = document.querySelectorAll('#showcase img');
+      var dotsWrap = document.getElementById('showcase-dots');
+      var current = 0;
+
+      images.forEach(function (_, i) {
+        var dot = document.createElement('button');
+        dot.setAttribute('aria-label', 'Show screenshot ' + (i + 1));
+        if (i === 0) dot.classList.add('is-active');
+        dot.addEventListener('click', function () { show(i); });
+        dotsWrap.appendChild(dot);
+      });
+      var dots = dotsWrap.querySelectorAll('button');
+
+      function show(index) {
+        images[current].classList.remove('is-active');
+        dots[current].classList.remove('is-active');
+        current = index;
+        images[current].classList.add('is-active');
+        dots[current].classList.add('is-active');
+      }
+
+      setInterval(function () {
+        show((current + 1) % images.length);
+      }, 3200);
+    })();
+  </script>
+
   <div class="card">
     <h2>What CoupleBites does</h2>
     <ul class="features">
@@ -206,6 +285,10 @@
       <li>
         <div class="dot" style="--tint: var(--sage)">💌</div>
         <p><strong>Share the moment</strong><span>Scan a QR code to send a meal straight to your partner's phone — a direct connection between your two devices, no internet required.</span></p>
+      </li>
+      <li>
+        <div class="dot" style="--tint: #c25b8f">🎁</div>
+        <p><strong>Collect as you go</strong><span>Logging a meal earns a point — save them up to unlock a growing set of food & drink icons for your profile and Home Screen, or unlock every one instantly with Pro.</span></p>
       </li>
     </ul>
   </div>
