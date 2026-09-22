@@ -112,6 +112,13 @@
     .store:hover { text-decoration: none; color: #fff; transform: translateY(1px); box-shadow: 0 5px 0 #000; }
     .store small { display: block; font-size: 10px; font-weight: 600; opacity: 0.75; }
     .store b { display: block; font-size: 16px; line-height: 1.1; }
+    .mail {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 52px; padding: 11px 16px; border-radius: 12px;
+      background: var(--accent); color: #fff; font-weight: 800;
+      box-shadow: 0 6px 0 var(--accent-dark);
+    }
+    .mail:hover { text-decoration: none; color: #fff; transform: translateY(1px); box-shadow: 0 5px 0 var(--accent-dark); }
     .meta { margin: 14px 0 0; font-size: 13px; color: var(--muted); }
     .qr-card {
       display: grid; justify-items: center; gap: 8px; padding: 14px;
@@ -188,6 +195,9 @@
               <b>App Store</b>
             </span>
           </a>
+          <a class="mail" href="mailto:tnson@bwaco.vn?subject=DuoQi%20feedback&body=Hi%20DuoQi%2C%0A%0A">
+            <span data-i18n="sendEmail">Send email</span>
+          </a>
           <div class="qr-card">
             <img src="img/app-store-qr.svg" width="112" height="112" alt="QR code to download DuoQi on the App Store">
             <span data-i18n="scanQr">Scan to install</span>
@@ -244,7 +254,7 @@
       <nav>
         <a href="privacy.html" data-i18n="privacy">Privacy Policy</a>
         <a href="terms.html" data-i18n="terms">Terms of Use</a>
-        <a href="mailto:duoqi.app@gmail.com" data-i18n="support">Support</a>
+        <a href="mailto:tnson@bwaco.vn?subject=DuoQi%20feedback" data-i18n="support">Support</a>
         <a href="https://github.com/tnson1307/duoqi">GitHub</a>
       </nav>
       <span data-i18n="help">Questions? duoqi.app@gmail.com</span>
@@ -258,6 +268,7 @@
         lede: "Play chess or xiangqi with the person sitting next to you. Two iPhones connect directly over local peer-to-peer Wi‑Fi — no account, no game server, no internet.",
         downloadOn: "Download on the",
         scanQr: "Scan to install",
+        sendEmail: "Send email",
         availability: "Available on iPhone and iPad · iOS 17+ · Chess & Xiangqi",
         howTitle: "How the two phones connect",
         step1Title: "Create a room",
@@ -278,13 +289,14 @@
         privacy: "Privacy Policy",
         terms: "Terms of Use",
         support: "Support",
-        help: "Questions? duoqi.app@gmail.com"
+        help: "Feedback or requests: tnson@bwaco.vn"
       },
       vi: {
         headline: "2 máy. 1 ván. Không mạng.",
         lede: "Chơi cờ vua hoặc cờ tướng với người ngồi cạnh bạn. Hai iPhone kết nối trực tiếp qua Wi‑Fi ngang hàng — không tài khoản, không máy chủ, không Internet.",
         downloadOn: "Tải trên",
         scanQr: "Quét để cài",
+        sendEmail: "Gửi email",
         availability: "Có trên iPhone và iPad · iOS 17+ · Cờ vua & cờ tướng",
         howTitle: "Hai máy kết nối thế nào",
         step1Title: "Tạo phòng",
@@ -305,13 +317,14 @@
         privacy: "Chính sách quyền riêng tư",
         terms: "Điều khoản sử dụng",
         support: "Hỗ trợ",
-        help: "Cần giúp? duoqi.app@gmail.com"
+        help: "Phản hồi hoặc yêu cầu: tnson@bwaco.vn"
       },
       "zh-Hans": {
         headline: "2部手机。1局棋。无需网络。",
         lede: "和身边的人面对面下国际象棋或中国象棋。两部 iPhone 通过点对点 Wi‑Fi 直接连接——无需账户、游戏服务器或互联网。",
         downloadOn: "下载于",
         scanQr: "扫码安装",
+        sendEmail: "发送邮件",
         availability: "适用于 iPhone 和 iPad · iOS 17+ · 国际象棋与象棋",
         howTitle: "两部手机如何连接",
         step1Title: "创建房间",
@@ -332,13 +345,14 @@
         privacy: "隐私政策",
         terms: "使用条款",
         support: "支持",
-        help: "需要帮助？duoqi.app@gmail.com"
+        help: "反馈或需求：tnson@bwaco.vn"
       },
       "zh-Hant": {
         headline: "2部手機。1局棋。無需網路。",
         lede: "和身邊的人面對面下國際象棋或中國象棋。兩部 iPhone 透過點對點 Wi‑Fi 直接連線——無需帳號、遊戲伺服器或網際網路。",
         downloadOn: "下載於",
         scanQr: "掃碼安裝",
+        sendEmail: "寄送電子郵件",
         availability: "適用於 iPhone 與 iPad · iOS 17+ · 國際象棋與象棋",
         howTitle: "兩部手機如何連線",
         step1Title: "建立房間",
@@ -359,7 +373,7 @@
         privacy: "隱私權政策",
         terms: "使用條款",
         support: "支援",
-        help: "需要幫忙？duoqi.app@gmail.com"
+        help: "回饋或需求：tnson@bwaco.vn"
       }
     };
 
