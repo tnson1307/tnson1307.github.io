@@ -78,7 +78,7 @@
     }
     a { color: var(--accent); font-weight: 700; text-decoration: none; }
     a:hover, a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
-    .wrap { width: min(980px, calc(100% - 32px)); margin: 0 auto; padding: 28px 0 64px; }
+    .wrap { width: min(1040px, calc(100% - 32px)); margin: 0 auto; padding: 28px 0 64px; }
     header {
       display: flex; align-items: center; justify-content: space-between; gap: 12px;
       margin-bottom: 28px;
@@ -97,10 +97,12 @@
     }
     .langs button[aria-pressed="true"] { background: var(--accent); color: #fff; border-color: transparent; }
     .hero {
-      display: grid; grid-template-columns: 0.92fr 1.08fr; gap: 24px; align-items: stretch;
+      display: grid;
+      gap: 22px;
       background: var(--paper); border: 1px solid var(--border); border-radius: 28px;
-      padding: 28px; box-shadow: 0 20px 55px var(--shadow);
+      padding: 28px 28px 22px; box-shadow: 0 20px 55px var(--shadow);
     }
+    .hero-copy { max-width: 640px; }
     h1 { margin: 0 0 8px; font: 800 clamp(32px, 6vw, 52px)/1.08 Georgia, serif; letter-spacing: -0.03em; }
     .lede { margin: 0 0 18px; font-size: 18px; color: var(--muted); }
     .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
@@ -121,7 +123,6 @@
     .qr-card img { width: 112px; height: 112px; }
     .qr-card span { font-size: 12px; color: var(--muted); text-align: center; }
     .hero-visual {
-      min-height: 520px;
       background: #f4efe4;
       border-radius: 22px;
       overflow: hidden;
@@ -129,10 +130,8 @@
     .hero-visual img {
       display: block;
       width: 100%;
-      height: 100%;
-      min-height: 520px;
-      object-fit: cover;
-      object-position: center 42%;
+      height: auto;
+      object-fit: contain;
     }
     .mascot { width: 92px; height: 92px; object-fit: contain; margin-bottom: 8px; }
     section { margin-top: 42px; }
@@ -156,9 +155,8 @@
     }
     footer nav { display: flex; flex-wrap: wrap; gap: 12px 18px; }
     @media (max-width: 800px) {
-      .hero, .steps, .features { grid-template-columns: 1fr; }
-      .hero { padding: 24px; }
-      .hero-visual, .hero-visual img { min-height: 320px; }
+      .steps, .features { grid-template-columns: 1fr; }
+      .hero { padding: 22px 18px 16px; }
     }
     @media (prefers-color-scheme: dark) {
       :root {
@@ -192,7 +190,7 @@
     </header>
 
     <section class="hero">
-      <div>
+      <div class="hero-copy">
         <img class="mascot" src="img/mascot.png" alt="DuoQi mascot">
         <h1 data-i18n="headline">2 Phones. 1 Game. No Internet.</h1>
         <p class="lede" data-i18n="lede">Play chess or xiangqi with the person sitting next to you. Two iPhones connect directly over local peer-to-peer Wi‑Fi — no account, no game server, no internet.</p>
