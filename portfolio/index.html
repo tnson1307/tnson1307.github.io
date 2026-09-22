@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Min.dev — Independent iOS apps</title>
+  <title>min.dev — Independent iOS apps</title>
   <meta name="description" content="Independent iOS apps: DuoQi, Layerly, Fresh Air, HomeLog, and CoupleBites. Local-first tools for everyday life." />
   <meta name="theme-color" content="#16120e" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%2316120e'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Georgia' font-size='28' fill='%23f3ead8'%3Em%3C/text%3E%3C/svg%3E" />
@@ -210,7 +210,7 @@
 <body>
   <header class="nav" id="nav">
     <nav class="nav-inner">
-      <a class="logo" href="#home">Min.dev</a>
+      <a class="logo" href="#home">min.dev</a>
       <ul class="nav-links" id="nav-links">
         <li><a href="#apps">Apps</a></li>
         <li><a href="#about">Notes</a></li>
@@ -226,11 +226,12 @@
   <main>
     <section id="home" class="hero">
       <div class="wrap">
-        <p class="kicker">Independent iOS studio</p>
+        <p class="kicker">Independent software</p>
         <h1 class="headline">Quiet tools for ordinary days.</h1>
         <p class="lede">
-          Five local-first iOS apps — a board game on two phones, skincare in the right order,
-          a gentler pomodoro, a home inventory, and a food diary built for two.
+          Five local-first iOS apps — and a Mac tool that catches App Store rejections
+          before Apple does. Board games on two phones, skincare in the right order,
+          a gentler pomodoro, a home inventory, a food diary for two, and a pre-submit audit.
         </p>
         <div class="hero-actions">
           <a class="btn btn-solid" href="#apps">See the apps</a>
@@ -238,8 +239,8 @@
         </div>
         <ul class="platforms" aria-label="Platforms">
           <li>iOS</li>
+          <li>macOS</li>
           <li>Swift</li>
-          <li>Local-first</li>
         </ul>
       </div>
     </section>
@@ -247,7 +248,7 @@
     <section id="apps" class="apps">
       <div class="wrap">
         <header class="section-head">
-          <h2>Five apps, five landing pages</h2>
+          <h2>Six products, six landing pages</h2>
           <p>Each card opens the site already published for that product.</p>
         </header>
 
@@ -361,6 +362,29 @@
             <ul class="tech"><li>Swift</li><li>Peer-to-peer</li><li>On-device</li></ul>
             <a class="visit" href="https://tnson1307.github.io/couplebites/" target="_blank" rel="noopener noreferrer">Visit site <span aria-hidden="true">→</span></a>
           </article>
+
+          <article class="card" style="--accent-local:#93c5fd">
+            <div class="card-top">
+              <svg class="icon" viewBox="0 0 128 128" aria-hidden="true">
+                <rect width="128" height="128" rx="28" fill="#1e3a5f"/>
+                <rect x="28" y="36" width="72" height="48" rx="8" fill="#93c5fd"/>
+                <rect x="40" y="48" width="48" height="8" rx="4" fill="#1e3a5f"/>
+                <rect x="40" y="64" width="32" height="8" rx="4" fill="#1e3a5f" opacity=".7"/>
+                <path d="M52 96 l10 10 24-24" fill="none" stroke="#86efac" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="cat">Desktop · Mac</span>
+            </div>
+            <h3>ShipCheck</h3>
+            <p class="tagline">Stamp it cleared before Apple stamps it rejected.</p>
+            <p class="desc">A Mac app that reads your real Xcode project and live App Store Connect data — then lists what will bounce the submission, on your machine, before review does.</p>
+            <ul class="features">
+              <li>Diffs IAP product IDs, Privacy Manifest, and age-rating answers</li>
+              <li>Keys stay in Keychain; no ShipCheck server, ever</li>
+              <li>CLI for CI so drift fails the build, not the submit</li>
+            </ul>
+            <ul class="tech"><li>Swift</li><li>macOS</li><li>App Store Connect API</li></ul>
+            <a class="visit" href="https://tnson1307.github.io/shipcheck/" target="_blank" rel="noopener noreferrer">Visit site <span aria-hidden="true">→</span></a>
+          </article>
         </div>
       </div>
     </section>
@@ -374,11 +398,11 @@
         <div class="notes">
           <article class="note">
             <h3>On the device</h3>
-            <p>DuoQi and CoupleBites talk peer-to-peer. HomeLog, Layerly, and Fresh Air keep data local — nothing has to leave the iPhone.</p>
+            <p>DuoQi and CoupleBites talk peer-to-peer. HomeLog, Layerly, and Fresh Air keep data local. ShipCheck audits on your Mac — the .p8 key never leaves Keychain.</p>
           </article>
           <article class="note">
             <h3>Ordinary habits</h3>
-            <p>A board game at the table, serum in the right order, one quiet focus block, a filter reminder, a meal you both remember.</p>
+            <p>A board game at the table, serum in the right order, one quiet focus block, a filter reminder, a meal you both remember — and a check before you hit Submit.</p>
           </article>
           <article class="note">
             <h3>Shipped end to end</h3>
@@ -391,7 +415,7 @@
             <div class="stack">
               <div>
                 <p>Mobile</p>
-                <ul class="chips"><li>Swift</li><li>SwiftUI</li><li>iOS</li></ul>
+                <ul class="chips"><li>Swift</li><li>SwiftUI</li><li>iOS</li><li>macOS</li></ul>
               </div>
               <div>
                 <p>Architecture</p>
@@ -415,7 +439,7 @@
 
   <footer class="footer">
     <div class="footer-inner">
-      <p>© <span id="year"></span> Min.dev</p>
+      <p>© <span id="year"></span> min.dev</p>
       <nav>
         <a href="#apps">Apps</a>
         <a href="#about">Notes</a>
