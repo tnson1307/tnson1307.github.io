@@ -97,10 +97,8 @@
     }
     .langs button[aria-pressed="true"] { background: var(--accent); color: #fff; border-color: transparent; }
     .hero {
-      display: grid;
-      gap: 22px;
       background: var(--paper); border: 1px solid var(--border); border-radius: 28px;
-      padding: 28px 28px 22px; box-shadow: 0 20px 55px var(--shadow);
+      padding: 36px; box-shadow: 0 20px 55px var(--shadow);
     }
     .hero-copy { max-width: 640px; }
     h1 { margin: 0 0 8px; font: 800 clamp(32px, 6vw, 52px)/1.08 Georgia, serif; letter-spacing: -0.03em; }
@@ -122,17 +120,6 @@
     }
     .qr-card img { width: 112px; height: 112px; }
     .qr-card span { font-size: 12px; color: var(--muted); text-align: center; }
-    .hero-visual {
-      background: #f4efe4;
-      border-radius: 22px;
-      overflow: hidden;
-    }
-    .hero-visual img {
-      display: block;
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
     .mascot { width: 92px; height: 92px; object-fit: contain; margin-bottom: 8px; }
     section { margin-top: 42px; }
     h2 { margin: 0 0 16px; font: 800 26px/1.2 Georgia, serif; }
@@ -156,7 +143,7 @@
     footer nav { display: flex; flex-wrap: wrap; gap: 12px 18px; }
     @media (max-width: 800px) {
       .steps, .features { grid-template-columns: 1fr; }
-      .hero { padding: 22px 18px 16px; }
+      .hero { padding: 24px; }
     }
     @media (prefers-color-scheme: dark) {
       :root {
@@ -207,9 +194,6 @@
           </div>
         </div>
         <p class="meta" data-i18n="availability">Available on iPhone and iPad · iOS 17+ · Chess &amp; Xiangqi</p>
-      </div>
-      <div class="hero-visual">
-        <img src="img/og-cover.jpg" alt="Two iPhones playing chess and xiangqi face to face without internet">
       </div>
     </section>
 
