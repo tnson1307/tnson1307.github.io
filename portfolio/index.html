@@ -127,7 +127,11 @@
     }
     .card:hover { border-color: var(--line-strong); transform: translateY(-3px); }
     .card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.95rem; }
-    .icon { width: 52px; height: 52px; border-radius: 13px; display: block; }
+    .icon {
+      width: 52px; height: 52px; border-radius: 13px; display: block;
+      object-fit: cover; background: #1a1510;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+    }
     .cat {
       font-size: 0.72rem; color: var(--faint);
       border: 1px solid var(--line); border-radius: 999px; padding: 0.22rem 0.6rem;
@@ -210,7 +214,7 @@
 <body>
   <header class="nav" id="nav">
     <nav class="nav-inner">
-      <a class="logo" href="#home">min.dev</a>
+      <a class="logo" href="#home">min</a>
       <ul class="nav-links" id="nav-links">
         <li><a href="#apps">Apps</a></li>
         <li><a href="#about">Notes</a></li>
@@ -255,13 +259,7 @@
         <div class="grid">
           <article class="card" style="--accent-local:#5ee0a8">
             <div class="card-top">
-              <svg class="icon" viewBox="0 0 128 128" aria-hidden="true">
-                <rect width="128" height="128" rx="28" fill="#1f6b4a"/>
-                <rect x="30" y="30" width="28" height="28" fill="#fff"/>
-                <rect x="70" y="30" width="28" height="28" fill="#0b3d2c"/>
-                <rect x="30" y="70" width="28" height="28" fill="#0b3d2c"/>
-                <rect x="70" y="70" width="28" height="28" fill="#fff"/>
-              </svg>
+              <img class="icon" src="icons/duoqi.png?v=2" alt="DuoQi" width="52" height="52" />
               <span class="cat">Games</span>
             </div>
             <h3>DuoQi</h3>
@@ -278,12 +276,7 @@
 
           <article class="card" style="--accent-local:#e8a0f0">
             <div class="card-top">
-              <svg class="icon" viewBox="0 0 128 128" aria-hidden="true">
-                <rect width="128" height="128" rx="28" fill="#9d3aad"/>
-                <rect x="28" y="32" width="72" height="16" rx="8" fill="#fff"/>
-                <rect x="36" y="56" width="56" height="16" rx="8" fill="#f5d0fe"/>
-                <rect x="44" y="80" width="40" height="16" rx="8" fill="#fae8ff"/>
-              </svg>
+              <img class="icon" src="icons/layerly.png?v=2" alt="Layerly" width="52" height="52" />
               <span class="cat">Skincare</span>
             </div>
             <h3>Layerly</h3>
@@ -300,15 +293,10 @@
 
           <article class="card" style="--accent-local:#7dd3fc">
             <div class="card-top">
-              <svg class="icon" viewBox="0 0 128 128" aria-hidden="true">
-                <rect width="128" height="128" rx="28" fill="#0e7490"/>
-                <circle cx="64" cy="50" r="18" fill="#fef08a"/>
-                <path d="M28 78c12 14 24 8 36 16s24 4 36-8" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
-                <circle cx="40" cy="96" r="8" fill="#fff" fill-opacity=".85"/>
-              </svg>
+              <img class="icon" src="icons/freshair.png?v=2" alt="Fresh Air" width="52" height="52" />
               <span class="cat">Focus</span>
             </div>
-            <h3>Nomodoro</h3>
+            <h3>Fresh Air</h3>
             <p class="tagline">One task. A soft countdown. Repeat.</p>
             <p class="desc">A visual pomodoro with doodle companions — less dashboard, more quiet start. Built for minds that need fewer pings. Unlimited focus stays free.</p>
             <ul class="features">
@@ -322,11 +310,7 @@
 
           <article class="card" style="--accent-local:#fbbf24">
             <div class="card-top">
-              <svg class="icon" viewBox="0 0 128 128" aria-hidden="true">
-                <rect width="128" height="128" rx="28" fill="#b45309"/>
-                <path d="M24 62 L64 30 L104 62 V102 H24 Z" fill="#fff"/>
-                <rect x="54" y="74" width="20" height="28" rx="3" fill="#b45309"/>
-              </svg>
+              <img class="icon" src="icons/homelog.png?v=2" alt="HomeLog" width="52" height="52" />
               <span class="cat">Home</span>
             </div>
             <h3>HomeLog</h3>
@@ -343,12 +327,7 @@
 
           <article class="card" style="--accent-local:#fb7185">
             <div class="card-top">
-              <svg class="icon" viewBox="0 0 128 128" aria-hidden="true">
-                <rect width="128" height="128" rx="28" fill="#be123c"/>
-                <circle cx="50" cy="56" r="20" fill="#fff"/>
-                <circle cx="80" cy="56" r="20" fill="#ffe4e6"/>
-                <path d="M46 86c8 12 28 12 36 0" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
-              </svg>
+              <img class="icon" src="icons/couplebites.png?v=2" alt="CoupleBites" width="52" height="52" />
               <span class="cat">Couple</span>
             </div>
             <h3>CoupleBites</h3>
@@ -365,13 +344,7 @@
 
           <article class="card" style="--accent-local:#93c5fd">
             <div class="card-top">
-              <svg class="icon" viewBox="0 0 128 128" aria-hidden="true">
-                <rect width="128" height="128" rx="28" fill="#1e3a5f"/>
-                <rect x="28" y="36" width="72" height="48" rx="8" fill="#93c5fd"/>
-                <rect x="40" y="48" width="48" height="8" rx="4" fill="#1e3a5f"/>
-                <rect x="40" y="64" width="32" height="8" rx="4" fill="#1e3a5f" opacity=".7"/>
-                <path d="M52 96 l10 10 24-24" fill="none" stroke="#86efac" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+              <img class="icon" src="icons/shipcheck.png?v=2" alt="ShipCheck" width="52" height="52" />
               <span class="cat">Desktop · Mac</span>
             </div>
             <h3>ShipCheck</h3>
