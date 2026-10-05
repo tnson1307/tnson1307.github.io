@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>min.dev — Independent iOS apps</title>
-  <meta name="description" content="Independent iOS apps: DuoQi, Layerly, Fresh Air, HomeLog, and CoupleBites. Local-first tools for everyday life." />
+  <title>min.dev — Independent iOS & Mac apps</title>
+  <meta name="description" content="Independent apps by min.dev: Pocket Rook, Layerly, Nomodoro, HomeLog, CoupleBites for iOS, and ShipCheck for Mac. Local-first tools for everyday life." />
   <meta name="theme-color" content="#16120e" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="min.dev — Quiet tools for ordinary days" />
+  <meta property="og:description" content="Five local-first iOS apps and a Mac tool that catches App Store rejections before Apple does." />
+  <meta name="twitter:card" content="summary" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%2316120e'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Georgia' font-size='28' fill='%23f3ead8'%3Em%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,7 +20,7 @@
       --surface: #221c16;
       --ink: #f3ead8;
       --muted: #b7aa96;
-      --faint: #7d7264;
+      --faint: #8a7f70;
       --line: rgba(243, 234, 216, 0.12);
       --line-strong: rgba(243, 234, 216, 0.22);
       --accent: #e07a4a;
@@ -25,6 +29,7 @@
       --sans: "Outfit", system-ui, sans-serif;
       --max: 1080px;
       --pad: clamp(1.25rem, 4vw, 3rem);
+      --nav-h: 64px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -43,7 +48,16 @@
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
     }
     a { color: inherit; }
+    :focus-visible { outline: 2px solid var(--accent-2); outline-offset: 3px; border-radius: 6px; }
+    [id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
     .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); position: relative; z-index: 1; }
+
+    .skip {
+      position: absolute; left: 1rem; top: -3rem; z-index: 60;
+      background: var(--ink); color: var(--bg); padding: 0.5rem 0.9rem;
+      border-radius: 999px; text-decoration: none; font-weight: 600;
+    }
+    .skip:focus { top: 0.75rem; }
 
     .nav {
       position: sticky; top: 0; z-index: 40;
@@ -51,29 +65,36 @@
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease;
     }
     .nav.scrolled { border-bottom-color: var(--line); }
     .nav-inner {
-      max-width: var(--max); margin: 0 auto; padding: 1rem var(--pad);
+      max-width: var(--max); margin: 0 auto; padding: 0 var(--pad);
+      height: var(--nav-h);
       display: flex; align-items: center; justify-content: space-between;
     }
     .logo {
       font-family: var(--serif); font-size: 1.4rem; font-weight: 600;
       letter-spacing: -0.03em; text-decoration: none;
     }
+    .logo span { color: var(--accent); }
     .nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; }
     .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.92rem; font-weight: 500; }
     .nav-links a:hover { color: var(--ink); }
-    .nav-cta {
-      color: var(--bg) !important; background: var(--ink);
-      padding: 0.45rem 0.9rem !important; border-radius: 999px;
+    .nav-links .nav-cta {
+      color: var(--bg); background: var(--ink);
+      padding: 0.45rem 0.9rem; border-radius: 999px;
     }
-    .nav-cta:hover { background: var(--accent-2) !important; color: var(--bg) !important; }
+    .nav-links .nav-cta:hover { background: var(--accent-2); color: var(--bg); }
     .nav-toggle {
-      display: none; flex-direction: column; gap: 5px;
-      background: none; border: 0; cursor: pointer; padding: 0.35rem;
+      display: none; flex-direction: column; justify-content: center; gap: 5px;
+      width: 40px; height: 40px; align-items: center;
+      background: none; border: 0; cursor: pointer;
     }
-    .nav-toggle span { width: 20px; height: 1.5px; background: var(--ink); }
+    .nav-toggle span { width: 20px; height: 1.5px; background: var(--ink); transition: transform 0.2s ease, opacity 0.2s ease; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
     .hero { position: relative; z-index: 1; padding: clamp(4.2rem, 11vh, 7rem) 0 2.5rem; }
     .kicker {
@@ -87,19 +108,21 @@
       font-size: clamp(2.5rem, 6.4vw, 4.2rem);
       font-weight: 500; letter-spacing: -0.035em; line-height: 1.06;
       max-width: 16ch; margin-bottom: 1.2rem;
+      text-wrap: balance;
     }
-    .lede { color: var(--muted); font-size: 1.08rem; max-width: 38rem; margin-bottom: 1.8rem; }
+    .headline em { font-style: italic; color: var(--accent-2); }
+    .lede { color: var(--muted); font-size: 1.08rem; max-width: 38rem; margin-bottom: 1.8rem; text-wrap: pretty; }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 1.4rem; }
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
       padding: 0.78rem 1.15rem; text-decoration: none; font-weight: 600; font-size: 0.95rem;
-      border-radius: 999px;
+      border-radius: 999px; transition: background 0.15s ease, border-color 0.15s ease;
     }
     .btn-solid { background: var(--accent); color: #1a100c; }
     .btn-solid:hover { background: #ef8a58; }
     .btn-ghost { border: 1px solid var(--line-strong); }
     .btn-ghost:hover { border-color: var(--ink); }
-    .platforms { display: flex; gap: 0.45rem; list-style: none; }
+    .platforms { display: flex; flex-wrap: wrap; gap: 0.45rem; list-style: none; }
     .platforms li {
       padding: 0.28rem 0.7rem; border: 1px solid var(--line); border-radius: 999px;
       color: var(--muted); font-size: 0.78rem;
@@ -125,8 +148,11 @@
       content: ""; position: absolute; left: 1.35rem; right: 1.35rem; top: 0; height: 2px;
       background: var(--accent-local, var(--accent));
     }
-    .card:hover { border-color: var(--line-strong); transform: translateY(-3px); }
-    .card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.95rem; }
+    .card:hover, .card:focus-within { border-color: var(--line-strong); }
+    @media (hover: hover) {
+      .card:hover { transform: translateY(-3px); }
+    }
+    .card-top { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin-bottom: 0.95rem; }
     .icon {
       width: 52px; height: 52px; border-radius: 13px; display: block;
       object-fit: cover; background: #1a1510;
@@ -141,7 +167,7 @@
       letter-spacing: -0.03em; margin-bottom: 0.2rem;
     }
     .tagline { color: var(--accent-local, var(--accent-2)); font-size: 0.95rem; margin-bottom: 0.55rem; }
-    .desc { color: var(--muted); font-size: 0.95rem; margin-bottom: 0.85rem; flex: 1; }
+    .desc { color: var(--muted); font-size: 0.95rem; margin-bottom: 0.85rem; }
     .features { list-style: none; margin-bottom: 0.85rem; }
     .features li {
       position: relative; padding-left: 0.95rem; color: var(--muted);
@@ -156,12 +182,17 @@
       font-size: 0.72rem; color: var(--muted);
       border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.55rem;
     }
+    /* Push the link to the bottom so every card lines up, and stretch it over the card. */
     .visit {
-      margin-top: 1rem; display: inline-flex; align-items: center; gap: 0.35rem;
+      margin-top: auto; padding-top: 1rem;
+      display: inline-flex; align-items: center; gap: 0.35rem; align-self: flex-start;
       font-weight: 600; text-decoration: none;
     }
+    .visit::before { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: 18px; }
+    .visit:focus-visible { outline: none; }
+    .visit:focus-visible::before { outline: 2px solid var(--accent-2); outline-offset: -2px; }
     .visit span { display: inline-block; transition: transform 0.15s ease; }
-    .visit:hover span { transform: translateX(4px); }
+    .card:hover .visit span { transform: translateX(4px); }
 
     .notes { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 2.2rem; }
     .note {
@@ -179,16 +210,18 @@
       border: 0; cursor: pointer; font: inherit; font-weight: 600;
       background: var(--ink); color: var(--bg);
       padding: 0.75rem 1.15rem; border-radius: 999px;
+      transition: background 0.15s ease;
     }
     .mail-btn:hover { background: var(--accent-2); }
 
     .footer { position: relative; z-index: 1; border-top: 1px solid var(--line); }
     .footer-inner {
       max-width: var(--max); margin: 0 auto; padding: 1.3rem var(--pad) 2rem;
-      display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+      display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;
       color: var(--faint); font-size: 0.85rem;
     }
-    .footer a { color: var(--muted); text-decoration: none; margin-left: 1rem; }
+    .footer nav { display: flex; gap: 1rem; }
+    .footer a { color: var(--muted); text-decoration: none; }
     .footer a:hover { color: var(--ink); }
 
     @media (max-width: 900px) {
@@ -198,30 +231,40 @@
     @media (max-width: 767px) {
       .nav-toggle { display: flex; }
       .nav-links {
-        position: fixed; top: 56px; left: 0; right: 0;
+        position: absolute; top: 100%; left: 0; right: 0;
         background: var(--bg); flex-direction: column; align-items: stretch;
-        padding: 1rem var(--pad) 1.2rem; gap: 0.2rem;
-        transform: translateY(-110%); opacity: 0; pointer-events: none;
+        padding: 0.6rem var(--pad) 1.2rem; gap: 0.2rem;
         border-bottom: 1px solid var(--line);
-        transition: transform 0.25s ease, opacity 0.25s ease;
+        transform: translateY(-8px); opacity: 0; visibility: hidden;
+        transition: transform 0.2s ease, opacity 0.2s ease, visibility 0s linear 0.2s;
       }
-      .nav-links.open { transform: none; opacity: 1; pointer-events: auto; }
+      .nav-links.open {
+        transform: none; opacity: 1; visibility: visible;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+      }
       .nav-links a { display: block; padding: 0.7rem 0; }
-      .nav-cta { text-align: center; margin-top: 0.35rem; }
+      .nav-links .nav-cta { text-align: center; margin-top: 0.35rem; padding: 0.7rem 0.9rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+      .card:hover { transform: none; }
     }
   </style>
 </head>
 <body>
+  <a class="skip" href="#apps">Skip to apps</a>
+
   <header class="nav" id="nav">
-    <nav class="nav-inner">
-      <a class="logo" href="#home">min</a>
+    <nav class="nav-inner" aria-label="Main">
+      <a class="logo" href="#home">min<span>.</span></a>
       <ul class="nav-links" id="nav-links">
         <li><a href="#apps">Apps</a></li>
         <li><a href="#about">Notes</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a class="nav-cta" href="#apps">See apps</a></li>
       </ul>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
         <span></span><span></span><span></span>
       </button>
     </nav>
@@ -231,10 +274,10 @@
     <section id="home" class="hero">
       <div class="wrap">
         <p class="kicker">Independent software</p>
-        <h1 class="headline">Quiet tools for ordinary days.</h1>
+        <h1 class="headline">Quiet tools for <em>ordinary</em> days.</h1>
         <p class="lede">
           Five local-first iOS apps — and a Mac tool that catches App Store rejections
-          before Apple does. Board games on two phones, skincare in the right order,
+          before Apple does. Chess at the table without internet, skincare in the right order,
           a gentler pomodoro, a home inventory, a food diary for two, and a pre-submit audit.
         </p>
         <div class="hero-actions">
@@ -244,7 +287,7 @@
         <ul class="platforms" aria-label="Platforms">
           <li>iOS</li>
           <li>macOS</li>
-          <li>Swift</li>
+          <li>SwiftUI</li>
         </ul>
       </div>
     </section>
@@ -253,30 +296,30 @@
       <div class="wrap">
         <header class="section-head">
           <h2>Six products, six landing pages</h2>
-          <p>Each card opens the site already published for that product.</p>
+          <p>Tap any card to open the site published for that product.</p>
         </header>
 
         <div class="grid">
           <article class="card" style="--accent-local:#5ee0a8">
             <div class="card-top">
-              <img class="icon" src="icons/duoqi.png?v=2" alt="DuoQi" width="52" height="52" />
+              <img class="icon" src="icons/pocketrook.png?v=3" alt="" width="52" height="52" loading="lazy" />
               <span class="cat">Games</span>
             </div>
-            <h3>DuoQi</h3>
-            <p class="tagline">Two phones. One board. Offline.</p>
-            <p class="desc">Chess or xiangqi with whoever is sitting next to you. The iPhones talk over local peer-to-peer Wi‑Fi — no account, no matchmaking server, no internet.</p>
+            <h3>Pocket Rook</h3>
+            <p class="tagline">Chess at the table. No internet.</p>
+            <p class="desc">Play chess with the person across from you — one phone between you, or two phones that connect directly and securely. No account, no game server, no Wi‑Fi needed.</p>
             <ul class="features">
-              <li>Host a nearby room or join with a QR scan</li>
-              <li>Chess &amp; Xiangqi, clocks, rematch, and replay</li>
-              <li>Same-device tabletop if you only have one phone</li>
+              <li>One phone, two players — the board turns to face each side</li>
+              <li>Two phones joined by a QR scan or six-digit code</li>
+              <li>Synced clocks, one-tap rematch, shareable final position</li>
             </ul>
             <ul class="tech"><li>Swift</li><li>Peer-to-peer</li><li>iOS 17+</li></ul>
-            <a class="visit" href="https://tnson1307.github.io/duoqi/?lang=en" target="_blank" rel="noopener noreferrer">Visit site <span aria-hidden="true">→</span></a>
+            <a class="visit" href="https://tnson1307.github.io/duoqi/" target="_blank" rel="noopener noreferrer">Visit Pocket Rook <span aria-hidden="true">→</span></a>
           </article>
 
           <article class="card" style="--accent-local:#e8a0f0">
             <div class="card-top">
-              <img class="icon" src="icons/layerly.png?v=2" alt="Layerly" width="52" height="52" />
+              <img class="icon" src="icons/layerly.png?v=2" alt="" width="52" height="52" loading="lazy" />
               <span class="cat">Skincare</span>
             </div>
             <h3>Layerly</h3>
@@ -288,12 +331,12 @@
               <li>Optional progress photos stored on-device</li>
             </ul>
             <ul class="tech"><li>Swift</li><li>Local-first</li><li>iOS</li></ul>
-            <a class="visit" href="https://tnson1307.github.io/layerly/" target="_blank" rel="noopener noreferrer">Visit site <span aria-hidden="true">→</span></a>
+            <a class="visit" href="https://tnson1307.github.io/layerly/" target="_blank" rel="noopener noreferrer">Visit Layerly <span aria-hidden="true">→</span></a>
           </article>
 
           <article class="card" style="--accent-local:#7dd3fc">
             <div class="card-top">
-              <img class="icon" src="icons/freshair.png?v=2" alt="Fresh Air" width="52" height="52" />
+              <img class="icon" src="icons/freshair.png?v=2" alt="" width="52" height="52" loading="lazy" />
               <span class="cat">Focus</span>
             </div>
             <h3>Nomodoro</h3>
@@ -304,13 +347,13 @@
               <li>Companions unlocked with focused minutes</li>
               <li>ADHD-friendly by design, no medical claims</li>
             </ul>
-            <ul class="tech"><li>Swift</li><li>Widgets</li><li>ADHD-friendly</li></ul>
-            <a class="visit" href="https://tnson1307.github.io/freshair" target="_blank" rel="noopener noreferrer">Visit site <span aria-hidden="true">→</span></a>
+            <ul class="tech"><li>Swift</li><li>Widgets</li><li>Live Activities</li></ul>
+            <a class="visit" href="https://tnson1307.github.io/freshair/" target="_blank" rel="noopener noreferrer">Visit Nomodoro <span aria-hidden="true">→</span></a>
           </article>
 
           <article class="card" style="--accent-local:#fbbf24">
             <div class="card-top">
-              <img class="icon" src="icons/homelog.png?v=2" alt="HomeLog" width="52" height="52" />
+              <img class="icon" src="icons/homelog.png?v=2" alt="" width="52" height="52" loading="lazy" />
               <span class="cat">Home</span>
             </div>
             <h3>HomeLog</h3>
@@ -322,30 +365,30 @@
               <li>Recurring maintenance on the lock screen</li>
             </ul>
             <ul class="tech"><li>Swift</li><li>Local-first</li><li>Offline</li></ul>
-            <a class="visit" href="https://tnson1307.github.io/homelog/" target="_blank" rel="noopener noreferrer">Visit site <span aria-hidden="true">→</span></a>
+            <a class="visit" href="https://tnson1307.github.io/homelog/" target="_blank" rel="noopener noreferrer">Visit HomeLog <span aria-hidden="true">→</span></a>
           </article>
 
           <article class="card" style="--accent-local:#fb7185">
             <div class="card-top">
-              <img class="icon" src="icons/couplebites.png?v=2" alt="CoupleBites" width="52" height="52" />
-              <span class="cat">Couple</span>
+              <img class="icon" src="icons/couplebites.png?v=2" alt="" width="52" height="52" loading="lazy" />
+              <span class="cat">Couples</span>
             </div>
             <h3>CoupleBites</h3>
             <p class="tagline">A food diary that never leaves your two phones.</p>
             <p class="desc">Snap a meal, turn it into a sticker, send it over a direct QR connection. Keep a shared streak. No server, no account — the diary stays on-device.</p>
             <ul class="features">
               <li>Auto-sorts food vs drink from the photo</li>
-              <li>Duolingo-style streak with forgiving freezes</li>
+              <li>Shared streak with forgiving freezes</li>
               <li>Peer-to-peer share, no internet required</li>
             </ul>
             <ul class="tech"><li>Swift</li><li>Peer-to-peer</li><li>On-device</li></ul>
-            <a class="visit" href="https://tnson1307.github.io/couplebites/" target="_blank" rel="noopener noreferrer">Visit site <span aria-hidden="true">→</span></a>
+            <a class="visit" href="https://tnson1307.github.io/couplebites/" target="_blank" rel="noopener noreferrer">Visit CoupleBites <span aria-hidden="true">→</span></a>
           </article>
 
           <article class="card" style="--accent-local:#93c5fd">
             <div class="card-top">
-              <img class="icon" src="icons/shipcheck.png?v=2" alt="ShipCheck" width="52" height="52" />
-              <span class="cat">Desktop · Mac</span>
+              <img class="icon" src="icons/shipcheck.png?v=2" alt="" width="52" height="52" loading="lazy" />
+              <span class="cat">macOS</span>
             </div>
             <h3>ShipCheck</h3>
             <p class="tagline">Stamp it cleared before Apple stamps it rejected.</p>
@@ -356,7 +399,7 @@
               <li>CLI for CI so drift fails the build, not the submit</li>
             </ul>
             <ul class="tech"><li>Swift</li><li>macOS</li><li>App Store Connect API</li></ul>
-            <a class="visit" href="https://tnson1307.github.io/shipcheck/" target="_blank" rel="noopener noreferrer">Visit site <span aria-hidden="true">→</span></a>
+            <a class="visit" href="https://tnson1307.github.io/shipcheck/" target="_blank" rel="noopener noreferrer">Visit ShipCheck <span aria-hidden="true">→</span></a>
           </article>
         </div>
       </div>
@@ -371,15 +414,15 @@
         <div class="notes">
           <article class="note">
             <h3>On the device</h3>
-            <p>DuoQi and CoupleBites talk peer-to-peer. HomeLog, Layerly, and Fresh Air keep data local. ShipCheck audits on your Mac — the .p8 key never leaves Keychain.</p>
+            <p>Pocket Rook and CoupleBites talk peer-to-peer. HomeLog, Layerly, and Nomodoro keep data local. ShipCheck audits on your Mac — the .p8 key never leaves Keychain.</p>
           </article>
           <article class="note">
             <h3>Ordinary habits</h3>
-            <p>A board game at the table, serum in the right order, one quiet focus block, a filter reminder, a meal you both remember — and a check before you hit Submit.</p>
+            <p>A game of chess at the table, serum in the right order, one quiet focus block, a filter reminder, a meal you both remember — and a check before you hit Submit.</p>
           </article>
           <article class="note">
             <h3>Shipped end to end</h3>
-            <p>Each product is designed, built, and published on its own landing page. Open a card to go there.</p>
+            <p>Each product is designed, built, and published by one person, with its own landing page. Open a card to go there.</p>
           </article>
         </div>
         <div class="bottom">
@@ -387,8 +430,8 @@
             <h3 class="sub">Tech stack</h3>
             <div class="stack">
               <div>
-                <p>Mobile</p>
-                <ul class="chips"><li>Swift</li><li>SwiftUI</li><li>iOS</li><li>macOS</li></ul>
+                <p>Apps</p>
+                <ul class="chips"><li>Swift</li><li>SwiftUI</li><li>iOS</li><li>macOS</li><li>WidgetKit</li></ul>
               </div>
               <div>
                 <p>Architecture</p>
@@ -396,7 +439,7 @@
               </div>
               <div>
                 <p>Web</p>
-                <ul class="chips"><li>HTML</li><li>GitHub Pages</li></ul>
+                <ul class="chips"><li>HTML</li><li>CSS</li><li>GitHub Pages</li></ul>
               </div>
             </div>
           </div>
@@ -412,8 +455,8 @@
 
   <footer class="footer">
     <div class="footer-inner">
-      <p>© <span id="year"></span> min.dev</p>
-      <nav>
+      <p>© <span id="year">2026</span> min.dev</p>
+      <nav aria-label="Footer">
         <a href="#apps">Apps</a>
         <a href="#about">Notes</a>
         <a href="#contact">Contact</a>
@@ -426,19 +469,32 @@
       var nav = document.getElementById("nav");
       var toggle = document.getElementById("nav-toggle");
       var links = document.getElementById("nav-links");
+
       function onScroll() { nav.classList.toggle("scrolled", window.scrollY > 8); }
       onScroll();
       window.addEventListener("scroll", onScroll, { passive: true });
-      toggle.addEventListener("click", function () {
-        var open = links.classList.toggle("open");
+
+      function setMenu(open) {
+        links.classList.toggle("open", open);
         toggle.setAttribute("aria-expanded", String(open));
+        toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      }
+      toggle.addEventListener("click", function () {
+        setMenu(!links.classList.contains("open"));
       });
       links.querySelectorAll("a").forEach(function (a) {
-        a.addEventListener("click", function () {
-          links.classList.remove("open");
-          toggle.setAttribute("aria-expanded", "false");
-        });
+        a.addEventListener("click", function () { setMenu(false); });
       });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && links.classList.contains("open")) { setMenu(false); toggle.focus(); }
+      });
+      document.addEventListener("click", function (e) {
+        if (links.classList.contains("open") && !nav.contains(e.target)) setMenu(false);
+      });
+      window.matchMedia("(min-width: 768px)").addEventListener("change", function (mq) {
+        if (mq.matches) setMenu(false);
+      });
+
       document.getElementById("year").textContent = String(new Date().getFullYear());
       document.getElementById("mail-btn").addEventListener("click", function () {
         location.href = "mailto:" + ["tnson", "bwaco.vn"].join("@");
