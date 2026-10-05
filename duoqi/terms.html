@@ -1,60 +1,72 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DuoQi — Terms of Use</title>
+<title>Pocket Rook — Terms of Use</title>
 <style>
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 680px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #333; }
-  h1 { font-size: 1.6em; }
-  h2 { font-size: 1.2em; margin-top: 1.8em; }
+  /* Matches the app and the home page: cream paper, charcoal ink, mustard. */
+  :root { color-scheme: light dark; --paper: #F6F1E6; --dot: rgba(46,46,49,0.10); --card: #fff; --ink: #333336; --muted: #5C5C61; --accent: #EBB84A; --accent-ink: #8F6200; --shadow: rgba(51,51,54,0.55); }
+  @media (prefers-color-scheme: dark) { :root { --paper: #141415; --dot: rgba(210,210,210,0.10); --card: #1F1F21; --ink: #D1D1D1; --muted: #A8A8AD; --accent-ink: #EBB84A; --shadow: rgba(209,209,209,0.45); } }
+  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: var(--ink); background-color: var(--paper); background-image: radial-gradient(var(--dot) 1.6px, transparent 1.6px); background-size: 22px 22px; }
+  main { max-width: 720px; margin: 32px auto 56px; padding: 28px 30px; background: var(--card); border: 2px solid var(--ink); border-radius: 12px; box-shadow: 4px 4px 0 var(--shadow); }
+  @media (max-width: 760px) { main { margin: 16px; padding: 20px; } }
+  a { color: var(--accent-ink); font-weight: 800; }
+  .back { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--ink); font-weight: 900; }
+  .back img { width: 28px; height: 28px; border-radius: 7px; border: 2px solid var(--ink); }
+  h1 { font-size: 2em; font-weight: 900; letter-spacing: -0.02em; margin: 18px 0 4px; }
+  h2 { font-size: 1.2em; font-weight: 900; margin-top: 1.8em; }
+  h3 { font-size: 1.02em; font-weight: 800; margin-bottom: 0.2em; }
   p, ul { margin: 0.6em 0; }
   ul { padding-left: 1.4em; }
-  .updated { color: #888; font-size: 0.9em; }
+  .updated { display: inline-block; font-size: 0.85em; font-weight: 800; color: var(--ink); background: var(--accent); border: 2px solid var(--ink); border-radius: 6px; padding: 2px 8px; }
 </style>
+<link rel="icon" type="image/png" href="img/favicon.png">
 </head>
 <body>
+<main>
 
+<p><a class="back" href="./"><img src="img/app-icon.png" alt="">← Pocket Rook</a></p>
 <h1>Terms of Use</h1>
-<p class="updated">Last updated: August 19, 2026</p>
+<p class="updated">Last updated: October 5, 2026</p>
 
-<p>By downloading or using DuoQi ("the App"), you agree to the following terms. If you do not agree, please do not use the App.</p>
+<p>By downloading or using Pocket Rook ("the App"), you agree to the following terms. If you do not agree, please do not use the App.</p>
 
 <h2>1. Description of Service</h2>
-<p>DuoQi is a mobile application for playing chess and xiangqi (Chinese chess) between two nearby devices over a local peer-to-peer connection. The App does not require an internet connection for gameplay.</p>
+<p>Pocket Rook is a mobile application for playing chess face to face, on one device or between two nearby devices over a local peer-to-peer connection. The App does not require an internet connection for gameplay.</p>
 
 <h2>2. License</h2>
-<p>We grant you a limited, non-exclusive, non-transferable, revocable license to use the App for personal, non-commercial purposes, subject to these Terms and Apple's Standard Licensed Application End User License Agreement (EULA).</p>
+<p>We grant you a limited, non-exclusive, non-transferable, revocable license to use the App for personal, non-commercial purposes, subject to these Terms and Apple's <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Standard Licensed Application End User License Agreement (EULA)</a>.</p>
 
 <h2>3. In-App Purchases</h2>
 <ul>
-  <li><strong>DuoQi Pro Lifetime</strong> ($29.99): A one-time purchase that unlocks all Pro features permanently.</li>
-  <li><strong>DuoQi Pro Yearly</strong> ($19.99): A one-time purchase granting Pro features. Does not auto-renew.</li>
-  <li><strong>DuoQi Pro Monthly</strong> ($3.99): A one-time purchase granting Pro features. Does not auto-renew.</li>
+  <li><strong>Pocket Rook Pro Lifetime</strong> ($19.99): a one-time purchase that unlocks Pro permanently.</li>
+  <li><strong>Pocket Rook Pro Yearly</strong> ($9.99 per year): an auto-renewable subscription.</li>
+  <li><strong>Pocket Rook Pro Monthly</strong> ($1.99 per month): an auto-renewable subscription.</li>
 </ul>
-<p>All purchases are processed by Apple through the App Store. Prices are in USD and may vary by region. Refunds are handled by Apple according to their refund policy.</p>
+<p>Prices are shown in USD and may vary by country. Payment is charged to your Apple ID at confirmation of purchase. Subscriptions renew automatically at the same price for the same period unless auto-renew is turned off at least 24 hours before the end of the current period. You can manage or cancel subscriptions in your Apple ID account settings (Settings › your name › Subscriptions). Refunds are handled by Apple under its refund policy. Earlier Piece Pack purchases continue to unlock Pro.</p>
 
 <h2>4. Free Tier</h2>
-<p>Without a Pro purchase, you may play a limited number of games per day. The free tier includes full gameplay features with no advertisements.</p>
+<p>Without Pro you can play an unlimited number of games on one device and up to five two-phone games per day. If either player in a two-phone game has Pro, that game is free for both. The free tier has no advertisements.</p>
 
 <h2>5. User Conduct</h2>
 <p>You agree to use the App in a manner consistent with all applicable laws. You may not reverse-engineer, decompile, or modify the App beyond what is permitted by law.</p>
 
 <h2>6. Intellectual Property</h2>
-<p>All content, design, graphics, and code in the App are owned by DuoQi and protected by applicable intellectual property laws. Traditional chess and xiangqi game rules are in the public domain.</p>
+<p>All content, design, graphics, and code in the App are owned by the developer of Pocket Rook and protected by applicable intellectual property laws. The traditional rules of chess are in the public domain.</p>
 
 <h2>7. Disclaimer of Warranties</h2>
 <p>The App is provided "as is" without warranties of any kind, either express or implied. We do not guarantee uninterrupted or error-free operation.</p>
 
 <h2>8. Limitation of Liability</h2>
-<p>To the maximum extent permitted by law, DuoQi shall not be liable for any indirect, incidental, or consequential damages arising from your use of the App.</p>
+<p>To the maximum extent permitted by law, the developer of Pocket Rook shall not be liable for any indirect, incidental, or consequential damages arising from your use of the App.</p>
 
 <h2>9. Changes to These Terms</h2>
 <p>We reserve the right to update these Terms at any time. Continued use of the App after changes constitutes acceptance of the new Terms.</p>
 
 <h2>10. Contact</h2>
-<p>For questions about these Terms, please contact us at <strong>tnson@bwaco.vn</strong>.</p>
+<p>For questions about these Terms, please contact us at <strong>duoqi.app@gmail.com</strong>.</p>
 
+</main>
 </body>
 </html>
