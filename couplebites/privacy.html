@@ -4,156 +4,128 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Privacy Policy — CoupleBites</title>
-<style>
-  :root {
-    --ink: #2b2320;
-    --ink-soft: #6b5f58;
-    --paper: #fdf8f3;
-    --paper-raised: #ffffff;
-    --hairline: #e7dcd2;
-    --accent: #d97757;
-    --sage: #7a9471;
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
-  }
-  .wrap {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 56px 24px 96px;
-  }
-  header { margin-bottom: 40px; }
-  h1 {
-    font-size: 2rem;
-    margin: 0 0 8px;
-    letter-spacing: -0.01em;
-  }
-  .meta { color: var(--ink-soft); font-size: 0.9rem; }
-  .lede {
-    background: var(--paper-raised);
-    border: 1px solid var(--hairline);
-    border-left: 4px solid var(--sage);
-    border-radius: 10px;
-    padding: 16px 18px;
-    margin: 24px 0 8px;
-    font-size: 0.98rem;
-  }
-  h2 {
-    font-size: 1.15rem;
-    margin: 40px 0 12px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--hairline);
-  }
-  p, li { color: var(--ink); font-size: 0.98rem; }
-  p { margin: 0 0 14px; }
-  ul { margin: 0 0 14px; padding-left: 22px; }
-  li { margin-bottom: 6px; }
-  a { color: var(--accent); }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 8px 0 20px;
-    font-size: 0.92rem;
-  }
-  th, td {
-    text-align: left;
-    padding: 10px 12px;
-    border-bottom: 1px solid var(--hairline);
-    vertical-align: top;
-  }
-  th {
-    color: var(--ink-soft);
-    font-weight: 600;
-    font-size: 0.82rem;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-  }
-  .table-wrap { overflow-x: auto; }
-
-  footer {
-    margin-top: 56px;
-    padding-top: 20px;
-    border-top: 1px solid var(--hairline);
-    color: var(--ink-soft);
-    font-size: 0.85rem;
-  }
-  footer a { color: var(--ink-soft); }
-</style>
+<meta name="description" content="How CoupleBites handles your data: no account, no server of our own, no tracking. Your diary lives on your device and in your own iCloud.">
+<link rel="icon" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
-<div class="wrap">
-  <header>
+
+<header class="topbar">
+  <div class="wrap narrow">
+    <a class="brand" href="./"><img src="icon.png" alt=""><span>CoupleBites</span></a>
+    <nav class="nav">
+      <a href="privacy.html" aria-current="page">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap narrow">
+  <div class="doc-head">
     <h1>Privacy Policy</h1>
-    <div class="meta">CoupleBites · Effective date: September 11, 2026</div>
-  </header>
-
-  <div class="lede">
-    <strong>The short version:</strong> CoupleBites has no server, no account, and no sign-in. Your diary, your photos, and your name stay on your device unless you personally choose to export them or share a meal with your partner's phone directly. We — the developer — never receive, see, or store any of it.
+    <span class="meta">Effective date: October 8, 2026</span>
   </div>
 
-  <h2>1. Who We Are</h2>
-  <p>CoupleBites is developed by an independent developer. This policy explains what happens to your information when you use the App. If you have questions, contact <a href="mailto:tnson@bwaco.vn">tnson@bwaco.vn</a>.</p>
-
-  <h2>2. No Accounts, No Servers</h2>
-  <p>CoupleBites does not require you to create an account or sign in, and it does not communicate with any backend server operated by us. There is nothing for us to collect, because nothing you enter in the App ever leaves your device on its own.</p>
-
-  <h2>3. What's Stored, and Where</h2>
-  <div class="table-wrap">
-  <table>
-    <tr><th>Data</th><th>Where it lives</th><th>Leaves your device?</th></tr>
-    <tr><td>Meal entries, photos, notes, dates</td><td>Locally on your device only</td><td>No, unless you export or share it yourself</td></tr>
-    <tr><td>Your display name & avatar</td><td>Locally on your device only</td><td>Only sent to a partner's phone when you actively share a meal with them</td></tr>
-    <tr><td>Meal location tags (optional)</td><td>Locally on your device only</td><td>No</td></tr>
-    <tr><td>Meal reminder settings (on/off, times, if enabled)</td><td>Locally on your device only</td><td>No</td></tr>
-    <tr><td>Diary backup file (Pro feature)</td><td>Wherever you choose to save it (Files, iCloud Drive, AirDrop, etc.)</td><td>Only if and where you choose to save/send it</td></tr>
-    <tr><td>Points progress & claimed collectible icons</td><td>Locally on your device only</td><td>No — your points total is simply computed from your own diary entries already on your device, and never leaves it</td></tr>
-    <tr><td>Chosen Home Screen icon</td><td>Set directly by iOS on your device (Apple's own API)</td><td>No</td></tr>
-    <tr><td>Purchase/subscription status</td><td>Managed entirely by Apple (StoreKit)</td><td>Handled by Apple; we only see whether you currently have Pro, not any payment details</td></tr>
-  </table>
+  <div class="summary">
+    <strong>The short version:</strong> CoupleBites has no account, no sign-in and no server of its own. Your diary lives on your device and in <em>your own</em> iCloud account, and is shared only with the partner you invite. We, the developer, never receive, see or store any of it. There are no ads, no analytics and no trackers.
   </div>
 
-  <h2>4. Permissions the App May Ask For</h2>
-  <ul>
-    <li><strong>Camera</strong> — to photograph a meal you're logging, and to scan your partner's QR code when receiving a meal they've shared with you.</li>
-    <li><strong>Photos</strong> — the App uses Apple's built-in photo picker to let you choose an existing photo for a meal or your profile avatar. This picker runs outside the App itself and only ever hands back the exact photo you pick — the App is never given access to, and cannot browse, your photo library.</li>
-    <li><strong>Location (While Using)</strong> — optional, used only to suggest a nearby place name to tag a meal with. You can decline this and tag meals manually or not at all.</li>
-    <li><strong>Local Network</strong> — used only when you actively start or join a "share a meal with your partner" session, to find and connect to their phone directly over Bluetooth/Wi-Fi. It is not used for anything else, and no data is exchanged unless a meal transfer is actually in progress.</li>
-    <li><strong>Notifications</strong> — optional, only if you turn on meal-logging reminders (breakfast/lunch/dinner) in Settings. These are local, on-device reminders scheduled by the App itself at times you choose — they never involve a push service, a server, or any data leaving your device, and each one can be turned off individually anytime.</li>
-  </ul>
-  <p>You can review or change any of these permissions anytime in your device's Settings app.</p>
+  <div class="doc">
+    <section>
+      <h2><span class="n">1</span>Who we are</h2>
+      <p>CoupleBites (the "App") is made by an independent developer. This policy explains what happens to your information when you use the App. Questions are welcome at <a href="mailto:tnson@bwaco.vn">tnson@bwaco.vn</a>.</p>
+    </section>
 
-  <h2>5. On-Device Photo Recognition</h2>
-  <p>When you add a photo, CoupleBites uses Apple's on-device Vision framework to sort it as food or a drink and to cut out its background for the sticker look — the same underlying technology behind Photos' own subject-lift and search features. This runs entirely on your device; the photo is never sent anywhere, to us or to Apple, to make this happen.</p>
+    <section>
+      <h2><span class="n">2</span>No accounts, no servers of our own</h2>
+      <p>You never create an account or sign in, and the App never talks to a server run by us. If you're signed in to iCloud on your device, the App keeps your diary in your own private iCloud storage (Apple's CloudKit), so it stays safe and in sync. That data belongs to your Apple account: it counts toward your iCloud storage, Apple protects it, and we can't access it. If you're not signed in to iCloud, everything stays on your device.</p>
+    </section>
 
-  <h2>6. Sharing a Meal With Your Partner</h2>
-  <p>When you share a meal, the App creates a short-lived, one-time QR code and connects directly to your partner's device over a local peer-to-peer connection — never through the internet or any server, and encrypted the whole way using Apple's standard networking frameworks. Only the meal you chose to share (its photos, date, and your display name/avatar) is sent, directly to that one device.</p>
+    <section>
+      <h2><span class="n">3</span>What's stored, and where</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Data</th><th>Where it lives</th><th>Who else can see it</th></tr></thead>
+          <tbody>
+            <tr><td>Meals: photos (as stickers), meal slot, date and time, "eaten together", place tags</td><td>Your device, and your own iCloud (if signed in)</td><td>The partner you invite, once connected. A connected couple shares every meal.</td></tr>
+            <tr><td>Reactions to meals</td><td>Your device and iCloud, next to the meal</td><td>You and your partner</td></tr>
+            <tr><td>Your display name and avatar (picked from the App's built-in icons)</td><td>Your device and iCloud</td><td>The partner you invite</td></tr>
+            <tr><td>Your slime: name, look and accessories</td><td>Your device and iCloud</td><td>The partner you invite (you share one slime)</td></tr>
+            <tr><td>Slime level and streak</td><td>Calculated on your device from your diary</td><td>Your partner sees the same shared slime</td></tr>
+            <tr><td>Backup file (manual export)</td><td>Wherever you choose to save it (Files, iCloud Drive, AirDrop…)</td><td>Only whoever you give it to</td></tr>
+            <tr><td>Home Screen widget</td><td>A small summary (slime, streak, a few of today's stickers), shared only between the App and its widget on your device</td><td>No one</td></tr>
+            <tr><td>App preferences (e.g. when you were last asked for a rating)</td><td>Your device only</td><td>No one</td></tr>
+            <tr><td>Purchases and subscriptions</td><td>Handled entirely by Apple (StoreKit)</td><td>Apple. The App only learns whether Pro is active, never your payment details.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-  <h2>7. Analytics, Advertising & Third Parties</h2>
-  <p>CoupleBites does not use any third-party analytics, advertising, or tracking SDKs. We do not sell, rent, or share your data with anyone, because we do not have access to it in the first place. The only third party involved at all is Apple, which processes in-app purchases through StoreKit under its own privacy policy.</p>
-  <p>"Write a Review" and "Recommend to Friends," in Settings, simply open the App Store's own review screen or iOS's own share sheet — actions Apple/iOS handle entirely on your device. Choosing to leave a review is governed by Apple's own terms; choosing to share happens exactly the way it would from any other app (you pick who to send our App Store link to), and does not send any of your diary content or personal information along with it.</p>
+    <section>
+      <h2><span class="n">4</span>Permissions the App may ask for</h2>
+      <ul>
+        <li><strong>Camera</strong>: to photograph a meal you're logging.</li>
+        <li><strong>Photos</strong>: to pick an existing photo for a meal, the App uses Apple's photo picker, which hands back only the photos you choose. The App can't browse your library. If you save a recap card to Photos, iOS asks for permission to <em>add</em> that one image; the App still can't read your library.</li>
+        <li><strong>Location (while using the App)</strong>: optional, only to suggest nearby place names when you tag where you ate (a Pro feature). Searching for places uses Apple Maps, so your approximate location and search text go to Apple under Apple's privacy policy. Nothing goes to us, and the App works fine if you say no.</li>
+        <li><strong>Notifications</strong>: optional. They tell you when your partner logs a meal or reacts to yours, and when your monthly recap is ready. They're created on your device from your iCloud data, not sent by any server of ours.</li>
+      </ul>
+      <p>You can change any of these at any time in your device's Settings app.</p>
+    </section>
 
-  <h2>8. Children's Privacy</h2>
-  <p>CoupleBites is not directed at children under 13, and we do not knowingly collect any information from children, consistent with Section 2 above (we don't collect information from anyone).</p>
+    <section>
+      <h2><span class="n">5</span>On-device photo processing</h2>
+      <p>When you add a photo, the App uses Apple's on-device Vision framework to tell food from drinks and to cut the dish out of its background for the sticker look. This happens entirely on your device: the photo isn't sent to us or to Apple for it.</p>
+    </section>
 
-  <h2>9. Data Deletion</h2>
-  <p>Because everything lives on your device, deleting the App deletes your diary, photos, and profile with it. If you've saved a backup file elsewhere (Files, iCloud Drive, etc.), that copy is yours to delete separately from wherever you saved it.</p>
+    <section>
+      <h2><span class="n">6</span>Sharing a diary with your partner</h2>
+      <p>You can invite one partner to share your diary using Apple's iCloud sharing. The invite is a link you send yourself, from any app you like. It opens a small page on our website (hosted by GitHub Pages) that hands the invite to the App. That page doesn't use cookies, analytics or forms; like any website host, GitHub may keep standard technical logs under its own privacy statement.</p>
+      <p>Once your partner joins, you both see and add meals in the shared diary, including photos, place tags, reactions, the shared slime, and each other's display name and avatar.</p>
+      <p>Either of you can end sharing at any time from the App. Each of you keeps a copy of the diary up to that point. The shared data is stored in the inviter's iCloud and handled by Apple; it never passes through a server of ours.</p>
+    </section>
 
-  <h2>10. Changes to This Policy</h2>
-  <p>If this policy changes, we'll update the effective date above. Since the App has no way to reach you directly (no account, no push notifications about policy changes), please check back here occasionally if you'd like to stay informed.</p>
+    <section>
+      <h2><span class="n">7</span>Analytics, advertising and third parties</h2>
+      <p>The App contains no third-party analytics, advertising or tracking code, and we don't sell, rent or share your data, because we never have it. The only third party involved is Apple: iCloud, the App Store and in-app purchases, and Apple Maps for place search.</p>
+      <p>Once in a while, after you've used the App for a bit, it may show Apple's standard "rate this app" prompt. "Write a Review" and "Recommend to Friends" in Settings open the App Store or the iOS share sheet; nothing from your diary is sent along.</p>
+    </section>
 
-  <h2>11. Contact</h2>
-  <p>Questions about this policy or your data? Reach out at <a href="mailto:tnson@bwaco.vn">tnson@bwaco.vn</a>.</p>
+    <section>
+      <h2><span class="n">8</span>Children</h2>
+      <p>The App isn't directed at children under 13. We don't knowingly collect information from children, or from anyone (see section 2).</p>
+    </section>
 
-  <footer>
-    <p>See also our <a href="terms.html">Terms of Use</a>.</p>
-    <p>© 2026 CoupleBites. All rights reserved.</p>
-  </footer>
-</div>
+    <section>
+      <h2><span class="n">9</span>Deleting your data</h2>
+      <p>Deleting the App removes the diary from that device. The copy in your iCloud stays until you remove it. On iPhone, go to Settings › [your name] › iCloud › Manage Account Storage › CoupleBites › Delete Data. If you share a diary, end sharing in the App first; your partner keeps their copy as described above. Backup files you've saved elsewhere are yours to delete separately.</p>
+    </section>
+
+    <section>
+      <h2><span class="n">10</span>Changes to this policy</h2>
+      <p>If this policy changes, we'll update the effective date above. The App has no way to contact you, so please check this page now and then.</p>
+    </section>
+
+    <section>
+      <h2><span class="n">11</span>Contact</h2>
+      <p>Questions about this policy or your data? Write to <a href="mailto:tnson@bwaco.vn">tnson@bwaco.vn</a>.</p>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap narrow">
+    <span>© 2026 CoupleBites</span>
+    <nav>
+      <a href="./">Home</a>
+      <a href="terms.html">Terms of Use</a>
+      <a href="mailto:tnson@bwaco.vn">Contact</a>
+    </nav>
+  </div>
+</footer>
+
 </body>
 </html>
