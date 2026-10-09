@@ -5,501 +5,509 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>min.dev — Independent iOS & Mac apps</title>
   <meta name="description" content="Independent apps by min.dev: Pocket Rook, Layerly, Nomodoro, HomeLog, CoupleBites for iOS, and ShipCheck for Mac. Local-first tools for everyday life." />
-  <meta name="theme-color" content="#16120e" />
+  <meta name="theme-color" content="#FFF4E2" />
+  <meta name="color-scheme" content="light" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="min.dev — Quiet tools for ordinary days" />
   <meta property="og:description" content="Five local-first iOS apps and a Mac tool that catches App Store rejections before Apple does." />
   <meta name="twitter:card" content="summary" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%2316120e'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Georgia' font-size='28' fill='%23f3ead8'%3Em%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" href="assets/slime.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <style>
+    /* min.dev — neo-brutalist: paper, ink, flat colour, thick outlines, hard shadows. */
     :root {
-      --bg: #16120e;
-      --surface: #221c16;
-      --ink: #f3ead8;
-      --muted: #b7aa96;
-      --faint: #8a7f70;
-      --line: rgba(243, 234, 216, 0.12);
-      --line-strong: rgba(243, 234, 216, 0.22);
-      --accent: #e07a4a;
-      --accent-2: #f0c27a;
-      --serif: "Fraunces", Georgia, serif;
-      --sans: "Outfit", system-ui, sans-serif;
-      --max: 1080px;
-      --pad: clamp(1.25rem, 4vw, 3rem);
-      --nav-h: 64px;
+      --paper: #FFF4E2;
+      --paper-raised: #FFFFFF;
+      --ink: #1E1A16;
+      --ink-soft: #5A5048;
+      --orange: #FF7A45;
+      --butter: #FFD25E;
+      --mint: #8EDDB1;
+      --sky: #9ED8F5;
+      --pink: #FFB4C6;
+      --lilac: #D9C2FF;
+      --line: 3px solid var(--ink);
+      --shadow: 6px 6px 0 var(--ink);
+      --shadow-sm: 3px 3px 0 var(--ink);
+      --shadow-lg: 9px 9px 0 var(--ink);
+      --display: "Bricolage Grotesque", system-ui, sans-serif;
+      --mono: "Space Mono", ui-monospace, monospace;
+      --max: 1120px;
+      --pad: clamp(16px, 4vw, 40px);
+      --radius: 14px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
     body {
-      font-family: var(--sans);
-      background: var(--bg);
-      color: var(--ink);
-      min-height: 100vh;
+      font-family: var(--display);
+      font-size: 17px;
       line-height: 1.55;
-      -webkit-font-smoothing: antialiased;
-    }
-    body::before {
-      content: "";
-      position: fixed; inset: 0; pointer-events: none; z-index: 0;
-      opacity: 0.06;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+      color: var(--ink);
+      background-color: var(--paper);
+      background-image: radial-gradient(rgba(30, 26, 22, 0.13) 1.3px, transparent 1.3px);
+      background-size: 24px 24px;
+      overflow-x: hidden;
     }
     a { color: inherit; }
-    :focus-visible { outline: 2px solid var(--accent-2); outline-offset: 3px; border-radius: 6px; }
-    [id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); position: relative; z-index: 1; }
+    img { max-width: 100%; display: block; }
+    :focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+    [id] { scroll-margin-top: 90px; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+    .mono { font-family: var(--mono); }
 
     .skip {
-      position: absolute; left: 1rem; top: -3rem; z-index: 60;
-      background: var(--ink); color: var(--bg); padding: 0.5rem 0.9rem;
-      border-radius: 999px; text-decoration: none; font-weight: 600;
+      position: absolute; left: 12px; top: -60px; z-index: 60;
+      background: var(--butter); border: var(--line); padding: 8px 14px; font-weight: 700;
     }
-    .skip:focus { top: 0.75rem; }
+    .skip:focus { top: 12px; }
 
-    .nav {
+    /* ---------- Top bar ---------- */
+    .bar {
       position: sticky; top: 0; z-index: 40;
-      background: rgba(22, 18, 14, 0.88);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s ease;
+      background: var(--paper); border-bottom: var(--line);
     }
-    .nav.scrolled { border-bottom-color: var(--line); }
-    .nav-inner {
-      max-width: var(--max); margin: 0 auto; padding: 0 var(--pad);
-      height: var(--nav-h);
-      display: flex; align-items: center; justify-content: space-between;
-    }
+    .bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 70px; }
     .logo {
-      font-family: var(--serif); font-size: 1.4rem; font-weight: 600;
-      letter-spacing: -0.03em; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 10px;
+      font-weight: 800; font-size: 1.45rem; letter-spacing: -0.03em; text-decoration: none;
     }
-    .logo span { color: var(--accent); }
-    .nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; }
-    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.92rem; font-weight: 500; }
-    .nav-links a:hover { color: var(--ink); }
-    .nav-links .nav-cta {
-      color: var(--bg); background: var(--ink);
-      padding: 0.45rem 0.9rem; border-radius: 999px;
+    .logo img {
+      width: 42px; height: 42px; padding: 3px;
+      background: var(--butter); border: var(--line); border-radius: 12px; box-shadow: var(--shadow-sm);
     }
-    .nav-links .nav-cta:hover { background: var(--accent-2); color: var(--bg); }
-    .nav-toggle {
-      display: none; flex-direction: column; justify-content: center; gap: 5px;
-      width: 40px; height: 40px; align-items: center;
-      background: none; border: 0; cursor: pointer;
+    .logo b { color: var(--orange); }
+    .links { display: flex; gap: 8px; list-style: none; }
+    .links a {
+      display: block; padding: 6px 14px; text-decoration: none;
+      font-family: var(--mono); font-size: 0.85rem; font-weight: 700;
+      background: var(--paper-raised); border: var(--line); border-radius: 999px;
+      transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
     }
-    .nav-toggle span { width: 20px; height: 1.5px; background: var(--ink); transition: transform 0.2s ease, opacity 0.2s ease; }
-    .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-    .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .links a:hover { background: var(--butter); transform: translate(-2px, -2px); box-shadow: var(--shadow-sm); }
 
-    .hero { position: relative; z-index: 1; padding: clamp(4.2rem, 11vh, 7rem) 0 2.5rem; }
-    .kicker {
-      display: flex; align-items: center; gap: 0.8rem;
-      color: var(--accent); font-size: 0.76rem; font-weight: 600;
-      letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 1.2rem;
-    }
-    .kicker::before { content: ""; width: 1.6rem; height: 1px; background: var(--accent); }
-    .headline {
-      font-family: var(--serif);
-      font-size: clamp(2.5rem, 6.4vw, 4.2rem);
-      font-weight: 500; letter-spacing: -0.035em; line-height: 1.06;
-      max-width: 16ch; margin-bottom: 1.2rem;
-      text-wrap: balance;
-    }
-    .headline em { font-style: italic; color: var(--accent-2); }
-    .lede { color: var(--muted); font-size: 1.08rem; max-width: 38rem; margin-bottom: 1.8rem; text-wrap: pretty; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 1.4rem; }
+    /* ---------- Buttons ---------- */
     .btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      padding: 0.78rem 1.15rem; text-decoration: none; font-weight: 600; font-size: 0.95rem;
-      border-radius: 999px; transition: background 0.15s ease, border-color 0.15s ease;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 22px; text-decoration: none; cursor: pointer;
+      font: 800 1rem var(--display);
+      color: var(--ink); background: var(--paper-raised);
+      border: var(--line); border-radius: 12px; box-shadow: var(--shadow);
+      transition: transform .12s ease, box-shadow .12s ease;
     }
-    .btn-solid { background: var(--accent); color: #1a100c; }
-    .btn-solid:hover { background: #ef8a58; }
-    .btn-ghost { border: 1px solid var(--line-strong); }
-    .btn-ghost:hover { border-color: var(--ink); }
-    .platforms { display: flex; flex-wrap: wrap; gap: 0.45rem; list-style: none; }
-    .platforms li {
-      padding: 0.28rem 0.7rem; border: 1px solid var(--line); border-radius: 999px;
-      color: var(--muted); font-size: 0.78rem;
+    .btn:hover { transform: translate(-2px, -2px); box-shadow: var(--shadow-lg); }
+    .btn:active { transform: translate(4px, 4px); box-shadow: 2px 2px 0 var(--ink); }
+    .btn.orange { background: var(--orange); }
+    .btn.butter { background: var(--butter); }
+
+    /* ---------- Hero ---------- */
+    .hero { padding: clamp(48px, 9vh, 96px) 0 56px; }
+    .hero .wrap { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 48px; align-items: center; }
+    .tag {
+      display: inline-block; margin-bottom: 22px; padding: 5px 12px;
+      font-family: var(--mono); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+      background: var(--mint); border: var(--line); border-radius: 999px; box-shadow: var(--shadow-sm);
+    }
+    h1 {
+      font-size: clamp(2.8rem, 7.2vw, 5.4rem); font-weight: 800;
+      line-height: 0.98; letter-spacing: -0.045em; margin-bottom: 24px;
+    }
+    h1 .hl {
+      display: inline-block; padding: 0 0.18em; margin: 0.06em 0;
+      background: var(--butter); border: var(--line); border-radius: 10px; box-shadow: var(--shadow);
+      transform: rotate(-2deg);
+    }
+    .lede { font-size: 1.15rem; color: var(--ink-soft); max-width: 36rem; margin-bottom: 30px; font-weight: 500; }
+    .lede strong { color: var(--ink); }
+    .actions { display: flex; flex-wrap: wrap; gap: 14px; }
+
+    .mascot {
+      position: relative; aspect-ratio: 1; padding: 28px;
+      background: var(--orange); border: var(--line); border-radius: 28px; box-shadow: var(--shadow-lg);
+      transform: rotate(2.5deg);
+    }
+    .mascot-inner {
+      height: 100%; display: grid; place-items: center;
+      background: var(--paper); border: var(--line); border-radius: 18px;
+    }
+    .mascot img { width: 82%; }
+    .sticker {
+      position: absolute; padding: 6px 12px;
+      font-family: var(--mono); font-size: 0.8rem; font-weight: 700;
+      border: var(--line); border-radius: 10px; box-shadow: var(--shadow-sm);
+    }
+    .sticker.a { top: -18px; left: -22px; background: var(--sky); transform: rotate(-8deg); }
+    .sticker.b { bottom: -16px; right: -18px; background: var(--pink); transform: rotate(6deg); }
+
+    /* ---------- Marquee ---------- */
+    .marquee {
+      border-top: var(--line); border-bottom: var(--line); background: var(--ink); color: var(--paper);
+      overflow: hidden; white-space: nowrap;
+    }
+    .marquee-track { display: inline-flex; animation: slide 32s linear infinite; }
+    .marquee span { font-weight: 800; font-size: 1.3rem; padding: 14px 0; letter-spacing: -0.01em; }
+    .marquee i { font-style: normal; color: var(--butter); padding: 0 18px; }
+    @keyframes slide { to { transform: translateX(-50%); } }
+
+    /* ---------- Sections ---------- */
+    section.block { padding: 80px 0 24px; }
+    .head { display: flex; align-items: end; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 34px; }
+    .head h2 { font-size: clamp(2rem, 4.4vw, 3.1rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
+    .head p { font-family: var(--mono); font-size: 0.9rem; color: var(--ink-soft); max-width: 26rem; }
+    .num {
+      display: inline-grid; place-items: center; font-family: var(--mono); padding: 0 0.22em; height: 1.2em; margin-right: 12px;
+      font-size: 0.7em; background: var(--butter); border: var(--line); border-radius: 10px; vertical-align: 0.12em;
     }
 
-    .apps, .about { position: relative; z-index: 1; padding: 3.2rem 0 2rem; }
-    .section-head { max-width: 38rem; margin-bottom: 1.8rem; }
-    .section-head h2 {
-      font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.35rem);
-      font-weight: 500; letter-spacing: -0.03em; margin-bottom: 0.5rem;
-    }
-    .section-head p { color: var(--muted); }
-
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.15rem; }
+    /* ---------- App cards ---------- */
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
     .card {
-      display: flex; flex-direction: column;
-      background: var(--surface); border: 1px solid var(--line);
-      border-radius: 18px; padding: 1.35rem 1.35rem 1.2rem;
-      position: relative; overflow: hidden;
-      transition: border-color 0.2s ease, transform 0.2s ease;
+      position: relative; display: flex; flex-direction: column;
+      background: var(--paper-raised); border: var(--line); border-radius: var(--radius); box-shadow: var(--shadow);
+      transition: transform .14s ease, box-shadow .14s ease;
     }
-    .card::after {
-      content: ""; position: absolute; left: 1.35rem; right: 1.35rem; top: 0; height: 2px;
-      background: var(--accent-local, var(--accent));
+    .card:hover, .card:focus-within { transform: translate(-3px, -3px); box-shadow: var(--shadow-lg); }
+    .card-top {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      padding: 16px 18px; background: var(--c); border-bottom: var(--line);
+      border-radius: calc(var(--radius) - 3px) calc(var(--radius) - 3px) 0 0;
     }
-    .card:hover, .card:focus-within { border-color: var(--line-strong); }
-    @media (hover: hover) {
-      .card:hover { transform: translateY(-3px); }
-    }
-    .card-top { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin-bottom: 0.95rem; }
-    .icon {
-      width: 52px; height: 52px; border-radius: 13px; display: block;
-      object-fit: cover; background: #1a1510;
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
-    }
+    .icon { width: 60px; height: 60px; border: var(--line); border-radius: 15px; background: #fff; object-fit: cover; }
     .cat {
-      font-size: 0.72rem; color: var(--faint);
-      border: 1px solid var(--line); border-radius: 999px; padding: 0.22rem 0.6rem;
+      font-family: var(--mono); font-size: 0.72rem; font-weight: 700; text-align: right;
+      background: var(--paper-raised); border: 2.5px solid var(--ink); border-radius: 999px; padding: 3px 10px;
     }
-    .card h3 {
-      font-family: var(--serif); font-size: 1.55rem; font-weight: 500;
-      letter-spacing: -0.03em; margin-bottom: 0.2rem;
-    }
-    .tagline { color: var(--accent-local, var(--accent-2)); font-size: 0.95rem; margin-bottom: 0.55rem; }
-    .desc { color: var(--muted); font-size: 0.95rem; margin-bottom: 0.85rem; }
-    .features { list-style: none; margin-bottom: 0.85rem; }
-    .features li {
-      position: relative; padding-left: 0.95rem; color: var(--muted);
-      font-size: 0.9rem; margin-bottom: 0.32rem;
-    }
+    .cat.live { background: var(--ink); color: var(--paper); }
+    .card-body { display: flex; flex-direction: column; flex: 1; padding: 18px 18px 16px; }
+    .card h3 { font-size: 1.65rem; font-weight: 800; letter-spacing: -0.035em; line-height: 1.05; margin-bottom: 4px; }
+    .tagline { font-weight: 700; margin-bottom: 10px; }
+    .desc { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 14px; font-weight: 500; }
+    .features { list-style: none; margin-bottom: 16px; display: grid; gap: 7px; }
+    .features li { position: relative; padding-left: 22px; font-size: 0.9rem; font-weight: 500; }
     .features li::before {
-      content: ""; position: absolute; left: 0; top: 0.55rem;
-      width: 5px; height: 5px; border-radius: 50%; background: var(--accent-local, var(--accent));
+      content: ""; position: absolute; left: 0; top: 0.38em;
+      width: 11px; height: 11px; background: var(--c); border: 2.5px solid var(--ink); border-radius: 3px;
     }
-    .tech, .chips { display: flex; flex-wrap: wrap; gap: 0.35rem; list-style: none; }
-    .tech li, .chips li {
-      font-size: 0.72rem; color: var(--muted);
-      border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.55rem;
+    .pills { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; }
+    .pills li {
+      font-family: var(--mono); font-size: 0.7rem; font-weight: 700;
+      border: 2px solid var(--ink); border-radius: 999px; padding: 2px 9px; background: var(--paper);
     }
-    /* Push the link to the bottom so every card lines up, and stretch it over the card. */
     .visit {
-      margin-top: auto; padding-top: 1rem;
-      display: inline-flex; align-items: center; gap: 0.35rem; align-self: flex-start;
-      font-weight: 600; text-decoration: none;
+      margin-top: auto; padding-top: 18px; align-self: stretch;
+      display: flex; align-items: center; justify-content: space-between;
+      font-weight: 800; text-decoration: none;
     }
-    .visit::before { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: 18px; }
+    .visit span {
+      display: grid; place-items: center; width: 38px; height: 38px;
+      background: var(--c); border: var(--line); border-radius: 10px; box-shadow: var(--shadow-sm);
+      transition: transform .14s ease;
+    }
+    .card:hover .visit span { transform: translateX(4px) rotate(-6deg); }
+    /* Make the whole card clickable through the visit link. */
+    .visit::after { content: ""; position: absolute; inset: 0; border-radius: var(--radius); }
     .visit:focus-visible { outline: none; }
-    .visit:focus-visible::before { outline: 2px solid var(--accent-2); outline-offset: -2px; }
-    .visit span { display: inline-block; transition: transform 0.15s ease; }
-    .card:hover .visit span { transform: translateX(4px); }
+    .visit:focus-visible::after { outline: 3px solid var(--orange); outline-offset: 4px; }
 
-    .notes { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 2.2rem; }
-    .note {
-      background: var(--surface); border: 1px solid var(--line);
-      border-radius: 16px; padding: 1.2rem;
+    /* ---------- Notes ---------- */
+    .notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .note { padding: 22px; border: var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .note:nth-child(1) { background: var(--mint); transform: rotate(-1deg); }
+    .note:nth-child(2) { background: var(--lilac); }
+    .note:nth-child(3) { background: var(--sky); transform: rotate(1deg); }
+    .note .emoji {
+      display: grid; place-items: center; width: 52px; height: 52px; margin-bottom: 14px; font-size: 1.6rem;
+      background: var(--paper-raised); border: var(--line); border-radius: 12px;
     }
-    .note h3 { font-family: var(--serif); font-weight: 500; font-size: 1.2rem; margin-bottom: 0.4rem; }
-    .note p { color: var(--muted); font-size: 0.94rem; }
-    .bottom { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2.2rem; padding-bottom: 2.5rem; }
-    .sub { font-family: var(--serif); font-weight: 500; font-size: 1.25rem; margin-bottom: 0.9rem; }
-    .stack { display: grid; gap: 0.9rem; }
-    .stack p { color: var(--faint); font-size: 0.78rem; margin-bottom: 0.4rem; letter-spacing: 0.06em; text-transform: uppercase; }
-    .contact p { color: var(--muted); margin-bottom: 0.85rem; }
-    .mail-btn {
-      border: 0; cursor: pointer; font: inherit; font-weight: 600;
-      background: var(--ink); color: var(--bg);
-      padding: 0.75rem 1.15rem; border-radius: 999px;
-      transition: background 0.15s ease;
-    }
-    .mail-btn:hover { background: var(--accent-2); }
+    .note h3 { font-size: 1.35rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 6px; }
+    .note p { font-weight: 500; font-size: 0.97rem; }
 
-    .footer { position: relative; z-index: 1; border-top: 1px solid var(--line); }
-    .footer-inner {
-      max-width: var(--max); margin: 0 auto; padding: 1.3rem var(--pad) 2rem;
-      display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;
-      color: var(--faint); font-size: 0.85rem;
-    }
-    .footer nav { display: flex; gap: 1rem; }
-    .footer a { color: var(--muted); text-decoration: none; }
-    .footer a:hover { color: var(--ink); }
+    .bottom { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 26px; padding: 56px 0 80px; }
+    .panel { padding: 26px; background: var(--paper-raised); border: var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .panel h3 { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.035em; margin-bottom: 16px; }
+    .stack { display: grid; gap: 16px; }
+    .stack p { font-family: var(--mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 7px; }
+    .stack .pills li { font-size: 0.8rem; padding: 4px 12px; background: var(--paper-raised); }
+    .stack div:nth-child(1) .pills li { background: var(--butter); }
+    .stack div:nth-child(2) .pills li { background: var(--mint); }
+    .stack div:nth-child(3) .pills li { background: var(--sky); }
+    .contact { background: var(--pink); }
+    .contact p { font-weight: 500; margin-bottom: 22px; }
 
-    @media (max-width: 900px) {
-      .grid, .notes, .bottom { grid-template-columns: 1fr; }
-      .headline { max-width: none; }
+    /* ---------- Footer ---------- */
+    footer { border-top: var(--line); background: var(--ink); color: var(--paper); }
+    footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-top: 22px; padding-bottom: 26px; }
+    footer p { font-family: var(--mono); font-size: 0.85rem; }
+    footer nav { display: flex; gap: 18px; }
+    footer a { font-family: var(--mono); font-size: 0.85rem; font-weight: 700; text-decoration: none; }
+    footer a:hover { color: var(--butter); }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 980px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
     }
-    @media (max-width: 767px) {
-      .nav-toggle { display: flex; }
-      .nav-links {
-        position: absolute; top: 100%; left: 0; right: 0;
-        background: var(--bg); flex-direction: column; align-items: stretch;
-        padding: 0.6rem var(--pad) 1.2rem; gap: 0.2rem;
-        border-bottom: 1px solid var(--line);
-        transform: translateY(-8px); opacity: 0; visibility: hidden;
-        transition: transform 0.2s ease, opacity 0.2s ease, visibility 0s linear 0.2s;
-      }
-      .nav-links.open {
-        transform: none; opacity: 1; visibility: visible;
-        transition: transform 0.2s ease, opacity 0.2s ease;
-      }
-      .nav-links a { display: block; padding: 0.7rem 0; }
-      .nav-links .nav-cta { text-align: center; margin-top: 0.35rem; padding: 0.7rem 0.9rem; }
+    @media (max-width: 820px) {
+      .hero .wrap { grid-template-columns: 1fr; }
+      .mascot { max-width: 300px; margin: 8px auto 0; }
+      .notes, .bottom { grid-template-columns: 1fr; }
+      .note { transform: none !important; }
+    }
+    @media (max-width: 620px) {
+      .grid { grid-template-columns: 1fr; }
+      .links a { padding: 5px 10px; font-size: 0.78rem; }
+      .logo span.word { display: none; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
+      .marquee-track { animation: none; }
       *, *::before, *::after { transition: none !important; }
-      .card:hover { transform: none; }
     }
   </style>
 </head>
 <body>
   <a class="skip" href="#apps">Skip to apps</a>
 
-  <header class="nav" id="nav">
-    <nav class="nav-inner" aria-label="Main">
-      <a class="logo" href="#home">min<span>.</span></a>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#apps">Apps</a></li>
-        <li><a href="#about">Notes</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a class="nav-cta" href="#apps">See apps</a></li>
-      </ul>
-      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
-        <span></span><span></span><span></span>
-      </button>
-    </nav>
+  <header class="bar">
+    <div class="wrap">
+      <a class="logo" href="#top" aria-label="min.dev home">
+        <img src="assets/slime.svg" alt="" width="42" height="42" />
+        <span class="word">min<b>.</b>dev</span>
+      </a>
+      <nav aria-label="Main">
+        <ul class="links">
+          <li><a href="#apps">Apps</a></li>
+          <li><a href="#notes">Notes</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section id="home" class="hero">
+  <main id="top">
+    <section class="hero">
       <div class="wrap">
-        <p class="kicker">Independent software</p>
-        <h1 class="headline">Quiet tools for <em>ordinary</em> days.</h1>
-        <p class="lede">
-          Five local-first iOS apps — and a Mac tool that catches App Store rejections
-          before Apple does. Chess at the table without internet, skincare in the right order,
-          a gentler pomodoro, a home inventory, a food diary for two, and a pre-submit audit.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-solid" href="#apps">See the apps</a>
-          <a class="btn btn-ghost" href="#contact">Write a note</a>
+        <div>
+          <span class="tag">Solo iOS dev · Independent software</span>
+          <h1>Quiet tools for <span class="hl">ordinary</span> days.</h1>
+          <p class="lede">
+            <strong>Five local-first iOS apps</strong> — and a Mac tool that catches App Store rejections before Apple does.
+            Chess at the table, skincare in the right order, a gentler pomodoro, a home inventory,
+            a food diary for two, and a pre-submit audit.
+          </p>
+          <div class="actions">
+            <a class="btn orange" href="#apps">See the apps ↓</a>
+            <a class="btn" href="#contact">Write a note</a>
+          </div>
         </div>
-        <ul class="platforms" aria-label="Platforms">
-          <li>iOS</li>
-          <li>macOS</li>
-          <li>SwiftUI</li>
-        </ul>
+        <div class="mascot" aria-hidden="true">
+          <div class="mascot-inner"><img src="assets/slime.svg" alt="" width="320" height="318" /></div>
+          <span class="sticker a">&lt;/&gt; Swift</span>
+          <span class="sticker b">no account needed ♡</span>
+        </div>
       </div>
     </section>
 
-    <section id="apps" class="apps">
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Pocket Rook<i>✦</i>Layerly<i>✦</i>Nomodoro<i>✦</i>HomeLog<i>✦</i>CoupleBites<i>✦</i>ShipCheck<i>✦</i>Local-first<i>✦</i>Made by one person<i>✦</i></span>
+        <span>Pocket Rook<i>✦</i>Layerly<i>✦</i>Nomodoro<i>✦</i>HomeLog<i>✦</i>CoupleBites<i>✦</i>ShipCheck<i>✦</i>Local-first<i>✦</i>Made by one person<i>✦</i></span>
+      </div>
+    </div>
+
+    <section id="apps" class="block">
       <div class="wrap">
-        <header class="section-head">
-          <h2>Six products, six landing pages</h2>
-          <p>Tap any card to open the site published for that product.</p>
-        </header>
+        <div class="head">
+          <h2><span class="num">01</span>Six products</h2>
+          <p>// six landing pages — tap any card to open one</p>
+        </div>
 
         <div class="grid">
-          <article class="card" style="--accent-local:#5ee0a8">
+          <article class="card" style="--c:var(--mint)">
             <div class="card-top">
-              <img class="icon" src="icons/pocketrook.png?v=3" alt="" width="52" height="52" loading="lazy" />
+              <img class="icon" src="icons/pocketrook.png?v=3" alt="" width="60" height="60" loading="lazy" />
               <span class="cat">Games</span>
             </div>
-            <h3>Pocket Rook</h3>
-            <p class="tagline">Chess at the table. No internet.</p>
-            <p class="desc">Play chess with the person across from you — one phone between you, or two phones that connect directly and securely. No account, no game server, no Wi‑Fi needed.</p>
-            <ul class="features">
-              <li>One phone, two players — the board turns to face each side</li>
-              <li>Two phones joined by a QR scan or six-digit code</li>
-              <li>Synced clocks, one-tap rematch, shareable final position</li>
-            </ul>
-            <ul class="tech"><li>Swift</li><li>Peer-to-peer</li><li>iOS 17+</li></ul>
-            <a class="visit" href="https://tnson1307.github.io/duoqi/" target="_blank" rel="noopener noreferrer">Visit Pocket Rook <span aria-hidden="true">→</span></a>
+            <div class="card-body">
+              <h3>Pocket Rook</h3>
+              <p class="tagline">Chess at the table. No internet.</p>
+              <p class="desc">Play chess with the person across from you — one phone between you, or two phones that connect directly and securely. No account, no game server, no Wi‑Fi needed.</p>
+              <ul class="features">
+                <li>One phone, two players — the board turns to face each side</li>
+                <li>Two phones joined by a QR scan or six-digit code</li>
+                <li>Synced clocks, one-tap rematch, shareable final position</li>
+              </ul>
+              <ul class="pills"><li>Swift</li><li>Peer-to-peer</li><li>iOS 17+</li></ul>
+              <a class="visit" href="https://tnson1307.github.io/duoqi/" target="_blank" rel="noopener noreferrer">Visit Pocket Rook <span aria-hidden="true">→</span></a>
+            </div>
           </article>
 
-          <article class="card" style="--accent-local:#e8a0f0">
+          <article class="card" style="--c:var(--lilac)">
             <div class="card-top">
-              <img class="icon" src="icons/layerly.png?v=2" alt="" width="52" height="52" loading="lazy" />
+              <img class="icon" src="icons/layerly.png?v=2" alt="" width="60" height="60" loading="lazy" />
               <span class="cat">Skincare</span>
             </div>
-            <h3>Layerly</h3>
-            <p class="tagline">Morning and night, in the right order.</p>
-            <p class="desc">Keep an honest shelf and a calmer routine. AM and PM stacks stay separate so serums never jump the line — glow check-ins stay on your device.</p>
-            <ul class="features">
-              <li>Guided player walks each layer in sequence</li>
-              <li>Shelf notes, PAO, expiry, and refill nudges</li>
-              <li>Optional progress photos stored on-device</li>
-            </ul>
-            <ul class="tech"><li>Swift</li><li>Local-first</li><li>iOS</li></ul>
-            <a class="visit" href="https://tnson1307.github.io/layerly/" target="_blank" rel="noopener noreferrer">Visit Layerly <span aria-hidden="true">→</span></a>
-          </article>
-
-          <article class="card" style="--accent-local:#7dd3fc">
-            <div class="card-top">
-              <img class="icon" src="icons/nomodoro.png?v=3" alt="" width="52" height="52" loading="lazy" />
-              <span class="cat">Focus · On the App Store</span>
+            <div class="card-body">
+              <h3>Layerly</h3>
+              <p class="tagline">Morning and night, in the right order.</p>
+              <p class="desc">Keep an honest shelf and a calmer routine. AM and PM stacks stay separate so serums never jump the line — glow check-ins stay on your device.</p>
+              <ul class="features">
+                <li>Guided player walks each layer in sequence</li>
+                <li>Shelf notes, PAO, expiry, and refill nudges</li>
+                <li>Optional progress photos stored on-device</li>
+              </ul>
+              <ul class="pills"><li>Swift</li><li>Local-first</li><li>iOS</li></ul>
+              <a class="visit" href="https://tnson1307.github.io/layerly/" target="_blank" rel="noopener noreferrer">Visit Layerly <span aria-hidden="true">→</span></a>
             </div>
-            <h3>Nomodoro</h3>
-            <p class="tagline">Focus · Rest · Repeat.</p>
-            <p class="desc">A calm visual pomodoro with doodle companions and a slime squad you make yourself. One clear task, a gentle countdown, kind rounds for minds that need less noise. Unlimited focus stays free.</p>
-            <ul class="features">
-              <li>Shape your own slime; it melts or bounces with your mood check-in</li>
-              <li>Strict, Whitelist, or Loose — block every app but the ones you allow</li>
-              <li>Widgets and Live Activities on the Lock Screen and Dynamic Island</li>
-            </ul>
-            <ul class="tech"><li>Swift</li><li>Screen Time API</li><li>Live Activities</li></ul>
-            <a class="visit" href="https://tnson1307.github.io/freshair/" target="_blank" rel="noopener noreferrer">Visit Nomodoro <span aria-hidden="true">→</span></a>
           </article>
 
-          <article class="card" style="--accent-local:#fbbf24">
+          <article class="card" style="--c:var(--sky)">
             <div class="card-top">
-              <img class="icon" src="icons/homelog.png?v=2" alt="" width="52" height="52" loading="lazy" />
+              <img class="icon" src="icons/nomodoro.png?v=3" alt="" width="60" height="60" loading="lazy" />
+              <span class="cat live">On the App Store</span>
+            </div>
+            <div class="card-body">
+              <h3>Nomodoro</h3>
+              <p class="tagline">Focus · Rest · Repeat.</p>
+              <p class="desc">A calm visual pomodoro with doodle companions and a slime squad you make yourself. One clear task, a gentle countdown, kind rounds for minds that need less noise. Unlimited focus stays free.</p>
+              <ul class="features">
+                <li>Shape your own slime; it melts or bounces with your mood check-in</li>
+                <li>Strict, Whitelist, or Loose — block every app but the ones you allow</li>
+                <li>Widgets and Live Activities on the Lock Screen and Dynamic Island</li>
+              </ul>
+              <ul class="pills"><li>Swift</li><li>Screen Time API</li><li>Live Activities</li></ul>
+              <a class="visit" href="https://tnson1307.github.io/freshair/" target="_blank" rel="noopener noreferrer">Visit Nomodoro <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="card" style="--c:var(--butter)">
+            <div class="card-top">
+              <img class="icon" src="icons/homelog.png?v=2" alt="" width="60" height="60" loading="lazy" />
               <span class="cat">Home</span>
             </div>
-            <h3>HomeLog</h3>
-            <p class="tagline">Warranties, repairs, and rooms — quietly.</p>
-            <p class="desc">A structure for what you own: Space → Room → Asset. Log purchase dates, service visits, and spend. Reminders land before something fails. No account to start.</p>
-            <ul class="features">
-              <li>Houses, apartments, and offices as spaces</li>
-              <li>Purchase vs maintenance totals per property</li>
-              <li>Recurring maintenance on the lock screen</li>
-            </ul>
-            <ul class="tech"><li>Swift</li><li>Local-first</li><li>Offline</li></ul>
-            <a class="visit" href="https://tnson1307.github.io/homelog/" target="_blank" rel="noopener noreferrer">Visit HomeLog <span aria-hidden="true">→</span></a>
-          </article>
-
-          <article class="card" style="--accent-local:#fb7185">
-            <div class="card-top">
-              <img class="icon" src="icons/couplebites.png?v=3" alt="" width="52" height="52" loading="lazy" />
-              <span class="cat">Couples · On the App Store</span>
+            <div class="card-body">
+              <h3>HomeLog</h3>
+              <p class="tagline">Warranties, repairs, and rooms — quietly.</p>
+              <p class="desc">A structure for what you own: Space → Room → Asset. Log purchase dates, service visits, and spend. Reminders land before something fails. No account to start.</p>
+              <ul class="features">
+                <li>Houses, apartments, and offices as spaces</li>
+                <li>Purchase vs maintenance totals per property</li>
+                <li>Recurring maintenance on the lock screen</li>
+              </ul>
+              <ul class="pills"><li>Swift</li><li>Local-first</li><li>Offline</li></ul>
+              <a class="visit" href="https://tnson1307.github.io/homelog/" target="_blank" rel="noopener noreferrer">Visit HomeLog <span aria-hidden="true">→</span></a>
             </div>
-            <h3>CoupleBites</h3>
-            <p class="tagline">A food diary made for two.</p>
-            <p class="desc">Snap a meal and it becomes a die-cut sticker in your shared diary. Link with your partner once and every bite syncs through your own iCloud — no sign-up, no CoupleBites server. A slime pet grows with every day you both log.</p>
-            <ul class="features">
-              <li>Food vs drink sorted on-device from the photo</li>
-              <li>React to your partner's meals; streaks with forgiving freezes</li>
-              <li>Monthly recap on a spinning sticker globe, plus a Home Screen widget</li>
-            </ul>
-            <ul class="tech"><li>SwiftUI</li><li>CloudKit</li><li>Vision</li></ul>
-            <a class="visit" href="https://tnson1307.github.io/couplebites/" target="_blank" rel="noopener noreferrer">Visit CoupleBites <span aria-hidden="true">→</span></a>
           </article>
 
-          <article class="card" style="--accent-local:#93c5fd">
+          <article class="card" style="--c:var(--pink)">
             <div class="card-top">
-              <img class="icon" src="icons/shipcheck.png?v=2" alt="" width="52" height="52" loading="lazy" />
+              <img class="icon" src="icons/couplebites.png?v=4" alt="" width="60" height="60" loading="lazy" />
+              <span class="cat live">On the App Store</span>
+            </div>
+            <div class="card-body">
+              <h3>CoupleBites</h3>
+              <p class="tagline">Every bite, together.</p>
+              <p class="desc">Snap what you eat and it turns into a sticker. Your partner sees it right away, and every meal feeds the slime you raise together. No account, no server — just your own iCloud. No calorie counting, promise.</p>
+              <ul class="features">
+                <li>Invite your partner with a link from any chat app</li>
+                <li>React with 😋 🤤 ❤️ 🔥 😆 and keep a streak with forgiving freezes</li>
+                <li>A monthly recap with your stickers on a globe you can spin</li>
+              </ul>
+              <ul class="pills"><li>SwiftUI</li><li>CloudKit</li><li>Vision</li></ul>
+              <a class="visit" href="https://tnson1307.github.io/couplebites/" target="_blank" rel="noopener noreferrer">Visit CoupleBites <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="card" style="--c:var(--orange)">
+            <div class="card-top">
+              <img class="icon" src="icons/shipcheck.png?v=2" alt="" width="60" height="60" loading="lazy" />
               <span class="cat">macOS</span>
             </div>
-            <h3>ShipCheck</h3>
-            <p class="tagline">Stamp it cleared before Apple stamps it rejected.</p>
-            <p class="desc">A Mac app that reads your real Xcode project and live App Store Connect data — then lists what will bounce the submission, on your machine, before review does.</p>
-            <ul class="features">
-              <li>Diffs IAP product IDs, Privacy Manifest, and age-rating answers</li>
-              <li>Keys stay in Keychain; no ShipCheck server, ever</li>
-              <li>CLI for CI so drift fails the build, not the submit</li>
-            </ul>
-            <ul class="tech"><li>Swift</li><li>macOS</li><li>App Store Connect API</li></ul>
-            <a class="visit" href="https://tnson1307.github.io/shipcheck/" target="_blank" rel="noopener noreferrer">Visit ShipCheck <span aria-hidden="true">→</span></a>
+            <div class="card-body">
+              <h3>ShipCheck</h3>
+              <p class="tagline">Stamp it cleared before Apple stamps it rejected.</p>
+              <p class="desc">A Mac app that reads your real Xcode project and live App Store Connect data — then lists what will bounce the submission, on your machine, before review does.</p>
+              <ul class="features">
+                <li>Diffs IAP product IDs, Privacy Manifest, and age-rating answers</li>
+                <li>Keys stay in Keychain; no ShipCheck server, ever</li>
+                <li>CLI for CI so drift fails the build, not the submit</li>
+              </ul>
+              <ul class="pills"><li>Swift</li><li>macOS</li><li>App Store Connect API</li></ul>
+              <a class="visit" href="https://tnson1307.github.io/shipcheck/" target="_blank" rel="noopener noreferrer">Visit ShipCheck <span aria-hidden="true">→</span></a>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="about" class="about">
+    <section id="notes" class="block">
       <div class="wrap">
-        <header class="section-head">
-          <h2>How the work is made</h2>
-          <p>One problem per app. Private by default. No account required to begin.</p>
-        </header>
+        <div class="head">
+          <h2><span class="num">02</span>How the work is made</h2>
+          <p>// one problem per app. private by default. no account required to begin.</p>
+        </div>
         <div class="notes">
           <article class="note">
+            <div class="emoji" aria-hidden="true">📱</div>
             <h3>On the device</h3>
             <p>Pocket Rook phones talk peer-to-peer. CoupleBites syncs only through your own iCloud. HomeLog, Layerly, and Nomodoro keep data on the device. ShipCheck audits on your Mac — the .p8 key never leaves Keychain.</p>
           </article>
           <article class="note">
+            <div class="emoji" aria-hidden="true">☕</div>
             <h3>Ordinary habits</h3>
             <p>A game of chess at the table, serum in the right order, one quiet focus block, a filter reminder, a meal you both remember — and a check before you hit Submit.</p>
           </article>
           <article class="note">
+            <div class="emoji" aria-hidden="true">🚀</div>
             <h3>Shipped end to end</h3>
             <p>Each product is designed, built, and published by one person, with its own landing page. Open a card to go there.</p>
           </article>
         </div>
+
         <div class="bottom">
-          <div>
-            <h3 class="sub">Tech stack</h3>
+          <div class="panel">
+            <h3>Tech stack</h3>
             <div class="stack">
               <div>
                 <p>Apps</p>
-                <ul class="chips"><li>Swift</li><li>SwiftUI</li><li>iOS</li><li>macOS</li><li>WidgetKit</li></ul>
+                <ul class="pills"><li>Swift</li><li>SwiftUI</li><li>iOS</li><li>macOS</li><li>WidgetKit</li></ul>
               </div>
               <div>
                 <p>Architecture</p>
-                <ul class="chips"><li>Local-first</li><li>On-device</li><li>Peer-to-peer</li><li>CloudKit</li></ul>
+                <ul class="pills"><li>Local-first</li><li>On-device</li><li>Peer-to-peer</li><li>CloudKit</li></ul>
               </div>
               <div>
                 <p>Web</p>
-                <ul class="chips"><li>HTML</li><li>CSS</li><li>GitHub Pages</li></ul>
+                <ul class="pills"><li>HTML</li><li>CSS</li><li>GitHub Pages</li></ul>
               </div>
             </div>
           </div>
-          <div id="contact" class="contact">
-            <h3 class="sub">Get in touch</h3>
+          <div id="contact" class="panel contact">
+            <h3>Get in touch</h3>
             <p>Questions about an app or a partnership? The address stays off this page — tap to write.</p>
-            <button type="button" class="mail-btn" id="mail-btn">Send a note</button>
+            <button type="button" class="btn butter" id="mail-btn">Send a note ✉</button>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="footer-inner">
-      <p>© <span id="year">2026</span> min.dev</p>
+  <footer>
+    <div class="wrap">
+      <p>© <span id="year">2026</span> min.dev — made by one person</p>
       <nav aria-label="Footer">
         <a href="#apps">Apps</a>
-        <a href="#about">Notes</a>
+        <a href="#notes">Notes</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
   </footer>
 
   <script>
-    (function () {
-      var nav = document.getElementById("nav");
-      var toggle = document.getElementById("nav-toggle");
-      var links = document.getElementById("nav-links");
-
-      function onScroll() { nav.classList.toggle("scrolled", window.scrollY > 8); }
-      onScroll();
-      window.addEventListener("scroll", onScroll, { passive: true });
-
-      function setMenu(open) {
-        links.classList.toggle("open", open);
-        toggle.setAttribute("aria-expanded", String(open));
-        toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
-      }
-      toggle.addEventListener("click", function () {
-        setMenu(!links.classList.contains("open"));
-      });
-      links.querySelectorAll("a").forEach(function (a) {
-        a.addEventListener("click", function () { setMenu(false); });
-      });
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape" && links.classList.contains("open")) { setMenu(false); toggle.focus(); }
-      });
-      document.addEventListener("click", function (e) {
-        if (links.classList.contains("open") && !nav.contains(e.target)) setMenu(false);
-      });
-      window.matchMedia("(min-width: 768px)").addEventListener("change", function (mq) {
-        if (mq.matches) setMenu(false);
-      });
-
-      document.getElementById("year").textContent = String(new Date().getFullYear());
-      document.getElementById("mail-btn").addEventListener("click", function () {
-        location.href = "mailto:" + ["tnson", "bwaco.vn"].join("@");
-      });
-    })();
+    document.getElementById("year").textContent = String(new Date().getFullYear());
+    document.getElementById("mail-btn").addEventListener("click", function () {
+      location.href = "mailto:" + ["tnson", "bwaco.vn"].join("@");
+    });
   </script>
 </body>
 </html>

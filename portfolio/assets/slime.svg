@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="190 280 644 640">
+  <defs>
+    <filter id="w" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.016" numOctaves="2" seed="3"/>
+      <feDisplacementMap in="SourceGraphic" scale="5"/>
+    </filter>
+    <clipPath id="body">
+      <path d="M244 812 C214 812 204 770 216 714 C244 566 344 352 512 352 C680 352 780 566 808 714 C820 770 810 812 780 812 Z"/>
+    </clipPath>
+  </defs>
+  <g filter="url(#w)" stroke="#2B2320" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+    <!-- slime body -->
+    <path d="M244 812 C214 812 204 770 216 714 C244 566 344 352 512 352 C680 352 780 566 808 714 C820 770 810 812 780 812 Z" fill="#8EDDB1"/>
+    <!-- soft shading inside the body -->
+    <g clip-path="url(#body)" stroke="none">
+      <path d="M180 860 C240 700 300 660 360 690 C300 720 280 780 300 860 Z" fill="#74CC9C"/>
+      <path d="M844 860 C800 700 740 650 680 680 C740 720 760 790 740 860 Z" fill="#74CC9C"/>
+    </g>
+    <path d="M244 812 C214 812 204 770 216 714 C244 566 344 352 512 352 C680 352 780 566 808 714 C820 770 810 812 780 812 Z" fill="none"/>
+    <!-- gloss -->
+    <path d="M392 446 q34 -40 84 -48" fill="none" stroke="#FFFFFF" stroke-width="16" opacity="0.85"/>
+    <circle cx="368" cy="486" r="9" fill="#FFFFFF" stroke="none" opacity="0.85"/>
+
+    <!-- headphones -->
+    <path d="M300 604 C292 262 732 262 724 604" fill="none" stroke-width="34"/>
+    <path d="M300 604 C292 262 732 262 724 604" fill="none" stroke="#3A2C26" stroke-width="14"/>
+    <rect x="246" y="524" width="84" height="136" rx="38" fill="#E07A4A"/>
+    <rect x="694" y="524" width="84" height="136" rx="38" fill="#E07A4A"/>
+    <path d="M314 540 l0 104 M710 540 l0 104" fill="none" stroke="#F39A6E" stroke-width="10"/>
+
+    <!-- face -->
+    <circle cx="440" cy="566" r="19" fill="#2B2320" stroke="none"/>
+    <circle cx="584" cy="566" r="19" fill="#2B2320" stroke="none"/>
+    <circle cx="447" cy="559" r="6.5" fill="#FFFFFF" stroke="none"/>
+    <circle cx="591" cy="559" r="6.5" fill="#FFFFFF" stroke="none"/>
+    <circle cx="434" cy="574" r="3" fill="#FFFFFF" stroke="none"/>
+    <circle cx="578" cy="574" r="3" fill="#FFFFFF" stroke="none"/>
+    <ellipse cx="398" cy="612" rx="32" ry="17" fill="#F7A3A3" stroke="none"/>
+    <ellipse cx="626" cy="612" rx="32" ry="17" fill="#F7A3A3" stroke="none"/>
+    <path d="M488 600 q12 15 24 0 q12 15 24 0" fill="none" stroke-width="10"/>
+
+    <!-- laptop (lid facing us) -->
+    <rect x="350" y="690" width="324" height="196" rx="26" fill="#EFE7DC"/>
+    <path d="M318 888 L706 888" stroke-width="16"/>
+    <rect x="438" y="740" width="148" height="80" rx="22" fill="#E07A4A" transform="rotate(-5 512 780)"/>
+    <path d="M486 760 l-22 20 l22 20 M538 760 l22 20 l-22 20 M520 754 l-16 52" fill="none" stroke="#FFF7EC" stroke-width="10" transform="rotate(-5 512 780)"/>
+    <path d="M622 838 c-11 -13 -32 -3 -24 13 l24 21 l24 -21 c8 -16 -13 -26 -24 -13 z" fill="#F7A3A3" stroke-width="7"/>
+    <circle cx="396" cy="848" r="15" fill="#7DB9E8" stroke-width="7"/>
+
+    <!-- little hands gripping the lid -->
+    <ellipse cx="352" cy="742" rx="32" ry="26" fill="#8EDDB1"/>
+    <ellipse cx="672" cy="742" rx="32" ry="26" fill="#8EDDB1"/>
+  </g>
+</svg>
