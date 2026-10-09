@@ -179,6 +179,8 @@
       background: var(--paper-raised); border: 2.5px solid var(--ink); border-radius: 999px; padding: 3px 10px;
     }
     .cat.live { background: var(--ink); color: var(--paper); }
+    .cat.beta { background: var(--butter); }
+    .badges { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
     .card-body { display: flex; flex-direction: column; flex: 1; padding: 18px 18px 16px; }
     .card h3 { font-size: 1.65rem; font-weight: 800; letter-spacing: -0.035em; line-height: 1.05; margin-bottom: 4px; }
     .tagline { font-weight: 700; margin-bottom: 10px; }
@@ -291,7 +293,7 @@
           <span class="tag">Solo iOS dev · Independent software</span>
           <h1>Quiet tools for <span class="hl">ordinary</span> days.</h1>
           <p class="lede">
-            <strong>Five local-first iOS apps</strong> — and a Mac tool that catches App Store rejections before Apple does.
+            <strong>Five local-first iOS apps, all on the App Store</strong> — and a Mac tool that catches App Store rejections before Apple does.
             Chess at the table, skincare in the right order, a gentler pomodoro, a home inventory,
             a food diary for two, and a pre-submit audit.
           </p>
@@ -326,7 +328,7 @@
           <article class="card" style="--c:var(--mint)">
             <div class="card-top">
               <img class="icon" src="icons/pocketrook.png?v=3" alt="" width="60" height="60" loading="lazy" />
-              <span class="cat">Games</span>
+              <div class="badges"><span class="cat">Games</span><span class="cat live">On the App Store</span></div>
             </div>
             <div class="card-body">
               <h3>Pocket Rook</h3>
@@ -345,7 +347,7 @@
           <article class="card" style="--c:var(--lilac)">
             <div class="card-top">
               <img class="icon" src="icons/layerly.png?v=2" alt="" width="60" height="60" loading="lazy" />
-              <span class="cat">Skincare</span>
+              <div class="badges"><span class="cat">Skincare</span><span class="cat live">On the App Store</span></div>
             </div>
             <div class="card-body">
               <h3>Layerly</h3>
@@ -364,7 +366,7 @@
           <article class="card" style="--c:var(--sky)">
             <div class="card-top">
               <img class="icon" src="icons/nomodoro.png?v=3" alt="" width="60" height="60" loading="lazy" />
-              <span class="cat live">On the App Store</span>
+              <div class="badges"><span class="cat">Focus</span><span class="cat live">On the App Store</span></div>
             </div>
             <div class="card-body">
               <h3>Nomodoro</h3>
@@ -383,7 +385,7 @@
           <article class="card" style="--c:var(--butter)">
             <div class="card-top">
               <img class="icon" src="icons/homelog.png?v=2" alt="" width="60" height="60" loading="lazy" />
-              <span class="cat">Home</span>
+              <div class="badges"><span class="cat">Home</span><span class="cat live">On the App Store</span></div>
             </div>
             <div class="card-body">
               <h3>HomeLog</h3>
@@ -402,7 +404,7 @@
           <article class="card" style="--c:var(--pink)">
             <div class="card-top">
               <img class="icon" src="icons/couplebites.png?v=4" alt="" width="60" height="60" loading="lazy" />
-              <span class="cat live">On the App Store</span>
+              <div class="badges"><span class="cat">Couples</span><span class="cat live">On the App Store</span></div>
             </div>
             <div class="card-body">
               <h3>CoupleBites</h3>
@@ -421,7 +423,7 @@
           <article class="card" style="--c:var(--orange)">
             <div class="card-top">
               <img class="icon" src="icons/shipcheck.png?v=2" alt="" width="60" height="60" loading="lazy" />
-              <span class="cat">macOS</span>
+              <div class="badges"><span class="cat">macOS</span><span class="cat beta">Free beta · Download</span></div>
             </div>
             <div class="card-body">
               <h3>ShipCheck</h3>
