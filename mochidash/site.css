@@ -154,8 +154,6 @@ tr:last-child td { border-bottom: none; }
 .blurb { padding: 20px 22px; display: flex; flex-direction: column; gap: 10px; }
 .blurb.wide { grid-column: 1 / -1; }
 .blurb h4 { margin: 0; font-family: "Fredoka", sans-serif; font-size: 19px; font-weight: 600; }
-.blurb-lang { font-size: 24px; margin: 28px 0 12px; }
-.blurb-lang:first-of-type { margin-top: 0; }
 .blurb p { margin: 0; flex: 1; }
 .copy { align-self: flex-start; font: 700 15px "Nunito", sans-serif; color: var(--ink); background: var(--butter-soft); border: 2px solid var(--line); border-radius: 999px; padding: 6px 16px; cursor: pointer; }
 .keylist { margin: 0; padding: 18px 22px 18px 42px; }
