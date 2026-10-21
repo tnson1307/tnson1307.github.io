@@ -82,6 +82,9 @@ a { color: inherit; text-decoration-color: var(--butter-deep); text-decoration-t
 @keyframes bob { 0%, 100% { transform: translateY(0) scale(1, 1); } 50% { transform: translateY(-8px) scale(0.99, 1.01); } }
 @media (prefers-reduced-motion: reduce) { .hero .art img { animation: none; } }
 .store-note { font-size: 15px; color: var(--ink-soft); }
+.store-get { margin: 22px 0 0; }
+.store-badge { display: inline-block; line-height: 0; }
+.store-badge img { height: 54px; width: auto; }
 
 .section { padding: 36px 0; }
 .section > h2 { font-size: clamp(28px, 4.5vw, 38px); text-align: center; margin: 0 0 8px; }
