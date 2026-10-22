@@ -4,26 +4,54 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nomodoro: Cute Focus Timer</title>
-  <meta name="description" content="Nomodoro: Cute Focus Timer — a calm visual pomodoro with doodle companions and your own slime squad. Focus, rest, repeat. Unlimited focus stays free forever." />
+  <meta name="description" content="Nomodoro: Cute Focus Timer — a calm visual pomodoro with doodle companions, your own slime squad and Focus hours that lock distracting apps. Unlimited focus stays free forever." />
+  <meta name="theme-color" content="#f6efe3" />
   <meta property="og:title" content="Nomodoro: Cute Focus Timer" />
-  <meta property="og:description" content="Focus · Rest · Repeat. Doodle companions and a slime squad that feels your mood." />
+  <meta property="og:description" content="Focus with a tiny buddy by your side. Doodle companions, a slime squad that feels your mood, and Focus hours that lock distracting apps." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://tnson1307.github.io/freshair/images/shot-home.png" />
+  <link rel="icon" href="./images/v2/icon-180.png" />
+  <link rel="apple-touch-icon" href="./images/v2/icon-180.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Nunito:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #f3efe6;
-      --paper: #fffcf6;
-      --ink: #2f343c;
-      --muted: #66707c;
-      --accent: #2a9b8f;
-      --accent-deep: #1c726a;
-      --blush: #e8897a;
-      --line: rgba(47, 52, 60, 0.16);
-      --shadow: rgba(47, 52, 60, 0.1);
-      --max: 1080px;
+      --bg: #f6efe3;
+      --bg-2: #fbf7f0;
+      --paper: #fffdf8;
+      --ink: #2c3138;
+      --muted: #69717c;
+      --line: rgba(44, 49, 56, 0.14);
+      --line-strong: rgba(44, 49, 56, 0.55);
+      --tomato: #e4573f;
+      --tomato-soft: #fde3dc;
+      --teal: #1f8f84;
+      --teal-deep: #176f66;
+      --teal-soft: #dff1ee;
+      --sun: #ffd66b;
+      --shadow: 0 1px 0 rgba(44, 49, 56, 0.04), 0 18px 40px -18px rgba(44, 49, 56, 0.28);
+      --phone-edge: #1f2227;
+      --max: 1140px;
+      --r: 22px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #17191d;
+        --bg-2: #1d2025;
+        --paper: #23262c;
+        --ink: #f1ece4;
+        --muted: #a6adb7;
+        --line: rgba(241, 236, 228, 0.12);
+        --line-strong: rgba(241, 236, 228, 0.45);
+        --tomato: #ff7a62;
+        --tomato-soft: rgba(255, 122, 98, 0.16);
+        --teal: #5fd0c2;
+        --teal-deep: #8ce0d5;
+        --teal-soft: rgba(95, 208, 194, 0.14);
+        --shadow: 0 1px 0 rgba(0, 0, 0, 0.3), 0 22px 44px -20px rgba(0, 0, 0, 0.7);
+        --phone-edge: #0b0c0e;
+      }
     }
 
     * { box-sizing: border-box; }
@@ -31,733 +59,575 @@
     body {
       margin: 0;
       color: var(--ink);
+      background: var(--bg);
       font-family: "Nunito", system-ui, sans-serif;
-      font-weight: 500;
+      font-weight: 600;
       line-height: 1.55;
-      background:
-        radial-gradient(ellipse 55% 40% at 100% 0%, rgba(42, 155, 143, 0.18), transparent 60%),
-        radial-gradient(ellipse 45% 35% at 0% 15%, rgba(232, 137, 122, 0.12), transparent 55%),
-        linear-gradient(180deg, #ebe4d6 0%, var(--bg) 28%, #e7f1ee 100%);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
-    a { color: inherit; text-decoration: none; }
-    h1, h2, h3 {
-      font-family: "Quicksand", system-ui, sans-serif;
-      font-weight: 700;
-      line-height: 1.12;
-      margin: 0;
-    }
-    .wrap { width: min(100% - 36px, var(--max)); margin-inline: auto; }
+    html { overflow-x: clip; }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; }
+    h1, h2, h3 { font-family: "Quicksand", "Nunito", system-ui, sans-serif; letter-spacing: -0.02em; margin: 0; }
+    .wrap { width: min(var(--max), 100% - 32px); margin: 0 auto; }
 
     /* Nav */
     .top {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(14px);
-      background: rgba(255, 252, 246, 0.82);
+      position: sticky; top: 0; z-index: 50;
+      background: color-mix(in srgb, var(--bg) 82%, transparent);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid transparent;
+      transition: border-color .2s;
     }
-    .top.scrolled { border-bottom-color: var(--line); box-shadow: 0 8px 24px rgba(47, 52, 60, 0.05); }
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 64px;
-      gap: 12px;
+    .top.scrolled { border-bottom-color: var(--line); }
+    .top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: "Quicksand", sans-serif; font-weight: 700; font-size: 1.15rem; }
+    .brand img { width: 34px; height: 34px; border-radius: 9px; box-shadow: 0 2px 6px rgba(228, 87, 63, 0.35); }
+    .top nav { display: flex; align-items: center; gap: 22px; font-size: 0.95rem; }
+    .top nav a { text-decoration: none; color: var(--muted); }
+    .top nav a:hover { color: var(--ink); }
+    .top nav a.pill {
+      color: #fff; background: var(--ink); padding: 8px 16px; border-radius: 999px;
     }
-    .brand {
-      font-family: "Quicksand", sans-serif;
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      font-weight: 600;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-    .nav-links a {
-      padding: 8px 12px;
-      border-radius: 999px;
-    }
-    .nav-links a:hover { color: var(--accent-deep); background: rgba(42, 155, 143, 0.1); }
-    .nav-links .pill {
-      color: #fff !important;
-      background: var(--accent) !important;
-      margin-left: 6px;
-      box-shadow: 0 2px 0 rgba(47, 52, 60, 0.18);
-    }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .top nav a.pill { color: var(--bg); } }
+    @media (max-width: 760px) { .top nav a:not(.pill) { display: none; } }
 
-    /* Hero split */
+    /* Hero */
     .hero {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 48px;
-      align-items: center;
-      padding: 40px 0 56px;
-      min-height: min(86vh, 760px);
+      position: relative; overflow: hidden;
+      padding: 56px 0 40px;
+      background:
+        radial-gradient(ellipse 50% 60% at 78% 40%, var(--teal-soft), transparent 70%),
+        radial-gradient(ellipse 40% 45% at 12% 10%, var(--tomato-soft), transparent 70%);
     }
-    .hero h1 {
-      font-size: clamp(3rem, 6.5vw, 4.6rem);
-      letter-spacing: -0.025em;
-      margin-bottom: 12px;
+    .hero .wrap { display: grid; grid-template-columns: 1.02fr 1fr; gap: 40px; align-items: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--paper); border: 1.5px solid var(--line-strong);
+      border-radius: 999px; padding: 6px 14px 6px 8px; font-size: 0.88rem; text-decoration: none;
+      box-shadow: 2px 3px 0 var(--line-strong);
     }
-    .tag {
-      margin: 0 0 14px;
-      font-family: "Quicksand", sans-serif;
-      font-weight: 700;
-      font-size: 1.25rem;
-      color: var(--accent-deep);
+    .eyebrow b {
+      background: var(--tomato); color: #fff; border-radius: 999px; padding: 2px 9px;
+      font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;
     }
-    .hero-copy p {
-      margin: 0 0 22px;
-      max-width: 30rem;
-      color: var(--muted);
-      font-size: 1.08rem;
+    .hero h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: 1.02; margin: 22px 0 18px; }
+    .hero h1 .hl { color: var(--tomato); position: relative; white-space: nowrap; }
+    .hero h1 .hl svg { position: absolute; left: -2%; bottom: -0.16em; width: 104%; height: 0.32em; overflow: visible; }
+    .lead { font-size: 1.15rem; color: var(--muted); max-width: 33em; margin: 0 0 26px; font-weight: 600; }
+    .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+    .store {
+      display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
+      background: #111; color: #fff; padding: 10px 20px 10px 16px; border-radius: 14px;
+      box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.55); transition: transform .15s;
     }
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-      margin-bottom: 12px;
+    .store:hover { transform: translateY(-2px); }
+    .store small { display: block; font-size: 0.7rem; opacity: 0.85; line-height: 1.1; }
+    .store strong { display: block; font-size: 1.2rem; line-height: 1.1; font-family: "Quicksand", sans-serif; }
+    .ghost {
+      display: inline-flex; align-items: center; gap: 6px; text-decoration: none;
+      padding: 13px 20px; border-radius: 14px; border: 1.5px solid var(--line-strong);
+      background: var(--paper); box-shadow: 2px 3px 0 var(--line-strong);
     }
-    .cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 18px;
-      background: var(--ink);
-      color: #fff;
-      border-radius: 16px;
-      font-weight: 700;
-      box-shadow: 0 12px 28px rgba(47, 52, 60, 0.18);
-      transition: transform 0.2s ease, background 0.2s ease;
+    .ghost:hover { transform: translate(1px, 1px); box-shadow: 1px 2px 0 var(--line-strong); }
+    .facts { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 24px 0 0; padding: 0; list-style: none; color: var(--muted); font-size: 0.92rem; }
+    .facts li::before { content: "✓"; color: var(--teal); font-weight: 800; margin-right: 6px; }
+
+    .stage { position: relative; height: 640px; }
+    .phone {
+      position: absolute; width: 268px; aspect-ratio: 1320 / 2868;
+      border-radius: 44px; padding: 9px; background: var(--phone-edge);
+      box-shadow: 0 40px 70px -30px rgba(31, 34, 39, 0.55), 0 0 0 1.5px rgba(255, 255, 255, 0.06) inset;
     }
-    .cta:hover { transform: translateY(-2px); background: #232830; }
-    .cta small { display: block; font-size: 0.68rem; opacity: 0.75; font-weight: 600; }
-    .cta strong {
-      display: block;
-      font-family: "Quicksand", sans-serif;
-      font-size: 1.05rem;
+    .phone img { width: 100%; height: 100%; object-fit: cover; border-radius: 36px; background: #fff; }
+    .stage .p-main { left: 50%; top: 8px; transform: translateX(-50%); z-index: 3; width: 286px; }
+    .stage .p-left { left: 2%; top: 74px; transform: rotate(-8deg); z-index: 2; width: 236px; opacity: .97; }
+    .stage .p-right { right: 2%; top: 74px; transform: rotate(8deg); z-index: 2; width: 236px; opacity: .97; }
+    .sticker { position: absolute; z-index: 5; filter: drop-shadow(0 10px 14px rgba(44, 49, 56, 0.18)); }
+    .stage .s-bun { width: 128px; left: 4%; bottom: 8px; }
+    .stage .s-slime-a { width: 64px; right: 10%; bottom: 40px; }
+    .stage .s-slime-b { width: 52px; right: 3%; bottom: 96px; }
+    .chip {
+      position: absolute; z-index: 6; display: flex; align-items: center; gap: 8px;
+      background: var(--paper); border: 1.5px solid var(--line-strong); border-radius: 16px;
+      padding: 8px 12px; font-size: 0.85rem; white-space: nowrap; box-shadow: 3px 4px 0 var(--line-strong);
     }
-    .link-soft {
-      font-weight: 700;
-      color: var(--accent-deep);
-      padding: 10px 4px;
+    .chip .ico { width: 28px; height: 28px; border-radius: 9px; display: grid; place-items: center; font-size: 15px; }
+    .chip small { display: block; color: var(--muted); font-size: 0.72rem; line-height: 1.1; }
+    .chip span b { display: block; line-height: 1.15; }
+    .stage .c-hours { left: -2%; top: 46px; transform: rotate(-3deg); }
+    .stage .c-hours .ico { background: var(--tomato-soft); }
+    .stage .c-mood { right: -1%; top: 300px; transform: rotate(3deg); }
+    .stage .c-mood .ico { background: var(--teal-soft); }
+    .stage .c-streak { left: 30%; bottom: 0; transform: rotate(-2deg); }
+    .stage .c-streak .ico { background: #fff1c7; }
+    .float { animation: float 6s ease-in-out infinite; }
+    .float.d1 { animation-delay: -2s; }
+    .float.d2 { animation-delay: -4s; }
+    @keyframes float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -10px; } }
+    .bob { animation: bob 2.4s ease-in-out infinite; transform-origin: 50% 100%; }
+    .bob.d1 { animation-delay: -.8s; }
+    .bob.d2 { animation-delay: -1.6s; }
+    @keyframes bob { 0%, 100% { transform: scale(1, 1) translateY(0); } 40% { transform: scale(1.04, .95) translateY(0); } 70% { transform: scale(.97, 1.04) translateY(-8px); } }
+
+    @media (max-width: 960px) {
+      .hero .wrap { grid-template-columns: 1fr; }
+      .hero-copy { text-align: center; }
+      .lead { margin-left: auto; margin-right: auto; }
+      .cta-row, .facts { justify-content: center; }
+      .stage { height: 600px; max-width: 560px; width: 100%; margin: 0 auto; }
     }
-    .link-soft:hover { text-decoration: underline; }
-    .fine { margin: 0; color: var(--muted); font-size: 0.92rem; }
-    .trust {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 20px;
-    }
-    .trust span {
-      font-size: 0.82rem;
-      font-weight: 700;
-      font-family: "Quicksand", sans-serif;
-      padding: 7px 12px;
-      background: var(--paper);
-      border: 1.5px solid var(--line);
-      border-radius: 999px;
-      color: var(--ink);
+    @media (max-width: 560px) {
+      .hero { padding-top: 32px; }
+      .stage { height: 500px; }
+      .stage .p-main { width: 220px; }
+      .stage .p-left, .stage .p-right { width: 170px; top: 60px; }
+      .stage .p-left { left: -4%; }
+      .stage .p-right { right: -4%; }
+      .stage .s-bun { width: 92px; left: 0; }
+      .stage .c-hours { left: 0; top: 0; }
+      .stage .c-mood { right: 0; top: 250px; }
+      .stage .c-streak { left: 24%; }
+      .chip { font-size: 0.78rem; padding: 6px 10px; }
+      .chip .ico { width: 24px; height: 24px; }
     }
 
-    /* Phone */
-    .phone-wrap {
-      position: relative;
-      max-width: 310px;
-      margin-inline: auto;
-      width: 100%;
+    /* Friends marquee */
+    .marquee {
+      border-block: 1.5px solid var(--line); background: var(--bg-2);
+      overflow: hidden; padding: 18px 0; position: relative;
     }
-    .phone-wrap::before {
-      content: "";
-      position: absolute;
-      inset: 4% -20% -8%;
-      background: radial-gradient(circle, rgba(42, 155, 143, 0.28), transparent 68%);
-      z-index: 0;
-      pointer-events: none;
+    .marquee-track { display: flex; gap: 34px; width: max-content; animation: slide 40s linear infinite; }
+    .marquee-track img { width: 70px; height: 70px; object-fit: contain; }
+    @keyframes slide { to { transform: translateX(-50%); } }
+    .marquee::before, .marquee::after {
+      content: ""; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 1; pointer-events: none;
     }
-    .phone {
-      position: relative;
-      z-index: 1;
-      border: 2.5px solid var(--ink);
-      border-radius: 34px;
-      overflow: hidden;
-      background: #fff;
-      aspect-ratio: 473 / 1024;
-      box-shadow:
-        0 20px 0 rgba(47, 52, 60, 0.06),
-        0 30px 60px rgba(47, 52, 60, 0.16);
-    }
-    .slides { position: relative; width: 100%; height: 100%; }
-    .slide {
-      position: absolute;
-      inset: 0;
-      margin: 0;
-      opacity: 0;
-      transition: opacity 0.45s ease;
-    }
-    .slide.is-active { opacity: 1; z-index: 1; }
-    .slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      background: #fff;
-    }
-    .caption {
-      position: relative;
-      z-index: 1;
-      margin: 14px 0 0;
-      text-align: center;
-      font-family: "Quicksand", sans-serif;
-      font-weight: 700;
-      font-size: 0.95rem;
-      min-height: 1.3em;
-    }
-    .dots {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 10px;
-    }
-    .dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      border: 1.5px solid var(--ink);
-      background: transparent;
-      padding: 0;
-      cursor: pointer;
-    }
-    .dot[aria-current="true"] {
-      background: var(--accent);
-      border-color: var(--accent-deep);
-    }
+    .marquee::before { left: 0; background: linear-gradient(90deg, var(--bg-2), transparent); }
+    .marquee::after { right: 0; background: linear-gradient(-90deg, var(--bg-2), transparent); }
 
     /* Sections */
-    .section { padding: 64px 0 12px; }
-    .section-head { text-align: center; margin-bottom: 28px; }
-    .section-head h2 {
-      font-size: clamp(1.7rem, 3.5vw, 2.25rem);
-      margin-bottom: 8px;
+    .section { padding: 96px 0 0; }
+    .head { text-align: center; max-width: 640px; margin: 0 auto 48px; }
+    .kicker {
+      display: inline-block; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--tomato); font-weight: 800; margin-bottom: 10px;
     }
-    .section-head p {
-      margin: 0 auto;
-      max-width: 34rem;
-      color: var(--muted);
-    }
+    .head h2 { font-size: clamp(2rem, 4vw, 2.9rem); line-height: 1.1; }
+    .head p { color: var(--muted); font-size: 1.08rem; margin: 14px 0 0; }
 
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .step {
-      background: var(--paper);
-      border: 1.5px solid var(--line);
-      border-radius: 20px;
-      padding: 22px 18px;
-      text-align: center;
-      box-shadow: 0 10px 28px var(--shadow);
+      background: var(--paper); border: 1.5px solid var(--line-strong); border-radius: var(--r);
+      padding: 24px; box-shadow: 3px 4px 0 var(--line-strong); position: relative;
     }
+    .step img { width: 76px; height: 76px; object-fit: contain; margin-bottom: 10px; }
     .step .n {
-      display: inline-grid;
-      place-items: center;
-      width: 36px;
-      height: 36px;
-      margin-bottom: 12px;
-      border-radius: 50%;
-      background: var(--accent);
-      color: #fff;
-      font-family: "Quicksand", sans-serif;
-      font-weight: 700;
-      border: 1.5px solid var(--ink);
+      position: absolute; top: 18px; right: 20px; font-family: "Quicksand", sans-serif; font-weight: 700;
+      color: var(--muted); font-size: 0.9rem;
     }
-    .step h3 { font-size: 1.2rem; margin-bottom: 6px; }
-    .step p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+    .step h3 { font-size: 1.3rem; margin-bottom: 6px; }
+    .step p { margin: 0; color: var(--muted); }
+    @media (max-width: 760px) { .steps { grid-template-columns: 1fr; } }
 
-    .feature-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
+    /* Feature rows */
+    .rows { display: grid; gap: 40px; }
+    .row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;
+      background: var(--bg-2); border: 1.5px solid var(--line); border-radius: 32px;
+      padding: 48px 56px; overflow: hidden; position: relative;
     }
-    .feature {
-      background: var(--paper);
-      border: 1.5px solid var(--line);
-      border-radius: 18px;
-      padding: 20px 18px;
-      box-shadow: 0 8px 22px rgba(47, 52, 60, 0.05);
+    .row.flip .visual { order: 2; }
+    .row .visual { position: relative; display: flex; justify-content: center; min-height: 440px; align-items: center; }
+    .row .visual::before {
+      content: ""; position: absolute; width: 360px; height: 360px; border-radius: 46% 54% 52% 48% / 55% 45% 55% 45%;
+      background: var(--blob, var(--teal-soft)); left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-8deg);
     }
-    .feature h3 {
-      font-size: 1.1rem;
-      margin-bottom: 6px;
+    .rows .row:nth-child(3n+2) { --blob: var(--tomato-soft); }
+    .rows .row:nth-child(3n) { --blob: color-mix(in srgb, var(--sun) 35%, transparent); }
+    .row .visual .phone { position: relative; width: 236px; }
+    .row .visual .phone.second { position: absolute; width: 200px; left: 55%; top: 40px; transform: rotate(6deg); }
+    .row .visual .phone.first { transform: translateX(-26%) rotate(-3deg); }
+    .row .text h3 { font-size: clamp(1.7rem, 3vw, 2.3rem); line-height: 1.12; margin: 6px 0 14px; }
+    .row .text p { color: var(--muted); font-size: 1.05rem; margin: 0 0 16px; }
+    .tag {
+      display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; font-weight: 800;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal-deep);
     }
-    .feature p { margin: 0; color: var(--muted); font-size: 0.95rem; }
-
-    .note {
-      margin-top: 18px;
-      padding: 16px 18px;
-      border-radius: 16px;
-      border: 1.5px dashed var(--line);
-      background: rgba(255, 252, 246, 0.7);
-      color: var(--muted);
-      font-size: 0.95rem;
-      text-align: center;
+    .tag.new { color: var(--tomato); }
+    .ticks { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+    .ticks li { display: flex; gap: 10px; align-items: flex-start; }
+    .ticks li::before {
+      content: ""; flex: none; width: 20px; height: 20px; margin-top: 2px; border-radius: 50%;
+      background: var(--teal-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-7' fill='none' stroke='%231f8f84' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 20px no-repeat;
     }
-
-    /* Pricing — denser & clearer value */
-    .pricing-layout {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 16px;
-      align-items: stretch;
+    .row .deco { position: absolute; z-index: 4; filter: drop-shadow(0 8px 12px rgba(44, 49, 56, 0.16)); }
+    @media (max-width: 900px) {
+      .row { grid-template-columns: 1fr; padding: 36px 24px; gap: 28px; }
+      .row.flip .visual { order: 0; }
+      .row .visual { min-height: 0; }
+      .row .visual::before { width: 280px; height: 280px; }
     }
-    .plan-free, .plan-pro {
-      background: var(--paper);
-      border: 1.5px solid var(--line);
-      border-radius: 24px;
-      padding: 24px 20px;
-      box-shadow: 0 12px 32px var(--shadow);
-    }
-    .plan-pro {
-      border-color: rgba(42, 155, 143, 0.45);
-      background:
-        radial-gradient(ellipse 70% 50% at 100% 0%, rgba(42, 155, 143, 0.16), transparent 55%),
-        var(--paper);
-    }
-    .plan-free h3, .plan-pro > h3 {
-      font-size: 1.25rem;
-      margin-bottom: 4px;
-    }
-    .plan-lead {
-      margin: 0 0 16px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-    .price-big {
-      font-family: "Quicksand", sans-serif;
-      font-weight: 700;
-      font-size: 2.4rem;
-      letter-spacing: -0.03em;
-      margin-bottom: 4px;
-    }
-    .price-sub {
-      margin: 0 0 16px;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-    .check-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    .check-list li {
-      position: relative;
-      padding: 7px 0 7px 22px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-    .check-list li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.85em;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      border: 1.6px solid var(--accent);
-      background: #fff;
+    @media (max-width: 560px) {
+      .row .visual .phone { width: 200px; }
+      .row .visual .phone.first { width: 170px; transform: translateX(-30%) rotate(-3deg); }
+      .row .visual .phone.second { width: 150px; left: 50%; top: 30px; }
+      .row .visual .deco { max-width: 64px; }
     }
 
-    .pro-tiers {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin: 18px 0 16px;
+    /* Focus hours mock */
+    .hours { width: min(360px, 100%); display: grid; gap: 14px; position: relative; }
+    .card {
+      background: var(--paper); border: 1.5px solid var(--line-strong); border-radius: 20px;
+      padding: 16px 18px; box-shadow: 3px 4px 0 var(--line-strong);
     }
-    .tier {
-      position: relative;
-      text-align: center;
-      padding: 16px 10px 14px;
-      border: 1.5px solid var(--line);
-      border-radius: 16px;
-      background: #fff;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .tier:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 24px var(--shadow);
-    }
-    .tier.featured {
-      border-color: var(--accent);
-      background: rgba(42, 155, 143, 0.08);
-      box-shadow: 0 0 0 1px rgba(42, 155, 143, 0.25);
-    }
-    .tier .badge {
-      position: absolute;
-      top: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: "Quicksand", sans-serif;
-      font-size: 0.7rem;
-      font-weight: 700;
-      background: var(--accent);
-      color: #fff;
-      border: 1.3px solid var(--ink);
-      border-radius: 999px;
-      padding: 3px 9px;
-      white-space: nowrap;
-    }
-    .tier .name {
-      font-family: "Quicksand", sans-serif;
-      font-weight: 700;
-      font-size: 0.88rem;
-      color: var(--muted);
-      margin-bottom: 6px;
-    }
-    .tier .amt {
-      font-family: "Quicksand", sans-serif;
-      font-weight: 700;
-      font-size: 1.55rem;
-      letter-spacing: -0.02em;
-    }
-    .tier .meta {
-      margin-top: 4px;
-      font-size: 0.78rem;
-      color: var(--muted);
-      min-height: 2.4em;
-    }
-    .tier .save {
-      display: inline-block;
-      margin-top: 8px;
-      font-family: "Quicksand", sans-serif;
-      font-weight: 700;
-      font-size: 0.75rem;
-      color: var(--accent-deep);
-      background: rgba(42, 155, 143, 0.14);
-      padding: 3px 8px;
-      border-radius: 999px;
-    }
-    .pro-includes {
-      margin: 0;
-      padding-top: 8px;
-      border-top: 1px dashed var(--line);
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-    .pro-includes strong { color: var(--ink); }
-
-    .faq {
-      display: grid;
-      gap: 10px;
-      max-width: 720px;
-      margin: 0 auto;
-    }
-    .faq details {
-      background: var(--paper);
-      border: 1.5px solid var(--line);
-      border-radius: 14px;
-      padding: 14px 16px;
-    }
-    .faq summary {
-      font-family: "Quicksand", sans-serif;
-      font-weight: 700;
-      cursor: pointer;
-    }
-    .faq p {
-      margin: 10px 0 0;
-      color: var(--muted);
-      font-size: 0.95rem;
+    .card .lbl { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 800; }
+    .win { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 8px; }
+    .win b { font-family: "Quicksand", sans-serif; font-size: 1.5rem; }
+    .switch { width: 46px; height: 28px; border-radius: 999px; background: var(--teal); border: 1.5px solid var(--line-strong); position: relative; flex: none; }
+    .switch::after { content: ""; position: absolute; right: 3px; top: 3px; width: 19px; height: 19px; border-radius: 50%; background: #fff; border: 1.5px solid var(--line-strong); }
+    .days { display: flex; gap: 6px; margin-top: 10px; }
+    .days span { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-size: 0.78rem; border: 1.5px solid var(--line); color: var(--muted); }
+    .days span.on { background: var(--teal); color: #fff; border-color: transparent; }
+    .apps { display: flex; gap: 10px; margin-top: 10px; }
+    .app { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; position: relative; color: #fff; font-weight: 800; font-size: 0.8rem; }
+    .app::after { content: "🔒"; position: absolute; right: -6px; bottom: -6px; font-size: 14px; background: var(--paper); border-radius: 50%; padding: 1px; }
+    .break-pill {
+      display: inline-flex; align-items: center; gap: 8px; background: var(--teal-soft); color: var(--teal-deep);
+      border-radius: 999px; padding: 8px 14px; font-weight: 800; font-size: 0.92rem; justify-self: start;
+      border: 1.5px solid color-mix(in srgb, var(--teal) 40%, transparent);
     }
 
-    .feedback {
-      max-width: 560px;
-      margin: 0 auto;
-      padding: 24px 20px;
-      background: var(--paper);
-      border: 1.5px solid var(--line);
-      border-radius: 20px;
-      box-shadow: 0 10px 28px var(--shadow);
-      text-align: left;
-    }
-    .feedback label {
-      display: block;
-      font-family: "Quicksand", sans-serif;
-      font-weight: 700;
-      font-size: 0.88rem;
-      margin: 0 0 6px;
-    }
-    .feedback .field { margin-bottom: 14px; }
-    .feedback input,
-    .feedback textarea {
-      width: 100%;
-      padding: 12px 14px;
-      border: 1.5px solid var(--line);
-      border-radius: 12px;
-      background: #fff;
-      color: var(--ink);
-      font: inherit;
-      resize: vertical;
-    }
-    .feedback input:focus,
-    .feedback textarea:focus {
-      outline: 2px solid rgba(42, 155, 143, 0.35);
-      border-color: var(--accent);
-    }
-    .feedback textarea { min-height: 120px; }
-    .feedback .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      margin-top: 4px;
-    }
-    .feedback button[type="submit"] {
-      appearance: none;
-      border: 0;
-      cursor: pointer;
-      font: inherit;
-      font-weight: 700;
-      font-family: "Quicksand", sans-serif;
-      color: #fff;
-      background: var(--accent);
-      padding: 12px 18px;
-      border-radius: 999px;
-      box-shadow: 0 2px 0 rgba(47, 52, 60, 0.18);
-    }
-    .feedback button[type="submit"]:hover { background: var(--accent-deep); }
-    .feedback .alt {
-      font-size: 0.9rem;
-      color: var(--muted);
-      font-weight: 600;
-    }
-    .feedback .alt a { color: var(--accent-deep); text-decoration: underline; }
-    .feedback .hint {
-      margin: 0 0 16px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
+    /* Extras grid */
+    .extras { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .extra { background: var(--paper); border: 1.5px solid var(--line); border-radius: var(--r); padding: 22px; }
+    .extra .e { font-size: 26px; line-height: 1; margin-bottom: 10px; }
+    .extra h3 { font-size: 1.12rem; margin-bottom: 4px; }
+    .extra p { margin: 0; color: var(--muted); font-size: 0.96rem; }
+    @media (max-width: 900px) { .extras { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .extras { grid-template-columns: 1fr; } }
 
-    .final {
-      text-align: center;
-      padding: 72px 0 80px;
+    /* Friends grid */
+    .friends { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+    .friend {
+      background: var(--paper); border: 1.5px solid var(--line); border-radius: 20px; padding: 14px 10px 12px;
+      text-align: center; position: relative; transition: transform .2s;
     }
-    .final h2 {
-      font-size: clamp(1.8rem, 4vw, 2.4rem);
-      margin-bottom: 10px;
+    .friend:hover { transform: translateY(-4px) rotate(-1deg); }
+    .friend img { width: 84px; height: 84px; object-fit: contain; margin: 0 auto 6px; }
+    .friend span { font-size: 0.9rem; }
+    .friend em {
+      position: absolute; top: 8px; right: 8px; font-style: normal; font-size: 0.66rem; font-weight: 800;
+      background: var(--sun); color: #5a4300; border-radius: 999px; padding: 2px 7px; letter-spacing: 0.04em;
     }
-    .final p {
-      margin: 0 auto 22px;
-      max-width: 28rem;
-      color: var(--muted);
+    @media (max-width: 760px) { .friends { grid-template-columns: repeat(3, 1fr); } }
+
+    /* Pricing */
+    .pricing { display: grid; grid-template-columns: 0.9fr 1.3fr; gap: 20px; align-items: stretch; }
+    .plan { background: var(--paper); border: 1.5px solid var(--line-strong); border-radius: 28px; padding: 30px; box-shadow: 4px 5px 0 var(--line-strong); }
+    .plan h3 { font-size: 1.5rem; }
+    .plan .sub { color: var(--muted); margin: 4px 0 18px; }
+    .plan .big { font-family: "Quicksand", sans-serif; font-size: 3rem; font-weight: 700; line-height: 1; }
+    .plan .ticks { margin-top: 20px; }
+    .plan.pro { background: linear-gradient(160deg, var(--teal-soft), var(--paper) 55%); position: relative; }
+    .plan.pro .peek { position: absolute; width: 96px; right: 22px; top: -54px; }
+    .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .tier { border: 1.5px solid var(--line); border-radius: 18px; padding: 16px 12px; text-align: center; background: var(--paper); position: relative; }
+    .tier.best { border: 2px solid var(--teal); }
+    .tier .badge { position: absolute; top: -11px; left: 50%; transform: translateX(-50%); background: var(--teal); color: #fff; font-size: 0.7rem; font-weight: 800; padding: 3px 10px; border-radius: 999px; white-space: nowrap; }
+    .tier .nm { color: var(--muted); font-size: 0.9rem; }
+    .tier .amt { font-family: "Quicksand", sans-serif; font-weight: 700; font-size: 1.7rem; margin: 2px 0; }
+    .tier .mt { font-size: 0.8rem; color: var(--muted); line-height: 1.35; }
+    .tier .save { display: inline-block; margin-top: 8px; font-size: 0.74rem; font-weight: 800; color: var(--tomato); }
+    .note { color: var(--muted); font-size: 0.88rem; text-align: center; margin: 18px 0 0; }
+    @media (max-width: 900px) { .pricing { grid-template-columns: 1fr; } }
+    @media (max-width: 520px) { .tiers { grid-template-columns: 1fr; } .plan { padding: 24px 20px; } }
+
+    /* FAQ */
+    .faq { max-width: 780px; margin: 0 auto; display: grid; gap: 12px; }
+    .faq details { background: var(--paper); border: 1.5px solid var(--line); border-radius: 18px; padding: 4px 20px; }
+    .faq details[open] { border-color: var(--line-strong); }
+    .faq summary { cursor: pointer; list-style: none; padding: 14px 0; font-weight: 800; display: flex; justify-content: space-between; gap: 12px; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; font-size: 1.4rem; line-height: 1; color: var(--teal); transition: transform .2s; }
+    .faq details[open] summary::after { transform: rotate(45deg); }
+    .faq p { margin: 0 0 16px; color: var(--muted); }
+
+    /* Feedback */
+    .feedback { max-width: 640px; margin: 0 auto; background: var(--paper); border: 1.5px solid var(--line-strong); border-radius: 24px; padding: 26px; box-shadow: 3px 4px 0 var(--line-strong); }
+    .field { margin-bottom: 14px; }
+    .field label { display: block; font-weight: 800; margin-bottom: 6px; font-size: 0.95rem; }
+    .field input, .field textarea {
+      width: 100%; font: inherit; color: var(--ink); background: var(--bg-2);
+      border: 1.5px solid var(--line); border-radius: 14px; padding: 12px 14px;
     }
+    .field textarea { min-height: 120px; resize: vertical; }
+    .field input:focus, .field textarea:focus { outline: none; border-color: var(--teal); }
+    .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+    .actions button {
+      font: inherit; font-weight: 800; color: #fff; background: var(--teal); border: 0; border-radius: 14px;
+      padding: 12px 22px; cursor: pointer;
+    }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .actions button { color: #10221f; } }
+    .actions .alt { color: var(--muted); font-size: 0.92rem; }
+    .hint { color: var(--muted); margin: 0 0 16px; }
+
+    /* Final */
+    .final { padding: 110px 0 90px; text-align: center; position: relative; }
+    .final .squad { display: flex; justify-content: center; align-items: flex-end; gap: 6px; margin-bottom: 18px; }
+    .final .squad img { width: 86px; }
+    .final .squad img.big { width: 130px; }
+    .final h2 { font-size: clamp(2rem, 4.4vw, 3.2rem); line-height: 1.08; margin-bottom: 12px; }
+    .final p { color: var(--muted); font-size: 1.1rem; margin: 0 0 26px; }
     .final .cta-row { justify-content: center; }
 
-    footer {
-      border-top: 1.5px dashed var(--line);
-      padding: 28px 0 40px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-    footer nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 16px;
-      margin-bottom: 8px;
-      font-weight: 600;
-    }
-    footer a:hover { color: var(--accent-deep); text-decoration: underline; }
+    footer { border-top: 1.5px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 0.9rem; }
+    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; }
+    footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
+    footer a { text-decoration: none; }
+    footer a:hover { color: var(--ink); }
 
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-        min-height: auto;
-        text-align: center;
-        gap: 28px;
-        padding-top: 20px;
-      }
-      .hero-copy p { margin-inline: auto; }
-      .cta-row, .trust { justify-content: center; }
-      .phone-wrap { order: -1; max-width: 260px; }
-      .steps { grid-template-columns: 1fr; }
-      .feature-grid { grid-template-columns: 1fr; }
-      .pricing-layout { grid-template-columns: 1fr; }
-      .pro-tiers { grid-template-columns: 1fr; }
-      .nav-links a:not(.pill) { display: none; }
-    }
-
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.in { opacity: 1; transform: none; }
     @media (prefers-reduced-motion: reduce) {
-      .slide, .cta, .tier { transition: none; }
-      html { scroll-behavior: auto; }
+      .float, .bob, .marquee-track { animation: none !important; }
+      .reveal { opacity: 1; transform: none; transition: none; }
     }
   </style>
 </head>
 <body>
-  <div class="top" id="top">
-    <div class="wrap nav">
-      <a class="brand" href="./index.html">Nomodoro</a>
-      <nav class="nav-links" aria-label="Primary">
+  <header class="top" id="top">
+    <div class="wrap">
+      <a class="brand" href="#"><img src="./images/v2/icon.webp" alt="" width="34" height="34" />Nomodoro</a>
+      <nav aria-label="Main">
         <a href="#how">How it works</a>
         <a href="#features">Features</a>
+        <a href="#friends">Friends</a>
         <a href="#pricing">Pricing</a>
-        <a href="#feedback">Feedback</a>
-        <a class="pill" href="https://apps.apple.com/app/id6799465659" rel="noopener">App Store</a>
+        <a href="#faq">FAQ</a>
+        <a class="pill" href="https://apps.apple.com/app/id6799465659" rel="noopener">Get the app</a>
       </nav>
     </div>
-  </div>
+  </header>
 
   <main>
-    <section class="wrap hero">
-      <div class="hero-copy">
-        <h1>Nomodoro</h1>
-        <p class="tag">Focus · Rest · Repeat</p>
-        <p>
-          A soft bite of focus — a calm visual pomodoro with doodle companions and a slime squad you make yourself.
-          One clear task, a gentle countdown, and kind rounds for minds that need less noise.
-        </p>
-        <div class="cta-row">
-          <a class="cta" href="https://apps.apple.com/app/id6799465659" rel="noopener" aria-label="Download on the App Store">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.77 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.22-2.01 1.08-3.18-1.06.05-2.33.71-3.08 1.58-.67.76-1.26 1.98-1.1 3.14 1.16.09 2.36-.6 3.1-1.54z"/>
-            </svg>
-            <span>
-              <small>Download on the</small>
-              <strong>App Store</strong>
-            </span>
-          </a>
-          <a class="link-soft" href="#pricing">See pricing →</a>
-        </div>
-        <p class="fine">Unlimited focus stays free forever · Pro optional</p>
-        <div class="trust">
-          <span>Doodle companions</span>
-          <span>Make your own slime</span>
-          <span>Mood check-in</span>
-          <span>Focus hours</span>
-          <span>Widgets &amp; Live Activities</span>
-          <span>ADHD-friendly by design</span>
-        </div>
-      </div>
-
-      <div class="phone-wrap" id="slider" aria-roledescription="carousel" aria-label="App screenshots">
-        <div class="phone">
-          <div class="slides">
-            <figure class="slide is-active" data-caption="Home — Your focus squad, cheering you on.">
-              <img src="./images/shot-home.png" alt="Home with the steamed bun and slime squad" width="473" height="1024" />
-            </figure>
-            <figure class="slide" data-caption="Make your slime — Stretch it. Color it.">
-              <img src="./images/shot-slime.png" alt="Slime editor" width="473" height="1024" loading="lazy" />
-            </figure>
-            <figure class="slide" data-caption="Focus — 25 minutes. Phone down.">
-              <img src="./images/shot-focus.png" alt="Focus" width="473" height="1024" loading="lazy" />
-            </figure>
-            <figure class="slide" data-caption="Mood — Feeling tired? Your slimes feel it too.">
-              <img src="./images/shot-mood.png" alt="Tired mood, the slime squad melts" width="473" height="1024" loading="lazy" />
-            </figure>
-            <figure class="slide" data-caption="Progress — Your week and your mood.">
-              <img src="./images/shot-progress.png" alt="Progress" width="473" height="1024" loading="lazy" />
-            </figure>
-            <figure class="slide" data-caption="Friends — Earn gems. Unlock companions.">
-              <img src="./images/shot-friends.png" alt="Friends" width="473" height="1024" loading="lazy" />
-            </figure>
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-copy">
+          <a class="eyebrow" href="#focus-hours"><b>New</b> Focus hours lock distracting apps →</a>
+          <h1>Focus with a <span class="hl">tiny buddy<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 13 C 40 4, 80 18, 120 9 S 180 6, 197 11" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" opacity=".35"/></svg></span> by your side.</h1>
+          <p class="lead">
+            Nomodoro is a calm visual pomodoro for iPhone. Pick one task, start a soft countdown, and let your
+            doodle companion and slime squad keep you company — they even feel your mood.
+          </p>
+          <div class="cta-row">
+            <a class="store" href="https://apps.apple.com/app/id6799465659" rel="noopener" aria-label="Download on the App Store">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.77 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.22-2.01 1.08-3.18-1.06.05-2.33.71-3.08 1.58-.67.76-1.26 1.98-1.1 3.14 1.16.09 2.36-.6 3.1-1.54z"/></svg>
+              <span><small>Download on the</small><strong>App Store</strong></span>
+            </a>
+            <a class="ghost" href="#how">How it works</a>
           </div>
+          <ul class="facts">
+            <li>Unlimited focus, free forever</li>
+            <li>No ads, no account</li>
+            <li>10 languages</li>
+          </ul>
         </div>
-        <p class="caption" id="caption">Home — Your focus squad, cheering you on.</p>
-        <div class="dots" role="tablist" aria-label="Screenshots"></div>
+
+        <div class="stage" aria-label="Nomodoro screens">
+          <div class="phone p-left"><img src="./images/v2/s-home.webp" alt="Home: the puppy companion and slime squad with a mood check-in" width="600" height="1304" /></div>
+          <div class="phone p-main"><img src="./images/v2/s-focus.webp" alt="Focus: a 25-minute visual countdown with the puppy" width="600" height="1304" /></div>
+          <div class="phone p-right"><img src="./images/v2/s-progress.webp" alt="Progress: activity map, weekly mood and usage" width="600" height="1304" loading="lazy" /></div>
+          <img class="sticker s-bun bob" src="./images/v2/m-bun_done.webp" alt="" width="360" height="360" />
+          <img class="sticker s-slime-a bob d1" src="./images/v2/m-slime_0.webp" alt="" width="300" height="300" />
+          <img class="sticker s-slime-b bob d2" src="./images/v2/m-slime_2.webp" alt="" width="300" height="300" />
+          <div class="chip c-hours float"><span class="ico">🔒</span><span><b>Focus hours</b><small>9:00 – 11:30 · 3 apps</small></span></div>
+          <div class="chip c-mood float d1"><span class="ico">🙂</span><span><b>Feeling good</b><small>Slimes bounce</small></span></div>
+          <div class="chip c-streak float d2"><span class="ico">🍅</span><span><b>1h 40m today</b><small>3 sessions</small></span></div>
+        </div>
       </div>
     </section>
 
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track" id="marquee"></div>
+    </div>
+
     <section class="wrap section" id="how">
-      <div class="section-head">
-        <h2>How it works</h2>
-        <p>A gentle loop you can feel on one screen — no setup maze.</p>
+      <div class="head reveal">
+        <span class="kicker">How it works</span>
+        <h2>A gentle loop on one screen</h2>
+        <p>No setup maze. Just one task, one countdown and a friend who stays with you.</p>
       </div>
       <div class="steps">
-        <article class="step">
-          <span class="n">1</span>
+        <article class="step reveal">
+          <span class="n">01</span>
+          <img src="./images/v2/m-puppy.webp" alt="" width="76" height="76" loading="lazy" />
           <h3>Focus</h3>
-          <p>Pick one task. Start a big visual countdown. Nature sounds if you like.</p>
+          <p>Pick one task and start a big visual countdown. Add rain or waves if you like.</p>
         </article>
-        <article class="step">
-          <span class="n">2</span>
+        <article class="step reveal">
+          <span class="n">02</span>
+          <img src="./images/v2/m-cloud.webp" alt="" width="76" height="76" loading="lazy" />
           <h3>Short rest</h3>
-          <p>Breathe between rounds. Your companion stays with you.</p>
+          <p>Breathe between rounds and tell Nomodoro how you feel. Your companion rests too.</p>
         </article>
-        <article class="step">
-          <span class="n">3</span>
+        <article class="step reveal">
+          <span class="n">03</span>
+          <img src="./images/v2/m-bun_done.webp" alt="" width="76" height="76" loading="lazy" />
           <h3>Repeat</h3>
-          <p>After a few focuses, take a longer break — then begin again softly.</p>
+          <p>After a few rounds take a long break, earn gems and unlock new friends.</p>
         </article>
       </div>
     </section>
 
     <section class="wrap section" id="features">
-      <div class="section-head">
-        <h2>Built for a quieter start</h2>
-        <p>Everything you need to begin — and soft depth when you’re ready for more.</p>
+      <div class="head reveal">
+        <span class="kicker">Features</span>
+        <h2>Soft on the outside, serious about focus</h2>
+        <p>Everything you need to begin — and quiet depth when you’re ready for more.</p>
       </div>
-      <div class="feature-grid">
-        <article class="feature">
-          <h3>Visual pomodoro</h3>
-          <p>Countdown or count-up. Short rest, long rest, and focus rounds without juggling apps.</p>
+
+      <div class="rows">
+        <article class="row reveal">
+          <div class="visual">
+            <div class="phone first"><img src="./images/v2/s-home.webp" alt="Home with the puppy and the slime squad" width="600" height="1304" loading="lazy" /></div>
+            <div class="phone second"><img src="./images/v2/s-focus.webp" alt="Focus timer with the puppy" width="600" height="1304" loading="lazy" /></div>
+            <img class="deco bob" src="./images/v2/m-slime_1.webp" alt="" style="width:70px;left:8%;bottom:20px" loading="lazy" />
+          </div>
+          <div class="text">
+            <span class="tag">Visual pomodoro</span>
+            <h3>A countdown you can feel</h3>
+            <p>A big ring, a calm timer and a companion that dozes while you work. Countdown or count-up, with short and long rests built in.</p>
+            <ul class="ticks">
+              <li>Strict ends the session if you leave for more than 10 seconds</li>
+              <li>Whitelist blocks every app except the ones you allow</li>
+              <li>Loose lets you roam — all three modes are free</li>
+            </ul>
+          </div>
         </article>
-        <article class="feature">
-          <h3>Make your own slime</h3>
-          <p>Drag the dots to stretch it, pick a color and a face. It joins your squad and walks around the timer while you focus.</p>
+
+        <article class="row flip reveal" id="focus-hours">
+          <div class="visual">
+            <div class="hours">
+              <div class="card">
+                <span class="lbl">Focus hours</span>
+                <div class="win"><b>9:00 – 11:30</b><span class="switch" aria-hidden="true"></span></div>
+                <div class="days" aria-hidden="true"><span class="on">M</span><span class="on">T</span><span class="on">W</span><span class="on">T</span><span class="on">F</span><span>S</span><span>S</span></div>
+              </div>
+              <div class="card">
+                <span class="lbl">Locked apps</span>
+                <div class="apps" aria-hidden="true">
+                  <span class="app" style="background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af)">IG</span>
+                  <span class="app" style="background:#111">TT</span>
+                  <span class="app" style="background:#ff0033">YT</span>
+                  <span class="app" style="background:#5865f2">DC</span>
+                </div>
+              </div>
+              <span class="break-pill">🔓 Short break · Apps open until 10:25</span>
+            </div>
+            <img class="deco bob" src="./images/v2/m-cat.webp" alt="" style="width:92px;right:4%;bottom:-10px" loading="lazy" />
+          </div>
+          <div class="text">
+            <span class="tag new">✨ New · Focus hours</span>
+            <h3>Distracting apps lock at the times you set</h3>
+            <p>Set your daily windows and pick the apps that pull you away. They stay locked — even when Nomodoro is closed. Finish a focus session and they open for exactly your break, then lock again.</p>
+            <ul class="ticks">
+              <li>Free: one window every day, up to 3 apps</li>
+              <li>Pro: up to 5 windows on the days you choose, any apps and whole categories</li>
+              <li>Built on Apple’s Screen Time — your choices never leave your iPhone</li>
+            </ul>
+          </div>
         </article>
-        <article class="feature">
-          <h3>Mood check-in</h3>
-          <p>Tell Nomodoro how you feel. Tired, your slimes melt into puddles; excited, they bounce. See your week of moods in Progress.</p>
+
+        <article class="row reveal">
+          <div class="visual">
+            <div class="phone"><img src="./images/v2/s-hold.webp" alt="Hold End for 3 seconds while the puppy gets sleepy and sad" width="600" height="1304" loading="lazy" /></div>
+          </div>
+          <div class="text">
+            <span class="tag new">✨ New · Hold to give up</span>
+            <h3>Quitting takes a 3-second hold</h3>
+            <p>No more one-tap escapes. Hold End and your buddy and slimes get sadder each second… let go and they cheer. A tiny pause that saves a lot of sessions.</p>
+          </div>
         </article>
-        <article class="feature">
-          <h3>Doodle companions</h3>
-          <p>Cloud, steamed bun, snacks, animals, fruit friends — most unlock with gems from focused minutes. Five exclusives come with Pro.</p>
+
+        <article class="row flip reveal">
+          <div class="visual">
+            <div class="phone"><img src="./images/v2/s-slime.webp" alt="Slime editor: drag the dots, pick a face and a color" width="600" height="1304" loading="lazy" /></div>
+            <img class="deco bob" src="./images/v2/m-slime_3.webp" alt="" style="width:80px;left:12%;bottom:40px" loading="lazy" />
+          </div>
+          <div class="text">
+            <span class="tag">Make your own slime</span>
+            <h3>Stretch it. Color it. It’s yours.</h3>
+            <p>Drag the dots to shape your slime, then pick a color, a face and a pattern. It joins your squad and bounces around the timer while you focus.</p>
+          </div>
         </article>
-        <article class="feature">
-          <h3>Strict, Whitelist or Loose</h3>
-          <p>Strict ends the session if you leave for more than 10 seconds. Whitelist blocks every app except the ones you allow. Loose lets you roam. All three are free.</p>
+
+        <article class="row reveal">
+          <div class="visual">
+            <div class="phone"><img src="./images/v2/s-mood.webp" alt="Tired mood: the slimes melt into puddles" width="600" height="1304" loading="lazy" /></div>
+          </div>
+          <div class="text">
+            <span class="tag">Mood check-in</span>
+            <h3>Your squad feels it too</h3>
+            <p>Tell Nomodoro how you feel. Tired, and your slimes melt into puddles. Excited, and they bounce. Your companion even suggests a shorter focus on heavy days.</p>
+          </div>
         </article>
-        <article class="feature">
-          <h3>Focus hours</h3>
-          <p>Distracting apps lock at the times you set, even with Nomodoro closed. Finish a focus session and they open for your break, then lock again.</p>
-        </article>
-        <article class="feature">
-          <h3>Soft Progress</h3>
-          <p>Tap any day to see its focus time, sessions and longest focus. Weekly chart with your mood under each bar, activity map and usage by task — full history, free. Share your day as a cute card.</p>
-        </article>
-        <article class="feature">
-          <h3>Always nearby</h3>
-          <p>Home Screen widgets start your usual tasks in one tap and show Pause / End during a session. Live Activities keep it on the Lock Screen and Dynamic Island.</p>
-        </article>
-        <article class="feature">
-          <h3>Gentle sounds</h3>
-          <p>Waves, rain and wind to begin. Pro adds birds, leaves, creek, fire, thunder, crickets and waterfall.</p>
+
+        <article class="row flip reveal">
+          <div class="visual">
+            <div class="phone first"><img src="./images/v2/s-progress.webp" alt="Progress screen" width="600" height="1304" loading="lazy" /></div>
+            <div class="phone second"><img src="./images/v2/s-share.webp" alt="Share card for today" width="600" height="1304" loading="lazy" /></div>
+          </div>
+          <div class="text">
+            <span class="tag">Soft progress</span>
+            <h3>See your days, share the good ones</h3>
+            <p>Tap any day on the activity map or the week chart to see its focus time, sessions and longest focus. Your mood sits under each bar. Turn a day into a cute card in one tap.</p>
+            <ul class="ticks">
+              <li>Full history and charts, free</li>
+              <li>Weekly usage by task</li>
+            </ul>
+          </div>
         </article>
       </div>
-      <p class="note">ADHD-friendly by design, without medical claims. Not a treatment — just a calmer way to begin with Nomodoro.</p>
+    </section>
+
+    <section class="wrap section">
+      <div class="head reveal">
+        <span class="kicker">And more</span>
+        <h2>Little things that help</h2>
+      </div>
+      <div class="extras">
+        <article class="extra reveal"><div class="e">📱</div><h3>Widgets that act</h3><p>Start your usual tasks in one tap. Pause or end from the Home Screen during a session.</p></article>
+        <article class="extra reveal"><div class="e">🏝️</div><h3>Live Activities</h3><p>Your timer stays on the Lock Screen and in the Dynamic Island.</p></article>
+        <article class="extra reveal"><div class="e">🌧️</div><h3>Gentle sounds</h3><p>Waves, rain and wind to begin. Pro adds birds, leaves, creek, fire, thunder, crickets and waterfall.</p></article>
+        <article class="extra reveal"><div class="e">🌙</div><h3>Dark mode</h3><p>A soft night look for late study sessions.</p></article>
+        <article class="extra reveal"><div class="e">💾</div><h3>Your data, your backup</h3><p>Export and import a full backup any time — for everyone.</p></article>
+        <article class="extra reveal"><div class="e">🫶</div><h3>ADHD-friendly by design</h3><p>One task, low noise, kind rounds. Not a treatment — just a calmer way to begin.</p></article>
+      </div>
+    </section>
+
+    <section class="wrap section" id="friends">
+      <div class="head reveal">
+        <span class="kicker">Friends</span>
+        <h2>15 doodle friends to unlock</h2>
+        <p>Every focused minute earns gems. Claim a new companion when you have enough — five exclusives come with Pro.</p>
+      </div>
+      <div class="friends reveal" id="friends-grid"></div>
     </section>
 
     <section class="wrap section" id="pricing">
-      <div class="section-head">
+      <div class="head reveal">
+        <span class="kicker">Pricing</span>
         <h2>Pricing that stays kind</h2>
-        <p>Free forever for unlimited focus. Pro is optional — pick the plan that fits.</p>
+        <p>Unlimited focus is free forever. Pro is optional — pick the plan that fits.</p>
       </div>
-
-      <div class="pricing-layout">
-        <article class="plan-free">
+      <div class="pricing">
+        <article class="plan reveal">
           <h3>Free</h3>
-          <p class="plan-lead">Everything to start today</p>
-          <div class="price-big">$0</div>
-          <p class="price-sub">No trial cliff · focus unlimited</p>
-          <ul class="check-list">
+          <p class="sub">Everything to start today</p>
+          <div class="big">$0</div>
+          <ul class="ticks">
             <li>Unlimited focus sessions</li>
             <li>Strict, Loose and Whitelist modes</li>
             <li>Focus hours: 1 daily window, 3 apps</li>
@@ -769,47 +639,45 @@
             <li>Widgets &amp; Live Activities</li>
           </ul>
         </article>
-
-        <article class="plan-pro">
+        <article class="plan pro reveal">
+          <img class="peek bob" src="./images/v2/m-capybara.webp" alt="" width="96" height="96" loading="lazy" />
           <h3>Nomodoro Pro</h3>
-          <p class="plan-lead">Deeper tools when you want them</p>
-
-          <div class="pro-tiers">
+          <p class="sub">Your own schedule, and a few treats</p>
+          <div class="tiers">
             <div class="tier">
-              <div class="name">Monthly</div>
+              <div class="nm">Monthly</div>
               <div class="amt">$1.99</div>
-              <div class="meta">per month<br>Flexible</div>
+              <div class="mt">per month<br>Flexible</div>
             </div>
-            <div class="tier featured">
+            <div class="tier best">
               <span class="badge">Best value</span>
-              <div class="name">Yearly</div>
+              <div class="nm">Yearly</div>
               <div class="amt">$9.99</div>
-              <div class="meta">per year · ~$0.83/mo<br>7-day free trial</div>
-              <span class="save">Save ~58% vs monthly</span>
+              <div class="mt">per year · ~$0.83/mo<br>7-day free trial</div>
+              <span class="save">Save ~58%</span>
             </div>
             <div class="tier">
-              <div class="name">Lifetime</div>
+              <div class="nm">Lifetime</div>
               <div class="amt">$19.99</div>
-              <div class="meta">one-time<br>Pay once</div>
-              <span class="save">≈ 2 years of Yearly</span>
+              <div class="mt">one-time<br>Pay once</div>
             </div>
           </div>
-
-          <p class="pro-includes">
-            <strong>Every Pro plan includes:</strong>
-            more Focus hours (up to 5 windows on the days you choose, unlimited apps and whole categories) · a squad of up to 3 slimes with every color, face and exclusive patterns · 7 more nature sounds · custom short break, long break &amp; rounds · exclusive friends (bubble tea, donut, puppy, capybara, apple)
-          </p>
+          <ul class="ticks">
+            <li>More Focus hours — up to 5 windows, your days, unlimited apps and whole categories</li>
+            <li>A squad of up to 3 slimes with every color, face and exclusive patterns</li>
+            <li>7 more nature sounds</li>
+            <li>Custom short break, long break &amp; rounds</li>
+            <li>Exclusive friends: bubble tea, donut, puppy, capybara, apple</li>
+          </ul>
         </article>
       </div>
-      <p class="note" style="margin-top:16px">
-        Prices in USD from the App Store catalog; local currency and tax may vary by region.
-      </p>
+      <p class="note">Prices in USD from the App Store catalog; local currency and tax may vary by region.</p>
     </section>
 
-    <section class="wrap section">
-      <div class="section-head">
+    <section class="wrap section" id="faq">
+      <div class="head reveal">
+        <span class="kicker">FAQ</span>
         <h2>Quick answers</h2>
-        <p>Common questions before you download.</p>
       </div>
       <div class="faq">
         <details open>
@@ -817,20 +685,20 @@
           <p>Yes. Unlimited focus sessions, every focus mode (Strict, Loose, Whitelist), one Focus hours window, full history and charts, backup, mood check-in and one custom slime stay free. Pro adds more Focus hours, a squad of up to 3 slimes, more sounds, custom breaks &amp; rounds and exclusive friends. Other companions still need gems from focus.</p>
         </details>
         <details>
-          <summary>What are Friends and gems?</summary>
-          <p>Complete focus sessions to earn gems, then claim doodle companions. Pro unlocks five exclusives (boba, donut, puppy, capybara, apple) without gems — everyone else still needs enough gems to claim.</p>
+          <summary>What are Focus hours?</summary>
+          <p>Set daily time windows and pick the apps that distract you. During a window those apps stay locked, even when Nomodoro is closed. Finish a focus session and they open for exactly your break, then lock again. Free: one window every day, up to 3 apps. Pro: up to 5 windows on the days you choose, any number of apps and whole categories. It uses Apple’s Screen Time API, and your choices never leave your iPhone.</p>
         </details>
         <details>
           <summary>How does Whitelist mode block apps?</summary>
           <p>It uses Apple’s Screen Time API. You pick up to 10 apps that stay allowed; every other app is shielded only while a focus session runs, and released when it ends. Your app choices never leave your iPhone.</p>
         </details>
         <details>
-          <summary>What are Focus hours?</summary>
-          <p>Set daily time windows and pick the apps that distract you. During a window those apps stay locked, even when Nomodoro is closed. Finish a focus session and they open for exactly your break, then lock again. Free: one window every day, up to 3 apps. Pro: up to 5 windows on the days you choose, any number of apps and whole categories. It uses Apple’s Screen Time API, and your choices never leave your iPhone.</p>
-        </details>
-        <details>
           <summary>Can I quit a session early?</summary>
           <p>Yes — hold End for 3 seconds. Your buddy gets a little sad while you hold, and cheers if you let go. A count-up session just asks to save.</p>
+        </details>
+        <details>
+          <summary>What are Friends and gems?</summary>
+          <p>Complete focus sessions to earn gems, then claim doodle companions. Pro unlocks five exclusives (bubble tea, donut, puppy, capybara, apple) without gems — everyone else still needs enough gems to claim.</p>
         </details>
         <details>
           <summary>Which Pro plan should I pick?</summary>
@@ -840,14 +708,15 @@
     </section>
 
     <section class="wrap section" id="feedback">
-      <div class="section-head">
-        <h2>Send feedback</h2>
+      <div class="head reveal">
+        <span class="kicker">Feedback</span>
+        <h2>Tell me what you think</h2>
         <p>Ideas, bugs, or “this felt confusing” — it all helps. Opens your email app.</p>
       </div>
-      <form class="feedback" id="feedback-form">
+      <form class="feedback reveal" id="feedback-form">
         <p class="hint">Indie-built — I read every message.</p>
         <div class="field">
-          <label for="fb-name">Name <span style="font-weight:500;color:var(--muted)">(optional)</span></label>
+          <label for="fb-name">Name <span style="font-weight:600;color:var(--muted)">(optional)</span></label>
           <input id="fb-name" name="name" type="text" autocomplete="name" placeholder="Your name" />
         </div>
         <div class="field">
@@ -862,17 +731,19 @@
     </section>
 
     <section class="wrap final">
+      <div class="squad" aria-hidden="true">
+        <img class="bob" src="./images/v2/m-slime_0.webp" alt="" loading="lazy" />
+        <img class="bob d1" src="./images/v2/m-puppy_done.webp" alt="" loading="lazy" />
+        <img class="big bob d2" src="./images/v2/m-bun_done.webp" alt="" loading="lazy" />
+        <img class="bob" src="./images/v2/m-strawberry.webp" alt="" loading="lazy" />
+        <img class="bob d1" src="./images/v2/m-slime_2.webp" alt="" loading="lazy" />
+      </div>
       <h2>Ready for one clear task?</h2>
       <p>Download Nomodoro on iPhone. Begin without overwhelm.</p>
       <div class="cta-row">
-        <a class="cta" href="https://apps.apple.com/app/id6799465659" rel="noopener" aria-label="Download on the App Store">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.77 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.22-2.01 1.08-3.18-1.06.05-2.33.71-3.08 1.58-.67.76-1.26 1.98-1.1 3.14 1.16.09 2.36-.6 3.1-1.54z"/>
-          </svg>
-          <span>
-            <small>Download on the</small>
-            <strong>App Store</strong>
-          </span>
+        <a class="store" href="https://apps.apple.com/app/id6799465659" rel="noopener" aria-label="Download on the App Store">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.77 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.22-2.01 1.08-3.18-1.06.05-2.33.71-3.08 1.58-.67.76-1.26 1.98-1.1 3.14 1.16.09 2.36-.6 3.1-1.54z"/></svg>
+          <span><small>Download on the</small><strong>App Store</strong></span>
         </a>
       </div>
     </section>
@@ -880,14 +751,13 @@
 
   <footer>
     <div class="wrap">
+      <p style="margin:0">© Nomodoro: Cute Focus Timer</p>
       <nav aria-label="Legal">
         <a href="./privacy.html">Privacy Policy</a>
         <a href="./terms.html">Terms of Use</a>
         <a href="#feedback">Feedback</a>
         <a href="https://apps.apple.com/app/id6799465659" rel="noopener">App Store</a>
-        <a href="https://github.com/tnson1307/freshair" rel="noopener">GitHub</a>
       </nav>
-      <p>© Nomodoro: Cute Focus Timer</p>
     </div>
   </footer>
 
@@ -912,50 +782,46 @@
           if (name) body += "From: " + name + "\n\n";
           body += message;
           body += "\n\n— Sent from Nomodoro landing page";
-          var url =
+          window.location.href =
             "mailto:" + encodeURIComponent(FEEDBACK_EMAIL) +
             "?subject=" + encodeURIComponent("Nomodoro feedback") +
             "&body=" + encodeURIComponent(body);
-          window.location.href = url;
         });
       }
 
-      var root = document.getElementById("slider");
-      if (!root) return;
-      var slides = [].slice.call(root.querySelectorAll(".slide"));
-      var caption = document.getElementById("caption");
-      var dotsWrap = root.querySelector(".dots");
-      var index = 0;
-      var timer = null;
-      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-      slides.forEach(function (_, i) {
-        var b = document.createElement("button");
-        b.type = "button";
-        b.className = "dot";
-        b.setAttribute("aria-label", "Screenshot " + (i + 1));
-        b.addEventListener("click", function () { go(i); restart(); });
-        dotsWrap.appendChild(b);
+      // Companions: [image, name, Pro exclusive]
+      var FRIENDS = [
+        ["cloud", "Cloud"], ["bun", "Steamed bun"], ["boba", "Bubble tea", 1], ["sushi", "Sushi"],
+        ["pizza", "Pizza"], ["donut", "Donut", 1], ["chicken", "Chicken"], ["puppy", "Puppy", 1],
+        ["cat", "Cat"], ["capybara", "Capybara", 1], ["orange", "Orange"], ["kiwi", "Kiwi"],
+        ["apple", "Apple", 1], ["strawberry", "Strawberry"], ["durian", "Durian"]
+      ];
+      var grid = document.getElementById("friends-grid");
+      var track = document.getElementById("marquee");
+      var html = "", strip = "";
+      FRIENDS.forEach(function (f) {
+        var src = "./images/v2/m-" + f[0] + ".webp";
+        html += '<div class="friend">' + (f[2] ? "<em>PRO</em>" : "") +
+          '<img src="' + src + '" alt="" width="84" height="84" loading="lazy" /><span>' + f[1] + "</span></div>";
+        strip += '<img src="' + src + '" alt="" width="70" height="70" loading="lazy" />';
       });
-      var dots = [].slice.call(dotsWrap.querySelectorAll(".dot"));
+      var slimes = [0, 1, 2, 3].map(function (i) {
+        return '<img src="./images/v2/m-slime_' + i + '.webp" alt="" width="70" height="70" loading="lazy" />';
+      }).join("");
+      grid.innerHTML = html;
+      track.innerHTML = strip + slimes + strip + slimes;
 
-      function go(n) {
-        index = (n + slides.length) % slides.length;
-        slides.forEach(function (s, i) { s.classList.toggle("is-active", i === index); });
-        dots.forEach(function (d, i) {
-          if (i === index) d.setAttribute("aria-current", "true");
-          else d.removeAttribute("aria-current");
+      var items = document.querySelectorAll(".reveal");
+      if (!("IntersectionObserver" in window)) {
+        items.forEach(function (el) { el.classList.add("in"); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
         });
-        if (caption) caption.textContent = slides[index].getAttribute("data-caption") || "";
-      }
-      function restart() {
-        if (timer) clearInterval(timer);
-        if (!reduce) timer = setInterval(function () { go(index + 1); }, 4000);
-      }
-      root.addEventListener("mouseenter", function () { if (timer) clearInterval(timer); });
-      root.addEventListener("mouseleave", restart);
-      go(0);
-      restart();
+      }, { rootMargin: "0px 0px -8% 0px" });
+      items.forEach(function (el) { io.observe(el); });
     })();
   </script>
 </body>
