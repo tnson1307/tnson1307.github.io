@@ -58,12 +58,14 @@
   <main>
     <div class="card">
       <h1>Privacy Policy</h1>
-      <p class="meta">Nomodoro: Cute Focus Timer · Last updated: October 5, 2026</p>
+      <p class="meta">Nomodoro: Cute Focus Timer · Last updated: October 22, 2026</p>
 
       <p>
         Nomodoro (“the App”) is a calm focus / pomodoro-style timer for iPhone with
         doodle companions. This policy explains what information the App handles and
-        how it is used. We designed Nomodoro to keep most data on your device.
+        how it is used. We designed Nomodoro to keep most data on your device. The App uses
+        Google’s Firebase Analytics to count anonymous usage events (see section 10); it does
+        not use any advertising or tracking SDK.
       </p>
 
       <h2>1. Who we are</h2>
@@ -84,11 +86,11 @@
         <li>Your custom slimes (shape, color, face, pattern) and slime squad settings</li>
         <li>Mood check-ins you choose to record (mood and time), used for the mood charts</li>
         <li>Your focus mode (Strict, Whitelist or Loose) and, for Whitelist, the apps and websites you allow</li>
+        <li>Focus hours settings: your time windows, days, and the apps and categories you chose to lock</li>
         <li>Appearance (light/dark), ambient sound selections, sound on/off, completion chime preference</li>
         <li>Home Screen app icon choice (if you pick an alternate icon)</li>
         <li>Language preference and onboarding completion flag</li>
-        <li>Reminder time preference if you enable the daily reminder</li>
-        <li>Widget / Live Activity display data related to an active or recent session</li>
+                <li>Widget / Live Activity display data related to an active or recent session, and today’s totals and your most used tasks for the widget’s quick-start buttons</li>
       </ul>
       <p>This information is used only to operate the App’s features on your device.</p>
 
@@ -98,13 +100,14 @@
         lifetime unlock), payment is processed by Apple through StoreKit / your Apple ID.
         We do not receive your full payment card details. Apple provides
         purchase/entitlement status so the App can unlock Pro features (such as more
-        Whitelist mode, the slime squad, more nature sounds, custom breaks and rounds, exclusive Friends companions, and backup export/import) and restore purchases on devices signed in
-        with your Apple ID.
+        Focus hours windows, days and apps, the slime squad, more nature sounds, custom breaks and rounds, and exclusive Friends companions) and restore purchases on devices signed in
+        with your Apple ID. If you start a free trial, the App stores the trial end date on your device
+        so it can remind you before the trial ends.
       </p>
 
       <h2>4. Backup export &amp; import</h2>
       <p>
-        Nomodoro Pro may let you export a backup file (JSON) that you save via the
+        Nomodoro lets every user (Free and Pro) export a backup file (JSON) that you save via the
         system share/Files sheet, and later import that file. Export/import is
         <strong>user-initiated</strong>. The backup can include profile fields, preferences,
         unlocked companions, and focus history stored in the App. We do not host or
@@ -114,11 +117,12 @@
 
       <h2>5. Notifications</h2>
       <p>
-        If you enable the daily reminder, the App schedules local notifications on your
-        device. The App may also use local notifications related to an active focus
-        session (for example when a session is paused). Notification permission is
-        optional and can be changed in iOS Settings. Reminder content is generated
-        on-device.
+        The App uses local notifications only, scheduled on your device: Strict mode warnings
+        when you leave a focus session, the end of a focus session or break, a “Focus time”
+        banner when one of your Focus hours windows starts, and, if you start a Pro free trial, a
+        reminder 2 days before the trial ends. Notification permission is optional and can be
+        changed in iOS Settings. Notification content is generated on-device; we do not send
+        push notifications.
       </p>
 
       <h2>6. Sharing the App</h2>
@@ -128,11 +132,14 @@
         choose in that sheet.
       </p>
 
-      <h2>7. Screen Time (Whitelist mode)</h2>
+      <h2>7. Screen Time (Whitelist mode and Focus hours)</h2>
       <p>
         Whitelist mode uses Apple’s Screen Time frameworks (Family Controls, Managed Settings and
         Device Activity). You grant access in iOS, pick the apps and websites that stay allowed, and
-        every other app is shielded only while a focus session runs. Apple gives the App opaque
+        every other app is shielded only while a focus session runs. Focus hours uses the same frameworks:
+        the apps and categories you choose are shielded during the daily windows you set (even when the
+        App is closed, through an on-device Device Activity extension) and opened for the break after a
+        finished focus session. Apple gives the App opaque
         tokens for your choices, not the names of your apps; they are stored on your device and are
         never sent to us or anyone else. You can turn Screen Time access off at any time in iOS
         Settings.
@@ -152,45 +159,66 @@
         device. It is only shared if you send it yourself through the system share sheet.
       </p>
 
-      <h2>10. What we do not collect</h2>
+      <h2>10. Usage analytics (Firebase Analytics)</h2>
+      <p>
+        To learn which features help people focus and where the App is confusing, Nomodoro uses
+        Google Firebase Analytics (provided by Google LLC). It records events such as finishing
+        onboarding, starting, finishing or ending a focus session early (with the focus mode, timer
+        mode and minutes), changing the focus mode, turning on Focus hours, opening the Pro screen,
+        and the result of a purchase or restore (plan type, trial or not), plus whether you are on
+        Free or Pro. Firebase also collects standard technical data: an app-instance identifier
+        created by Firebase, device model, iOS and App version, language, and approximate country
+        or region.
+      </p>
+      <ul>
+        <li>We do not use the advertising identifier (IDFA) and the App does not track you across other companies’ apps or websites, so iOS does not show a tracking prompt.</li>
+        <li>Analytics data is not linked to your name, email or Apple ID, and we do not use it for advertising.</li>
+        <li>It never includes your task text, profile name, mood notes, slimes, or anything about the apps you choose in Whitelist mode or Focus hours.</li>
+        <li>Analytics is processed by Google under the <a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase privacy terms</a> and kept for a limited period set in Google Analytics.</li>
+      </ul>
+
+      <h2>11. What we do not collect</h2>
       <ul>
         <li>No account registration with us</li>
-        <li>No advertising ID tracking for ads</li>
-        <li>No third-party analytics SDKs in the current App</li>
+        <li>No advertising ID tracking and no ads</li>
+        <li>No advertising or tracking SDKs</li>
         <li>No sale of personal information</li>
       </ul>
 
-      <h2>11. iCloud / cloud sync</h2>
+      <h2>12. iCloud / cloud sync</h2>
       <p>
         The current version does not sync your focus history or preferences through
         iCloud or our own servers. Data remains on your device (and Apple’s purchase
-        systems for subscriptions / lifetime unlock). Optional backup files are only
+        systems for subscriptions / lifetime unlock), apart from the anonymous usage events
+        described in section 10. Optional backup files are only
         created when you export them.
       </p>
 
-      <h2>12. Children</h2>
+      <h2>13. Children</h2>
       <p>
         Nomodoro is a general productivity/focus tool and is not directed at children
         under 13. We do not knowingly collect personal information from children.
       </p>
 
-      <h2>13. Data retention &amp; deletion</h2>
+      <h2>14. Data retention &amp; deletion</h2>
       <p>
         Local App data remains until you delete the App or clear it via device settings.
         Deleting the App removes on-device App data (unless you previously exported a
         backup file elsewhere). Apple ID purchase and subscription history remains with
         Apple according to Apple’s policies. You can manage or cancel subscriptions in
-        your Apple ID subscription settings.
+        your Apple ID subscription settings. Deleting the App also resets its Firebase
+        app-instance identifier; analytics events already sent expire under the Google Analytics
+        retention period.
       </p>
 
-      <h2>14. Changes</h2>
+      <h2>15. Changes</h2>
       <p>
         We may update this Privacy Policy as the App evolves (for example if cloud sync
-        or analytics are added later). The “Last updated” date at the top will change
+        is added later). The “Last updated” date at the top will change
         when we do. Continued use after updates means you accept the revised policy.
       </p>
 
-      <h2>15. Contact</h2>
+      <h2>16. Contact</h2>
       <p>
         Questions about this policy:
         <a href="https://github.com/tnson1307/freshair/issues">github.com/tnson1307/freshair/issues</a>
