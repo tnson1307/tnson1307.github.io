@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>min.dev — Apps</title>
+  <meta name="description" content="Small iPhone apps for everyday life by min.dev: Nomodoro, Mochi Dash, CoupleBites and Pocket Rook." />
+  <meta property="og:title" content="min.dev — Apps" />
+  <meta property="og:description" content="Small iPhone apps for everyday life." />
+  <link rel="icon" href="icons/nomodoro.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --ink: #111111;
+      --muted: #666666;
+      --rule: #111111;
+      --red: #fde4df;
+      --pink: #fde8ec;
+      --cream: #fbf1df;
+      --butter: #fbefc6;
+      --display: "Bricolage Grotesque", system-ui, sans-serif;
+      --mono: "Space Mono", ui-monospace, monospace;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --ink: #f2f2f2;
+        --muted: #9a9a9a;
+        --rule: #3a3a3a;
+        --red: #2a1c1a;
+        --pink: #2a1d21;
+        --cream: #26221b;
+        --butter: #2a2618;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--display);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+
+    header { border-bottom: 1px solid var(--rule); }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { font-weight: 800; font-size: 1.15rem; letter-spacing: -0.03em; text-decoration: none; }
+    header nav a { font-family: var(--mono); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; text-decoration: none; }
+
+    .hero { text-align: center; padding: 72px 0 48px; }
+    .hero h1 { font-weight: 800; font-size: clamp(2rem, 6vw, 2.75rem); letter-spacing: -0.04em; }
+    .hero p { margin-top: 10px; color: var(--muted); font-size: 1.05rem; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .app { border: 1px solid var(--rule); display: flex; flex-direction: column; }
+    .art { display: grid; place-items: center; aspect-ratio: 1 / 1; background: var(--c); border-bottom: 1px solid var(--rule); }
+    .art img { width: 46%; max-width: 150px; height: auto; border-radius: 22.5%; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12); }
+    .body { padding: 20px 18px 22px; display: flex; flex-direction: column; flex: 1; }
+    .cat { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
+    .app h2 { margin-top: 4px; font-weight: 800; font-size: 1.6rem; letter-spacing: -0.03em; }
+    .app p { margin-top: 8px; line-height: 1.5; color: var(--muted); flex: 1; }
+    .links { margin-top: 18px; display: flex; gap: 8px; flex-wrap: wrap; }
+    .links a {
+      font-family: var(--mono); font-size: 0.75rem; font-weight: 700; text-decoration: none;
+      border: 1px solid var(--ink); padding: 8px 11px;
+    }
+    .links a.store { background: var(--ink); color: var(--bg); }
+    .links a:hover { opacity: 0.75; }
+
+    footer { padding: 40px 0 56px; text-align: center; font-family: var(--mono); font-size: 0.75rem; color: var(--muted); }
+    footer a { text-decoration: none; }
+    footer a:hover { color: var(--ink); }
+
+    @media (max-width: 960px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      .art { aspect-ratio: 16 / 10; }
+      .art img { width: 34%; }
+    }
+    @media (max-width: 680px) {
+      .hero { padding: 48px 0 32px; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <a class="logo" href="./">min.dev</a>
+      <nav><a href="../portfolio/">About</a></nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>Our apps</h1>
+      <p>Small iPhone apps for everyday life. Made by one person in Vietnam.</p>
+    </section>
+
+    <section class="grid">
+      <article class="app" style="--c:var(--red)">
+        <div class="art"><img src="icons/nomodoro.png" alt="Nomodoro icon" width="256" height="256" /></div>
+        <div class="body">
+          <span class="cat">Focus timer</span>
+          <h2>Nomodoro</h2>
+          <p>Put the phone down and get one thing done. A cute companion keeps you company while you focus, and gets sad if you give up.</p>
+          <div class="links">
+            <a class="store" href="https://apps.apple.com/app/id6799465659" target="_blank" rel="noopener">App Store ↗</a>
+            <a href="../freshair/" target="_blank" rel="noopener">Website ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="app" style="--c:var(--pink)">
+        <div class="art"><img src="icons/mochidash.png" alt="Mochi Dash icon" width="256" height="256" /></div>
+        <div class="body">
+          <span class="cat">Walk in place</span>
+          <h2>Mochi Dash</h2>
+          <p>Prop up your phone and walk or jog in place. Mochi the cat runs on screen as fast as you move, right in your living room.</p>
+          <div class="links">
+            <a class="store" href="https://apps.apple.com/app/id6823511402" target="_blank" rel="noopener">App Store ↗</a>
+            <a href="../mochidash/" target="_blank" rel="noopener">Website ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="app" style="--c:var(--cream)">
+        <div class="art"><img src="icons/couplebites.png" alt="CoupleBites icon" width="240" height="240" /></div>
+        <div class="body">
+          <span class="cat">Food diary for two</span>
+          <h2>CoupleBites</h2>
+          <p>Snap what you eat and it turns into a sticker your partner sees right away. A shared food diary, no calorie counting.</p>
+          <div class="links">
+            <a class="store" href="https://apps.apple.com/app/id6805833235" target="_blank" rel="noopener">App Store ↗</a>
+            <a href="../couplebites/" target="_blank" rel="noopener">Website ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="app" style="--c:var(--butter)">
+        <div class="art"><img src="icons/pocketrook.png" alt="Pocket Rook icon" width="256" height="256" /></div>
+        <div class="body">
+          <span class="cat">Two-player chess</span>
+          <h2>Pocket Rook</h2>
+          <p>Play chess with the person across from you, on one phone or two. No account, no internet needed.</p>
+          <div class="links">
+            <a class="store" href="https://apps.apple.com/app/id6803026688" target="_blank" rel="noopener">App Store ↗</a>
+            <a href="../duoqi/" target="_blank" rel="noopener">Website ↗</a>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© 2026 min.dev · <a href="../portfolio/">Portfolio</a></div>
+  </footer>
+</body>
+</html>
