@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://tnson1307.github.io/freshair/sitemap.xml
+Sitemap: https://tnson1307.github.io/mochidash/sitemap.xml
+Sitemap: https://tnson1307.github.io/couplebites/sitemap.xml
+Sitemap: https://tnson1307.github.io/duoqi/sitemap.xml
