@@ -15,6 +15,18 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap">
 <link rel="stylesheet" href="site.css">
+<style>
+.tier-price { font-family: "Fredoka", "Nunito", ui-rounded, system-ui, sans-serif; font-size: 34px; line-height: 1.1; margin: 4px 0 6px; }
+.tier-price small { font-family: "Nunito", ui-rounded, system-ui, sans-serif; font-size: 15px; color: var(--ink-soft); }
+.plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 20px 0 14px; }
+.plan-box { position: relative; padding: 14px 10px 12px; text-align: center; background: var(--card); border: 2px solid var(--line); border-radius: 16px; box-shadow: 0 4px 0 var(--crust); }
+.plan-box.best { background: var(--butter-soft); box-shadow: 0 4px 0 var(--butter-deep); }
+.plan-box .nm { font-size: 15px; color: var(--ink-soft); }
+.plan-box .amt { font-family: "Fredoka", "Nunito", ui-rounded, system-ui, sans-serif; font-size: 26px; line-height: 1.2; }
+.plan-box .mt { font-size: 13px; line-height: 1.4; color: var(--ink-soft); }
+.plan-box .pill { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 12px; padding: 1px 10px; background: var(--butter); }
+@media (max-width: 420px) { .plans { grid-template-columns: 1fr; gap: 16px; } }
+</style>
 <meta property="og:url" content="https://tnson1307.github.io/mochidash/">
 <link rel="canonical" href="https://tnson1307.github.io/mochidash/">
 <script type="application/ld+json">
@@ -52,13 +64,35 @@
         "Sessions from 1 to 15 minutes with a friendly voice coach",
         "Friends and 32 accessories earned by moving",
         "Day streak, activity map, steps, distance and estimated calories",
+        "Mochi Plus Walk time: chosen apps open after a short walk or a few squats",
         "On-device pose detection with Apple's Vision framework; video is never recorded"
       ],
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Free",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Mochi Plus Monthly",
+          "price": "2.99",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Mochi Plus Yearly",
+          "price": "19.99",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Mochi Plus Lifetime",
+          "price": "39.99",
+          "priceCurrency": "USD"
+        }
+      ],
       "author": {
         "@type": "Person",
         "name": "Ngoc Son Tran"
@@ -67,6 +101,14 @@
     {
       "@type": "FAQPage",
       "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Mochi Dash free, and what does Mochi Plus cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mochi Dash is free to download, and races, solo walks, levels, streaks, earned friends and backup stay free with no limit. Mochi Plus is optional: $2.99 a month, $19.99 a year (eligible new subscribers can try it free for 7 days) or $39.99 once for lifetime. It adds Walk time, Night City and Maple Forest, Toro, Puddi and Kuri, eight crown accessories, five app icons, Lock Screen and large widgets, a weekly rest day for your streak, the monthly recap, full history and Apple Health. Prices are in US dollars; prices in your country and tax may differ, and the app shows yours before you buy."
+          }
+        },
         {
           "@type": "Question",
           "name": "Does the camera record me?",
@@ -97,6 +139,38 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "From your step rate, your height and your weight (if you enter them in Settings). They are estimates for fun and motivation, not medical measurements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it a good fit if I'm older or just starting out?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mochi Dash is made for people who don't move much and want a gentle start at home. You walk in place at your own pace, for 1 to 15 minutes, with big numbers and a voice coach you can follow from across the room; a light jog is up to you. If you haven't exercised in a while or have a health condition, check with a doctor first."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need a lot of space?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. You walk in place, so a small clear spot with a non-slip floor is enough. You only need about 2 to 3 meters between you and your iPhone so the camera can see your head and knees."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it need an internet connection?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Races, solo walks, the voice coach and the camera all work on your iPhone without a connection. You only need the internet to download the app and to buy or restore Mochi Plus."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it work with Apple Health?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, with Mochi Plus. Tap Health on a result to save that session as an indoor walking or running workout with its estimated active energy. Mochi Dash only writes to Apple Health; it never reads your health data."
           }
         },
         {
@@ -291,12 +365,14 @@
     <div class="tiers">
       <div class="card tier">
         <h3>Free</h3>
+        <p class="tier-price">$0 <small>forever</small></p>
         <ul class="ticks">
           <li>Races and solo walks, as many as you like</li>
           <li>Levels, streaks and the activity map</li>
           <li>Every friend, track and accessory you earn</li>
           <li>Small and medium Home Screen widgets</li>
           <li>Backup to move to a new iPhone</li>
+          <li>No ads and no account</li>
         </ul>
       </div>
       <div class="card tier plus2">
@@ -310,7 +386,25 @@
           <li>A rest day every week that keeps your streak</li>
           <li>Monthly recap, full history and Apple Health</li>
         </ul>
-        <p class="store-note">Monthly, yearly with a free trial, or a one-time lifetime purchase, through the App Store.</p>
+        <div class="plans">
+          <div class="plan-box">
+            <div class="nm">Monthly</div>
+            <div class="amt">$2.99</div>
+            <div class="mt">per month</div>
+          </div>
+          <div class="plan-box best">
+            <span class="pill">7 days free</span>
+            <div class="nm">Yearly</div>
+            <div class="amt">$19.99</div>
+            <div class="mt">per year · about $1.67 a month · save 44%</div>
+          </div>
+          <div class="plan-box">
+            <div class="nm">Lifetime</div>
+            <div class="amt">$39.99</div>
+            <div class="mt">pay once, keep Plus</div>
+          </div>
+        </div>
+        <p class="store-note">The 7-day free trial is for the yearly plan, for eligible new subscribers, and Mochi reminds you 2 days before it ends (with notifications on). Subscriptions renew automatically until you cancel in your Apple ID settings. Prices are in US dollars; prices in your country, and tax, may differ and are shown in the app before you buy.</p>
       </div>
     </div>
   </section>
@@ -320,6 +414,10 @@
     <h2>Questions</h2>
     <p class="sub">Can't find your answer? <a href="#" data-mail>Email us</a>.</p>
     <div class="faq">
+      <details class="card">
+        <summary>Is Mochi Dash free, and what does Mochi Plus cost?</summary>
+        <p>Mochi Dash is free to download, and races, solo walks, levels, streaks, earned friends and backup stay free with no limit. Mochi Plus is optional: $2.99 a month, $19.99 a year (eligible new subscribers can try it free for 7 days) or $39.99 once for lifetime. It adds Walk time, Night City and Maple Forest, Toro, Puddi and Kuri, eight crown accessories, five app icons, Lock Screen and large widgets, a weekly rest day for your streak, the monthly recap, full history and Apple Health. Prices are in US dollars; prices in your country and tax may differ, and the app shows yours before you buy.</p>
+      </details>
       <details class="card">
         <summary>Does the camera record me?</summary>
         <p>No. Mochi Dash uses Apple's on-device Vision framework to find your body pose in each camera frame. Frames are never saved, uploaded or shared. The app has no account and no server of its own.</p>
@@ -335,6 +433,22 @@
       <details class="card">
         <summary>How are distance and calories worked out?</summary>
         <p>From your step rate, your height and your weight (if you enter them in Settings). They are estimates for fun and motivation, not medical measurements.</p>
+      </details>
+      <details class="card">
+        <summary>Is it a good fit if I'm older or just starting out?</summary>
+        <p>Mochi Dash is made for people who don't move much and want a gentle start at home. You walk in place at your own pace, for 1 to 15 minutes, with big numbers and a voice coach you can follow from across the room; a light jog is up to you. If you haven't exercised in a while or have a health condition, check with a doctor first.</p>
+      </details>
+      <details class="card">
+        <summary>Do I need a lot of space?</summary>
+        <p>No. You walk in place, so a small clear spot with a non-slip floor is enough. You only need about 2 to 3 meters between you and your iPhone so the camera can see your head and knees.</p>
+      </details>
+      <details class="card">
+        <summary>Does it need an internet connection?</summary>
+        <p>No. Races, solo walks, the voice coach and the camera all work on your iPhone without a connection. You only need the internet to download the app and to buy or restore Mochi Plus.</p>
+      </details>
+      <details class="card">
+        <summary>Does it work with Apple Health?</summary>
+        <p>Yes, with Mochi Plus. Tap Health on a result to save that session as an indoor walking or running workout with its estimated active energy. Mochi Dash only writes to Apple Health; it never reads your health data.</p>
       </details>
       <details class="card">
         <summary>How do I restore or cancel Mochi Plus?</summary>

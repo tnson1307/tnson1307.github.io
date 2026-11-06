@@ -53,21 +53,171 @@
         "Reactions to your partner's meals",
         "A shared slime that grows with every day you log",
         "A monthly story of everything you ate",
-        "Home Screen widget"
+        "Home Screen widget",
+        "Days together counter and a shared list of places to try",
+        "Place tags on meals, and a map of every place you ate (Pro)",
+        "Manual backup: export and import your whole diary"
       ],
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Free",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "CoupleBites Pro Monthly",
+          "price": "3.99",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "CoupleBites Pro Yearly",
+          "price": "24.99",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "CoupleBites Pro Lifetime",
+          "price": "49.99",
+          "priceCurrency": "USD"
+        }
+      ],
       "author": {
         "@type": "Person",
         "name": "Ngoc Son Tran"
       }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I connect with my partner?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tap the partner button on Home and share your invite link from any chat app, like Messages, WhatsApp, Zalo or Messenger. Your partner opens the link on their iPhone and CoupleBites joins your diary. Pasting the link into the app works too. You both need CoupleBites on an iPhone signed in to iCloud. Once connected, every meal either of you logs shows up for both, and their earlier meals move into the shared diary."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it work for long-distance couples?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Your diary syncs through iCloud, so it doesn't matter where each of you is. You see each other's meals as they come in, react to them, and get a little notification when your partner logs a meal or reacts to yours."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is our diary stored, and can you see it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your diary lives on your phone and in your own iCloud, shared only with the partner you invite. There is no account, no sign-up and no server of ours, and there are no ads, analytics or trackers. We never receive or see your meals or photos. If you're not signed in to iCloud, everything stays on your phone."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the slime, and how does it grow?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It's a little jelly cat you raise together. It gains a level for every day with a meal logged, and days you both log count extra. It grows from Baby to Kid at level 7, Grown at 60, Legend at 180 and Mythic at 365. Accessories unlock as it levels up, and a few are Pro only. Give it a name and dress it up however you like."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does CoupleBites count calories?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. There are no calories, macros, weights or goals, and you never type what a dish is. It's a photo diary of what you ate, made to share with your partner, not a diet tracker."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does Pro add?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your full history (the free plan shows the last 30 days), every past monthly recap and sharing recap cards, a map of every place you have eaten, a widget with your partner's latest meal, On this day memories, a printable monthly scrapbook, unlimited places to try (free keeps 3), milestone reminders with a days together widget, and Pro-only slime accessories. Logging, the shared diary, the slime, reactions, iCloud sync and backup stay free."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do we both need Pro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pro belongs to the Apple ID that buys it, so each partner's plan is their own. If you're in the same Family Sharing group, one purchase can cover both of you."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I cancel or restore Pro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cancel a subscription in your App Store account settings (Settings, your name, Subscriptions) at least 24 hours before it renews. On the yearly trial, cancel at least 24 hours before the 7 days end and you won't be charged. Lifetime is a single payment with nothing to cancel. To get Pro back on a new or reset iPhone, open CoupleBites Pro in Settings and tap Restore Purchases."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens when I get a new iPhone?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sign in with the same Apple ID and install CoupleBites. Your diary, profile and shared diary come back from iCloud. For extra peace of mind, Manual backup in Settings exports your whole diary (meals with photos and places, your profile, the slime, your day together and places to try) to a file you can import on any iPhone. Reactions live only in iCloud."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a Home Screen widget?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The Your slime widget, free for everyone, shows how your slime is doing and your days together. Pro adds Your partner's plate, with their latest meal, and a days together counter widget."
+          }
+        }
+      ]
     }
   ]
 }
 </script>
+<style>
+  /* Landing-only additions; everything else comes from site.css. */
+  .tile .emoji.num { font-family: var(--display); font-weight: 700; font-size: 1.5rem; background: var(--butter); }
+  .plan .big { font-family: var(--display); font-weight: 700; font-size: 2.6rem; line-height: 1; margin: 0 0 18px; }
+  .plan .big small { font-family: var(--body); font-size: 0.95rem; font-weight: 700; color: var(--ink-soft); }
+  .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 0 0 20px; }
+  .tier {
+    position: relative; text-align: center; padding: 14px 8px 12px;
+    background: var(--paper-raised); border: var(--line); border-radius: 16px; box-shadow: var(--shadow-sm);
+  }
+  .tier.best { background: var(--paper); }
+  .tier .nm { font-weight: 800; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .tier .amt { font-family: var(--display); font-weight: 700; font-size: 1.6rem; line-height: 1.2; margin: 2px 0; }
+  .tier .mt { font-size: 0.8rem; font-weight: 700; color: var(--ink-soft); line-height: 1.35; }
+  .tier .badge {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%) rotate(-2deg); white-space: nowrap;
+    padding: 1px 8px; background: var(--cherry); color: #fff; border: 2px solid var(--outline); border-radius: 999px;
+    font-weight: 800; font-size: 0.7rem;
+  }
+  .price-note { margin: 20px 0 0; font-size: 0.88rem; font-weight: 600; color: var(--ink-soft); }
+  .faq { display: grid; gap: 14px; max-width: 760px; }
+  .faq details {
+    background: var(--paper-raised); border: var(--line); border-radius: 18px; box-shadow: var(--shadow-sm);
+  }
+  .faq summary {
+    cursor: pointer; list-style: none; padding: 16px 52px 16px 18px; position: relative;
+    font-family: var(--display); font-weight: 600; font-size: 1.12rem; line-height: 1.3;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: "+"; position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+    display: grid; place-items: center; width: 28px; height: 28px;
+    border: 2px solid var(--outline); border-radius: 9px; background: var(--butter); font-weight: 800;
+  }
+  .faq details[open] summary::after { content: "−"; }
+  .faq details p { margin: 0; padding: 0 18px 18px; color: var(--ink-soft); font-weight: 600; font-size: 0.98rem; }
+  @media (max-width: 560px) {
+    .tiers { grid-template-columns: 1fr; gap: 16px; }
+    .tier { padding-top: 16px; }
+  }
+</style>
 </head>
 <body>
 
@@ -76,7 +226,8 @@
     <a class="brand" href="./"><img src="icon.png" alt=""><span>CoupleBites</span></a>
     <nav class="nav">
       <a href="#features">Features</a>
-      <a href="#plans">Free &amp; Pro</a>
+      <a href="#plans">Pricing</a>
+      <a href="#faq">FAQ</a>
       <a href="#support">Support</a>
     </nav>
   </div>
@@ -113,6 +264,30 @@
       <span>Snap</span><span class="dot">●</span><span>Sticker</span><span class="dot">●</span><span>Share</span><span class="dot">●</span><span>React 😋</span><span class="dot">●</span><span>Feed the slime</span><span class="dot">●</span><span>Monthly recap</span><span class="dot">●</span>
     </div>
   </div>
+
+  <section id="how">
+    <div class="wrap">
+      <h2 class="section-title">How it works</h2>
+      <p class="section-sub">Three steps, no sign-up. Start on your own and invite your partner whenever you like.</p>
+      <div class="grid">
+        <article class="tile">
+          <div class="emoji num">1</div>
+          <h3>Snap your meal</h3>
+          <p>Take a photo or pick one from your library. The app cuts the dish out of the background right on your phone and tells food from drinks. Breakfast, lunch, dinner and snacks each get their own place.</p>
+        </article>
+        <article class="tile">
+          <div class="emoji num">2</div>
+          <h3>Invite your partner</h3>
+          <p>Send your invite link from Messages, WhatsApp, Zalo, Messenger or any other chat app. One tap on their iPhone and you share one diary, synced through iCloud.</p>
+        </article>
+        <article class="tile">
+          <div class="emoji num">3</div>
+          <h3>Watch it add up</h3>
+          <p>Every day you log feeds your shared slime. React to each other's meals, mark the ones you ate together, and get a short story of your month when it ends.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
   <section id="features">
     <div class="wrap">
@@ -156,6 +331,45 @@
     </div>
   </section>
 
+  <section id="details">
+    <div class="wrap">
+      <h2 class="section-title">The little things</h2>
+      <p class="section-sub">Small touches that make the diary feel like yours.</p>
+      <div class="grid">
+        <article class="tile butter">
+          <div class="emoji">🐱</div>
+          <h3>A slime with moods</h3>
+          <p>Your slime is a little jelly cat. It gets heart eyes when you both fed it today, droops and drools when it's hungry, and talks to you while you add a bite. Hats, glasses, scarves, wings and sparkles unlock as it levels up.</p>
+        </article>
+        <article class="tile">
+          <div class="emoji">📍</div>
+          <h3>Where you ate</h3>
+          <p>Tag a meal with the place you ate, picked from Apple Maps nearby. Location is optional, and only the place you pick is saved, never your own position.</p>
+        </article>
+        <article class="tile pink">
+          <div class="emoji">📝</div>
+          <h3>Places to try</h3>
+          <p>Keep a shared list of spots you both want to visit. Search as you type, nearest first, with the address, a Call button and Open in Maps. A place ticks itself off when you log a meal there.</p>
+        </article>
+        <article class="tile sage">
+          <div class="emoji">📱</div>
+          <h3>Home Screen widgets</h3>
+          <p>The Your slime widget shows how your slime is doing and your days together. With Pro, add Your partner's plate with their latest meal, and a days together counter.</p>
+        </article>
+        <article class="tile dusk">
+          <div class="emoji">🗓️</div>
+          <h3>On this day</h3>
+          <p>With Pro, Home shows what you ate a year ago today, or a month ago, and each month can become a printable scrapbook page (PDF) to keep or share.</p>
+        </article>
+        <article class="tile">
+          <div class="emoji">🌏</div>
+          <h3>In 12 languages</h3>
+          <p>English, Vietnamese, Spanish, French, German, Portuguese, Russian, Japanese, Korean, Chinese, Thai and Indonesian, so you and your partner can each use your own.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section id="plans">
     <div class="wrap">
       <h2 class="section-title">Free &amp; Pro</h2>
@@ -164,6 +378,7 @@
         <div class="plan">
           <h3>Free</h3>
           <span class="tag">Forever</span>
+          <div class="big">$0</div>
           <ul>
             <li>Unlimited meal logging and stickers</li>
             <li>Shared diary and sync with your partner</li>
@@ -179,6 +394,24 @@
         <div class="plan pro">
           <h3>Pro</h3>
           <span class="tag">Monthly, yearly or lifetime</span>
+          <div class="tiers">
+            <div class="tier">
+              <div class="nm">Monthly</div>
+              <div class="amt">$3.99</div>
+              <div class="mt">per month<br>Cancel any time</div>
+            </div>
+            <div class="tier best">
+              <span class="badge">Best value</span>
+              <div class="nm">Yearly</div>
+              <div class="amt">$24.99</div>
+              <div class="mt">per year, about $2.08/mo<br>7-day free trial</div>
+            </div>
+            <div class="tier">
+              <div class="nm">Lifetime</div>
+              <div class="amt">$49.99</div>
+              <div class="mt">one-time<br>Pay once</div>
+            </div>
+          </div>
           <ul>
             <li>Your full history, every day since the start</li>
             <li>Every past recap, plus sharing recap cards</li>
@@ -188,8 +421,58 @@
             <li>Unlimited places to try, milestone reminders and a days together widget</li>
             <li>Pro-only slime accessories</li>
           </ul>
-          <p class="fine">Yearly starts with a 7-day free trial for new subscribers, and Pro works with Family Sharing. Prices are shown in the app and on the App Store before you buy. Cancel any time in your Apple ID settings.</p>
+          <p class="fine">Yearly starts with a 7-day free trial for new subscribers, and Pro works with Family Sharing. Subscriptions renew automatically until you cancel, at least 24 hours before the period ends, in your App Store account settings.</p>
         </div>
+      </div>
+      <p class="price-note">Prices in USD from the US App Store. Local currency, prices and tax vary by region; the app and the App Store show your exact price before you buy.</p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <h2 class="section-title">Quick answers</h2>
+      <p class="section-sub">The things couples ask most.</p>
+      <div class="faq">
+        <details open>
+          <summary>How do I connect with my partner?</summary>
+          <p>Tap the partner button on Home and share your invite link from any chat app, like Messages, WhatsApp, Zalo or Messenger. Your partner opens the link on their iPhone and CoupleBites joins your diary. Pasting the link into the app works too. You both need CoupleBites on an iPhone signed in to iCloud. Once connected, every meal either of you logs shows up for both, and their earlier meals move into the shared diary.</p>
+        </details>
+        <details>
+          <summary>Does it work for long-distance couples?</summary>
+          <p>Yes. Your diary syncs through iCloud, so it doesn't matter where each of you is. You see each other's meals as they come in, react to them, and get a little notification when your partner logs a meal or reacts to yours.</p>
+        </details>
+        <details>
+          <summary>Where is our diary stored, and can you see it?</summary>
+          <p>Your diary lives on your phone and in your own iCloud, shared only with the partner you invite. There is no account, no sign-up and no server of ours, and there are no ads, analytics or trackers. We never receive or see your meals or photos. If you're not signed in to iCloud, everything stays on your phone.</p>
+        </details>
+        <details>
+          <summary>What is the slime, and how does it grow?</summary>
+          <p>It's a little jelly cat you raise together. It gains a level for every day with a meal logged, and days you both log count extra. It grows from Baby to Kid at level 7, Grown at 60, Legend at 180 and Mythic at 365. Accessories unlock as it levels up, and a few are Pro only. Give it a name and dress it up however you like.</p>
+        </details>
+        <details>
+          <summary>Does CoupleBites count calories?</summary>
+          <p>No. There are no calories, macros, weights or goals, and you never type what a dish is. It's a photo diary of what you ate, made to share with your partner, not a diet tracker.</p>
+        </details>
+        <details>
+          <summary>What does Pro add?</summary>
+          <p>Your full history (the free plan shows the last 30 days), every past monthly recap and sharing recap cards, a map of every place you have eaten, a widget with your partner's latest meal, On this day memories, a printable monthly scrapbook, unlimited places to try (free keeps 3), milestone reminders with a days together widget, and Pro-only slime accessories. Logging, the shared diary, the slime, reactions, iCloud sync and backup stay free.</p>
+        </details>
+        <details>
+          <summary>Do we both need Pro?</summary>
+          <p>Pro belongs to the Apple ID that buys it, so each partner's plan is their own. If you're in the same Family Sharing group, one purchase can cover both of you.</p>
+        </details>
+        <details>
+          <summary>How do I cancel or restore Pro?</summary>
+          <p>Cancel a subscription in your App Store account settings (Settings, your name, Subscriptions) at least 24 hours before it renews. On the yearly trial, cancel at least 24 hours before the 7 days end and you won't be charged. Lifetime is a single payment with nothing to cancel. To get Pro back on a new or reset iPhone, open CoupleBites Pro in Settings and tap Restore Purchases.</p>
+        </details>
+        <details>
+          <summary>What happens when I get a new iPhone?</summary>
+          <p>Sign in with the same Apple ID and install CoupleBites. Your diary, profile and shared diary come back from iCloud. For extra peace of mind, Manual backup in Settings exports your whole diary (meals with photos and places, your profile, the slime, your day together and places to try) to a file you can import on any iPhone. Reactions live only in iCloud.</p>
+        </details>
+        <details>
+          <summary>Is there a Home Screen widget?</summary>
+          <p>Yes. The Your slime widget, free for everyone, shows how your slime is doing and your days together. Pro adds Your partner's plate, with their latest meal, and a days together counter widget.</p>
+        </details>
       </div>
     </div>
   </section>

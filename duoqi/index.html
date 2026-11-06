@@ -31,16 +31,125 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Pocket Rook",
-    "applicationCategory": "GameApplication",
-    "operatingSystem": "iOS 17+",
-    "description": "Play chess face to face — on one iPhone, or two nearby iPhones over encrypted peer-to-peer Wi‑Fi. No account, game server, or internet connection required.",
-    "url": "https://tnson1307.github.io/duoqi/",
-    "image": "https://tnson1307.github.io/duoqi/img/og-cover.jpg",
-    "downloadUrl": "https://apps.apple.com/app/id6803026688",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-    "author": { "@type": "Person", "name": "Tran Ngoc Son" }
+    "@graph": [
+      {
+        "@type": "MobileApplication",
+        "name": "Pocket Rook: Offline Chess",
+        "alternateName": "Pocket Rook",
+        "applicationCategory": "GameApplication",
+        "applicationSubCategory": "Board game, chess",
+        "operatingSystem": "iOS 17.0 or later",
+        "description": "Play chess face to face — on one iPhone, or two nearby iPhones over encrypted peer-to-peer Wi‑Fi. No account, game server, or internet connection required.",
+        "url": "https://tnson1307.github.io/duoqi/",
+        "image": "https://tnson1307.github.io/duoqi/img/og-cover.jpg",
+        "downloadUrl": "https://apps.apple.com/app/id6803026688",
+        "installUrl": "https://apps.apple.com/app/id6803026688",
+        "inLanguage": ["en", "vi", "de", "fr", "es", "pt", "ru", "id", "ja", "ko", "th", "ar", "hi"],
+        "featureList": [
+          "Two players on one phone, with the board facing each side",
+          "Two phones connected directly over peer-to-peer Wi‑Fi, no internet",
+          "Join by QR code, six-digit code or the nearby rooms list",
+          "End-to-end encrypted two-phone games",
+          "Chess clock from 1-minute bullet to 15+10 rapid",
+          "Games resume after a dropped connection or a closed app",
+          "History of two-phone games with move-by-move replay",
+          "Free backup and restore",
+          "Share card with the final position"
+        ],
+        "offers": [
+          { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Pocket Rook Pro Monthly", "price": "3.99", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Pocket Rook Pro Yearly", "price": "19.99", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Pocket Rook Pro Lifetime", "price": "39.99", "priceCurrency": "USD" }
+        ],
+        "author": { "@type": "Person", "name": "Tran Ngoc Son" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Do I need internet or Wi‑Fi to play?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You never need the internet. A game on one phone needs nothing at all. For two phones, keep Wi‑Fi and Bluetooth switched on: the phones connect directly over peer-to-peer Wi‑Fi, so they don't have to join the same network or router, and it works on a plane or in a park. Neither phone has to join a Wi‑Fi network."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do two phones join the same game?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "One phone taps Create room and shows a QR code and a six-digit code. The other phone taps Join and scans the QR, types the code, or picks the room from the nearby list. A QR scan starts the game straight away; with the code or the nearby list, the host taps Accept first. The first time, iOS asks for Local Network permission, which the two-phone mode needs. Both phones should run the latest version of the app."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can two people play on one phone?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Tap Play on this phone and lay it flat between you. The top player's clock, buttons and dialogs turn to face them across the table, and the clock switches after every move. Games on one phone are free and unlimited, and they are casual: they are not saved to your history."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I play against the computer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Pocket Rook is for two people at the same table, on one phone or two. There is no computer opponent and no online matchmaking."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which time controls are there?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Seven presets: 1 min, 3 min, 3 + 2, 5 min, 10 min, 10 + 5 and 15 + 10. With Pro you can build a custom clock from 1 to 90 minutes with up to 60 seconds of increment, or a handicap clock where White and Black start with different time. In a two-phone game, the player who creates the room needs Pro to use a custom clock."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What happens if a phone drops out or the app closes?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The game is saved after every move. If a phone loses the connection, both phones wait 45 seconds for it to come back, and the clocks pause for the first three drops of a game. If it doesn't return in time, the game is recorded as interrupted with no winner. A game on one phone can be resumed from the home screen at any time."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What do I get for free, and what does Pro add?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Free includes unlimited games on one phone, 5 two-phone games a day, history with replay, backup and restore, and no ads. Pro adds unlimited two-phone games, games that are free for whoever you play, custom and handicap clocks, and Pro boards, piece sets and profile icons. If either player in the room has Pro, the game is free for both and does not count toward anyone's daily limit."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I cancel a subscription or restore Pro?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Subscriptions are managed in your Apple ID subscription settings and renew unless cancelled at least 24 hours before the end of the current period. If you start the Pro Yearly trial, the app can remind you two days before the trial ends. To get Pro back on a new phone, sign in with the same Apple ID and tap Restore purchases in Settings or on the Pro screen. If Pro ends, your history stays, and the board, pieces and clock go back to the free choices."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What data does Pocket Rook collect?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pocket Rook has no account, no server, no analytics and no ads, so nothing about you or your games is sent to the developer. In a two-phone game, moves travel only between the two phones and are encrypted end to end. While you host a room, phones nearby can see your display name, avatar, flag and win/loss totals so they can find you. Your history stays on your device, and a backup is a file that you export and keep yourself."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which devices and languages are supported?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "iPhone and iPad with iOS 17 or later. The app is in English, Vietnamese, German, French, Spanish, Portuguese, Russian, Indonesian, Japanese, Korean, Thai, Arabic and Hindi, and you can change the language in Settings."
+              }
+            }
+          ]
+      }
+    ]
   }
   </script>
 
@@ -154,6 +263,22 @@
     .pricing .card.pro { background: var(--accent); }
     .pricing .card.pro h3, .pricing .card.pro ul { color: var(--on-accent); }
 
+    .plans { display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); margin-top: 18px; }
+    .plans .price { margin: 4px 0 8px; font-weight: 900; font-size: 30px; letter-spacing: -0.02em; color: var(--ink); }
+    .plans .price small { font-size: 15px; font-weight: 800; color: var(--muted); }
+    .note { margin: 16px 0 0; font-size: 13px; font-weight: 700; color: var(--muted); }
+
+    .faq { display: grid; gap: 12px; max-width: 820px; }
+    .faq details { padding: 0 18px; }
+    .faq summary {
+      cursor: pointer; list-style: none; padding: 15px 0; font-weight: 900; font-size: 16px;
+      display: flex; justify-content: space-between; gap: 12px;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; font-size: 22px; line-height: 1; color: var(--accent-ink); transition: transform .2s; }
+    .faq details[open] summary::after { transform: rotate(45deg); }
+    .faq p { margin: 0 0 16px; color: var(--muted); font-size: 15px; }
+
     footer {
       margin-top: 56px; padding-top: 20px; border-top: 2px dashed var(--ink);
       display: flex; flex-wrap: wrap; gap: 12px 22px; justify-content: space-between;
@@ -165,7 +290,7 @@
       .hero { grid-template-columns: 1fr; padding: 24px; }
       .hero-art { order: -1; }
       .hero-art img { width: 170px; }
-      .grid, .pricing { grid-template-columns: 1fr; }
+      .grid, .pricing, .plans { grid-template-columns: 1fr; }
     }
     @media (prefers-color-scheme: dark) {
       :root {
@@ -193,7 +318,7 @@
       <div>
         <span class="sticker" data-i18n="sticker">Offline chess</span>
         <h1><span data-i18n="headline1">Chess at the table.</span><span class="red" data-i18n="headline2">No internet.</span></h1>
-        <p class="lede" data-i18n="lede">Play chess with the person across from you — one phone between you, or two phones that connect directly and securely. No account, no game server, no Wi‑Fi needed.</p>
+        <p class="lede" data-i18n="lede">Play chess with the person across from you — one phone between you, or two phones that connect directly and securely. No account, no game server, no Wi‑Fi network needed.</p>
         <div class="cta-row">
           <a class="btn store" href="https://apps.apple.com/app/id6803026688">
             <span><small data-i18n="downloadOn">Download on the</small><b>App Store</b></span>
@@ -244,6 +369,27 @@
       </div>
     </section>
 
+    <section id="how">
+      <h2>How two phones connect</h2>
+      <div class="grid">
+        <article class="card block">
+          <div class="badge blue">1</div>
+          <h3>Create a room</h3>
+          <p>Pick a clock and tap Create room. Your phone shows a QR code and a six-digit code, and appears in the nearby list of phones close by.</p>
+        </article>
+        <article class="card block">
+          <div class="badge blue">2</div>
+          <h3>Let your opponent in</h3>
+          <p>Scan the QR and the game starts straight away. Typed the code or picked your room from the nearby list? You tap Accept first, so nobody can guess their way in.</p>
+        </article>
+        <article class="card block">
+          <div class="badge blue">3</div>
+          <h3>Play it out</h3>
+          <p>The host phone is the referee for clocks, draws and resignations. If a phone drops out, both wait 45 seconds for it to reconnect and the game carries on.</p>
+        </article>
+      </div>
+    </section>
+
     <section>
       <h2 data-i18n="featTitle">Built for a game at the table</h2>
       <div class="grid">
@@ -265,6 +411,57 @@
       </div>
     </section>
 
+    <section id="features">
+      <h2>Everything a real game needs</h2>
+      <div class="grid">
+        <article class="card block">
+          <div class="badge">♜</div>
+          <h3>The full rules</h3>
+          <p>Castling, en passant, promotion, check, checkmate and stalemate, plus draws by threefold repetition, the fifty-move rule and insufficient material.</p>
+        </article>
+        <article class="card block">
+          <div class="badge pink">◷</div>
+          <h3>A proper chess clock</h3>
+          <p>Seven time controls from 1-minute bullet to 15+10 rapid, with increments. Pro adds custom clocks and handicap clocks that give the stronger player less time.</p>
+        </article>
+        <article class="card block">
+          <div class="badge orange">½</div>
+          <h3>Draws, resigns, rematches</h3>
+          <p>Offer a draw, resign or play to the flag. Rematch in one tap with colours swapped, and the series score keeps counting.</p>
+        </article>
+        <article class="card block">
+          <div class="badge blue">≡</div>
+          <h3>History with replay</h3>
+          <p>Every finished two-phone game is saved on your phone with the result and the full move list to replay, plus your head-to-head record against each opponent.</p>
+        </article>
+        <article class="card block">
+          <div class="badge">⇅</div>
+          <h3>Backup is free</h3>
+          <p>Export your history as a file, keep it in Files or send it with AirDrop, and import it on a new phone. Free for everyone, never uploaded by the app.</p>
+        </article>
+        <article class="card block">
+          <div class="badge pink">▦</div>
+          <h3>Boards and pieces</h3>
+          <p>Three boards and two piece sets for free. Pro adds the Marble, Midnight, Coral and Royal purple boards and the Fantasy, Spatial, Celtic and Firi piece sets.</p>
+        </article>
+        <article class="card block">
+          <div class="badge orange">↗</div>
+          <h3>Share the result</h3>
+          <p>After the game, share a card with the final position and the score, ready for a group chat.</p>
+        </article>
+        <article class="card block">
+          <div class="badge blue">▭</div>
+          <h3>iPhone and iPad</h3>
+          <p>On iPad the game switches to a side-by-side layout in landscape. With VoiceOver, every square reads out its piece and whether it is a legal move.</p>
+        </article>
+        <article class="card block">
+          <div class="badge">Aa</div>
+          <h3>13 languages</h3>
+          <p>English, Vietnamese, German, French, Spanish, Portuguese, Russian, Indonesian, Japanese, Korean, Thai, Arabic and Hindi. Switch in Settings without leaving the app.</p>
+        </article>
+      </div>
+    </section>
+
     <section>
       <h2 data-i18n="priceTitle">Free to play</h2>
       <div class="pricing">
@@ -274,6 +471,7 @@
             <li data-i18n="free1">Unlimited games on one phone</li>
             <li data-i18n="free2">5 two-phone games a day</li>
             <li data-i18n="free3">No ads</li>
+            <li data-i18n="free4">Backup &amp; restore of your history</li>
           </ul>
         </article>
         <article class="card block pro">
@@ -281,10 +479,75 @@
           <ul>
             <li data-i18n="pro1">Unlimited two-phone games</li>
             <li data-i18n="pro2">Free for whoever you play, too</li>
-            <li data-i18n="pro3">Backup &amp; restore, Pro profile icons</li>
-            <li data-i18n="pro4">$1.99 / month · $9.99 / year · $19.99 once</li>
+            <li data-i18n="pro3">Custom &amp; handicap clocks</li>
+            <li data-i18n="pro5">Pro boards, piece sets &amp; profile icons</li>
+            <li data-i18n="pro4">$3.99 / month · $19.99 / year (7 days free) · $39.99 once</li>
           </ul>
         </article>
+      </div>
+      <div class="plans">
+        <article class="card block">
+          <h3>Pro Monthly</h3>
+          <p class="price">$3.99 <small>/ month</small></p>
+          <p>Auto-renewing subscription. Cancel anytime.</p>
+        </article>
+        <article class="card block">
+          <h3>Pro Yearly</h3>
+          <p class="price">$19.99 <small>/ year</small></p>
+          <p>Auto-renewing subscription. Starts with a 7-day free trial for eligible new subscribers.</p>
+        </article>
+        <article class="card block">
+          <h3>Pro Lifetime</h3>
+          <p class="price">$39.99 <small>once</small></p>
+          <p>One-time purchase. Pro stays unlocked for good.</p>
+        </article>
+      </div>
+      <p class="note">One player with Pro is enough: the game is free for both and counts for neither. Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period. Prices in USD from the App Store; local currency and tax may vary by region.</p>
+    </section>
+
+    <section id="faq">
+      <h2>Questions</h2>
+      <div class="faq">
+        <details class="block" open>
+          <summary>Do I need internet or Wi‑Fi to play?</summary>
+          <p>You never need the internet. A game on one phone needs nothing at all. For two phones, keep Wi‑Fi and Bluetooth switched on: the phones connect directly over peer-to-peer Wi‑Fi, so they don't have to join the same network or router, and it works on a plane or in a park. Neither phone has to join a Wi‑Fi network.</p>
+        </details>
+        <details class="block">
+          <summary>How do two phones join the same game?</summary>
+          <p>One phone taps Create room and shows a QR code and a six-digit code. The other phone taps Join and scans the QR, types the code, or picks the room from the nearby list. A QR scan starts the game straight away; with the code or the nearby list, the host taps Accept first. The first time, iOS asks for Local Network permission, which the two-phone mode needs. Both phones should run the latest version of the app.</p>
+        </details>
+        <details class="block">
+          <summary>Can two people play on one phone?</summary>
+          <p>Yes. Tap Play on this phone and lay it flat between you. The top player's clock, buttons and dialogs turn to face them across the table, and the clock switches after every move. Games on one phone are free and unlimited, and they are casual: they are not saved to your history.</p>
+        </details>
+        <details class="block">
+          <summary>Can I play against the computer?</summary>
+          <p>No. Pocket Rook is for two people at the same table, on one phone or two. There is no computer opponent and no online matchmaking.</p>
+        </details>
+        <details class="block">
+          <summary>Which time controls are there?</summary>
+          <p>Seven presets: 1 min, 3 min, 3 + 2, 5 min, 10 min, 10 + 5 and 15 + 10. With Pro you can build a custom clock from 1 to 90 minutes with up to 60 seconds of increment, or a handicap clock where White and Black start with different time. In a two-phone game, the player who creates the room needs Pro to use a custom clock.</p>
+        </details>
+        <details class="block">
+          <summary>What happens if a phone drops out or the app closes?</summary>
+          <p>The game is saved after every move. If a phone loses the connection, both phones wait 45 seconds for it to come back, and the clocks pause for the first three drops of a game. If it doesn't return in time, the game is recorded as interrupted with no winner. A game on one phone can be resumed from the home screen at any time.</p>
+        </details>
+        <details class="block">
+          <summary>What do I get for free, and what does Pro add?</summary>
+          <p>Free includes unlimited games on one phone, 5 two-phone games a day, history with replay, backup and restore, and no ads. Pro adds unlimited two-phone games, games that are free for whoever you play, custom and handicap clocks, and Pro boards, piece sets and profile icons. If either player in the room has Pro, the game is free for both and does not count toward anyone's daily limit.</p>
+        </details>
+        <details class="block">
+          <summary>How do I cancel a subscription or restore Pro?</summary>
+          <p>Subscriptions are managed in your Apple ID subscription settings and renew unless cancelled at least 24 hours before the end of the current period. If you start the Pro Yearly trial, the app can remind you two days before the trial ends. To get Pro back on a new phone, sign in with the same Apple ID and tap Restore purchases in Settings or on the Pro screen. If Pro ends, your history stays, and the board, pieces and clock go back to the free choices.</p>
+        </details>
+        <details class="block">
+          <summary>What data does Pocket Rook collect?</summary>
+          <p>Pocket Rook has no account, no server, no analytics and no ads, so nothing about you or your games is sent to the developer. In a two-phone game, moves travel only between the two phones and are encrypted end to end. While you host a room, phones nearby can see your display name, avatar, flag and win/loss totals so they can find you. Your history stays on your device, and a backup is a file that you export and keep yourself.</p>
+        </details>
+        <details class="block">
+          <summary>Which devices and languages are supported?</summary>
+          <p>iPhone and iPad with iOS 17 or later. The app is in English, Vietnamese, German, French, Spanish, Portuguese, Russian, Indonesian, Japanese, Korean, Thai, Arabic and Hindi, and you can change the language in Settings.</p>
+        </details>
       </div>
     </section>
 
@@ -304,7 +567,7 @@
         sticker: "Offline chess",
         headline1: "Chess at the table.",
         headline2: "No internet.",
-        lede: "Play chess with the person across from you — one phone between you, or two phones that connect directly and securely. No account, no game server, no Wi‑Fi needed.",
+        lede: "Play chess with the person across from you — one phone between you, or two phones that connect directly and securely. No account, no game server, no Wi‑Fi network needed.",
         downloadOn: "Download on the",
         sendEmail: "Send feedback",
         scanQr: "Scan to install",
@@ -329,11 +592,13 @@
         free1: "Unlimited games on one phone",
         free2: "5 two-phone games a day",
         free3: "No ads",
+        free4: "Backup & restore of your history",
         proTitle: "Pocket Rook Pro",
         pro1: "Unlimited two-phone games",
         pro2: "Free for whoever you play, too",
-        pro3: "Backup & restore, Pro profile icons",
-        pro4: "$1.99 / month · $9.99 / year · $19.99 once",
+        pro3: "Custom & handicap clocks",
+        pro5: "Pro boards, piece sets & profile icons",
+        pro4: "$3.99 / month · $19.99 / year (7 days free) · $39.99 once",
         privacy: "Privacy Policy",
         terms: "Terms of Use",
         support: "Support",
@@ -343,7 +608,7 @@
         sticker: "Cờ vua offline",
         headline1: "Cờ vua quanh bàn.",
         headline2: "Không cần mạng.",
-        lede: "Chơi cờ vua với người ngồi đối diện — chung một máy, hoặc hai máy kết nối trực tiếp và an toàn. Không tài khoản, không máy chủ, không cần Wi‑Fi.",
+        lede: "Chơi cờ vua với người ngồi đối diện — chung một máy, hoặc hai máy kết nối trực tiếp và an toàn. Không tài khoản, không máy chủ, không cần mạng Wi‑Fi.",
         downloadOn: "Tải trên",
         sendEmail: "Gửi góp ý",
         scanQr: "Quét để cài",
@@ -368,11 +633,13 @@
         free1: "Không giới hạn ván chơi chung một máy",
         free2: "5 ván hai máy mỗi ngày",
         free3: "Không quảng cáo",
+        free4: "Sao lưu & khôi phục lịch sử",
         proTitle: "Pocket Rook Pro",
         pro1: "Không giới hạn ván hai máy",
         pro2: "Miễn phí luôn cho người chơi cùng bạn",
-        pro3: "Sao lưu & khôi phục, biểu tượng hồ sơ Pro",
-        pro4: "$1.99 / tháng · $9.99 / năm · $19.99 một lần",
+        pro3: "Đồng hồ tùy chỉnh & chấp giờ",
+        pro5: "Bàn cờ, bộ quân & biểu tượng hồ sơ Pro",
+        pro4: "$3.99 / tháng · $19.99 / năm (miễn phí 7 ngày) · $39.99 một lần",
         privacy: "Chính sách quyền riêng tư",
         terms: "Điều khoản sử dụng",
         support: "Hỗ trợ",
