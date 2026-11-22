@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nomodoro: 귀여운 집중 타이머</title>
+  <meta name="description" content="Nomodoro: 귀여운 집중 타이머 — 손그림 친구, 나만의 슬라임 친구들, 방해되는 앱을 잠그는 집중 시간이 함께하는 차분한 비주얼 뽀모도로. 집중은 언제나 무제한 무료예요." />
+  <meta name="theme-color" content="#f6efe3" />
+  <meta property="og:title" content="Nomodoro: Cute Focus Timer" />
+  <meta property="og:description" content="작은 친구와 함께 집중해요. 손그림 친구, 기분을 함께 느끼는 슬라임 친구들, 그리고 방해되는 앱을 잠그는 집중 시간." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://tnson1307.github.io/freshair/images/shot-home.png" />
+  <meta property="og:url" content="https://tnson1307.github.io/freshair/ko/" />
+  <link rel="canonical" href="https://tnson1307.github.io/freshair/ko/" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "MobileApplication",
+        "name": "Nomodoro: Cute Focus Timer",
+        "alternateName": "Nomodoro",
+        "description": "Nomodoro는 작은 친구가 곁을 지켜 주는 iPhone용 귀여운 뽀모도로 집중 타이머예요. 끝까지 해내면 친구가 응원하고, 중간에 포기하면 슬퍼해요. Apple 스크린 타임으로 방해되는 앱을 막을 수도 있어요. 집중 세션 동안(화이트리스트 모드) 또는 정해 둔 시간에(집중 시간) 말이에요.",
+        "url": "https://tnson1307.github.io/freshair/ko/",
+        "downloadUrl": "https://apps.apple.com/app/id6799465659",
+        "installUrl": "https://apps.apple.com/app/id6799465659",
+        "sameAs": ["https://apps.apple.com/us/app/nomodoro-cute-focus-timer/id6799465659"],
+        "image": "https://tnson1307.github.io/freshair/images/v2/icon-180.png",
+        "screenshot": "https://tnson1307.github.io/freshair/images/shot-home.png",
+        "operatingSystem": "iOS 17.0 or later",
+        "applicationCategory": "ProductivityApplication",
+        "applicationSubCategory": "뽀모도로 집중 타이머 & 앱 차단",
+        "inLanguage": ["en", "vi", "es", "fr", "de", "pt", "ja", "ko", "zh-Hans", "id", "uk"],
+        "featureList": [
+          "비주얼 뽀모도로 카운트다운과 카운트업 타이머",
+          "끝내면 응원하고 포기하면 슬퍼하는 친구",
+          "포기하려면 3초 동안 길게 눌러야 해요",
+          "엄격 모드, 자유 모드, 화이트리스트 모드",
+          "집중 시간: Apple 스크린 타임으로 정한 시간에 방해되는 앱 잠금",
+          "나만의 슬라임 친구들과 기분 체크",
+          "진행 차트, 활동 지도, 공유 카드",
+          "홈 화면 위젯과 실시간 현황"
+        ],
+        "offers": [
+          { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Nomodoro Pro Monthly", "price": "1.99", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Nomodoro Pro Yearly", "price": "9.99", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Nomodoro Pro Lifetime", "price": "19.99", "priceCurrency": "USD" }
+        ],
+        "author": { "@type": "Person", "name": "Ngoc Son Tran" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "집중은 정말 계속 무료인가요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "네. 집중 세션 무제한, 모든 집중 모드(엄격, 자유, 화이트리스트), 집중 시간 1개 시간대, 전체 기록과 차트, 백업, 기분 체크, 나만의 슬라임 1마리는 계속 무료예요. Pro는 집중 시간 확장, 최대 3마리 슬라임 친구들, 더 많은 소리, 휴식 & 라운드 직접 설정, 한정 친구를 더해요. 다른 친구들은 여전히 집중으로 모은 젬이 필요해요." } },
+          { "@type": "Question", "name": "집중 시간이 뭔가요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "매일의 시간대를 정하고 방해되는 앱을 골라요. 시간대 동안 그 앱들은 Nomodoro를 닫아도 잠긴 채로 있어요. 집중 세션을 끝내면 딱 휴식 시간만큼 열렸다가 다시 잠겨요. 무료: 매일 시간대 1개, 앱 최대 3개. Pro: 원하는 요일에 최대 5개 시간대, 앱 개수 무제한과 카테고리 전체. Apple 스크린 타임 API를 사용하며, 선택한 내용은 iPhone 밖으로 나가지 않아요." } },
+          { "@type": "Question", "name": "공부나 일하는 동안 Nomodoro로 앱을 막을 수 있나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "네, 두 가지 방법이 있고 둘 다 Apple 스크린 타임 기반이에요. 화이트리스트 모드는 집중 세션 동안 허용한 앱 말고 모든 앱을 막아요. 집중 시간은 매일 정한 시간에 고른 앱을 잠그고, 세션을 끝낸 뒤 휴식 동안만 열어 줘요. 둘 다 무료 버전에 있어요." } },
+          { "@type": "Question", "name": "Nomodoro는 Forest와 뭐가 다른가요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "둘 다 휴대폰을 멀리할 귀여운 이유를 줘요. Forest에서는 집중하는 동안 나무가 자라요. Nomodoro에서는 작은 친구와 슬라임 친구들이 곁을 지키며, 끝내면 응원하고, 포기하면 슬퍼하고(그만두려면 3초 길게 눌러야 해요), 기분에 반응해요. Nomodoro는 Apple 스크린 타임으로 세션 동안이나 정한 시간에 방해되는 앱을 잠글 수도 있어요. 무제한 집중과 모든 집중 모드는 무료예요." } },
+          { "@type": "Question", "name": "화이트리스트 모드는 어떻게 앱을 막나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Apple 스크린 타임 API를 사용해요. 허용할 앱을 최대 10개 고르면, 나머지 앱은 집중 세션 동안에만 막히고 세션이 끝나면 풀려요. 선택한 앱 정보는 iPhone 밖으로 나가지 않아요." } },
+          { "@type": "Question", "name": "세션을 일찍 끝낼 수 있나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "네 — 종료를 3초 동안 길게 누르세요. 누르는 동안 친구가 울기 시작하고, 손을 떼면 다시 응원해요. 카운트업 세션은 저장할지만 물어봐요." } },
+          { "@type": "Question", "name": "친구와 젬이 뭔가요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "집중 세션을 완료하면 젬을 모을 수 있고, 젬으로 손그림 친구를 데려와요. Pro는 한정 친구 5명(버블티, 도넛, 강아지, 카피바라, 사과)을 젬 없이 열어 줘요. 나머지 친구는 누구나 젬이 충분해야 데려올 수 있어요." } },
+          { "@type": "Question", "name": "어떤 Pro 플랜을 골라야 할까요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "유연하게 쓰고 싶다면 월간을 써 보세요. 연간이 가장 알뜰하고(매월 결제보다 ~58% 저렴) 7일 무료 체험으로 시작해요 — 체험이 끝나기 2일 전에 알려 드려요. 오래 쓸 생각이라면 평생은 한 번만 결제하면 돼요." } }
+        ]
+      }
+    ]
+  }
+  </script>
+<!-- i18n:head -->
+  <link rel="alternate" hreflang="en" href="https://tnson1307.github.io/freshair/" />
+  <link rel="alternate" hreflang="ja" href="https://tnson1307.github.io/freshair/ja/" />
+  <link rel="alternate" hreflang="ko" href="https://tnson1307.github.io/freshair/ko/" />
+  <link rel="alternate" hreflang="uk" href="https://tnson1307.github.io/freshair/uk/" />
+  <link rel="alternate" hreflang="vi" href="https://tnson1307.github.io/freshair/vi/" />
+  <link rel="alternate" hreflang="x-default" href="https://tnson1307.github.io/freshair/" />
+  <meta property="og:locale" content="ko_KR" />
+  <style>
+    .langs { position: relative; }
+    .langs summary { list-style: none; cursor: pointer; color: var(--muted); font-size: 0.95rem; display: flex; align-items: center; gap: 4px; }
+    .langs summary::-webkit-details-marker { display: none; }
+    .langs summary:hover { color: var(--ink); }
+    .langs .code { display: none; text-transform: uppercase; }
+    @media (max-width: 760px) { .langs .ln { display: none; } .langs .code { display: inline; } .top .wrap { gap: 10px; } .top nav { gap: 12px; } }
+    .hero-copy { min-width: 0; }
+    .langs .menu { position: absolute; right: 0; top: calc(100% + 10px); background: var(--paper); border: 1.5px solid var(--line-strong); border-radius: 14px; padding: 6px; display: grid; min-width: 150px; box-shadow: 3px 4px 0 var(--line-strong); z-index: 60; }
+    .top nav .langs .menu a { color: var(--ink); padding: 7px 10px; border-radius: 9px; display: block !important; }
+    .top nav .langs .menu a:hover, .top nav .langs .menu a[aria-current] { background: var(--teal-soft); }
+    body, h1, h2, h3, .brand { font-family: "Nunito", "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif; letter-spacing: -0.01em; } .hero h1 { line-height: 1.15; } body { word-break: keep-all; }
+  </style>
+  <!-- /i18n:head -->
+  <link rel="icon" href="../images/v2/icon-180.png" />
+  <link rel="apple-touch-icon" href="../images/v2/icon-180.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f6efe3;
+      --bg-2: #fbf7f0;
+      --paper: #fffdf8;
+      --ink: #2c3138;
+      --muted: #69717c;
+      --line: rgba(44, 49, 56, 0.14);
+      --line-strong: rgba(44, 49, 56, 0.55);
+      --tomato: #e4573f;
+      --tomato-soft: #fde3dc;
+      --teal: #1f8f84;
+      --teal-deep: #176f66;
+      --teal-soft: #dff1ee;
+      --sun: #ffd66b;
+      --shadow: 0 1px 0 rgba(44, 49, 56, 0.04), 0 18px 40px -18px rgba(44, 49, 56, 0.28);
+      --phone-edge: #1f2227;
+      --max: 1140px;
+      --r: 22px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #17191d;
+        --bg-2: #1d2025;
+        --paper: #23262c;
+        --ink: #f1ece4;
+        --muted: #a6adb7;
+        --line: rgba(241, 236, 228, 0.12);
+        --line-strong: rgba(241, 236, 228, 0.45);
+        --tomato: #ff7a62;
+        --tomato-soft: rgba(255, 122, 98, 0.16);
+        --teal: #5fd0c2;
+        --teal-deep: #8ce0d5;
+        --teal-soft: rgba(95, 208, 194, 0.14);
+        --shadow: 0 1px 0 rgba(0, 0, 0, 0.3), 0 22px 44px -20px rgba(0, 0, 0, 0.7);
+        --phone-edge: #0b0c0e;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--bg);
+      font-family: "Nunito", system-ui, sans-serif;
+      font-weight: 600;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    html { overflow-x: clip; }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; }
+    h1, h2, h3 { font-family: "Quicksand", "Nunito", system-ui, sans-serif; letter-spacing: -0.02em; margin: 0; }
+    .wrap { width: min(var(--max), 100% - 32px); margin: 0 auto; }
+
+    /* Nav */
+    .top {
+      position: sticky; top: 0; z-index: 50;
+      background: color-mix(in srgb, var(--bg) 82%, transparent);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid transparent;
+      transition: border-color .2s;
+    }
+    .top.scrolled { border-bottom-color: var(--line); }
+    .top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: "Quicksand", sans-serif; font-weight: 700; font-size: 1.15rem; }
+    .brand img { width: 34px; height: 34px; border-radius: 9px; box-shadow: 0 2px 6px rgba(228, 87, 63, 0.35); }
+    .top nav { display: flex; align-items: center; gap: 22px; font-size: 0.95rem; }
+    .top nav a { text-decoration: none; color: var(--muted); }
+    .top nav a:hover { color: var(--ink); }
+    .top nav a.pill {
+      color: #fff; background: var(--ink); padding: 8px 16px; border-radius: 999px;
+    }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .top nav a.pill { color: var(--bg); } }
+    @media (max-width: 760px) { .top nav a:not(.pill) { display: none; } }
+
+    /* Hero */
+    .hero {
+      position: relative; overflow: hidden;
+      padding: 56px 0 40px;
+      background:
+        radial-gradient(ellipse 50% 60% at 78% 40%, var(--teal-soft), transparent 70%),
+        radial-gradient(ellipse 40% 45% at 12% 10%, var(--tomato-soft), transparent 70%);
+    }
+    .hero .wrap { display: grid; grid-template-columns: 1.02fr 1fr; gap: 40px; align-items: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--paper); border: 1.5px solid var(--line-strong);
+      border-radius: 999px; padding: 6px 14px 6px 8px; font-size: 0.88rem; text-decoration: none;
+      box-shadow: 2px 3px 0 var(--line-strong);
+    }
+    .eyebrow b {
+      background: var(--tomato); color: #fff; border-radius: 999px; padding: 2px 9px;
+      font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .hero h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: 1.02; margin: 22px 0 18px; }
+    .hero h1 .hl { color: var(--tomato); position: relative; white-space: nowrap; }
+    .hero h1 .hl svg { position: absolute; left: -2%; bottom: -0.16em; width: 104%; height: 0.32em; overflow: visible; }
+    .lead { font-size: 1.15rem; color: var(--muted); max-width: 33em; margin: 0 0 26px; font-weight: 600; }
+    .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+    .store {
+      display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
+      background: #111; color: #fff; padding: 10px 20px 10px 16px; border-radius: 14px;
+      box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.55); transition: transform .15s;
+    }
+    .store:hover { transform: translateY(-2px); }
+    .store small { display: block; font-size: 0.7rem; opacity: 0.85; line-height: 1.1; }
+    .store strong { display: block; font-size: 1.2rem; line-height: 1.1; font-family: "Quicksand", sans-serif; }
+    .ghost {
+      display: inline-flex; align-items: center; gap: 6px; text-decoration: none;
+      padding: 13px 20px; border-radius: 14px; border: 1.5px solid var(--line-strong);
+      background: var(--paper); box-shadow: 2px 3px 0 var(--line-strong);
+    }
+    .ghost:hover { transform: translate(1px, 1px); box-shadow: 1px 2px 0 var(--line-strong); }
+    .facts { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 24px 0 0; padding: 0; list-style: none; color: var(--muted); font-size: 0.92rem; }
+    .facts li::before { content: "✓"; color: var(--teal); font-weight: 800; margin-right: 6px; }
+
+    .stage { position: relative; height: 640px; }
+    .phone {
+      position: absolute; width: 268px; aspect-ratio: 1320 / 2868;
+      border-radius: 44px; padding: 9px; background: var(--phone-edge);
+      box-shadow: 0 40px 70px -30px rgba(31, 34, 39, 0.55), 0 0 0 1.5px rgba(255, 255, 255, 0.06) inset;
+    }
+    .phone img { width: 100%; height: 100%; object-fit: cover; border-radius: 36px; background: #fff; }
+    .stage .p-main { left: 50%; top: 8px; transform: translateX(-50%); z-index: 3; width: 286px; }
+    .stage .p-left { left: 2%; top: 74px; transform: rotate(-8deg); z-index: 2; width: 236px; opacity: .97; }
+    .stage .p-right { right: 2%; top: 74px; transform: rotate(8deg); z-index: 2; width: 236px; opacity: .97; }
+    .sticker { position: absolute; z-index: 5; filter: drop-shadow(0 10px 14px rgba(44, 49, 56, 0.18)); }
+    .stage .s-bun { width: 128px; left: 4%; bottom: 8px; }
+    .stage .s-slime-a { width: 64px; right: 10%; bottom: 40px; }
+    .stage .s-slime-b { width: 52px; right: 3%; bottom: 96px; }
+    .chip {
+      position: absolute; z-index: 6; display: flex; align-items: center; gap: 8px;
+      background: var(--paper); border: 1.5px solid var(--line-strong); border-radius: 16px;
+      padding: 8px 12px; font-size: 0.85rem; white-space: nowrap; box-shadow: 3px 4px 0 var(--line-strong);
+    }
+    .chip .ico { width: 28px; height: 28px; border-radius: 9px; display: grid; place-items: center; font-size: 15px; }
+    .chip small { display: block; color: var(--muted); font-size: 0.72rem; line-height: 1.1; }
+    .chip span b { display: block; line-height: 1.15; }
+    .stage .c-hours { left: -2%; top: 46px; transform: rotate(-3deg); }
+    .stage .c-hours .ico { background: var(--tomato-soft); }
+    .stage .c-mood { right: -1%; top: 300px; transform: rotate(3deg); }
+    .stage .c-mood .ico { background: var(--teal-soft); }
+    .stage .c-streak { left: 30%; bottom: 0; transform: rotate(-2deg); }
+    .stage .c-streak .ico { background: #fff1c7; }
+    .float { animation: float 6s ease-in-out infinite; }
+    .float.d1 { animation-delay: -2s; }
+    .float.d2 { animation-delay: -4s; }
+    @keyframes float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -10px; } }
+    .bob { animation: bob 2.4s ease-in-out infinite; transform-origin: 50% 100%; }
+    .bob.d1 { animation-delay: -.8s; }
+    .bob.d2 { animation-delay: -1.6s; }
+    @keyframes bob { 0%, 100% { transform: scale(1, 1) translateY(0); } 40% { transform: scale(1.04, .95) translateY(0); } 70% { transform: scale(.97, 1.04) translateY(-8px); } }
+
+    @media (max-width: 960px) {
+      .hero .wrap { grid-template-columns: 1fr; }
+      .hero-copy { text-align: center; }
+      .lead { margin-left: auto; margin-right: auto; }
+      .cta-row, .facts { justify-content: center; }
+      .stage { height: 600px; max-width: 560px; width: 100%; margin: 0 auto; }
+    }
+    @media (max-width: 560px) {
+      .hero { padding-top: 32px; }
+      .stage { height: 500px; }
+      .stage .p-main { width: 220px; }
+      .stage .p-left, .stage .p-right { width: 170px; top: 60px; }
+      .stage .p-left { left: -4%; }
+      .stage .p-right { right: -4%; }
+      .stage .s-bun { width: 92px; left: 0; }
+      .stage .c-hours { left: 0; top: 0; }
+      .stage .c-mood { right: 0; top: 250px; }
+      .stage .c-streak { left: 24%; }
+      .chip { font-size: 0.78rem; padding: 6px 10px; }
+      .chip .ico { width: 24px; height: 24px; }
+    }
+
+    /* Friends marquee */
+    .marquee {
+      border-block: 1.5px solid var(--line); background: var(--bg-2);
+      overflow: hidden; padding: 18px 0; position: relative;
+    }
+    .marquee-track { display: flex; gap: 34px; width: max-content; animation: slide 40s linear infinite; }
+    .marquee-track img { width: 70px; height: 70px; object-fit: contain; }
+    @keyframes slide { to { transform: translateX(-50%); } }
+    .marquee::before, .marquee::after {
+      content: ""; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 1; pointer-events: none;
+    }
+    .marquee::before { left: 0; background: linear-gradient(90deg, var(--bg-2), transparent); }
+    .marquee::after { right: 0; background: linear-gradient(-90deg, var(--bg-2), transparent); }
+
+    /* Sections */
+    .section { padding: 96px 0 0; }
+    .head { text-align: center; max-width: 640px; margin: 0 auto 48px; }
+    .kicker {
+      display: inline-block; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--tomato); font-weight: 800; margin-bottom: 10px;
+    }
+    .head h2 { font-size: clamp(2rem, 4vw, 2.9rem); line-height: 1.1; }
+    .head p { color: var(--muted); font-size: 1.08rem; margin: 14px 0 0; }
+
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .step {
+      background: var(--paper); border: 1.5px solid var(--line-strong); border-radius: var(--r);
+      padding: 24px; box-shadow: 3px 4px 0 var(--line-strong); position: relative;
+    }
+    .step img { width: 76px; height: 76px; object-fit: contain; margin-bottom: 10px; }
+    .step .n {
+      position: absolute; top: 18px; right: 20px; font-family: "Quicksand", sans-serif; font-weight: 700;
+      color: var(--muted); font-size: 0.9rem;
+    }
+    .step h3 { font-size: 1.3rem; margin-bottom: 6px; }
+    .step p { margin: 0; color: var(--muted); }
+    @media (max-width: 760px) { .steps { grid-template-columns: 1fr; } }
+
+    /* Feature rows */
+    .rows { display: grid; gap: 40px; }
+    .row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;
+      background: var(--bg-2); border: 1.5px solid var(--line); border-radius: 32px;
+      padding: 48px 56px; overflow: hidden; position: relative;
+    }
+    .row.flip .visual { order: 2; }
+    .row .visual { position: relative; display: flex; justify-content: center; min-height: 440px; align-items: center; }
+    .row .visual::before {
+      content: ""; position: absolute; width: 360px; height: 360px; border-radius: 46% 54% 52% 48% / 55% 45% 55% 45%;
+      background: var(--blob, var(--teal-soft)); left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-8deg);
+    }
+    .rows .row:nth-child(3n+2) { --blob: var(--tomato-soft); }
+    .rows .row:nth-child(3n) { --blob: color-mix(in srgb, var(--sun) 35%, transparent); }
+    .row .visual .phone { position: relative; width: 236px; }
+    .row .visual .phone.second { position: absolute; width: 200px; left: 55%; top: 40px; transform: rotate(6deg); }
+    .row .visual .phone.first { transform: translateX(-26%) rotate(-3deg); }
+    .row .text h3 { font-size: clamp(1.7rem, 3vw, 2.3rem); line-height: 1.12; margin: 6px 0 14px; }
+    .row .text p { color: var(--muted); font-size: 1.05rem; margin: 0 0 16px; }
+    .tag {
+      display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; font-weight: 800;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal-deep);
+    }
+    .tag.new { color: var(--tomato); }
+    .ticks { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+    .ticks li { display: flex; gap: 10px; align-items: flex-start; }
+    .ticks li::before {
+      content: ""; flex: none; width: 20px; height: 20px; margin-top: 2px; border-radius: 50%;
+      background: var(--teal-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-7' fill='none' stroke='%231f8f84' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 20px no-repeat;
+    }
+    .row .deco { position: absolute; z-index: 4; filter: drop-shadow(0 8px 12px rgba(44, 49, 56, 0.16)); }
+    @media (max-width: 900px) {
+      .row { grid-template-columns: 1fr; padding: 36px 24px; gap: 28px; }
+      .row.flip .visual { order: 0; }
+      .row .visual { min-height: 0; }
+      .row .visual::before { width: 280px; height: 280px; }
+    }
+    @media (max-width: 560px) {
+      .row .visual .phone { width: 200px; }
+      .row .visual .phone.first { width: 170px; transform: translateX(-30%) rotate(-3deg); }
+      .row .visual .phone.second { width: 150px; left: 50%; top: 30px; }
+      .row .visual .deco { max-width: 64px; }
+    }
+
+    /* Focus hours mock */
+    .hours { width: min(360px, 100%); display: grid; gap: 14px; position: relative; }
+    .card {
+      background: var(--paper); border: 1.5px solid var(--line-strong); border-radius: 20px;
+      padding: 16px 18px; box-shadow: 3px 4px 0 var(--line-strong);
+    }
+    .card .lbl { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 800; }
+    .win { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 8px; }
+    .win b { font-family: "Quicksand", sans-serif; font-size: 1.5rem; }
+    .switch { width: 46px; height: 28px; border-radius: 999px; background: var(--teal); border: 1.5px solid var(--line-strong); position: relative; flex: none; }
+    .switch::after { content: ""; position: absolute; right: 3px; top: 3px; width: 19px; height: 19px; border-radius: 50%; background: #fff; border: 1.5px solid var(--line-strong); }
+    .days { display: flex; gap: 6px; margin-top: 10px; }
+    .days span { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-size: 0.78rem; border: 1.5px solid var(--line); color: var(--muted); }
+    .days span.on { background: var(--teal); color: #fff; border-color: transparent; }
+    .apps { display: flex; gap: 10px; margin-top: 10px; }
+    .app { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; position: relative; color: #fff; font-weight: 800; font-size: 0.8rem; }
+    .app::after { content: "🔒"; position: absolute; right: -6px; bottom: -6px; font-size: 14px; background: var(--paper); border-radius: 50%; padding: 1px; }
+    .break-pill {
+      display: inline-flex; align-items: center; gap: 8px; background: var(--teal-soft); color: var(--teal-deep);
+      border-radius: 999px; padding: 8px 14px; font-weight: 800; font-size: 0.92rem; justify-self: start;
+      border: 1.5px solid color-mix(in srgb, var(--teal) 40%, transparent);
+    }
+
+    /* Extras grid */
+    .extras { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .extra { background: var(--paper); border: 1.5px solid var(--line); border-radius: var(--r); padding: 22px; }
+    .extra .e { font-size: 26px; line-height: 1; margin-bottom: 10px; }
+    .extra h3 { font-size: 1.12rem; margin-bottom: 4px; }
+    .extra p { margin: 0; color: var(--muted); font-size: 0.96rem; }
+    @media (max-width: 900px) { .extras { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .extras { grid-template-columns: 1fr; } }
+
+    /* Friends grid */
+    .friends { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+    .friend {
+      background: var(--paper); border: 1.5px solid var(--line); border-radius: 20px; padding: 14px 10px 12px;
+      text-align: center; position: relative; transition: transform .2s;
+    }
+    .friend:hover { transform: translateY(-4px) rotate(-1deg); }
+    .friend img { width: 84px; height: 84px; object-fit: contain; margin: 0 auto 6px; }
+    .friend span { font-size: 0.9rem; }
+    .friend em {
+      position: absolute; top: 8px; right: 8px; font-style: normal; font-size: 0.66rem; font-weight: 800;
+      background: var(--sun); color: #5a4300; border-radius: 999px; padding: 2px 7px; letter-spacing: 0.04em;
+    }
+    @media (max-width: 760px) { .friends { grid-template-columns: repeat(3, 1fr); } }
+
+    /* Pricing */
+    .pricing { display: grid; grid-template-columns: 0.9fr 1.3fr; gap: 20px; align-items: stretch; }
+    .plan { background: var(--paper); border: 1.5px solid var(--line-strong); border-radius: 28px; padding: 30px; box-shadow: 4px 5px 0 var(--line-strong); }
+    .plan h3 { font-size: 1.5rem; }
+    .plan .sub { color: var(--muted); margin: 4px 0 18px; }
+    .plan .big { font-family: "Quicksand", sans-serif; font-size: 3rem; font-weight: 700; line-height: 1; }
+    .plan .ticks { margin-top: 20px; }
+    .plan.pro { background: linear-gradient(160deg, var(--teal-soft), var(--paper) 55%); position: relative; }
+    .plan.pro .peek { position: absolute; width: 96px; right: 22px; top: -54px; }
+    .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .tier { border: 1.5px solid var(--line); border-radius: 18px; padding: 16px 12px; text-align: center; background: var(--paper); position: relative; }
+    .tier.best { border: 2px solid var(--teal); }
+    .tier .badge { position: absolute; top: -11px; left: 50%; transform: translateX(-50%); background: var(--teal); color: #fff; font-size: 0.7rem; font-weight: 800; padding: 3px 10px; border-radius: 999px; white-space: nowrap; }
+    .tier .nm { color: var(--muted); font-size: 0.9rem; }
+    .tier .amt { font-family: "Quicksand", sans-serif; font-weight: 700; font-size: 1.7rem; margin: 2px 0; }
+    .tier .mt { font-size: 0.8rem; color: var(--muted); line-height: 1.35; }
+    .tier .save { display: inline-block; margin-top: 8px; font-size: 0.74rem; font-weight: 800; color: var(--tomato); }
+    .note { color: var(--muted); font-size: 0.88rem; text-align: center; margin: 18px 0 0; }
+    @media (max-width: 900px) { .pricing { grid-template-columns: 1fr; } }
+    @media (max-width: 520px) { .tiers { grid-template-columns: 1fr; } .plan { padding: 24px 20px; } }
+
+    /* FAQ */
+    .faq { max-width: 780px; margin: 0 auto; display: grid; gap: 12px; }
+    .faq details { background: var(--paper); border: 1.5px solid var(--line); border-radius: 18px; padding: 4px 20px; }
+    .faq details[open] { border-color: var(--line-strong); }
+    .faq summary { cursor: pointer; list-style: none; padding: 14px 0; font-weight: 800; display: flex; justify-content: space-between; gap: 12px; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; font-size: 1.4rem; line-height: 1; color: var(--teal); transition: transform .2s; }
+    .faq details[open] summary::after { transform: rotate(45deg); }
+    .faq p { margin: 0 0 16px; color: var(--muted); }
+
+    /* Feedback */
+    .feedback { max-width: 640px; margin: 0 auto; background: var(--paper); border: 1.5px solid var(--line-strong); border-radius: 24px; padding: 26px; box-shadow: 3px 4px 0 var(--line-strong); }
+    .field { margin-bottom: 14px; }
+    .field label { display: block; font-weight: 800; margin-bottom: 6px; font-size: 0.95rem; }
+    .field input, .field textarea {
+      width: 100%; font: inherit; color: var(--ink); background: var(--bg-2);
+      border: 1.5px solid var(--line); border-radius: 14px; padding: 12px 14px;
+    }
+    .field textarea { min-height: 120px; resize: vertical; }
+    .field input:focus, .field textarea:focus { outline: none; border-color: var(--teal); }
+    .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+    .actions button {
+      font: inherit; font-weight: 800; color: #fff; background: var(--teal); border: 0; border-radius: 14px;
+      padding: 12px 22px; cursor: pointer;
+    }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .actions button { color: #10221f; } }
+    .actions .alt { color: var(--muted); font-size: 0.92rem; }
+    .hint { color: var(--muted); margin: 0 0 16px; }
+
+    /* Final */
+    .final { padding: 110px 0 90px; text-align: center; position: relative; }
+    .final .squad { display: flex; justify-content: center; align-items: flex-end; gap: 6px; margin-bottom: 18px; }
+    .final .squad img { width: 86px; }
+    .final .squad img.big { width: 130px; }
+    .final h2 { font-size: clamp(2rem, 4.4vw, 3.2rem); line-height: 1.08; margin-bottom: 12px; }
+    .final p { color: var(--muted); font-size: 1.1rem; margin: 0 0 26px; }
+    .final .cta-row { justify-content: center; }
+
+    footer { border-top: 1.5px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 0.9rem; }
+    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; }
+    footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
+    footer a { text-decoration: none; }
+    footer a:hover { color: var(--ink); }
+
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .float, .bob, .marquee-track { animation: none !important; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top" id="top">
+    <div class="wrap">
+      <a class="brand" href="#"><img src="../images/v2/icon.webp" alt="" width="34" height="34" />Nomodoro</a>
+      <nav aria-label="Main">
+        <a href="#how">사용 방법</a>
+        <a href="#features">기능</a>
+        <a href="#friends">친구</a>
+        <a href="#pricing">가격</a>
+        <a href="#faq">FAQ</a>
+        <!-- i18n:switch --><details class="langs"><summary aria-label="Language">🌐 <span class="ln">한국어</span><span class="code">ko</span></summary><div class="menu"><a href="../" hreflang="en" lang="en">English</a><a href="../ja/" hreflang="ja" lang="ja">日本語</a><a href="./" hreflang="ko" lang="ko" aria-current="true">한국어</a><a href="../uk/" hreflang="uk" lang="uk">Українська</a><a href="../vi/" hreflang="vi" lang="vi">Tiếng Việt</a></div></details><!-- /i18n:switch -->
+        <a class="pill" href="https://apps.apple.com/app/id6799465659" rel="noopener">앱 받기</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-copy">
+          <a class="eyebrow" href="#focus-hours"><b>NEW</b> 집중 시간이 방해되는 앱을 잠가요 →</a>
+          <h1><span class="hl">작은 친구<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 13 C 40 4, 80 18, 120 9 S 180 6, 197 11" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" opacity=".35"/></svg></span>와 함께 집중해요.</h1>
+          <p class="lead">
+            Nomodoro는 iPhone용 차분한 비주얼 뽀모도로예요. 할 일 하나를 고르고 부드러운 카운트다운을 시작하면,
+            손그림 친구와 슬라임 친구들이 곁을 지켜 줘요. 여러분의 기분까지 느낀답니다.
+          </p>
+          <div class="cta-row">
+            <a class="store" href="https://apps.apple.com/app/id6799465659" rel="noopener" aria-label="App Store에서 다운로드">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.77 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.22-2.01 1.08-3.18-1.06.05-2.33.71-3.08 1.58-.67.76-1.26 1.98-1.1 3.14 1.16.09 2.36-.6 3.1-1.54z"/></svg>
+              <span><small>다운로드하기</small><strong>App Store</strong></span>
+            </a>
+            <a class="ghost" href="#how">사용 방법</a>
+          </div>
+          <ul class="facts">
+            <li>무제한 집중, 언제나 무료</li>
+            <li>광고 없음, 계정 없음</li>
+            <li>11개 언어</li>
+          </ul>
+        </div>
+
+        <div class="stage" aria-label="Nomodoro 화면">
+          <div class="phone p-left"><img src="../images/v2/s-home.webp" alt="홈: 강아지 친구와 슬라임 친구들, 기분 체크" width="600" height="1304" /></div>
+          <div class="phone p-main"><img src="../images/v2/s-focus.webp" alt="집중: 강아지와 함께하는 25분 비주얼 카운트다운" width="600" height="1304" /></div>
+          <div class="phone p-right"><img src="../images/v2/s-progress.webp" alt="진행: 활동 지도, 이번 주 기분과 사용량" width="600" height="1304" loading="lazy" /></div>
+          <img class="sticker s-bun bob" src="../images/v2/m-bun_done.webp" alt="" width="360" height="360" />
+          <img class="sticker s-slime-a bob d1" src="../images/v2/m-slime_0.webp" alt="" width="300" height="300" />
+          <img class="sticker s-slime-b bob d2" src="../images/v2/m-slime_2.webp" alt="" width="300" height="300" />
+          <div class="chip c-hours float"><span class="ico">🔒</span><span><b>집중 시간</b><small>9:00 – 11:30 · 앱 3개</small></span></div>
+          <div class="chip c-mood float d1"><span class="ico">🙂</span><span><b>기분 좋아요</b><small>슬라임이 통통</small></span></div>
+          <div class="chip c-streak float d2"><span class="ico">🍅</span><span><b>오늘 1시간 40분</b><small>3세션</small></span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track" id="marquee"></div>
+    </div>
+
+    <section class="wrap section" id="how">
+      <div class="head reveal">
+        <span class="kicker">사용 방법</span>
+        <h2>한 화면에서 부드럽게 반복해요</h2>
+        <p>복잡한 설정은 없어요. 할 일 하나, 카운트다운 하나, 그리고 곁에 있어 주는 친구.</p>
+      </div>
+      <div class="steps">
+        <article class="step reveal">
+          <span class="n">01</span>
+          <img src="../images/v2/m-puppy.webp" alt="" width="76" height="76" loading="lazy" />
+          <h3>집중</h3>
+          <p>할 일 하나를 고르고 큰 비주얼 카운트다운을 시작해요. 원하면 빗소리나 파도 소리도 더해요.</p>
+        </article>
+        <article class="step reveal">
+          <span class="n">02</span>
+          <img src="../images/v2/m-cloud.webp" alt="" width="76" height="76" loading="lazy" />
+          <h3>짧은 휴식</h3>
+          <p>라운드 사이에 숨을 고르고 Nomodoro에게 기분을 알려 주세요. 친구도 함께 쉬어요.</p>
+        </article>
+        <article class="step reveal">
+          <span class="n">03</span>
+          <img src="../images/v2/m-bun_done.webp" alt="" width="76" height="76" loading="lazy" />
+          <h3>반복</h3>
+          <p>몇 라운드 후엔 긴 휴식을 갖고, 젬을 모아 새 친구를 열어요.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap section" id="features">
+      <div class="head reveal">
+        <span class="kicker">기능</span>
+        <h2>겉은 말랑, 집중엔 진심</h2>
+        <p>시작에 필요한 건 다 있어요. 더 원할 땐 조용한 깊이까지.</p>
+      </div>
+
+      <div class="rows">
+        <article class="row reveal">
+          <div class="visual">
+            <div class="phone first"><img src="../images/v2/s-home.webp" alt="강아지와 슬라임 친구들이 있는 홈" width="600" height="1304" loading="lazy" /></div>
+            <div class="phone second"><img src="../images/v2/s-focus.webp" alt="강아지와 함께하는 집중 타이머" width="600" height="1304" loading="lazy" /></div>
+            <img class="deco bob" src="../images/v2/m-slime_1.webp" alt="" style="width:70px;left:8%;bottom:20px" loading="lazy" />
+          </div>
+          <div class="text">
+            <span class="tag">비주얼 뽀모도로</span>
+            <h3>눈으로 느끼는 카운트다운</h3>
+            <p>큰 링, 차분한 타이머, 그리고 일하는 동안 꾸벅꾸벅 조는 친구. 카운트다운도 카운트업도 되고, 짧은 휴식과 긴 휴식이 들어 있어요.</p>
+            <ul class="ticks">
+              <li>엄격 모드는 10초 넘게 앱을 떠나면 세션이 끝나요</li>
+              <li>화이트리스트 모드는 허용한 앱 말고 모두 막아요</li>
+              <li>자유 모드는 마음대로 — 세 가지 모드 모두 무료예요</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="row flip reveal" id="focus-hours">
+          <div class="visual">
+            <div class="hours">
+              <div class="card">
+                <span class="lbl">집중 시간</span>
+                <div class="win"><b>9:00 – 11:30</b><span class="switch" aria-hidden="true"></span></div>
+                <div class="days" aria-hidden="true"><span class="on">월</span><span class="on">화</span><span class="on">수</span><span class="on">목</span><span class="on">금</span><span>토</span><span>일</span></div>
+              </div>
+              <div class="card">
+                <span class="lbl">잠긴 앱</span>
+                <div class="apps" aria-hidden="true">
+                  <span class="app" style="background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af)">IG</span>
+                  <span class="app" style="background:#111">TT</span>
+                  <span class="app" style="background:#ff0033">YT</span>
+                  <span class="app" style="background:#5865f2">DC</span>
+                </div>
+              </div>
+              <span class="break-pill">🔓 짧은 휴식 · 10:25까지 앱 열림</span>
+            </div>
+            <img class="deco bob" src="../images/v2/m-cat.webp" alt="" style="width:92px;right:4%;bottom:-10px" loading="lazy" />
+          </div>
+          <div class="text">
+            <span class="tag new">✨ NEW · 집중 시간</span>
+            <h3>정한 시간에 방해되는 앱이 잠겨요</h3>
+            <p>매일의 시간대를 정하고, 자꾸 손이 가는 앱을 골라요. Nomodoro를 닫아도 잠긴 채로 있어요. 집중 세션을 끝내면 딱 휴식 시간만큼 열렸다가 다시 잠겨요.</p>
+            <ul class="ticks">
+              <li>무료: 매일 시간대 1개, 앱 최대 3개</li>
+              <li>Pro: 원하는 요일에 최대 5개 시간대, 앱 무제한과 카테고리 전체</li>
+              <li>Apple 스크린 타임 기반 — 선택한 내용은 iPhone 밖으로 나가지 않아요</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="row reveal">
+          <div class="visual">
+            <div class="phone"><img src="../images/v2/s-hold.webp" alt="종료를 3초 누르는 동안 찐빵이 울어요" width="600" height="1304" loading="lazy" /></div>
+          </div>
+          <div class="text">
+            <span class="tag new">✨ NEW · 길게 눌러 포기</span>
+            <h3>그만두려면 3초 동안 길게 눌러요</h3>
+            <p>한 번 탭으로 도망치기는 이제 그만. 종료를 누르고 있으면 친구가 울기 시작하고… 손을 떼면 다시 응원해요. 짧은 멈춤이 많은 세션을 지켜 줘요.</p>
+          </div>
+        </article>
+
+        <article class="row flip reveal">
+          <div class="visual">
+            <div class="phone"><img src="../images/v2/s-slime.webp" alt="슬라임 편집기: 점을 드래그하고 얼굴과 색을 골라요" width="600" height="1304" loading="lazy" /></div>
+            <img class="deco bob" src="../images/v2/m-slime_3.webp" alt="" style="width:80px;left:12%;bottom:40px" loading="lazy" />
+          </div>
+          <div class="text">
+            <span class="tag">나만의 슬라임</span>
+            <h3>늘리고, 색칠하고, 나만의 것으로.</h3>
+            <p>점을 드래그해 슬라임 모양을 만들고 색, 얼굴, 무늬를 골라요. 친구들 무리에 합류해 집중하는 동안 타이머 주위를 통통 돌아다녀요.</p>
+          </div>
+        </article>
+
+        <article class="row reveal">
+          <div class="visual">
+            <div class="phone"><img src="../images/v2/s-mood.webp" alt="피곤한 기분: 슬라임이 녹아 웅덩이가 돼요" width="600" height="1304" loading="lazy" /></div>
+          </div>
+          <div class="text">
+            <span class="tag">기분 체크</span>
+            <h3>슬라임 친구들도 함께 느껴요</h3>
+            <p>Nomodoro에게 기분을 알려 주세요. 피곤하면 슬라임이 녹아 웅덩이가 되고, 신나면 통통 튀어요. 힘든 날엔 친구가 더 짧은 집중을 추천해 주기도 해요.</p>
+          </div>
+        </article>
+
+        <article class="row flip reveal">
+          <div class="visual">
+            <div class="phone first"><img src="../images/v2/s-progress.webp" alt="진행 화면" width="600" height="1304" loading="lazy" /></div>
+            <div class="phone second"><img src="../images/v2/s-share.webp" alt="오늘의 공유 카드" width="600" height="1304" loading="lazy" /></div>
+          </div>
+          <div class="text">
+            <span class="tag">부드러운 진행</span>
+            <h3>하루하루를 보고, 좋은 날은 공유해요</h3>
+            <p>활동 지도나 주간 차트에서 아무 날이나 탭하면 그날의 집중 시간, 세션 수, 최장 집중이 보여요. 막대마다 그날의 기분도 함께 있어요. 탭 한 번으로 하루를 귀여운 카드로 만들어요.</p>
+            <ul class="ticks">
+              <li>전체 기록과 차트, 무료</li>
+              <li>할 일별 주간 사용량</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap section">
+      <div class="head reveal">
+        <span class="kicker">그리고 더</span>
+        <h2>도움이 되는 작은 것들</h2>
+      </div>
+      <div class="extras">
+        <article class="extra reveal"><div class="e">📱</div><h3>바로 쓰는 위젯</h3><p>자주 하는 작업을 한 번에 시작해요. 세션 중엔 홈 화면에서 일시정지하거나 끝낼 수 있어요.</p></article>
+        <article class="extra reveal"><div class="e">🏝️</div><h3>실시간 현황</h3><p>타이머가 잠금 화면과 Dynamic Island에 계속 보여요.</p></article>
+        <article class="extra reveal"><div class="e">🌧️</div><h3>부드러운 소리</h3><p>처음엔 파도, 비, 바람. Pro는 새소리, 나뭇잎, 시냇물, 모닥불, 천둥, 귀뚜라미, 폭포를 더해요.</p></article>
+        <article class="extra reveal"><div class="e">🌙</div><h3>다크 모드</h3><p>늦은 밤 공부를 위한 부드러운 밤 테마.</p></article>
+        <article class="extra reveal"><div class="e">💾</div><h3>내 데이터, 내 백업</h3><p>언제든 전체 백업을 내보내고 가져올 수 있어요 — 모두에게.</p></article>
+        <article class="extra reveal"><div class="e">🫶</div><h3>ADHD 친화적인 설계</h3><p>할 일 하나, 적은 소음, 다정한 라운드. 치료는 아니에요 — 좀 더 편하게 시작하는 방법일 뿐이에요.</p></article>
+      </div>
+    </section>
+
+    <section class="wrap section" id="friends">
+      <div class="head reveal">
+        <span class="kicker">친구</span>
+        <h2>열 수 있는 손그림 친구 15명</h2>
+        <p>집중한 1분 1분이 젬이 돼요. 젬이 모이면 새 친구를 데려와요 — 한정 친구 5명은 Pro와 함께해요.</p>
+      </div>
+      <div class="friends reveal" id="friends-grid"></div>
+    </section>
+
+    <section class="wrap section" id="pricing">
+      <div class="head reveal">
+        <span class="kicker">가격</span>
+        <h2>부담 없는 가격</h2>
+        <p>무제한 집중은 언제나 무료예요. Pro는 선택 사항 — 맞는 플랜을 골라요.</p>
+      </div>
+      <div class="pricing">
+        <article class="plan reveal">
+          <h3>무료</h3>
+          <p class="sub">오늘 바로 시작하는 데 필요한 모든 것</p>
+          <div class="big">$0</div>
+          <ul class="ticks">
+            <li>집중 세션 무제한</li>
+            <li>엄격 모드, 자유 모드, 화이트리스트 모드</li>
+            <li>집중 시간: 하루 시간대 1개, 앱 3개</li>
+            <li>자연 소리 3가지</li>
+            <li>나만의 슬라임 1마리 + 기분 체크</li>
+            <li>전체 기록, 차트, 공유 카드</li>
+            <li>백업 내보내기 &amp; 가져오기</li>
+            <li>친구 — 젬으로 데려오기</li>
+            <li>위젯 &amp; 실시간 현황</li>
+          </ul>
+        </article>
+        <article class="plan pro reveal">
+          <img class="peek bob" src="../images/v2/m-capybara.webp" alt="" width="96" height="96" loading="lazy" />
+          <h3>Nomodoro Pro</h3>
+          <p class="sub">나만의 일정, 그리고 작은 선물들</p>
+          <div class="tiers">
+            <div class="tier">
+              <div class="nm">월간</div>
+              <div class="amt">$1.99</div>
+              <div class="mt">매월<br>자유롭게</div>
+            </div>
+            <div class="tier best">
+              <span class="badge">가장 알뜰해요</span>
+              <div class="nm">연간</div>
+              <div class="amt">$9.99</div>
+              <div class="mt">매년 · 월 ~$0.83<br>7일 무료 체험</div>
+              <span class="save">~58% 절약</span>
+            </div>
+            <div class="tier">
+              <div class="nm">평생</div>
+              <div class="amt">$19.99</div>
+              <div class="mt">일회성<br>한 번만 결제</div>
+            </div>
+          </div>
+          <ul class="ticks">
+            <li>집중 시간 더 많이 — 원하는 요일에 최대 5개 시간대, 앱 무제한과 카테고리 전체</li>
+            <li>최대 3마리 슬라임 친구들, 모든 색과 얼굴, 한정 무늬</li>
+            <li>자연 소리 7가지 추가</li>
+            <li>짧은 휴식, 긴 휴식 &amp; 라운드 직접 설정</li>
+            <li>한정 친구: 버블티, 도넛, 강아지, 카피바라, 사과</li>
+          </ul>
+        </article>
+      </div>
+      <p class="note">가격은 App Store 카탈로그 기준 USD예요. 지역에 따라 현지 통화와 세금이 다를 수 있어요.</p>
+    </section>
+
+    <section class="wrap section" id="faq">
+      <div class="head reveal">
+        <span class="kicker">FAQ</span>
+        <h2>자주 묻는 질문</h2>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>집중은 정말 계속 무료인가요?</summary>
+          <p>네. 집중 세션 무제한, 모든 집중 모드(엄격, 자유, 화이트리스트), 집중 시간 1개 시간대, 전체 기록과 차트, 백업, 기분 체크, 나만의 슬라임 1마리는 계속 무료예요. Pro는 집중 시간 확장, 최대 3마리 슬라임 친구들, 더 많은 소리, 휴식 &amp; 라운드 직접 설정, 한정 친구를 더해요. 다른 친구들은 여전히 집중으로 모은 젬이 필요해요.</p>
+        </details>
+        <details>
+          <summary>집중 시간이 뭔가요?</summary>
+          <p>매일의 시간대를 정하고 방해되는 앱을 골라요. 시간대 동안 그 앱들은 Nomodoro를 닫아도 잠긴 채로 있어요. 집중 세션을 끝내면 딱 휴식 시간만큼 열렸다가 다시 잠겨요. 무료: 매일 시간대 1개, 앱 최대 3개. Pro: 원하는 요일에 최대 5개 시간대, 앱 개수 무제한과 카테고리 전체. Apple 스크린 타임 API를 사용하며, 선택한 내용은 iPhone 밖으로 나가지 않아요.</p>
+        </details>
+        <details>
+          <summary>공부나 일하는 동안 Nomodoro로 앱을 막을 수 있나요?</summary>
+          <p>네, 두 가지 방법이 있고 둘 다 Apple 스크린 타임 기반이에요. 화이트리스트 모드는 집중 세션 동안 허용한 앱 말고 모든 앱을 막아요. 집중 시간은 매일 정한 시간에 고른 앱을 잠그고, 세션을 끝낸 뒤 휴식 동안만 열어 줘요. 둘 다 무료 버전에 있어요.</p>
+        </details>
+        <details>
+          <summary>Nomodoro는 Forest와 뭐가 다른가요?</summary>
+          <p>둘 다 휴대폰을 멀리할 귀여운 이유를 줘요. Forest에서는 집중하는 동안 나무가 자라요. Nomodoro에서는 작은 친구와 슬라임 친구들이 곁을 지키며, 끝내면 응원하고, 포기하면 슬퍼하고(그만두려면 3초 길게 눌러야 해요), 기분에 반응해요. Nomodoro는 Apple 스크린 타임으로 세션 동안이나 정한 시간에 방해되는 앱을 잠글 수도 있어요. 무제한 집중과 모든 집중 모드는 무료예요.</p>
+        </details>
+        <details>
+          <summary>화이트리스트 모드는 어떻게 앱을 막나요?</summary>
+          <p>Apple 스크린 타임 API를 사용해요. 허용할 앱을 최대 10개 고르면, 나머지 앱은 집중 세션 동안에만 막히고 세션이 끝나면 풀려요. 선택한 앱 정보는 iPhone 밖으로 나가지 않아요.</p>
+        </details>
+        <details>
+          <summary>세션을 일찍 끝낼 수 있나요?</summary>
+          <p>네 — 종료를 3초 동안 길게 누르세요. 누르는 동안 친구가 울기 시작하고, 손을 떼면 다시 응원해요. 카운트업 세션은 저장할지만 물어봐요.</p>
+        </details>
+        <details>
+          <summary>친구와 젬이 뭔가요?</summary>
+          <p>집중 세션을 완료하면 젬을 모을 수 있고, 젬으로 손그림 친구를 데려와요. Pro는 한정 친구 5명(버블티, 도넛, 강아지, 카피바라, 사과)을 젬 없이 열어 줘요. 나머지 친구는 누구나 젬이 충분해야 데려올 수 있어요.</p>
+        </details>
+        <details>
+          <summary>어떤 Pro 플랜을 골라야 할까요?</summary>
+          <p>유연하게 쓰고 싶다면 월간을 써 보세요. 연간이 가장 알뜰하고(매월 결제보다 ~58% 저렴) 7일 무료 체험으로 시작해요 — 체험이 끝나기 2일 전에 알려 드려요. 오래 쓸 생각이라면 평생은 한 번만 결제하면 돼요.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="wrap section" id="feedback">
+      <div class="head reveal">
+        <span class="kicker">피드백</span>
+        <h2>의견을 들려주세요</h2>
+        <p>아이디어, 버그, “여기가 헷갈렸어요” — 모두 도움이 돼요. 이메일 앱이 열려요.</p>
+      </div>
+      <form class="feedback reveal" id="feedback-form">
+        <p class="hint">혼자 만드는 앱이에요 — 모든 메시지를 직접 읽어요.</p>
+        <div class="field">
+          <label for="fb-name">이름 <span style="font-weight:600;color:var(--muted)">(선택)</span></label>
+          <input id="fb-name" name="name" type="text" autocomplete="name" placeholder="이름" />
+        </div>
+        <div class="field">
+          <label for="fb-message">메시지</label>
+          <textarea id="fb-message" name="message" required placeholder="좋은 점은? 아쉬운 점은?"></textarea>
+        </div>
+        <div class="actions">
+          <button type="submit">이메일로 피드백 보내기</button>
+          <span class="alt">또는 <a href="https://github.com/tnson1307/freshair/issues" rel="noopener">GitHub Issues</a></span>
+        </div>
+      </form>
+    </section>
+
+    <section class="wrap final">
+      <div class="squad" aria-hidden="true">
+        <img class="bob" src="../images/v2/m-slime_0.webp" alt="" loading="lazy" />
+        <img class="bob d1" src="../images/v2/m-puppy_done.webp" alt="" loading="lazy" />
+        <img class="big bob d2" src="../images/v2/m-bun_done.webp" alt="" loading="lazy" />
+        <img class="bob" src="../images/v2/m-strawberry.webp" alt="" loading="lazy" />
+        <img class="bob d1" src="../images/v2/m-slime_2.webp" alt="" loading="lazy" />
+      </div>
+      <h2>할 일 하나, 시작해 볼까요?</h2>
+      <p>iPhone에서 Nomodoro를 받아 보세요. 부담 없이 시작해요.</p>
+      <div class="cta-row">
+        <a class="store" href="https://apps.apple.com/app/id6799465659" rel="noopener" aria-label="App Store에서 다운로드">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.77 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.22-2.01 1.08-3.18-1.06.05-2.33.71-3.08 1.58-.67.76-1.26 1.98-1.1 3.14 1.16.09 2.36-.6 3.1-1.54z"/></svg>
+          <span><small>다운로드하기</small><strong>App Store</strong></span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p style="margin:0">© Nomodoro: Cute Focus Timer</p>
+      <nav aria-label="Legal">
+        <a href="../privacy.html">개인정보 처리방침</a>
+        <a href="../terms.html">이용약관</a>
+        <a href="#feedback">피드백</a>
+        <a href="https://apps.apple.com/app/id6799465659" rel="noopener">App Store</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // Same address as App Store Connect support email — change if needed.
+      var FEEDBACK_EMAIL = "tnson1307@gmail.com";
+
+      var top = document.getElementById("top");
+      window.addEventListener("scroll", function () {
+        top.classList.toggle("scrolled", window.scrollY > 6);
+      }, { passive: true });
+
+      var form = document.getElementById("feedback-form");
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var name = (document.getElementById("fb-name").value || "").trim();
+          var message = (document.getElementById("fb-message").value || "").trim();
+          if (!message) return;
+          var body = "";
+          if (name) body += "From: " + name + "\n\n";
+          body += message;
+          body += "\n\n— Nomodoro 웹사이트에서 보냄";
+          window.location.href =
+            "mailto:" + encodeURIComponent(FEEDBACK_EMAIL) +
+            "?subject=" + encodeURIComponent("Nomodoro 피드백") +
+            "&body=" + encodeURIComponent(body);
+        });
+      }
+
+      // Companions: [image, name, Pro exclusive]
+      var FRIENDS = [
+        ["cloud", "구름"], ["bun", "찐빵"], ["boba", "버블티", 1], ["sushi", "초밥"],
+        ["pizza", "피자"], ["donut", "도넛", 1], ["chicken", "병아리"], ["puppy", "강아지", 1],
+        ["cat", "고양이"], ["capybara", "카피바라", 1], ["orange", "오렌지"], ["kiwi", "키위"],
+        ["apple", "사과", 1], ["strawberry", "딸기"], ["durian", "두리안"]
+      ];
+      var grid = document.getElementById("friends-grid");
+      var track = document.getElementById("marquee");
+      var html = "", strip = "";
+      FRIENDS.forEach(function (f) {
+        var src = "../images/v2/m-" + f[0] + ".webp";
+        html += '<div class="friend">' + (f[2] ? "<em>PRO</em>" : "") +
+          '<img src="' + src + '" alt="" width="84" height="84" loading="lazy" /><span>' + f[1] + "</span></div>";
+        strip += '<img src="' + src + '" alt="" width="70" height="70" loading="lazy" />';
+      });
+      var slimes = [0, 1, 2, 3].map(function (i) {
+        return '<img src="../images/v2/m-slime_' + i + '.webp" alt="" width="70" height="70" loading="lazy" />';
+      }).join("");
+      grid.innerHTML = html;
+      track.innerHTML = strip + slimes + strip + slimes;
+
+      var items = document.querySelectorAll(".reveal");
+      if (!("IntersectionObserver" in window)) {
+        items.forEach(function (el) { el.classList.add("in"); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+        });
+      }, { rootMargin: "0px 0px -8% 0px" });
+      items.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+</body>
+</html>

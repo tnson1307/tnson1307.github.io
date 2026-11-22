@@ -1,8 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://tnson1307.github.io/freshair/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tnson1307.github.io/freshair/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tnson1307.github.io/freshair/ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tnson1307.github.io/freshair/ko/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tnson1307.github.io/freshair/uk/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tnson1307.github.io/freshair/vi/" />
+  </url>
+  <url>
+    <loc>https://tnson1307.github.io/freshair/ja/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tnson1307.github.io/freshair/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tnson1307.github.io/freshair/ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tnson1307.github.io/freshair/ko/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tnson1307.github.io/freshair/uk/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tnson1307.github.io/freshair/vi/" />
+  </url>
+  <url>
+    <loc>https://tnson1307.github.io/freshair/ko/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tnson1307.github.io/freshair/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tnson1307.github.io/freshair/ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tnson1307.github.io/freshair/ko/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tnson1307.github.io/freshair/uk/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tnson1307.github.io/freshair/vi/" />
+  </url>
+  <url>
+    <loc>https://tnson1307.github.io/freshair/uk/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tnson1307.github.io/freshair/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tnson1307.github.io/freshair/ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tnson1307.github.io/freshair/ko/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tnson1307.github.io/freshair/uk/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tnson1307.github.io/freshair/vi/" />
+  </url>
+  <url>
+    <loc>https://tnson1307.github.io/freshair/vi/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tnson1307.github.io/freshair/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tnson1307.github.io/freshair/ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tnson1307.github.io/freshair/ko/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tnson1307.github.io/freshair/uk/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tnson1307.github.io/freshair/vi/" />
   </url>
   <url>
     <loc>https://tnson1307.github.io/freshair/privacy.html</loc>

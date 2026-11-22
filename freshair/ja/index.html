@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nomodoro：かわいい集中タイマー</title>
+  <meta name="description" content="Nomodoro：かわいい集中タイマー。手描きのなかま、自分だけのスライム、気が散るアプリをロックする「集中時間」と一緒に、おだやかに集中できるビジュアルポモドーロ。集中はずっと無料・無制限。" />
+  <meta name="theme-color" content="#f6efe3" />
+  <meta property="og:title" content="Nomodoro: Cute Focus Timer" />
+  <meta property="og:description" content="小さな相棒と一緒に集中しよう。手描きのなかま、あなたの気分を感じるスライム、気が散るアプリをロックする「集中時間」。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://tnson1307.github.io/freshair/images/shot-home.png" />
+  <meta property="og:url" content="https://tnson1307.github.io/freshair/ja/" />
+  <link rel="canonical" href="https://tnson1307.github.io/freshair/ja/" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "MobileApplication",
+        "name": "Nomodoro: Cute Focus Timer",
+        "alternateName": "Nomodoro",
+        "description": "Nomodoro は、小さな相棒がそばにいてくれる iPhone 向けのかわいいポモドーロ集中タイマーです。最後までがんばると喜んで、途中であきらめるとしょんぼり。Apple のスクリーンタイムで、集中セッション中（ホワイトリストモード）や決めた時間（集中時間）に気が散るアプリをブロックすることもできます。",
+        "url": "https://tnson1307.github.io/freshair/ja/",
+        "downloadUrl": "https://apps.apple.com/app/id6799465659",
+        "installUrl": "https://apps.apple.com/app/id6799465659",
+        "sameAs": ["https://apps.apple.com/us/app/nomodoro-cute-focus-timer/id6799465659"],
+        "image": "https://tnson1307.github.io/freshair/images/v2/icon-180.png",
+        "screenshot": "https://tnson1307.github.io/freshair/images/shot-home.png",
+        "operatingSystem": "iOS 17.0 or later",
+        "applicationCategory": "ProductivityApplication",
+        "applicationSubCategory": "ポモドーロ集中タイマー＆アプリブロッカー",
+        "inLanguage": ["en", "vi", "es", "fr", "de", "pt", "ja", "ko", "zh-Hans", "id", "uk"],
+        "featureList": [
+          "ビジュアルなポモドーロのカウントダウンとカウントアップタイマー",
+          "終わると喜び、あきらめるとしょんぼりする相棒",
+          "ギブアップは3秒の長押しが必要",
+          "ストリクト・ゆる・ホワイトリストの集中モード",
+          "集中時間：Apple のスクリーンタイムで、決めた時間に気が散るアプリをロック",
+          "自分だけのスライムと気分チェック",
+          "進捗グラフ、アクティビティマップ、シェアカード",
+          "ホーム画面ウィジェットとライブアクティビティ"
+        ],
+        "offers": [
+          { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Nomodoro Pro Monthly", "price": "1.99", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Nomodoro Pro Yearly", "price": "9.99", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Nomodoro Pro Lifetime", "price": "19.99", "priceCurrency": "USD" }
+        ],
+        "author": { "@type": "Person", "name": "Ngoc Son Tran" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "集中は本当にずっと無料？",
+            "acceptedAnswer": { "@type": "Answer", "text": "はい。集中セッションは無制限、すべての集中モード（ストリクト・ゆる・ホワイトリスト）、集中時間1枠、すべての履歴とグラフ、バックアップ、気分チェック、自作スライム1体はずっと無料です。Pro では集中時間の追加、最大3体のスライムチーム、自然の音の追加、休憩 & ラウンドの自由設定、限定のなかまが使えます。ほかの相棒は集中して集めたジェムでお迎えします。" } },
+          { "@type": "Question", "name": "集中時間とは？",
+            "acceptedAnswer": { "@type": "Answer", "text": "毎日の時間帯を決めて、気が散るアプリを選びます。その時間帯の間は、Nomodoro を閉じていてもアプリはロックされたまま。集中セッションを終えると休憩の間だけ開き、また自動でロックされます。無料：毎日1枠、アプリ3つまで。Pro：選んだ曜日に最大5枠、アプリもカテゴリも無制限。Apple のスクリーンタイム API を使っていて、選んだ内容が iPhone の外に出ることはありません。" } },
+          { "@type": "Question", "name": "勉強中や仕事中にアプリをブロックできる？",
+            "acceptedAnswer": { "@type": "Answer", "text": "はい、2つの方法があり、どちらも Apple のスクリーンタイムを使います。ホワイトリストモードは、集中セッション中に許可したアプリ以外をすべてブロック。集中時間は、選んだアプリを毎日決めた時間にロックし、セッションを終えたあとの休憩中だけ開きます。どちらも無料版で使えます。" } },
+          { "@type": "Question", "name": "Forest とのちがいは？",
+            "acceptedAnswer": { "@type": "Answer", "text": "どちらも、スマホから離れるかわいい理由をくれるアプリです。Forest では集中している間に木が育ちます。Nomodoro では小さな相棒とスライムたちがそばにいて、終わると喜び、あきらめるとしょんぼり（やめるには3秒の長押し）、あなたの気分にも反応します。さらに Apple のスクリーンタイムで、セッション中や決めた時間に気が散るアプリをロックできます。集中は無制限、すべての集中モードが無料です。" } },
+          { "@type": "Question", "name": "ホワイトリストモードはどうやってアプリをブロックするの？",
+            "acceptedAnswer": { "@type": "Answer", "text": "Apple のスクリーンタイム API を使います。許可するアプリを最大10個選ぶと、それ以外のアプリは集中セッション中だけブロックされ、終わると解除されます。選んだアプリの情報が iPhone の外に出ることはありません。" } },
+          { "@type": "Question", "name": "セッションを途中でやめられる？",
+            "acceptedAnswer": { "@type": "Answer", "text": "はい。「終了」を3秒長押ししてください。長押ししている間は相棒が泣きはじめ、指をはなすと大喜びします。カウントアップのセッションは保存するか聞くだけです。" } },
+          { "@type": "Question", "name": "なかまとジェムって？",
+            "acceptedAnswer": { "@type": "Answer", "text": "集中セッションを終えるとジェムがたまり、手描きの相棒をお迎えできます。Pro なら限定の5体（タピオカ、ドーナツ、こいぬ、カピバラ、りんご）がジェムなしで解放。それ以外の子は、みんな同じくジェムを集めてお迎えします。" } },
+          { "@type": "Question", "name": "どの Pro プランを選べばいい？",
+            "acceptedAnswer": { "@type": "Answer", "text": "気軽に試したいなら月額を。年額はいちばんお得（毎月払うより約58%安い）で、7日間の無料体験つき。終了の2日前にお知らせします。ずっと使うと決めているなら、一度払うだけの買い切りがおすすめです。" } }
+        ]
+      }
+    ]
+  }
+  </script>
+<!-- i18n:head -->
+  <link rel="alternate" hreflang="en" href="https://tnson1307.github.io/freshair/" />
+  <link rel="alternate" hreflang="ja" href="https://tnson1307.github.io/freshair/ja/" />
+  <link rel="alternate" hreflang="ko" href="https://tnson1307.github.io/freshair/ko/" />
+  <link rel="alternate" hreflang="uk" href="https://tnson1307.github.io/freshair/uk/" />
+  <link rel="alternate" hreflang="vi" href="https://tnson1307.github.io/freshair/vi/" />
+  <link rel="alternate" hreflang="x-default" href="https://tnson1307.github.io/freshair/" />
+  <meta property="og:locale" content="ja_JP" />
+  <style>
+    .langs { position: relative; }
+    .langs summary { list-style: none; cursor: pointer; color: var(--muted); font-size: 0.95rem; display: flex; align-items: center; gap: 4px; }
+    .langs summary::-webkit-details-marker { display: none; }
+    .langs summary:hover { color: var(--ink); }
+    .langs .code { display: none; text-transform: uppercase; }
+    @media (max-width: 760px) { .langs .ln { display: none; } .langs .code { display: inline; } .top .wrap { gap: 10px; } .top nav { gap: 12px; } }
+    .hero-copy { min-width: 0; }
+    .langs .menu { position: absolute; right: 0; top: calc(100% + 10px); background: var(--paper); border: 1.5px solid var(--line-strong); border-radius: 14px; padding: 6px; display: grid; min-width: 150px; box-shadow: 3px 4px 0 var(--line-strong); z-index: 60; }
+    .top nav .langs .menu a { color: var(--ink); padding: 7px 10px; border-radius: 9px; display: block !important; }
+    .top nav .langs .menu a:hover, .top nav .langs .menu a[aria-current] { background: var(--teal-soft); }
+    body, h1, h2, h3, .brand { font-family: "Nunito", "Hiragino Maru Gothic ProN", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif; letter-spacing: 0; } .hero h1 { line-height: 1.15; word-break: keep-all; }
+  </style>
+  <!-- /i18n:head -->
+  <link rel="icon" href="../images/v2/icon-180.png" />
+  <link rel="apple-touch-icon" href="../images/v2/icon-180.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f6efe3;
+      --bg-2: #fbf7f0;
+      --paper: #fffdf8;
+      --ink: #2c3138;
+      --muted: #69717c;
+      --line: rgba(44, 49, 56, 0.14);
+      --line-strong: rgba(44, 49, 56, 0.55);
+      --tomato: #e4573f;
+      --tomato-soft: #fde3dc;
+      --teal: #1f8f84;
+      --teal-deep: #176f66;
+      --teal-soft: #dff1ee;
+      --sun: #ffd66b;
+      --shadow: 0 1px 0 rgba(44, 49, 56, 0.04), 0 18px 40px -18px rgba(44, 49, 56, 0.28);
+      --phone-edge: #1f2227;
+      --max: 1140px;
+      --r: 22px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #17191d;
+        --bg-2: #1d2025;
+        --paper: #23262c;
+        --ink: #f1ece4;
+        --muted: #a6adb7;
+        --line: rgba(241, 236, 228, 0.12);
+        --line-strong: rgba(241, 236, 228, 0.45);
+        --tomato: #ff7a62;
+        --tomato-soft: rgba(255, 122, 98, 0.16);
+        --teal: #5fd0c2;
+        --teal-deep: #8ce0d5;
+        --teal-soft: rgba(95, 208, 194, 0.14);
+        --shadow: 0 1px 0 rgba(0, 0, 0, 0.3), 0 22px 44px -20px rgba(0, 0, 0, 0.7);
+        --phone-edge: #0b0c0e;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--bg);
+      font-family: "Nunito", system-ui, sans-serif;
+      font-weight: 600;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    html { overflow-x: clip; }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; }
+    h1, h2, h3 { font-family: "Quicksand", "Nunito", system-ui, sans-serif; letter-spacing: -0.02em; margin: 0; }
+    .wrap { width: min(var(--max), 100% - 32px); margin: 0 auto; }
+
+    /* Nav */
+    .top {
+      position: sticky; top: 0; z-index: 50;
+      background: color-mix(in srgb, var(--bg) 82%, transparent);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid transparent;
+      transition: border-color .2s;
+    }
+    .top.scrolled { border-bottom-color: var(--line); }
+    .top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: "Quicksand", sans-serif; font-weight: 700; font-size: 1.15rem; }
+    .brand img { width: 34px; height: 34px; border-radius: 9px; box-shadow: 0 2px 6px rgba(228, 87, 63, 0.35); }
+    .top nav { display: flex; align-items: center; gap: 22px; font-size: 0.95rem; }
+    .top nav a { text-decoration: none; color: var(--muted); }
+    .top nav a:hover { color: var(--ink); }
+    .top nav a.pill {
+      color: #fff; background: var(--ink); padding: 8px 16px; border-radius: 999px;
+    }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .top nav a.pill { color: var(--bg); } }
+    @media (max-width: 760px) { .top nav a:not(.pill) { display: none; } }
+
+    /* Hero */
+    .hero {
+      position: relative; overflow: hidden;
+      padding: 56px 0 40px;
+      background:
+        radial-gradient(ellipse 50% 60% at 78% 40%, var(--teal-soft), transparent 70%),
+        radial-gradient(ellipse 40% 45% at 12% 10%, var(--tomato-soft), transparent 70%);
+    }
+    .hero .wrap { display: grid; grid-template-columns: 1.02fr 1fr; gap: 40px; align-items: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--paper); border: 1.5px solid var(--line-strong);
+      border-radius: 999px; padding: 6px 14px 6px 8px; font-size: 0.88rem; text-decoration: none;
+      box-shadow: 2px 3px 0 var(--line-strong);
+    }
+    .eyebrow b {
+      background: var(--tomato); color: #fff; border-radius: 999px; padding: 2px 9px;
+      font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .hero h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: 1.02; margin: 22px 0 18px; }
+    .hero h1 .hl { color: var(--tomato); position: relative; white-space: nowrap; }
+    .hero h1 .hl svg { position: absolute; left: -2%; bottom: -0.16em; width: 104%; height: 0.32em; overflow: visible; }
+    .lead { font-size: 1.15rem; color: var(--muted); max-width: 33em; margin: 0 0 26px; font-weight: 600; }
+    .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+    .store {
+      display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
+      background: #111; color: #fff; padding: 10px 20px 10px 16px; border-radius: 14px;
+      box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.55); transition: transform .15s;
+    }
+    .store:hover { transform: translateY(-2px); }
+    .store small { display: block; font-size: 0.7rem; opacity: 0.85; line-height: 1.1; }
+    .store strong { display: block; font-size: 1.2rem; line-height: 1.1; font-family: "Quicksand", sans-serif; }
+    .ghost {
+      display: inline-flex; align-items: center; gap: 6px; text-decoration: none;
+      padding: 13px 20px; border-radius: 14px; border: 1.5px solid var(--line-strong);
+      background: var(--paper); box-shadow: 2px 3px 0 var(--line-strong);
+    }
+    .ghost:hover { transform: translate(1px, 1px); box-shadow: 1px 2px 0 var(--line-strong); }
+    .facts { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 24px 0 0; padding: 0; list-style: none; color: var(--muted); font-size: 0.92rem; }
+    .facts li::before { content: "✓"; color: var(--teal); font-weight: 800; margin-right: 6px; }
+
+    .stage { position: relative; height: 640px; }
+    .phone {
+      position: absolute; width: 268px; aspect-ratio: 1320 / 2868;
+      border-radius: 44px; padding: 9px; background: var(--phone-edge);
+      box-shadow: 0 40px 70px -30px rgba(31, 34, 39, 0.55), 0 0 0 1.5px rgba(255, 255, 255, 0.06) inset;
+    }
+    .phone img { width: 100%; height: 100%; object-fit: cover; border-radius: 36px; background: #fff; }
+    .stage .p-main { left: 50%; top: 8px; transform: translateX(-50%); z-index: 3; width: 286px; }
+    .stage .p-left { left: 2%; top: 74px; transform: rotate(-8deg); z-index: 2; width: 236px; opacity: .97; }
+    .stage .p-right { right: 2%; top: 74px; transform: rotate(8deg); z-index: 2; width: 236px; opacity: .97; }
+    .sticker { position: absolute; z-index: 5; filter: drop-shadow(0 10px 14px rgba(44, 49, 56, 0.18)); }
+    .stage .s-bun { width: 128px; left: 4%; bottom: 8px; }
+    .stage .s-slime-a { width: 64px; right: 10%; bottom: 40px; }
+    .stage .s-slime-b { width: 52px; right: 3%; bottom: 96px; }
+    .chip {
+      position: absolute; z-index: 6; display: flex; align-items: center; gap: 8px;
+      background: var(--paper); border: 1.5px solid var(--line-strong); border-radius: 16px;
+      padding: 8px 12px; font-size: 0.85rem; white-space: nowrap; box-shadow: 3px 4px 0 var(--line-strong);
+    }
+    .chip .ico { width: 28px; height: 28px; border-radius: 9px; display: grid; place-items: center; font-size: 15px; }
+    .chip small { display: block; color: var(--muted); font-size: 0.72rem; line-height: 1.1; }
+    .chip span b { display: block; line-height: 1.15; }
+    .stage .c-hours { left: -2%; top: 46px; transform: rotate(-3deg); }
+    .stage .c-hours .ico { background: var(--tomato-soft); }
+    .stage .c-mood { right: -1%; top: 300px; transform: rotate(3deg); }
+    .stage .c-mood .ico { background: var(--teal-soft); }
+    .stage .c-streak { left: 30%; bottom: 0; transform: rotate(-2deg); }
+    .stage .c-streak .ico { background: #fff1c7; }
+    .float { animation: float 6s ease-in-out infinite; }
+    .float.d1 { animation-delay: -2s; }
+    .float.d2 { animation-delay: -4s; }
+    @keyframes float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -10px; } }
+    .bob { animation: bob 2.4s ease-in-out infinite; transform-origin: 50% 100%; }
+    .bob.d1 { animation-delay: -.8s; }
+    .bob.d2 { animation-delay: -1.6s; }
+    @keyframes bob { 0%, 100% { transform: scale(1, 1) translateY(0); } 40% { transform: scale(1.04, .95) translateY(0); } 70% { transform: scale(.97, 1.04) translateY(-8px); } }
+
+    @media (max-width: 960px) {
+      .hero .wrap { grid-template-columns: 1fr; }
+      .hero-copy { text-align: center; }
+      .lead { margin-left: auto; margin-right: auto; }
+      .cta-row, .facts { justify-content: center; }
+      .stage { height: 600px; max-width: 560px; width: 100%; margin: 0 auto; }
+    }
+    @media (max-width: 560px) {
+      .hero { padding-top: 32px; }
+      .stage { height: 500px; }
+      .stage .p-main { width: 220px; }
+      .stage .p-left, .stage .p-right { width: 170px; top: 60px; }
+      .stage .p-left { left: -4%; }
+      .stage .p-right { right: -4%; }
+      .stage .s-bun { width: 92px; left: 0; }
+      .stage .c-hours { left: 0; top: 0; }
+      .stage .c-mood { right: 0; top: 250px; }
+      .stage .c-streak { left: 24%; }
+      .chip { font-size: 0.78rem; padding: 6px 10px; }
+      .chip .ico { width: 24px; height: 24px; }
+    }
+
+    /* Friends marquee */
+    .marquee {
+      border-block: 1.5px solid var(--line); background: var(--bg-2);
+      overflow: hidden; padding: 18px 0; position: relative;
+    }
+    .marquee-track { display: flex; gap: 34px; width: max-content; animation: slide 40s linear infinite; }
+    .marquee-track img { width: 70px; height: 70px; object-fit: contain; }
+    @keyframes slide { to { transform: translateX(-50%); } }
+    .marquee::before, .marquee::after {
+      content: ""; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 1; pointer-events: none;
+    }
+    .marquee::before { left: 0; background: linear-gradient(90deg, var(--bg-2), transparent); }
+    .marquee::after { right: 0; background: linear-gradient(-90deg, var(--bg-2), transparent); }
+
+    /* Sections */
+    .section { padding: 96px 0 0; }
+    .head { text-align: center; max-width: 640px; margin: 0 auto 48px; }
+    .kicker {
+      display: inline-block; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--tomato); font-weight: 800; margin-bottom: 10px;
+    }
+    .head h2 { font-size: clamp(2rem, 4vw, 2.9rem); line-height: 1.1; }
+    .head p { color: var(--muted); font-size: 1.08rem; margin: 14px 0 0; }
+
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .step {
+      background: var(--paper); border: 1.5px solid var(--line-strong); border-radius: var(--r);
+      padding: 24px; box-shadow: 3px 4px 0 var(--line-strong); position: relative;
+    }
+    .step img { width: 76px; height: 76px; object-fit: contain; margin-bottom: 10px; }
+    .step .n {
+      position: absolute; top: 18px; right: 20px; font-family: "Quicksand", sans-serif; font-weight: 700;
+      color: var(--muted); font-size: 0.9rem;
+    }
+    .step h3 { font-size: 1.3rem; margin-bottom: 6px; }
+    .step p { margin: 0; color: var(--muted); }
+    @media (max-width: 760px) { .steps { grid-template-columns: 1fr; } }
+
+    /* Feature rows */
+    .rows { display: grid; gap: 40px; }
+    .row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;
+      background: var(--bg-2); border: 1.5px solid var(--line); border-radius: 32px;
+      padding: 48px 56px; overflow: hidden; position: relative;
+    }
+    .row.flip .visual { order: 2; }
+    .row .visual { position: relative; display: flex; justify-content: center; min-height: 440px; align-items: center; }
+    .row .visual::before {
+      content: ""; position: absolute; width: 360px; height: 360px; border-radius: 46% 54% 52% 48% / 55% 45% 55% 45%;
+      background: var(--blob, var(--teal-soft)); left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-8deg);
+    }
+    .rows .row:nth-child(3n+2) { --blob: var(--tomato-soft); }
+    .rows .row:nth-child(3n) { --blob: color-mix(in srgb, var(--sun) 35%, transparent); }
+    .row .visual .phone { position: relative; width: 236px; }
+    .row .visual .phone.second { position: absolute; width: 200px; left: 55%; top: 40px; transform: rotate(6deg); }
+    .row .visual .phone.first { transform: translateX(-26%) rotate(-3deg); }
+    .row .text h3 { font-size: clamp(1.7rem, 3vw, 2.3rem); line-height: 1.12; margin: 6px 0 14px; }
+    .row .text p { color: var(--muted); font-size: 1.05rem; margin: 0 0 16px; }
+    .tag {
+      display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; font-weight: 800;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal-deep);
+    }
+    .tag.new { color: var(--tomato); }
+    .ticks { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+    .ticks li { display: flex; gap: 10px; align-items: flex-start; }
+    .ticks li::before {
+      content: ""; flex: none; width: 20px; height: 20px; margin-top: 2px; border-radius: 50%;
+      background: var(--teal-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-7' fill='none' stroke='%231f8f84' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 20px no-repeat;
+    }
+    .row .deco { position: absolute; z-index: 4; filter: drop-shadow(0 8px 12px rgba(44, 49, 56, 0.16)); }
+    @media (max-width: 900px) {
+      .row { grid-template-columns: 1fr; padding: 36px 24px; gap: 28px; }
+      .row.flip .visual { order: 0; }
+      .row .visual { min-height: 0; }
+      .row .visual::before { width: 280px; height: 280px; }
+    }
+    @media (max-width: 560px) {
+      .row .visual .phone { width: 200px; }
+      .row .visual .phone.first { width: 170px; transform: translateX(-30%) rotate(-3deg); }
+      .row .visual .phone.second { width: 150px; left: 50%; top: 30px; }
+      .row .visual .deco { max-width: 64px; }
+    }
+
+    /* Focus hours mock */
+    .hours { width: min(360px, 100%); display: grid; gap: 14px; position: relative; }
+    .card {
+      background: var(--paper); border: 1.5px solid var(--line-strong); border-radius: 20px;
+      padding: 16px 18px; box-shadow: 3px 4px 0 var(--line-strong);
+    }
+    .card .lbl { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 800; }
+    .win { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 8px; }
+    .win b { font-family: "Quicksand", sans-serif; font-size: 1.5rem; }
+    .switch { width: 46px; height: 28px; border-radius: 999px; background: var(--teal); border: 1.5px solid var(--line-strong); position: relative; flex: none; }
+    .switch::after { content: ""; position: absolute; right: 3px; top: 3px; width: 19px; height: 19px; border-radius: 50%; background: #fff; border: 1.5px solid var(--line-strong); }
+    .days { display: flex; gap: 6px; margin-top: 10px; }
+    .days span { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-size: 0.78rem; border: 1.5px solid var(--line); color: var(--muted); }
+    .days span.on { background: var(--teal); color: #fff; border-color: transparent; }
+    .apps { display: flex; gap: 10px; margin-top: 10px; }
+    .app { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; position: relative; color: #fff; font-weight: 800; font-size: 0.8rem; }
+    .app::after { content: "🔒"; position: absolute; right: -6px; bottom: -6px; font-size: 14px; background: var(--paper); border-radius: 50%; padding: 1px; }
+    .break-pill {
+      display: inline-flex; align-items: center; gap: 8px; background: var(--teal-soft); color: var(--teal-deep);
+      border-radius: 999px; padding: 8px 14px; font-weight: 800; font-size: 0.92rem; justify-self: start;
+      border: 1.5px solid color-mix(in srgb, var(--teal) 40%, transparent);
+    }
+
+    /* Extras grid */
+    .extras { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .extra { background: var(--paper); border: 1.5px solid var(--line); border-radius: var(--r); padding: 22px; }
+    .extra .e { font-size: 26px; line-height: 1; margin-bottom: 10px; }
+    .extra h3 { font-size: 1.12rem; margin-bottom: 4px; }
+    .extra p { margin: 0; color: var(--muted); font-size: 0.96rem; }
+    @media (max-width: 900px) { .extras { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .extras { grid-template-columns: 1fr; } }
+
+    /* Friends grid */
+    .friends { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+    .friend {
+      background: var(--paper); border: 1.5px solid var(--line); border-radius: 20px; padding: 14px 10px 12px;
+      text-align: center; position: relative; transition: transform .2s;
+    }
+    .friend:hover { transform: translateY(-4px) rotate(-1deg); }
+    .friend img { width: 84px; height: 84px; object-fit: contain; margin: 0 auto 6px; }
+    .friend span { font-size: 0.9rem; }
+    .friend em {
+      position: absolute; top: 8px; right: 8px; font-style: normal; font-size: 0.66rem; font-weight: 800;
+      background: var(--sun); color: #5a4300; border-radius: 999px; padding: 2px 7px; letter-spacing: 0.04em;
+    }
+    @media (max-width: 760px) { .friends { grid-template-columns: repeat(3, 1fr); } }
+
+    /* Pricing */
+    .pricing { display: grid; grid-template-columns: 0.9fr 1.3fr; gap: 20px; align-items: stretch; }
+    .plan { background: var(--paper); border: 1.5px solid var(--line-strong); border-radius: 28px; padding: 30px; box-shadow: 4px 5px 0 var(--line-strong); }
+    .plan h3 { font-size: 1.5rem; }
+    .plan .sub { color: var(--muted); margin: 4px 0 18px; }
+    .plan .big { font-family: "Quicksand", sans-serif; font-size: 3rem; font-weight: 700; line-height: 1; }
+    .plan .ticks { margin-top: 20px; }
+    .plan.pro { background: linear-gradient(160deg, var(--teal-soft), var(--paper) 55%); position: relative; }
+    .plan.pro .peek { position: absolute; width: 96px; right: 22px; top: -54px; }
+    .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .tier { border: 1.5px solid var(--line); border-radius: 18px; padding: 16px 12px; text-align: center; background: var(--paper); position: relative; }
+    .tier.best { border: 2px solid var(--teal); }
+    .tier .badge { position: absolute; top: -11px; left: 50%; transform: translateX(-50%); background: var(--teal); color: #fff; font-size: 0.7rem; font-weight: 800; padding: 3px 10px; border-radius: 999px; white-space: nowrap; }
+    .tier .nm { color: var(--muted); font-size: 0.9rem; }
+    .tier .amt { font-family: "Quicksand", sans-serif; font-weight: 700; font-size: 1.7rem; margin: 2px 0; }
+    .tier .mt { font-size: 0.8rem; color: var(--muted); line-height: 1.35; }
+    .tier .save { display: inline-block; margin-top: 8px; font-size: 0.74rem; font-weight: 800; color: var(--tomato); }
+    .note { color: var(--muted); font-size: 0.88rem; text-align: center; margin: 18px 0 0; }
+    @media (max-width: 900px) { .pricing { grid-template-columns: 1fr; } }
+    @media (max-width: 520px) { .tiers { grid-template-columns: 1fr; } .plan { padding: 24px 20px; } }
+
+    /* FAQ */
+    .faq { max-width: 780px; margin: 0 auto; display: grid; gap: 12px; }
+    .faq details { background: var(--paper); border: 1.5px solid var(--line); border-radius: 18px; padding: 4px 20px; }
+    .faq details[open] { border-color: var(--line-strong); }
+    .faq summary { cursor: pointer; list-style: none; padding: 14px 0; font-weight: 800; display: flex; justify-content: space-between; gap: 12px; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; font-size: 1.4rem; line-height: 1; color: var(--teal); transition: transform .2s; }
+    .faq details[open] summary::after { transform: rotate(45deg); }
+    .faq p { margin: 0 0 16px; color: var(--muted); }
+
+    /* Feedback */
+    .feedback { max-width: 640px; margin: 0 auto; background: var(--paper); border: 1.5px solid var(--line-strong); border-radius: 24px; padding: 26px; box-shadow: 3px 4px 0 var(--line-strong); }
+    .field { margin-bottom: 14px; }
+    .field label { display: block; font-weight: 800; margin-bottom: 6px; font-size: 0.95rem; }
+    .field input, .field textarea {
+      width: 100%; font: inherit; color: var(--ink); background: var(--bg-2);
+      border: 1.5px solid var(--line); border-radius: 14px; padding: 12px 14px;
+    }
+    .field textarea { min-height: 120px; resize: vertical; }
+    .field input:focus, .field textarea:focus { outline: none; border-color: var(--teal); }
+    .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+    .actions button {
+      font: inherit; font-weight: 800; color: #fff; background: var(--teal); border: 0; border-radius: 14px;
+      padding: 12px 22px; cursor: pointer;
+    }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .actions button { color: #10221f; } }
+    .actions .alt { color: var(--muted); font-size: 0.92rem; }
+    .hint { color: var(--muted); margin: 0 0 16px; }
+
+    /* Final */
+    .final { padding: 110px 0 90px; text-align: center; position: relative; }
+    .final .squad { display: flex; justify-content: center; align-items: flex-end; gap: 6px; margin-bottom: 18px; }
+    .final .squad img { width: 86px; }
+    .final .squad img.big { width: 130px; }
+    .final h2 { font-size: clamp(2rem, 4.4vw, 3.2rem); line-height: 1.08; margin-bottom: 12px; }
+    .final p { color: var(--muted); font-size: 1.1rem; margin: 0 0 26px; }
+    .final .cta-row { justify-content: center; }
+
+    footer { border-top: 1.5px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 0.9rem; }
+    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; }
+    footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
+    footer a { text-decoration: none; }
+    footer a:hover { color: var(--ink); }
+
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .float, .bob, .marquee-track { animation: none !important; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top" id="top">
+    <div class="wrap">
+      <a class="brand" href="#"><img src="../images/v2/icon.webp" alt="" width="34" height="34" />Nomodoro</a>
+      <nav aria-label="Main">
+        <a href="#how">使い方</a>
+        <a href="#features">機能</a>
+        <a href="#friends">なかま</a>
+        <a href="#pricing">料金</a>
+        <a href="#faq">よくある質問</a>
+        <!-- i18n:switch --><details class="langs"><summary aria-label="Language">🌐 <span class="ln">日本語</span><span class="code">ja</span></summary><div class="menu"><a href="../" hreflang="en" lang="en">English</a><a href="./" hreflang="ja" lang="ja" aria-current="true">日本語</a><a href="../ko/" hreflang="ko" lang="ko">한국어</a><a href="../uk/" hreflang="uk" lang="uk">Українська</a><a href="../vi/" hreflang="vi" lang="vi">Tiếng Việt</a></div></details><!-- /i18n:switch -->
+        <a class="pill" href="https://apps.apple.com/app/id6799465659" rel="noopener">ダウンロード</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-copy">
+          <a class="eyebrow" href="#focus-hours"><b>New</b> 集中時間で気が散るアプリをロック →</a>
+          <h1><span class="hl">小さな相棒<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 13 C 40 4, 80 18, 120 9 S 180 6, 197 11" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" opacity=".35"/></svg></span>と、<wbr>いっしょに集中。</h1>
+          <p class="lead">
+            Nomodoro は iPhone 向けのおだやかなビジュアルポモドーロ。やることをひとつ選んで、やさしいカウントダウンをスタート。
+            手描きの相棒とスライムたちがそばにいてくれます。あなたの気分まで感じとってくれるんです。
+          </p>
+          <div class="cta-row">
+            <a class="store" href="https://apps.apple.com/app/id6799465659" rel="noopener" aria-label="App Store からダウンロード">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.77 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.22-2.01 1.08-3.18-1.06.05-2.33.71-3.08 1.58-.67.76-1.26 1.98-1.1 3.14 1.16.09 2.36-.6 3.1-1.54z"/></svg>
+              <span><small>ダウンロード</small><strong>App Store</strong></span>
+            </a>
+            <a class="ghost" href="#how">使い方</a>
+          </div>
+          <ul class="facts">
+            <li>集中はずっと無料・無制限</li>
+            <li>広告なし、アカウント不要</li>
+            <li>11か国語に対応</li>
+          </ul>
+        </div>
+
+        <div class="stage" aria-label="Nomodoro の画面">
+          <div class="phone p-left"><img src="../images/v2/s-home.webp" alt="ホーム：こいぬの相棒とスライムたち、気分チェック" width="600" height="1304" /></div>
+          <div class="phone p-main"><img src="../images/v2/s-focus.webp" alt="集中：こいぬと一緒の25分ビジュアルカウントダウン" width="600" height="1304" /></div>
+          <div class="phone p-right"><img src="../images/v2/s-progress.webp" alt="進捗：アクティビティマップ、今週の気分と利用状況" width="600" height="1304" loading="lazy" /></div>
+          <img class="sticker s-bun bob" src="../images/v2/m-bun_done.webp" alt="" width="360" height="360" />
+          <img class="sticker s-slime-a bob d1" src="../images/v2/m-slime_0.webp" alt="" width="300" height="300" />
+          <img class="sticker s-slime-b bob d2" src="../images/v2/m-slime_2.webp" alt="" width="300" height="300" />
+          <div class="chip c-hours float"><span class="ico">🔒</span><span><b>集中時間</b><small>9:00 – 11:30 · アプリ3つ</small></span></div>
+          <div class="chip c-mood float d1"><span class="ico">🙂</span><span><b>いい感じ</b><small>スライムがぴょんぴょん</small></span></div>
+          <div class="chip c-streak float d2"><span class="ico">🍅</span><span><b>今日 1時間40分</b><small>3セッション</small></span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track" id="marquee"></div>
+    </div>
+
+    <section class="wrap section" id="how">
+      <div class="head reveal">
+        <span class="kicker">使い方</span>
+        <h2>ひとつの画面で、やさしいサイクル</h2>
+        <p>めんどうな設定はなし。やることひとつ、カウントダウンひとつ、そしてそばにいてくれる友だち。</p>
+      </div>
+      <div class="steps">
+        <article class="step reveal">
+          <span class="n">01</span>
+          <img src="../images/v2/m-puppy.webp" alt="" width="76" height="76" loading="lazy" />
+          <h3>集中</h3>
+          <p>やることをひとつ選んで、大きなビジュアルカウントダウンをスタート。お好みで雨や波の音も。</p>
+        </article>
+        <article class="step reveal">
+          <span class="n">02</span>
+          <img src="../images/v2/m-cloud.webp" alt="" width="76" height="76" loading="lazy" />
+          <h3>短い休憩</h3>
+          <p>ラウンドの合間にひと息ついて、今の気分を Nomodoro に教えてね。相棒もひと休み。</p>
+        </article>
+        <article class="step reveal">
+          <span class="n">03</span>
+          <img src="../images/v2/m-bun_done.webp" alt="" width="76" height="76" loading="lazy" />
+          <h3>くり返す</h3>
+          <p>何ラウンドかしたら長い休憩を。ジェムを集めて、新しいなかまを解放しよう。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap section" id="features">
+      <div class="head reveal">
+        <span class="kicker">機能</span>
+        <h2>見た目はふんわり、集中はしっかり</h2>
+        <p>はじめるのに必要なものはぜんぶ。もっと使いたくなったら、静かな奥深さも。</p>
+      </div>
+
+      <div class="rows">
+        <article class="row reveal">
+          <div class="visual">
+            <div class="phone first"><img src="../images/v2/s-home.webp" alt="こいぬとスライムたちがいるホーム画面" width="600" height="1304" loading="lazy" /></div>
+            <div class="phone second"><img src="../images/v2/s-focus.webp" alt="こいぬと一緒の集中タイマー" width="600" height="1304" loading="lazy" /></div>
+            <img class="deco bob" src="../images/v2/m-slime_1.webp" alt="" style="width:70px;left:8%;bottom:20px" loading="lazy" />
+          </div>
+          <div class="text">
+            <span class="tag">ビジュアルポモドーロ</span>
+            <h3>目で感じるカウントダウン</h3>
+            <p>大きなリング、おだやかなタイマー、そしてあなたが作業している間うとうとする相棒。カウントダウンもカウントアップも、短い休憩と長い休憩つき。</p>
+            <ul class="ticks">
+              <li>ストリクト：10秒以上アプリを離れるとセッション終了</li>
+              <li>ホワイトリスト：許可したアプリ以外をすべてブロック</li>
+              <li>ゆる：自由にアプリを使えます。3つのモードはすべて無料</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="row flip reveal" id="focus-hours">
+          <div class="visual">
+            <div class="hours">
+              <div class="card">
+                <span class="lbl">集中時間</span>
+                <div class="win"><b>9:00 – 11:30</b><span class="switch" aria-hidden="true"></span></div>
+                <div class="days" aria-hidden="true"><span class="on">月</span><span class="on">火</span><span class="on">水</span><span class="on">木</span><span class="on">金</span><span>土</span><span>日</span></div>
+              </div>
+              <div class="card">
+                <span class="lbl">ロックするアプリ</span>
+                <div class="apps" aria-hidden="true">
+                  <span class="app" style="background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af)">IG</span>
+                  <span class="app" style="background:#111">TT</span>
+                  <span class="app" style="background:#ff0033">YT</span>
+                  <span class="app" style="background:#5865f2">DC</span>
+                </div>
+              </div>
+              <span class="break-pill">🔓 短い休憩 · 10:25 までアプリが開きます</span>
+            </div>
+            <img class="deco bob" src="../images/v2/m-cat.webp" alt="" style="width:92px;right:4%;bottom:-10px" loading="lazy" />
+          </div>
+          <div class="text">
+            <span class="tag new">✨ New · 集中時間</span>
+            <h3>気が散るアプリを、決めた時間にロック</h3>
+            <p>毎日の時間帯を決めて、つい開いてしまうアプリを選ぶだけ。Nomodoro を閉じていてもロックされたまま。集中セッションを終えると休憩の間だけ開いて、また自動でロックされます。</p>
+            <ul class="ticks">
+              <li>無料：毎日1枠、アプリ3つまで</li>
+              <li>Pro：選んだ曜日に最大5枠、アプリもカテゴリも無制限</li>
+              <li>Apple のスクリーンタイムを使用。選んだ内容が iPhone の外に出ることはありません</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="row reveal">
+          <div class="visual">
+            <div class="phone"><img src="../images/v2/s-hold.webp" alt="肉まんが泣いている間、「終了」を3秒長押し" width="600" height="1304" loading="lazy" /></div>
+          </div>
+          <div class="text">
+            <span class="tag new">✨ New · 長押しでギブアップ</span>
+            <h3>やめるには3秒の長押し</h3>
+            <p>ワンタップで逃げるのはもうおしまい。「終了」を長押しすると相棒が泣きはじめ…指をはなすと大喜び。小さなひと呼吸が、たくさんのセッションを救います。</p>
+          </div>
+        </article>
+
+        <article class="row flip reveal">
+          <div class="visual">
+            <div class="phone"><img src="../images/v2/s-slime.webp" alt="スライムエディター：点をドラッグして、かおと色を選ぶ" width="600" height="1304" loading="lazy" /></div>
+            <img class="deco bob" src="../images/v2/m-slime_3.webp" alt="" style="width:80px;left:12%;bottom:40px" loading="lazy" />
+          </div>
+          <div class="text">
+            <span class="tag">自分だけのスライム</span>
+            <h3>のばして、色をぬって、あなただけの子に。</h3>
+            <p>点をドラッグしてスライムの形を作り、色・かお・もようを選ぼう。スライムたちの仲間入りをして、集中している間タイマーのまわりでぴょんぴょん跳ねます。</p>
+          </div>
+        </article>
+
+        <article class="row reveal">
+          <div class="visual">
+            <div class="phone"><img src="../images/v2/s-mood.webp" alt="つかれた気分：スライムがとろけて水たまりに" width="600" height="1304" loading="lazy" /></div>
+          </div>
+          <div class="text">
+            <span class="tag">気分チェック</span>
+            <h3>スライムたちも、あなたの気分を感じます</h3>
+            <p>今の気分を Nomodoro に教えてね。つかれていたらスライムはとろけて水たまりに、ワクワクしていたらぴょんぴょん。しんどい日には、相棒が短めの集中を提案してくれます。</p>
+          </div>
+        </article>
+
+        <article class="row flip reveal">
+          <div class="visual">
+            <div class="phone first"><img src="../images/v2/s-progress.webp" alt="進捗画面" width="600" height="1304" loading="lazy" /></div>
+            <div class="phone second"><img src="../images/v2/s-share.webp" alt="今日のシェアカード" width="600" height="1304" loading="lazy" /></div>
+          </div>
+          <div class="text">
+            <span class="tag">やさしい進捗</span>
+            <h3>毎日をふり返って、いい日はシェア</h3>
+            <p>アクティビティマップや週のグラフで日付をタップすると、その日の集中時間、セッション数、最長の集中がわかります。各バーの下には気分も。ワンタップでその日をかわいいカードに。</p>
+            <ul class="ticks">
+              <li>すべての履歴とグラフが無料</li>
+              <li>タスクごとの週間利用状況</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap section">
+      <div class="head reveal">
+        <span class="kicker">ほかにも</span>
+        <h2>ちょっと助かる、小さな工夫</h2>
+      </div>
+      <div class="extras">
+        <article class="extra reveal"><div class="e">📱</div><h3>使えるウィジェット</h3><p>いつものタスクをワンタップでスタート。セッション中はホーム画面から一時停止・終了も。</p></article>
+        <article class="extra reveal"><div class="e">🏝️</div><h3>ライブアクティビティ</h3><p>タイマーがロック画面とダイナミックアイランドに表示されます。</p></article>
+        <article class="extra reveal"><div class="e">🌧️</div><h3>やさしい自然の音</h3><p>はじめは波・雨・風の音。Pro なら鳥、木の葉、小川、たき火、雷、虫の声、滝が加わります。</p></article>
+        <article class="extra reveal"><div class="e">🌙</div><h3>ダークモード</h3><p>夜おそくの勉強にもやさしい、ふんわりした夜の見た目。</p></article>
+        <article class="extra reveal"><div class="e">💾</div><h3>データはあなたのもの</h3><p>いつでもバックアップを書き出し・読み込みできます。すべての人に。</p></article>
+        <article class="extra reveal"><div class="e">🫶</div><h3>ADHD にもやさしい設計</h3><p>やることひとつ、静かな画面、やさしいラウンド。治療ではありません。はじめの一歩を、もっとおだやかにするためのものです。</p></article>
+      </div>
+    </section>
+
+    <section class="wrap section" id="friends">
+      <div class="head reveal">
+        <span class="kicker">なかま</span>
+        <h2>解放できる手描きのなかま15体</h2>
+        <p>集中した時間だけジェムがたまります。ジェムが集まったら新しい相棒をお迎え。限定の5体は Pro で。</p>
+      </div>
+      <div class="friends reveal" id="friends-grid"></div>
+    </section>
+
+    <section class="wrap section" id="pricing">
+      <div class="head reveal">
+        <span class="kicker">料金</span>
+        <h2>やさしい料金プラン</h2>
+        <p>集中はずっと無料・無制限。Pro はお好みで、合うプランを選んでください。</p>
+      </div>
+      <div class="pricing">
+        <article class="plan reveal">
+          <h3>無料</h3>
+          <p class="sub">今日からはじめるのに必要なものすべて</p>
+          <div class="big">$0</div>
+          <ul class="ticks">
+            <li>集中セッションは無制限</li>
+            <li>ストリクト・ゆる・ホワイトリストモード</li>
+            <li>集中時間：1日1枠、アプリ3つ</li>
+            <li>自然の音3つ</li>
+            <li>自作スライム1体＋気分チェック</li>
+            <li>すべての履歴、グラフ、シェアカード</li>
+            <li>バックアップの書き出し &amp; 読み込み</li>
+            <li>なかま：ジェムでお迎え</li>
+            <li>ウィジェット &amp; ライブアクティビティ</li>
+          </ul>
+        </article>
+        <article class="plan pro reveal">
+          <img class="peek bob" src="../images/v2/m-capybara.webp" alt="" width="96" height="96" loading="lazy" />
+          <h3>Nomodoro Pro</h3>
+          <p class="sub">自分だけのスケジュールと、ちょっとしたごほうび</p>
+          <div class="tiers">
+            <div class="tier">
+              <div class="nm">月額</div>
+              <div class="amt">$1.99</div>
+              <div class="mt">1か月あたり<br>いつでも気軽に</div>
+            </div>
+            <div class="tier best">
+              <span class="badge">いちばんお得</span>
+              <div class="nm">年額</div>
+              <div class="amt">$9.99</div>
+              <div class="mt">1年あたり · 約$0.83/月<br>7日間の無料体験</div>
+              <span class="save">約58%お得</span>
+            </div>
+            <div class="tier">
+              <div class="nm">買い切り</div>
+              <div class="amt">$19.99</div>
+              <div class="mt">1回のみ<br>一度払えばずっと</div>
+            </div>
+          </div>
+          <ul class="ticks">
+            <li>集中時間をもっと：好きな曜日に最大5枠、アプリ無制限、カテゴリごとロック</li>
+            <li>最大3体のスライムチーム、すべての色とかお、限定もよう</li>
+            <li>自然の音がさらに7つ</li>
+            <li>短い休憩・長い休憩 &amp; ラウンドを自由に設定</li>
+            <li>限定のなかま：タピオカ、ドーナツ、こいぬ、カピバラ、りんご</li>
+          </ul>
+        </article>
+      </div>
+      <p class="note">価格は App Store のカタログに基づく米ドル表記です。現地通貨や税金は地域により異なる場合があります。</p>
+    </section>
+
+    <section class="wrap section" id="faq">
+      <div class="head reveal">
+        <span class="kicker">よくある質問</span>
+        <h2>よくある質問</h2>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>集中は本当にずっと無料？</summary>
+          <p>はい。集中セッションは無制限、すべての集中モード（ストリクト・ゆる・ホワイトリスト）、集中時間1枠、すべての履歴とグラフ、バックアップ、気分チェック、自作スライム1体はずっと無料です。Pro では集中時間の追加、最大3体のスライムチーム、自然の音の追加、休憩 &amp; ラウンドの自由設定、限定のなかまが使えます。ほかの相棒は集中して集めたジェムでお迎えします。</p>
+        </details>
+        <details>
+          <summary>集中時間とは？</summary>
+          <p>毎日の時間帯を決めて、気が散るアプリを選びます。その時間帯の間は、Nomodoro を閉じていてもアプリはロックされたまま。集中セッションを終えると休憩の間だけ開き、また自動でロックされます。無料：毎日1枠、アプリ3つまで。Pro：選んだ曜日に最大5枠、アプリもカテゴリも無制限。Apple のスクリーンタイム API を使っていて、選んだ内容が iPhone の外に出ることはありません。</p>
+        </details>
+        <details>
+          <summary>勉強中や仕事中にアプリをブロックできる？</summary>
+          <p>はい、2つの方法があり、どちらも Apple のスクリーンタイムを使います。ホワイトリストモードは、集中セッション中に許可したアプリ以外をすべてブロック。集中時間は、選んだアプリを毎日決めた時間にロックし、セッションを終えたあとの休憩中だけ開きます。どちらも無料版で使えます。</p>
+        </details>
+        <details>
+          <summary>Forest とのちがいは？</summary>
+          <p>どちらも、スマホから離れるかわいい理由をくれるアプリです。Forest では集中している間に木が育ちます。Nomodoro では小さな相棒とスライムたちがそばにいて、終わると喜び、あきらめるとしょんぼり（やめるには3秒の長押し）、あなたの気分にも反応します。さらに Apple のスクリーンタイムで、セッション中や決めた時間に気が散るアプリをロックできます。集中は無制限、すべての集中モードが無料です。</p>
+        </details>
+        <details>
+          <summary>ホワイトリストモードはどうやってアプリをブロックするの？</summary>
+          <p>Apple のスクリーンタイム API を使います。許可するアプリを最大10個選ぶと、それ以外のアプリは集中セッション中だけブロックされ、終わると解除されます。選んだアプリの情報が iPhone の外に出ることはありません。</p>
+        </details>
+        <details>
+          <summary>セッションを途中でやめられる？</summary>
+          <p>はい。「終了」を3秒長押ししてください。長押ししている間は相棒が泣きはじめ、指をはなすと大喜びします。カウントアップのセッションは保存するか聞くだけです。</p>
+        </details>
+        <details>
+          <summary>なかまとジェムって？</summary>
+          <p>集中セッションを終えるとジェムがたまり、手描きの相棒をお迎えできます。Pro なら限定の5体（タピオカ、ドーナツ、こいぬ、カピバラ、りんご）がジェムなしで解放。それ以外の子は、みんな同じくジェムを集めてお迎えします。</p>
+        </details>
+        <details>
+          <summary>どの Pro プランを選べばいい？</summary>
+          <p>気軽に試したいなら月額を。年額はいちばんお得（毎月払うより約58%安い）で、7日間の無料体験つき。終了の2日前にお知らせします。ずっと使うと決めているなら、一度払うだけの買い切りがおすすめです。</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="wrap section" id="feedback">
+      <div class="head reveal">
+        <span class="kicker">ご意見</span>
+        <h2>ご意見を聞かせてください</h2>
+        <p>アイデア、バグ、「ここがわかりにくかった」など、なんでも助かります。メールアプリが開きます。</p>
+      </div>
+      <form class="feedback reveal" id="feedback-form">
+        <p class="hint">個人開発です。すべてのメッセージに目を通しています。</p>
+        <div class="field">
+          <label for="fb-name">お名前 <span style="font-weight:600;color:var(--muted)">（任意）</span></label>
+          <input id="fb-name" name="name" type="text" autocomplete="name" placeholder="お名前" />
+        </div>
+        <div class="field">
+          <label for="fb-message">メッセージ</label>
+          <textarea id="fb-message" name="message" required placeholder="よかったところは？足りないものは？"></textarea>
+        </div>
+        <div class="actions">
+          <button type="submit">メールでご意見を送る</button>
+          <span class="alt">または <a href="https://github.com/tnson1307/freshair/issues" rel="noopener">GitHub Issues</a></span>
+        </div>
+      </form>
+    </section>
+
+    <section class="wrap final">
+      <div class="squad" aria-hidden="true">
+        <img class="bob" src="../images/v2/m-slime_0.webp" alt="" loading="lazy" />
+        <img class="bob d1" src="../images/v2/m-puppy_done.webp" alt="" loading="lazy" />
+        <img class="big bob d2" src="../images/v2/m-bun_done.webp" alt="" loading="lazy" />
+        <img class="bob" src="../images/v2/m-strawberry.webp" alt="" loading="lazy" />
+        <img class="bob d1" src="../images/v2/m-slime_2.webp" alt="" loading="lazy" />
+      </div>
+      <h2>やることひとつに、集中してみませんか？</h2>
+      <p>iPhone で Nomodoro をダウンロード。気負わずに、はじめよう。</p>
+      <div class="cta-row">
+        <a class="store" href="https://apps.apple.com/app/id6799465659" rel="noopener" aria-label="App Store からダウンロード">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.77 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.22-2.01 1.08-3.18-1.06.05-2.33.71-3.08 1.58-.67.76-1.26 1.98-1.1 3.14 1.16.09 2.36-.6 3.1-1.54z"/></svg>
+          <span><small>ダウンロード</small><strong>App Store</strong></span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p style="margin:0">© Nomodoro: Cute Focus Timer</p>
+      <nav aria-label="Legal">
+        <a href="../privacy.html">プライバシーポリシー</a>
+        <a href="../terms.html">利用規約</a>
+        <a href="#feedback">ご意見</a>
+        <a href="https://apps.apple.com/app/id6799465659" rel="noopener">App Store</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // Same address as App Store Connect support email — change if needed.
+      var FEEDBACK_EMAIL = "tnson1307@gmail.com";
+
+      var top = document.getElementById("top");
+      window.addEventListener("scroll", function () {
+        top.classList.toggle("scrolled", window.scrollY > 6);
+      }, { passive: true });
+
+      var form = document.getElementById("feedback-form");
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var name = (document.getElementById("fb-name").value || "").trim();
+          var message = (document.getElementById("fb-message").value || "").trim();
+          if (!message) return;
+          var body = "";
+          if (name) body += "From: " + name + "\n\n";
+          body += message;
+          body += "\n\n— Nomodoro のウェブサイトから送信";
+          window.location.href =
+            "mailto:" + encodeURIComponent(FEEDBACK_EMAIL) +
+            "?subject=" + encodeURIComponent("Nomodoro ご意見") +
+            "&body=" + encodeURIComponent(body);
+        });
+      }
+
+      // Companions: [image, name, Pro exclusive]
+      var FRIENDS = [
+        ["cloud", "くも"], ["bun", "肉まん"], ["boba", "タピオカ", 1], ["sushi", "おすし"],
+        ["pizza", "ピザ"], ["donut", "ドーナツ", 1], ["chicken", "ひよこ"], ["puppy", "こいぬ", 1],
+        ["cat", "ねこ"], ["capybara", "カピバラ", 1], ["orange", "オレンジ"], ["kiwi", "キウイ"],
+        ["apple", "りんご", 1], ["strawberry", "いちご"], ["durian", "ドリアン"]
+      ];
+      var grid = document.getElementById("friends-grid");
+      var track = document.getElementById("marquee");
+      var html = "", strip = "";
+      FRIENDS.forEach(function (f) {
+        var src = "../images/v2/m-" + f[0] + ".webp";
+        html += '<div class="friend">' + (f[2] ? "<em>PRO</em>" : "") +
+          '<img src="' + src + '" alt="" width="84" height="84" loading="lazy" /><span>' + f[1] + "</span></div>";
+        strip += '<img src="' + src + '" alt="" width="70" height="70" loading="lazy" />';
+      });
+      var slimes = [0, 1, 2, 3].map(function (i) {
+        return '<img src="../images/v2/m-slime_' + i + '.webp" alt="" width="70" height="70" loading="lazy" />';
+      }).join("");
+      grid.innerHTML = html;
+      track.innerHTML = strip + slimes + strip + slimes;
+
+      var items = document.querySelectorAll(".reveal");
+      if (!("IntersectionObserver" in window)) {
+        items.forEach(function (el) { el.classList.add("in"); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+        });
+      }, { rootMargin: "0px 0px -8% 0px" });
+      items.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+</body>
+</html>
